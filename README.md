@@ -1,4 +1,4 @@
-# GiddyUpCore
+# Giddy-up! Core
 
 ## Install
 
