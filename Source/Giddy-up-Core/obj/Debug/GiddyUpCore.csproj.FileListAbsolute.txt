@@ -1,0 +1,7 @@
+C:\Program Files (x86)\Steam\SteamApps\common\RimWorld\Mods\Giddy-up-Core\Source\BattleMounts\obj\Debug\GiddyUpCore.csprojResolveAssemblyReference.cache
+C:\Program Files (x86)\Steam\SteamApps\common\RimWorld\Mods\Giddy-up-Core\Source\BattleMounts\obj\Debug\GiddyUpCore.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\SteamApps\common\RimWorld\Mods\Giddy-up-Core\Source\BattleMounts\obj\Debug\Battlemounts.dll
+C:\Program Files (x86)\Steam\SteamApps\common\RimWorld\Mods\Giddy-up-Core\Assemblies\GiddyUpCore.dll
+C:\Program Files (x86)\Steam\SteamApps\common\RimWorld\Mods\Giddy-up-Core\Source\Giddy-up-Core\obj\Debug\GiddyUpCore.csprojResolveAssemblyReference.cache
+C:\Program Files (x86)\Steam\SteamApps\common\RimWorld\Mods\Giddy-up-Core\Source\Giddy-up-Core\obj\Debug\GiddyUpCore.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\SteamApps\common\RimWorld\Mods\Giddy-up-Core\Source\Giddy-up-Core\obj\Debug\GiddyUpCore.dll

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class ="PatchOperationAdd">
+		  <xpath>*/ThingDef[defName = "LabradorRetriever"]</xpath>
+		  <value>
+			  <comps>
+				<li Class="GiddyUpCore.CompProperties_Mount">
+					<isException>true</isException>
+				</li>
+			  </comps>
+		  </value>
+	</Operation>	
+	<Operation Class ="PatchOperationAdd">
+		  <xpath>*/ThingDef[defName = "Ibex"]</xpath>
+		  <value>
+			  <comps>
+				<li Class="GiddyUpCore.CompProperties_Mount">
+					<isException>true</isException>
+				</li>
+			  </comps>
+		  </value>
+	</Operation>
+	<Operation Class ="PatchOperationAdd">
+		  <xpath>*/ThingDef[defName = "Caribou"]/comps</xpath>
+		  <value>
+				<li Class="GiddyUpCore.CompProperties_Mount">
+					<isException>true</isException>
+				</li>
+		  </value>
+	</Operation>
+	<Operation Class ="PatchOperationAdd">
+		  <xpath>*/ThingDef[defName = "Alpaca"]/comps</xpath>
+		  <value>
+				<li Class="GiddyUpCore.CompProperties_Mount">
+					<drawFront>true</drawFront>
+				</li>
+		  </value>
+	</Operation>
+	<Operation Class ="PatchOperationAdd">
+		  <xpath>*/ThingDef[defName = "Elk"]/comps</xpath>
+		  <value>
+				<li Class="GiddyUpCore.CompProperties_Mount">
+					<drawFront>true</drawFront>
+				</li>
+		  </value>
+	</Operation>
+	<Operation Class ="PatchOperationAdd">
+		  <xpath>*/ThingDef[defName = "Ostrich"]/comps</xpath>
+		  <value>
+				<li Class="GiddyUpCore.CompProperties_Mount">
+					<drawFront>true</drawFront>
+				</li>
+		  </value>
+	</Operation>
+	<Operation Class ="PatchOperationAdd">
+		  <xpath>*/ThingDef[defName = "Thrumbo"]</xpath>
+		  <value>
+			  <comps>
+				<li Class="GiddyUpCore.CompProperties_Mount">
+					<drawFront>true</drawFront>
+				</li>
+			  </comps>
+		  </value>
+	</Operation>
+</Patch>
