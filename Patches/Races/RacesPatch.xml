@@ -1,65 +1,61 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<!-- These patches set the exceptions of the mod settings. The same patching method can be used for other mods that add animals and want default options for them. 
+Two patch operations per animal are needed for vanilla animals to ensure compatibility with mods that add comps. Note that this is probably not needed for patches of other mods that add animals-->
 <Patch>
-	<Operation Class ="PatchOperationAdd">
-		  <xpath>*/ThingDef[defName = "LabradorRetriever"]</xpath>
-		  <value>
-			  <comps>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAdd">
+			<xpath>*/ThingDef[defName = "LabradorRetriever" or defName = "Ibex" or defName = "Caribou"]/comps</xpath>
+			<value>
 				<li Class="GiddyUpCore.CompProperties_Mount">
 					<isException>true</isException>
 				</li>
-			  </comps>
-		  </value>
-	</Operation>	
-	<Operation Class ="PatchOperationAdd">
-		  <xpath>*/ThingDef[defName = "Ibex"]</xpath>
-		  <value>
-			  <comps>
-				<li Class="GiddyUpCore.CompProperties_Mount">
-					<isException>true</isException>
-				</li>
-			  </comps>
-		  </value>
+			</value>
+		</li>
+		</operations>
 	</Operation>
-	<Operation Class ="PatchOperationAdd">
-		  <xpath>*/ThingDef[defName = "Caribou"]/comps</xpath>
-		  <value>
-				<li Class="GiddyUpCore.CompProperties_Mount">
-					<isException>true</isException>
-				</li>
-		  </value>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAdd">
+			<xpath>*/ThingDef[(defName = "LabradorRetriever" or defName = "Ibex" or defName = "Caribou") and not(comps)]</xpath>
+			<value>
+				<comps>
+					<li Class="GiddyUpCore.CompProperties_Mount">
+						<isException>true</isException>
+					</li>
+				</comps>
+			</value>
+		</li>
+		</operations>
 	</Operation>
-	<Operation Class ="PatchOperationAdd">
-		  <xpath>*/ThingDef[defName = "Alpaca"]/comps</xpath>
-		  <value>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAdd">
+			<xpath>*/ThingDef[defName = "Alpaca" or defName = "Elk" or defName = "Ostrich" or defName = "Thrumbo"]/comps</xpath>
+			<value>
 				<li Class="GiddyUpCore.CompProperties_Mount">
 					<drawFront>true</drawFront>
 				</li>
-		  </value>
+			</value>
+		</li>
+		</operations>
 	</Operation>
-	<Operation Class ="PatchOperationAdd">
-		  <xpath>*/ThingDef[defName = "Elk"]/comps</xpath>
-		  <value>
-				<li Class="GiddyUpCore.CompProperties_Mount">
-					<drawFront>true</drawFront>
-				</li>
-		  </value>
-	</Operation>
-	<Operation Class ="PatchOperationAdd">
-		  <xpath>*/ThingDef[defName = "Ostrich"]/comps</xpath>
-		  <value>
-				<li Class="GiddyUpCore.CompProperties_Mount">
-					<drawFront>true</drawFront>
-				</li>
-		  </value>
-	</Operation>
-	<Operation Class ="PatchOperationAdd">
-		  <xpath>*/ThingDef[defName = "Thrumbo"]</xpath>
-		  <value>
-			  <comps>
-				<li Class="GiddyUpCore.CompProperties_Mount">
-					<drawFront>true</drawFront>
-				</li>
-			  </comps>
-		  </value>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAdd">
+			<xpath>*/ThingDef[(defName = "Alpaca" or defName = "Elk" or defName = "Ostrich" or defName = "Thrumbo") and not(comps)]</xpath>
+			<value>
+				<comps>
+					<li Class="GiddyUpCore.CompProperties_Mount">
+						<drawFront>true</drawFront>
+					</li>
+				</comps>
+			</value>
+		</li>
+		</operations>
 	</Operation>
 </Patch>

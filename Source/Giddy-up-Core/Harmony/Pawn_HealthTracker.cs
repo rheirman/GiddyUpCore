@@ -17,7 +17,10 @@ namespace GiddyUpCore.Harmony
 
             Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
             ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
-            pawnData.reset();
+            if(pawnData != null)
+            {
+                pawnData.reset();
+            }
         }
     }
 
@@ -30,7 +33,10 @@ namespace GiddyUpCore.Harmony
 
             Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
             ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
-            pawnData.reset();
+            if (pawnData != null)
+            {
+                pawnData.reset();
+            }
         }
     }
 }
