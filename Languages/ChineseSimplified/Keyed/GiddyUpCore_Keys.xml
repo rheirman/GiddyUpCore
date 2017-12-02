@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <GUC_AccuracyPenalty_Description>射击精度惩罚</GUC_AccuracyPenalty_Description>
+  <GUC_tab1>可乘骑的动物</GUC_tab1>
+  <GUC_tab2>贴图选项</GUC_tab2>
+  <GUC_Tabs_Title>配置选项</GUC_Tabs_Title>
+  <GUC_BodySizeFilter_Title>体型过滤器</GUC_BodySizeFilter_Title>
+  <GUC_BodySizeFilter_Description>根据体型来选择可骑乘的动物</GUC_BodySizeFilter_Description>
+  <GUC_Animalselection_Title>选择可骑乘的动物</GUC_Animalselection_Title>
+  <GUC_Animalselection_Description>使用上面的体型过滤器根据体型大小来过滤，或者通过点击来更改</GUC_Animalselection_Description>
+  <GUC_Drawselection_Title>设置优先显示</GUC_Drawselection_Title>
+  <GUC_Drawselection_Description>哪些动物的贴图在人之前，哪些在人之后，大多数动物在人之后视觉效果更好，但有些动物(特别是那些长脖子或者长角的)在人前效果更好</GUC_Drawselection_Description>
+  <GUC_SizeOk>可骑乘</GUC_SizeOk>
+  <GUC_SizeNotOk>不可骑乘</GUC_SizeNotOk>
+  <GUC_DrawFront>动物在人之前</GUC_DrawFront>
+  <GUC_DrawBack>动物在人之后</GUC_DrawBack>
+
+</LanguageData>
