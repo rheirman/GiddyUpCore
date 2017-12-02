@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <GUC_AccuracyPenalty_Description>命中精度ペナルティ</GUC_AccuracyPenalty_Description>
+  <GUC_tab1>騎乗可能な動物..</GUC_tab1>
+  <GUC_tab2>表示オプション..</GUC_tab2>
+  <GUC_Tabs_Title>設定オプション</GUC_Tabs_Title>
+  <GUC_BodySizeFilter_Title>身体の大きさでフィルタ</GUC_BodySizeFilter_Title>
+  <GUC_BodySizeFilter_Description>身体の大きさで騎乗可能な動物をフィルタリングします。</GUC_BodySizeFilter_Description>
+  <GUC_Animalselection_Title>騎乗可能な動物を選択</GUC_Animalselection_Title>
+  <GUC_Animalselection_Description>上記のフィルタを使用して身体の大きさでフィルタリングを行い、タイルをクリックして例外を作成します</GUC_Animalselection_Description>
+  <GUC_Drawselection_Title>描画優先度を設定</GUC_Drawselection_Title>
+  <GUC_Drawselection_Description>ポーンの前面に描画する動物と、ポーンの背後に描画する動物を設定します。\n  ほとんどの動物はポーンの背後に表示(描画)されるべきですが、何種類かの動物（特に長い首や角が付いた動物）は、ポーンの前面に表示(描画)された方が見やすくなります。</GUC_Drawselection_Description>
+  <GUC_SizeOk>騎乗可能</GUC_SizeOk>
+  <GUC_SizeNotOk>騎乗不可</GUC_SizeNotOk>
+  <GUC_DrawFront>動物を前面に表示</GUC_DrawFront>
+  <GUC_DrawBack>動物を背後に表示</GUC_DrawBack>
+
+
+</LanguageData>
