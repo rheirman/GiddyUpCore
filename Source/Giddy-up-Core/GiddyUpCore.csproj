@@ -58,7 +58,6 @@
     <Compile Include="Base.cs" />
     <Compile Include="CompBattlemounts.cs" />
     <Compile Include="CompProperties_BattleMounts.cs" />
-    <Compile Include="Harmony\Pawn_HealthTracker.cs" />
     <Compile Include="Harmony\Pawn_DrawAt.cs" />
     <Compile Include="Harmony\Pawn_TicksPerMove.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
