@@ -20,8 +20,6 @@ namespace GiddyUpCore
         public static SettingHandle<DictAnimalRecordHandler> animalSelecter;
         public static SettingHandle<DictAnimalRecordHandler> drawSelecter;
         internal static SettingHandle<String> tabsHandler;
-        internal static SettingHandle<int> accuracyPenalty;
-
         internal static SettingHandle<float> bodySizeFilter;
         private static Color highlight1 = new Color(0.5f, 0, 0, 0.1f);
         String[] tabNames = { "GUC_tab1".Translate(), "GUC_tab2".Translate()};
@@ -43,8 +41,8 @@ namespace GiddyUpCore
 
             tabsHandler = Settings.GetHandle<String>("tabs", "GUC_Tabs_Title".Translate(), "", "none");
             bodySizeFilter = Settings.GetHandle<float>("bodySizeFilter", "GUC_BodySizeFilter_Title".Translate(), "GUC_BodySizeFilter_Description".Translate(), 0.8f);
-            animalSelecter = Settings.GetHandle<DictAnimalRecordHandler>("Animalselecter", "GUC_Animalselection_Title".Translate(), "GUC_Animalselection_Description".Translate(), null);
-            drawSelecter = Settings.GetHandle<DictAnimalRecordHandler>("drawSelecter", "GUC_Drawselection_Title".Translate(), "GUC_Drawselection_Description".Translate(), null);
+            animalSelecter = Settings.GetHandle<DictAnimalRecordHandler>("Animalselecter", "GUC_Animalselection_Title".Translate(), "GUC_Animalselection_Description".Translate(), getDefaultForAnimalSelecter(allAnimals));
+            drawSelecter = Settings.GetHandle<DictAnimalRecordHandler>("drawSelecter", "GUC_Drawselection_Title".Translate(), "GUC_Drawselection_Description".Translate(), getDefaultForDrawSelecter(allAnimals));
 
             
             tabsHandler.CustomDrawer = rect => { return DrawUtility.CustomDrawer_Tabs(rect, tabsHandler, tabNames); };
@@ -80,12 +78,12 @@ namespace GiddyUpCore
                 float mass = animal.race.baseBodySize;
                 if (prop != null && prop.isException)
                 {
-                    result.Add(animal.defName, new AnimalRecord(false, true));   
+                    result.Add(animal.defName, new AnimalRecord(false, true, animal.label));   
                 }
                 else
                 {
                     bool shouldSelect = mass >= bodySizeFilter.Value;
-                    result.Add(animal.defName, new AnimalRecord(shouldSelect, false));
+                    result.Add(animal.defName, new AnimalRecord(shouldSelect, false, animal.label));
                 }
             }
             //result.Add("", new AnimalRecord(shouldSelect, false));
@@ -103,11 +101,11 @@ namespace GiddyUpCore
                 float mass = animal.race.baseBodySize;
                 if (prop != null && prop.drawFront)
                 {
-                    result.Add(animal.defName, new AnimalRecord(true, true));
+                    result.Add(animal.defName, new AnimalRecord(true, true, animal.label));
                 }
                 else
                 {
-                    result.Add(animal.defName, new AnimalRecord(false, false));
+                    result.Add(animal.defName, new AnimalRecord(false, false, animal.label));
                 }
             }
             //result.Add("", new AnimalRecord(shouldSelect, false));

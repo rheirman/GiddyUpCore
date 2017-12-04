@@ -19,7 +19,15 @@ namespace GiddyUpCore
             {
                 foreach (string str in settingValue.Split('|'))
                 {
-                    inner.Add(str.Split(',')[0], new AnimalRecord(Convert.ToBoolean(str.Split(',')[1]), Convert.ToBoolean(str.Split(',')[2])));
+                    string[] split = str.Split(',');
+                    if(split.Count() < 4) //ensures that it works for users that still have old AnimalRecords saved. 
+                    {
+                        inner.Add(str.Split(',')[0], new AnimalRecord(Convert.ToBoolean(str.Split(',')[1]), Convert.ToBoolean(str.Split(',')[2]), ""));
+                    }
+                    else
+                    {
+                        inner.Add(str.Split(',')[0], new AnimalRecord(Convert.ToBoolean(str.Split(',')[1]), Convert.ToBoolean(str.Split(',')[2]), str.Split(',')[3]));
+                    }
                 }
             }
         }

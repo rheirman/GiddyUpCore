@@ -80,7 +80,7 @@ namespace RunAndGun.Utilities
             GUI.DrawTexture(iconRect, TexUI.FastFillTex);
             GUI.color = save;
             Text.Anchor = TextAnchor.MiddleCenter;
-            Widgets.Label(iconRect, Animal.Key);
+            Widgets.Label(iconRect, (!Animal.Value.label.NullOrEmpty() ? Animal.Value.label : Animal.Key));
             Text.Anchor = TextAnchor.UpperLeft;
 
             if (Widgets.ButtonInvisible(iconRect, true))
@@ -206,7 +206,7 @@ namespace RunAndGun.Utilities
                 }
                 else
                 {
-                    selection.Add(allAnimals[i].defName, new AnimalRecord(shouldSelect, false));
+                    selection.Add(allAnimals[i].defName, new AnimalRecord(shouldSelect, false, allAnimals[i].label));
                 }
             }
 
