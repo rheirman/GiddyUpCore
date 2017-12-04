@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+ <GUC_AccuracyPenalty_Description>정확도 패널티</GUC_AccuracyPenalty_Description>
+ <GUC_tab1>탑승 가능한 동물..</GUC_tab1>
+ <GUC_tab2>그리기 설정..</GUC_tab2>
+ <GUC_Tabs_Title>환경 설정</GUC_Tabs_Title>
+ <GUC_BodySizeFilter_Title>몸체 크기 필터</GUC_BodySizeFilter_Title>
+ <GUC_BodySizeFilter_Description>동물의 몸체 크기 기준으로 정렬 합니다.</GUC_BodySizeFilter_Description>
+ <GUC_Animalselection_Title>탑승 동물 선택</GUC_Animalselection_Title>
+ <GUC_Animalselection_Description>필터를 사용해 몸체 크기별로 필터링 된 리스트에서, 타일을 클릭하여 편집 합니다.</GUC_Animalselection_Description>
+ <GUC_Drawselection_Title>그리기 우선 순위 설정</GUC_Drawselection_Title>
+ <GUC_Drawselection_Description>림의 앞에 그려야 할 동물과 림의 뒤에 그려야하는 동물을 설정하십시오.
+  대부분의 동물은 림 뒤에 그려야하지만 일부 (특히 긴 목이나 뿔이있는 동물)는 림 앞에 그릴 때 더 잘 보입니다.</GUC_Drawselection_Description>
+ <GUC_SizeOk>탑승 가능</GUC_SizeOk>
+ <GUC_SizeNotOk>탑승 불가</GUC_SizeNotOk>
+ <GUC_DrawFront>동물이 앞쪽에</GUC_DrawFront>
+ <GUC_DrawBack>동물이 뒤쪽에</GUC_DrawBack>
+</LanguageData>
