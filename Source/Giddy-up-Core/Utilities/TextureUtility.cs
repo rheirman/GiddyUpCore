@@ -19,12 +19,16 @@ namespace GiddyUpCore.Utilities
             Texture2D t = TextureUtility.getReadableTexture(unreadableTexture);
             int backHeight = TextureUtility.getBackHeight(t);
             float backHeightRelative = (float)backHeight / (float)t.height;
+            Log.Message("back height relative" + backHeightRelative);
 
             float textureHeight = curKindLifeStage.bodyGraphicData.drawSize.y;
             //If animal texture does not fit in a tile, take this into account
             float extraOffset = textureHeight > 1f ? (textureHeight - 1f) / 2f : 0;
+            Log.Message("textureHeight" + textureHeight);
             //Small extra offset, you don't want to draw pawn exactly on back
             extraOffset += (float)textureHeight / 20f;
+            Log.Message("extra offset" + extraOffset);
+            Log.Message("test " + (float)textureHeight / 20f);
             pawnData.drawOffset = (textureHeight * backHeightRelative - extraOffset);
         }
 
@@ -78,18 +82,19 @@ namespace GiddyUpCore.Utilities
             int middle = t.width / 2;
             int backHeight = 0;
             bool inBody = false;
+            float threshold = 0.8f;
 
 
             for (int i = 0; i < t.height; i++)
             {
                 Color c = t.GetPixel(middle, i);
-
-                if (inBody && c.a < 1)
+                Log.Message("c:" + c.a);
+                if (inBody && c.a < threshold)
                 {
                     backHeight = i;
                     break;
                 }
-                if (c.a == 1)
+                if (c.a >= threshold)
                 {
                     inBody = true;
                 }
