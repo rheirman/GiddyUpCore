@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+ <GUC_AccuracyPenalty_Description>Pénalité de précision</GUC_AccuracyPenalty_Description>
+ <GUC_tab1>Animaux montables..</GUC_tab1>
+ <GUC_tab2>Options d'affichage..</GUC_tab2>
+ <GUC_Tabs_Title>Options de configuration</GUC_Tabs_Title>
+ <GUC_BodySizeFilter_Title>Filtrer par taille du corps</GUC_BodySizeFilter_Title>
+ <GUC_BodySizeFilter_Description>Filtrer les animaux montables par taille</GUC_BodySizeFilter_Description>
+ <GUC_Animalselection_Title>Sélectionner les animaux montables</GUC_Animalselection_Title>
+ <GUC_Animalselection_Description>Utilisez le filtre ci-dessus pour filtrer par taille de corps, et cliquez sur les cases pour faire des exceptions.</GUC_Animalselection_Description>
+ <GUC_Drawselection_Title>Définir la priorité d'affichage</GUC_Drawselection_Title>
+ <GUC_Drawselection_Description>Configurez les animaux qui doivent être affichés devant les colons, et ceux qui doivent être affichés derrière les colons. 
+ La plupart des animaux devraient être dessinés derrière les colons, mais certains (surtout les animaux à long cou ou à cornes) ont un meilleur rendu lorsqu'ils sont affichés devant les pions.</GUC_Drawselection_Description>
+ <GUC_SizeOk>Montable</GUC_SizeOk>
+ <GUC_SizeNotOk>Non Montable</GUC_SizeNotOk>
+ <GUC_DrawFront>Animal devant</GUC_DrawFront>
+ <GUC_DrawBack>Animal derrière le colon</GUC_DrawBack>
+</LanguageData>
