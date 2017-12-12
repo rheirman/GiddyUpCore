@@ -14,6 +14,10 @@ namespace GiddyUpCore.Harmony
         [HarmonyPriority(Priority.Low)]
         static void Postfix(Pawn __instance, ref bool diagonal, ref int __result)
         {
+            if(Base.Instance.GetExtendedDataStorage() == null)
+            {
+                return;
+            }
             ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(__instance);
             if(pawnData.mount != null)
             {
