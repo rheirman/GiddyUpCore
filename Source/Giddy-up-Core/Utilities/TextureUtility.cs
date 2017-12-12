@@ -19,16 +19,12 @@ namespace GiddyUpCore.Utilities
             Texture2D t = TextureUtility.getReadableTexture(unreadableTexture);
             int backHeight = TextureUtility.getBackHeight(t);
             float backHeightRelative = (float)backHeight / (float)t.height;
-            Log.Message("back height relative" + backHeightRelative);
 
             float textureHeight = curKindLifeStage.bodyGraphicData.drawSize.y;
             //If animal texture does not fit in a tile, take this into account
             float extraOffset = textureHeight > 1f ? (textureHeight - 1f) / 2f : 0;
-            Log.Message("textureHeight" + textureHeight);
             //Small extra offset, you don't want to draw pawn exactly on back
             extraOffset += (float)textureHeight / 20f;
-            Log.Message("extra offset" + extraOffset);
-            Log.Message("test " + (float)textureHeight / 20f);
             pawnData.drawOffset = (textureHeight * backHeightRelative - extraOffset);
         }
 
@@ -53,7 +49,6 @@ namespace GiddyUpCore.Utilities
 
             int totalPixelsChecked = (t.height - checkFrom) * middle;
             int minPixelsForNeckOrHorns = totalPixelsChecked / fraction;
-            //Log.Message("minPixelsForNeckOrHorns: " + minPixelsForNeckOrHorns + ", totalPixels  " + totalPixelsChecked);
 
             for (int i = checkFrom; i < t.height; i++)
             {
@@ -65,13 +60,11 @@ namespace GiddyUpCore.Utilities
                         bodyPixels++;
                         if (bodyPixels > minPixelsForNeckOrHorns)
                         {
-                            //Log.Message("has enough pixels for neck or horns");
                             return true;
                         }
                     }
                 }
             }
-            //Log.Message("has not enough pixels for neck or horns, nPixels: " + bodyPixels + ", totalPixels: " + totalPixelsChecked);
 
             return false;
         }
@@ -88,7 +81,6 @@ namespace GiddyUpCore.Utilities
             for (int i = 0; i < t.height; i++)
             {
                 Color c = t.GetPixel(middle, i);
-                Log.Message("c:" + c.a);
                 if (inBody && c.a < threshold)
                 {
                     backHeight = i;
