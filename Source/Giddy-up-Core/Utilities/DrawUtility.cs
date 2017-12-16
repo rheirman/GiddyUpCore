@@ -7,10 +7,8 @@ using UnityEngine;
 using Verse;
 using Verse.Sound;
 using HugsLib.Settings;
-using GiddyUpCore;
-using GiddyUpCore.Utilities;
 
-namespace RunAndGun.Utilities
+namespace GiddyUpCore.Utilities
 {
     class DrawUtility
     {
