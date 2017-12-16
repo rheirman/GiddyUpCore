@@ -9,7 +9,8 @@ using GiddyUpCore.Utilities;
 using Verse;
 using UnityEngine;
 using HugsLib.Settings;
-using RunAndGun.Utilities;
+using RimWorld;
+using GiddyUpCore.Concepts;
 
 namespace GiddyUpCore
 {
@@ -17,6 +18,8 @@ namespace GiddyUpCore
     {
         private ExtendedDataStorage _extendedDataStorage;
         public static Base Instance { get; private set; }
+
+        internal static SettingHandle<float> handlingMovementImpact;
         public static SettingHandle<DictAnimalRecordHandler> animalSelecter;
         public static SettingHandle<DictAnimalRecordHandler> drawSelecter;
         internal static SettingHandle<String> tabsHandler;
@@ -38,6 +41,9 @@ namespace GiddyUpCore
       
             List<ThingDef> allAnimals = DefUtility.getAnimals();
             allAnimals = allAnimals.OrderBy(o => o.defName).ToList();
+
+            handlingMovementImpact = Settings.GetHandle<float>("handlingMovementImpact", "GUC_HandlingMovementImpact_Title".Translate(), "GUC_HandlingMovementImpact_Description".Translate(), 1.5f, Validators.FloatRangeValidator(0f, 5f));
+
 
             tabsHandler = Settings.GetHandle<String>("tabs", "GUC_Tabs_Title".Translate(), "", "none");
             bodySizeFilter = Settings.GetHandle<float>("bodySizeFilter", "GUC_BodySizeFilter_Title".Translate(), "GUC_BodySizeFilter_Description".Translate(), 0.8f);
@@ -117,6 +123,8 @@ namespace GiddyUpCore
         {
             _extendedDataStorage = UtilityWorldObjectManager.GetUtilityWorldObject<ExtendedDataStorage>();
             base.WorldLoaded();
+            LessonAutoActivator.TeachOpportunity(GUC_ConceptDefOf.GUC_Animal_Handling, OpportunityType.GoodToKnow);
+
         }
 
         public ExtendedDataStorage GetExtendedDataStorage()
