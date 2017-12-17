@@ -62,62 +62,11 @@ namespace GiddyUpCore
             drawSelecter.CustomDrawer = rect => { return DrawUtility.CustomDrawer_MatchingAnimals_active(rect, drawSelecter, allAnimals, null, "GUC_DrawFront".Translate(), "GUC_DrawBack".Translate()); };
             drawSelecter.VisibilityPredicate = delegate { return tabsHandler.Value == tabNames[1]; };
 
-            if(animalSelecter.Value == null)
-            {
-                animalSelecter.Value = getDefaultForAnimalSelecter(allAnimals);
-            }
-            if(drawSelecter.Value == null)
-            {
-                drawSelecter.Value = getDefaultForDrawSelecter(allAnimals);
-            }
 
+            DrawUtility.filterAnimals(ref animalSelecter, allAnimals, bodySizeFilter);
+            DrawUtility.filterAnimals(ref drawSelecter, allAnimals, null);
         }
 
-        private DictAnimalRecordHandler getDefaultForAnimalSelecter(List<ThingDef> allAnimals)
-        {
-            DictAnimalRecordHandler dict = new DictAnimalRecordHandler();
-            Dictionary<String, AnimalRecord> result = new Dictionary<string, AnimalRecord>();
-            foreach(ThingDef animal in allAnimals)
-            {
-                CompProperties_Mount prop = animal.GetCompProperties<CompProperties_Mount>();
-
-                float mass = animal.race.baseBodySize;
-                if (prop != null && prop.isException)
-                {
-                    result.Add(animal.defName, new AnimalRecord(false, true, animal.label));   
-                }
-                else
-                {
-                    bool shouldSelect = mass >= bodySizeFilter.Value;
-                    result.Add(animal.defName, new AnimalRecord(shouldSelect, false, animal.label));
-                }
-            }
-            //result.Add("", new AnimalRecord(shouldSelect, false));
-            dict.InnerList = result;
-            return dict;
-        }
-        private DictAnimalRecordHandler getDefaultForDrawSelecter(List<ThingDef> allAnimals)
-        {
-            DictAnimalRecordHandler dict = new DictAnimalRecordHandler();
-            Dictionary<String, AnimalRecord> result = new Dictionary<string, AnimalRecord>();
-            foreach (ThingDef animal in allAnimals)
-            {
-                CompProperties_Mount prop = animal.GetCompProperties<CompProperties_Mount>();
-
-                float mass = animal.race.baseBodySize;
-                if (prop != null && prop.drawFront)
-                {
-                    result.Add(animal.defName, new AnimalRecord(true, true, animal.label));
-                }
-                else
-                {
-                    result.Add(animal.defName, new AnimalRecord(false, false, animal.label));
-                }
-            }
-            //result.Add("", new AnimalRecord(shouldSelect, false));
-            dict.InnerList = result;
-            return dict;
-        }
 
         public override void WorldLoaded()
         {
