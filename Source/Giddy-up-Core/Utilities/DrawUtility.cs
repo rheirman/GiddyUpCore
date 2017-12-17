@@ -161,7 +161,6 @@ namespace GiddyUpCore.Utilities
 
         internal static void filterAnimals(ref SettingHandle<DictAnimalRecordHandler> setting, List<ThingDef> allAnimals, SettingHandle<float> filter = null)
         {
-            Log.Message("filterAnimals called");
             if (setting.Value == null)
             {
                 setting.Value = new DictAnimalRecordHandler();
