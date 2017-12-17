@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <GUC_Animal_Handling.label>Giddy-up! : Compétence "Animaux"</GUC_Animal_Handling.label>
+  <GUC_Animal_Handling.helpText>La compétence "Animaux" d'un colon influe sur son efficacité avec les montures. Pour chaque niveau où cette compétence est inférieure au niveau requis pour apprivoiser l'animal, une pénalité de mouvement (2%) et de précision (0,5%) est appliquée. Si le niveau de compétence est supérieur, un bonus égal est appliqué. Les bonus/pénalités par niveau peuvent être configurés dans les paramètres du mod.</GUC_Animal_Handling.helpText>
+
+
+</LanguageData>
