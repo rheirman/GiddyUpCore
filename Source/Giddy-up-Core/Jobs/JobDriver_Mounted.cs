@@ -29,48 +29,56 @@ namespace GiddyUpCore.Jobs
 
         private bool cancelJobIfNeeded(ExtendedPawnData riderData)
         {
-
+            bool result = false;
             if (shouldEnd)
             {
-                Log.Message("cancel job, shouldEnd called");
-                ReadyForNextToil();
-                return true;
+                //Log.Message("cancel job, shouldEnd called");
+                result = true;
             }
-
             Thing thing = pawn as Thing;
             if (Rider.Downed || Rider.Dead || pawn.Downed || pawn.Dead || pawn.IsBurning() || Rider.IsBurning())
             {
-                Log.Message("cancel job, rider downed or dead");
-                ReadyForNextToil();
-                return true;
+                //Log.Message("cancel job, rider downed or dead");
+                result = true;
             }
             if (pawn.InMentalState || (Rider.InMentalState && Rider.MentalState.def != MentalStateDefOf.PanicFlee))
             {
-                Log.Message("cancel job, rider or mount in mental state");
-                ReadyForNextToil();
-                return true;
+                //Log.Message("cancel job, rider or mount in mental state");
+                result = true;
             }
             if (!Rider.Spawned)
             {
-                pawn.DeSpawn();
-                ReadyForNextToil();
-                return true;
+                if (!Rider.IsColonist)
+                {
+                    //Log.Message("rider not spawned, despawn");
+                    pawn.DeSpawn();
+                    result = true;
+                }
+                else
+                {
+                    result = true;
+                }
             }
+
 
             if (!Rider.Drafted && Rider.IsColonist && Rider.mindState.duty.def != DutyDefOf.TravelOrWait && Rider.mindState.duty.def != DutyDefOf.TravelOrLeave)
             {
-                Log.Message("cancel job, rider not drafted while being colonist");
-                ReadyForNextToil();
-                return true;
+                //Log.Message("cancel job, rider not drafted while being colonist");
+                result = true;
             }
 
             if (riderData.mount == null)
             {
-                Log.Message("cancel job, rider has no mount");
-                ReadyForNextToil();
-                return true;
+                //Log.Message("cancel job, rider has no mount");
+                result = true;
             }
-            return false;
+
+            if(result == true)
+            {
+                ReadyForNextToil();
+            }
+
+            return result;
 
         }
 
