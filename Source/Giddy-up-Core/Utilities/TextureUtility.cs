@@ -14,6 +14,10 @@ namespace GiddyUpCore.Utilities
 
         public static void setDrawOffset(ExtendedPawnData pawnData)
         {
+            if (pawnData.mount == null)
+            {
+                return;
+            }
             PawnKindLifeStage curKindLifeStage = pawnData.mount.ageTracker.CurKindLifeStage;
             Texture2D unreadableTexture = curKindLifeStage.bodyGraphicData.Graphic.MatSide.mainTexture as Texture2D;
             Texture2D t = TextureUtility.getReadableTexture(unreadableTexture);
@@ -24,7 +28,7 @@ namespace GiddyUpCore.Utilities
             //If animal texture does not fit in a tile, take this into account
             float extraOffset = textureHeight > 1f ? (textureHeight - 1f) / 2f : 0;
             //Small extra offset, you don't want to draw pawn exactly on back
-            extraOffset += (float)textureHeight / 20f;
+            extraOffset += (float)textureHeight * backHeightRelative / 20f;
             pawnData.drawOffset = (textureHeight * backHeightRelative - extraOffset);
         }
 
