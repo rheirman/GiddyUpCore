@@ -15,7 +15,6 @@ namespace GiddyUpCore.Utilities
         {
             float adjustedLevel = pawn.skills.GetSkill(SkillDefOf.Animals).levelInt - Mathf.RoundToInt(mount.GetStatValue(StatDefOf.MinimumHandlingSkill, true));
             float animalHandlingOffset = 1f - (adjustedLevel * Base.handlingMovementImpact) / 100f;
-            Log.Message("animalHandlingOffset" + animalHandlingOffset);
             if (diagonal)
             {
                 return Mathf.RoundToInt((float)mount.TicksPerMoveDiagonal * animalHandlingOffset);

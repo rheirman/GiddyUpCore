@@ -23,7 +23,7 @@ namespace GiddyUpCore.Jobs
 
             this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
             this.FailOnDowned(TargetIndex.A);
-
+            yield return Toils_General.Wait(1);//wait one tick to ensure animal is waiting to get mounted before proceding. 
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
             yield return Toils_Interpersonal.WaitToBeAbleToInteract(this.pawn);
             yield return TalkToAnimal(TargetIndex.A);
@@ -32,7 +32,6 @@ namespace GiddyUpCore.Jobs
         private Toil TalkToAnimal(TargetIndex tameeInd)
         {
             Toil toil = new Toil();
-
             toil.AddFailCondition(delegate { return Mount.CurJob.def != GUC_JobDefOf.Mounted; });
             toil.initAction = delegate
             {

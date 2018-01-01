@@ -48,14 +48,15 @@ namespace GiddyUpCore.Jobs
             }
             if (!Rider.Spawned)
             {
-                if (!Rider.IsColonist)
+                if (!Rider.IsColonist && !Rider.Dead)
                 {
                     //Log.Message("rider not spawned, despawn");
-                    pawn.DeSpawn();
+                    pawn.ExitMap(false);
                     result = true;
                 }
                 else
                 {
+                    pawn.ExitMap(true);
                     result = true;
                 }
             }
@@ -95,9 +96,9 @@ namespace GiddyUpCore.Jobs
                 {
                     ReadyForNextToil();
                 }
-                if (Rider.CurJob.def != GUC_JobDefOf.Mount && Rider.CurJob.def != JobDefOf.Vomit && Rider.CurJob.def != JobDefOf.WaitMaintainPosture && riderData.mount == null)
+                if (Rider.CurJob.def != GUC_JobDefOf.Mount && Rider.CurJob.def != JobDefOf.Vomit && Rider.CurJob.def != JobDefOf.WaitMaintainPosture && Rider.CurJob.def != JobDefOf.SocialRelax && riderData.mount == null)
                 {
-                    Log.Message("cancel wait for rider, rider is not mounting, curJob: " + Rider.CurJob.def.defName);
+                    //Log.Message("cancel wait for rider, rider is not mounting, curJob: " + Rider.CurJob.def.defName);
                     
                     shouldEnd = true;
                     ReadyForNextToil();

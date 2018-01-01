@@ -70,6 +70,7 @@
     <Compile Include="DictAnimalRecordHandler.cs" />
     <Compile Include="Utilities\DefUtility.cs" />
     <Compile Include="Utilities\DrawUtility.cs" />
+    <Compile Include="Utilities\NPCMountUtility.cs" />
     <Compile Include="Utilities\TextureUtility.cs" />
     <Compile Include="Utilities\TicksPerMoveUtility.cs" />
   </ItemGroup>
