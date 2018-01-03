@@ -73,7 +73,7 @@ namespace GiddyUpCore.Jobs
 
             if (!Rider.Drafted && Rider.IsColonist )
             {
-                if((Rider.mindState != null && Rider.mindState.duty != null && Rider.mindState.duty.def == DutyDefOf.TravelOrWait && Rider.mindState.duty.def == DutyDefOf.TravelOrLeave))
+                if((Rider.mindState != null && Rider.mindState.duty != null && (Rider.mindState.duty.def == DutyDefOf.TravelOrWait || Rider.mindState.duty.def == DutyDefOf.TravelOrLeave)))
                 {
                     //if forming caravan, stay mounted. 
                 }
