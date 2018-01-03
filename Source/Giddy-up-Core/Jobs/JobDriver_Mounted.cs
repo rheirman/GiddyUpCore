@@ -27,24 +27,28 @@ namespace GiddyUpCore.Jobs
             return true;
         }
 
-        private bool cancelJobIfNeeded(ExtendedPawnData riderData)
+        private bool shouldCancelJob(ExtendedPawnData riderData)
         {
-            bool result = false;
+            if(riderData == null)
+            {
+                //Log.Message("riderData is null");
+                return true;
+            }
             if (shouldEnd)
             {
                 //Log.Message("cancel job, shouldEnd called");
-                result = true;
+                return true;
             }
             Thing thing = pawn as Thing;
             if (Rider.Downed || Rider.Dead || pawn.Downed || pawn.Dead || pawn.IsBurning() || Rider.IsBurning())
             {
                 //Log.Message("cancel job, rider downed or dead");
-                result = true;
+                return true;
             }
             if (pawn.InMentalState || (Rider.InMentalState && Rider.MentalState.def != MentalStateDefOf.PanicFlee))
             {
                 //Log.Message("cancel job, rider or mount in mental state");
-                result = true;
+                return true;
             }
             if (!Rider.Spawned)
             {
@@ -52,34 +56,40 @@ namespace GiddyUpCore.Jobs
                 {
                     //Log.Message("rider not spawned, despawn");
                     pawn.ExitMap(false);
-                    result = true;
+                    return true;
+                }
+                else if(Rider.IsColonist)
+                {
+                    //Log.Message("rider moved to map, despawn");
+                    pawn.ExitMap(true);
+                    return true;
                 }
                 else
                 {
-                    pawn.ExitMap(true);
-                    result = true;
+                    //Log.Message("rider died, dismount");
+                    return true;
                 }
             }
 
-
-            if (!Rider.Drafted && Rider.IsColonist && Rider.mindState.duty.def != DutyDefOf.TravelOrWait && Rider.mindState.duty.def != DutyDefOf.TravelOrLeave)
+            if (!Rider.Drafted && Rider.IsColonist )
             {
-                //Log.Message("cancel job, rider not drafted while being colonist");
-                result = true;
+                if((Rider.mindState != null && Rider.mindState.duty != null && Rider.mindState.duty.def == DutyDefOf.TravelOrWait && Rider.mindState.duty.def == DutyDefOf.TravelOrLeave))
+                {
+                    //if forming caravan, stay mounted. 
+                }
+                else
+                {
+                    return true;
+                    //Log.Message("cancel job, rider not drafted while being colonist");
+                }
             }
 
             if (riderData.mount == null)
             {
                 //Log.Message("cancel job, rider has no mount");
-                result = true;
+                return true;
             }
-
-            if(result == true)
-            {
-                ReadyForNextToil();
-            }
-
-            return result;
+            return false;
 
         }
 
@@ -122,9 +132,9 @@ namespace GiddyUpCore.Jobs
                     return;
                 }
                 riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
-                bool shouldCancel = cancelJobIfNeeded(riderData);
-                if (shouldCancel)
+                if (shouldCancelJob(riderData))
                 {
+                    ReadyForNextToil();
                     return;
                 }
                 pawn.Drawer.tweener = Rider.Drawer.tweener;
