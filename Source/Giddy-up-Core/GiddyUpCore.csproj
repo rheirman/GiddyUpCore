@@ -59,6 +59,7 @@
     <Compile Include="CompBattlemounts.cs" />
     <Compile Include="CompProperties_BattleMounts.cs" />
     <Compile Include="Concepts\GUC_ConceptDefOf.cs" />
+    <Compile Include="Harmony\Building_Door_get_BlockedOpenMomentary.cs" />
     <Compile Include="Harmony\Pawn_DrawAt.cs" />
     <Compile Include="Harmony\Pawn_TicksPerMove.cs" />
     <Compile Include="Jobs\GUC_JobDefOf.cs" />

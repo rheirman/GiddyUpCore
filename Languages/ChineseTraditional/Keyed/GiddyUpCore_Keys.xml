@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <GUC_tab1>動物設定</GUC_tab1>
+  <GUC_tab2>圖像設定</GUC_tab2>
+  <GUC_Tabs_Title>配置選項</GUC_Tabs_Title>
+  <GUC_BodySizeFilter_Title>體型過濾器</GUC_BodySizeFilter_Title>
+  <GUC_BodySizeFilter_Description>根據體型來選擇可騎乘的動物</GUC_BodySizeFilter_Description>
+  <GUC_Animalselection_Title>選擇可騎乘的動物</GUC_Animalselection_Title>
+  <GUC_Animalselection_Description>使用上面的體型過濾器根據體型大小來過濾，或者通過單擊來更改</GUC_Animalselection_Description>
+  <GUC_Drawselection_Title>設置圖層</GUC_Drawselection_Title>
+  <GUC_Drawselection_Description>哪些動物的貼圖在人之前，哪些在人之後，大多數動物在人之後視覺效果更好，但有些動物(特別是那些長脖子或者長角的)在人前效果更好</GUC_Drawselection_Description>
+  <GUC_SizeOk>可乘騎</GUC_SizeOk>
+  <GUC_SizeNotOk>不可乘騎</GUC_SizeNotOk>
+  <GUC_DrawFront>動物在人之前</GUC_DrawFront>
+  <GUC_DrawBack>動物在人之後</GUC_DrawBack>
+  <BM_NotInModOptions>不能騎乘，這個動物在設置中沒有被設定為可騎乘動物</BM_NotInModOptions>
+  <BM_AnimalBusy>不能騎乘，這個動物正在做其他事</BM_AnimalBusy>
+  <BM_NotFullyGrown>不能騎乘, 這個動物還沒有成熟</BM_NotFullyGrown>
+  <BM_NeedsObedience>不能騎乘, 動物沒有訓練“服從”</BM_NeedsObedience>
+  <BM_Mount>乘騎動物</BM_Mount>
+  <BM_Dismount>從動物身上下來</BM_Dismount>
+
+</LanguageData>
