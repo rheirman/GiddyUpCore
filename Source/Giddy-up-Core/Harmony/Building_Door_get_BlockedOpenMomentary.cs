@@ -33,6 +33,11 @@ namespace GiddyUpCore.Harmony
                         {
                             __result = false; //dont return, blocking things can still be found
                         }
+                        else
+                        {
+                            __result = true;
+                            return;
+                        }
                     }
                 }
             }
