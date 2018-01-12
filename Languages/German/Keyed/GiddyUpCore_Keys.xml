@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
- <GUC_HandlingMovementImpact_Title>Einfluss auf die Bewegung(%) pro Stufe in der Fähigkeit Zähmen</GUC_HandlingMovementImpact_Title>
- <GUC_HandlingMovementImpact_Description>Wenn die Fähigkeit Zähmen bei dem Kolonisten niedriger ist, als benötigt, um das Tier zu Zähmen, ist das ein Malus pro Stufe. Ansonsten ein Bonus pro Stufe.</GUC_HandlingMovementImpact_Description>
+ <GUC_HandlingMovementImpact_Title>Einfluss auf die Bewegung(%) pro Stufe in der Fähigkeit Tierpflege</GUC_HandlingMovementImpact_Title>
+ <GUC_HandlingMovementImpact_Description>Wenn die Fähigkeit Tierpflege bei dem Kolonisten niedriger ist, als benötigt, um das Tier zu Zähmen, ist das ein Malus pro Stufe. Ansonsten ein Bonus pro Stufe.</GUC_HandlingMovementImpact_Description>
  
  <GUC_tab1>Reitbare Tiere..</GUC_tab1>
  <GUC_tab2>Zeichen-Einstellungen..</GUC_tab2>
