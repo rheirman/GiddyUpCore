@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <GUC_Animal_Handling.label>Giddy-up!: Zähmen Fähigkeit</GUC_Animal_Handling.label>
+  <GUC_Animal_Handling.helpText>Die Zähmen Fähigkeit eines Kolonisten beeinflusst, wie effizient er sein Reittier benutzen kann. Für jede Stufe in dieser Fähigkeit unter der benötigten Stufe ein Tier zu zähmen, erhält der Kolonist einen Bewegungs- (2%) und Genauigkeits- (0.5%)Malus pro Stufe darunter. Ist die Stufe darüber, bekommt er einen gleichgroßen Bonus. Die Boni/ Mali pro Stufe können in den Mod-Einstellungen angepasst werden.</GUC_Animal_Handling.helpText>
+  
+</LanguageData>
