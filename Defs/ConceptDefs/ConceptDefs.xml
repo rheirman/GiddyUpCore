@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ConceptDef>
+    <defName>GUC_Animal_Handling</defName>
+    <label>Giddy-up!: Animal handling skill</label>
+    <priority>11</priority>
+    <helpText>The animal handling skill of a Pawn affects how effective it can use mounts. Per level that the skill is below the level needed to tame an animal, a penalty for movement (2%) and accuracy (0.5%) is applied for each level. If the skill level is above the needed level to tame the animal, an equal bonus is applied. The per-level bonuses/penalties can be configured in the mod settings. </helpText>
+  </ConceptDef>  
+  
+</Defs>

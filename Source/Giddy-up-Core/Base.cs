@@ -9,7 +9,8 @@ using GiddyUpCore.Utilities;
 using Verse;
 using UnityEngine;
 using HugsLib.Settings;
-using RunAndGun.Utilities;
+using RimWorld;
+using GiddyUpCore.Concepts;
 
 namespace GiddyUpCore
 {
@@ -17,6 +18,8 @@ namespace GiddyUpCore
     {
         private ExtendedDataStorage _extendedDataStorage;
         public static Base Instance { get; private set; }
+
+        internal static SettingHandle<float> handlingMovementImpact;
         public static SettingHandle<DictAnimalRecordHandler> animalSelecter;
         public static SettingHandle<DictAnimalRecordHandler> drawSelecter;
         internal static SettingHandle<String> tabsHandler;
@@ -39,6 +42,9 @@ namespace GiddyUpCore
             List<ThingDef> allAnimals = DefUtility.getAnimals();
             allAnimals = allAnimals.OrderBy(o => o.defName).ToList();
 
+            handlingMovementImpact = Settings.GetHandle<float>("handlingMovementImpact", "GUC_HandlingMovementImpact_Title".Translate(), "GUC_HandlingMovementImpact_Description".Translate(), 1.5f, Validators.FloatRangeValidator(0f, 5f));
+
+
             tabsHandler = Settings.GetHandle<String>("tabs", "GUC_Tabs_Title".Translate(), "", "none");
             bodySizeFilter = Settings.GetHandle<float>("bodySizeFilter", "GUC_BodySizeFilter_Title".Translate(), "GUC_BodySizeFilter_Description".Translate(), 0.8f);
             animalSelecter = Settings.GetHandle<DictAnimalRecordHandler>("Animalselecter", "GUC_Animalselection_Title".Translate(), "GUC_Animalselection_Description".Translate(), null);
@@ -56,67 +62,18 @@ namespace GiddyUpCore
             drawSelecter.CustomDrawer = rect => { return DrawUtility.CustomDrawer_MatchingAnimals_active(rect, drawSelecter, allAnimals, null, "GUC_DrawFront".Translate(), "GUC_DrawBack".Translate()); };
             drawSelecter.VisibilityPredicate = delegate { return tabsHandler.Value == tabNames[1]; };
 
-            if(animalSelecter.Value == null)
-            {
-                animalSelecter.Value = getDefaultForAnimalSelecter(allAnimals);
-            }
-            if(drawSelecter.Value == null)
-            {
-                drawSelecter.Value = getDefaultForDrawSelecter(allAnimals);
-            }
 
+            DrawUtility.filterAnimals(ref animalSelecter, allAnimals, bodySizeFilter);
+            DrawUtility.filterAnimals(ref drawSelecter, allAnimals, null);
         }
 
-        private DictAnimalRecordHandler getDefaultForAnimalSelecter(List<ThingDef> allAnimals)
-        {
-            DictAnimalRecordHandler dict = new DictAnimalRecordHandler();
-            Dictionary<String, AnimalRecord> result = new Dictionary<string, AnimalRecord>();
-            foreach(ThingDef animal in allAnimals)
-            {
-                CompProperties_Mount prop = animal.GetCompProperties<CompProperties_Mount>();
-
-                float mass = animal.race.baseBodySize;
-                if (prop != null && prop.isException)
-                {
-                    result.Add(animal.defName, new AnimalRecord(false, true, animal.label));   
-                }
-                else
-                {
-                    bool shouldSelect = mass >= bodySizeFilter.Value;
-                    result.Add(animal.defName, new AnimalRecord(shouldSelect, false, animal.label));
-                }
-            }
-            //result.Add("", new AnimalRecord(shouldSelect, false));
-            dict.InnerList = result;
-            return dict;
-        }
-        private DictAnimalRecordHandler getDefaultForDrawSelecter(List<ThingDef> allAnimals)
-        {
-            DictAnimalRecordHandler dict = new DictAnimalRecordHandler();
-            Dictionary<String, AnimalRecord> result = new Dictionary<string, AnimalRecord>();
-            foreach (ThingDef animal in allAnimals)
-            {
-                CompProperties_Mount prop = animal.GetCompProperties<CompProperties_Mount>();
-
-                float mass = animal.race.baseBodySize;
-                if (prop != null && prop.drawFront)
-                {
-                    result.Add(animal.defName, new AnimalRecord(true, true, animal.label));
-                }
-                else
-                {
-                    result.Add(animal.defName, new AnimalRecord(false, false, animal.label));
-                }
-            }
-            //result.Add("", new AnimalRecord(shouldSelect, false));
-            dict.InnerList = result;
-            return dict;
-        }
 
         public override void WorldLoaded()
         {
             _extendedDataStorage = UtilityWorldObjectManager.GetUtilityWorldObject<ExtendedDataStorage>();
             base.WorldLoaded();
+            LessonAutoActivator.TeachOpportunity(GUC_ConceptDefOf.GUC_Animal_Handling, OpportunityType.GoodToKnow);
+
         }
 
         public ExtendedDataStorage GetExtendedDataStorage()

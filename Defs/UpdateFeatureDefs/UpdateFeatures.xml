@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase">
+		<modNameReadable>Giddy-up Core</modNameReadable>
+		<modIdentifier>GiddyUpCore</modIdentifier>
+		<linkUrl>https://ludeon.com/forums/index.php?topic=37323</linkUrl>
+	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>GiddyUpCore_0_18_5</defName>
+		<assemblyVersion>0.18.5</assemblyVersion>
+		<content>A new mod for the Giddy-up! Series is released!
+		
+I am proud to present Giddy-up! Caravan. With this mod you can let your colonists ride to far lands on elephants, muffalos, lamas or any other animal, modded or not! 
+Check it out on steam, or on the mod's page on the Ludeon forums. 
+		</content>
+	</HugsLib.UpdateFeatureDef>
+</Defs>

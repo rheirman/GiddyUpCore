@@ -7,10 +7,8 @@ using UnityEngine;
 using Verse;
 using Verse.Sound;
 using HugsLib.Settings;
-using GiddyUpCore;
-using GiddyUpCore.Utilities;
 
-namespace RunAndGun.Utilities
+namespace GiddyUpCore.Utilities
 {
     class DrawUtility
     {
@@ -161,6 +159,61 @@ namespace RunAndGun.Utilities
             return change;
         }
 
+        internal static void filterAnimals(ref SettingHandle<DictAnimalRecordHandler> setting, List<ThingDef> allAnimals, SettingHandle<float> filter = null)
+        {
+            if (setting.Value == null)
+            {
+                setting.Value = new DictAnimalRecordHandler();
+            }
+
+            Dictionary<String, AnimalRecord> selection = new Dictionary<string, AnimalRecord>();
+            foreach (ThingDef animal in allAnimals)
+            {
+                bool shouldSelect = false;
+                if (filter != null)
+                {
+                    float mass = animal.race.baseBodySize;
+                    shouldSelect = mass >= filter.Value;
+                }
+                AnimalRecord value = null;
+                bool found = setting.Value.InnerList.TryGetValue(animal.defName, out value);
+                if (found && value.isException)
+                {
+                    selection.Add(animal.defName, value);
+                }
+                else if (found)
+                {
+                    selection.Add(animal.defName, new AnimalRecord(shouldSelect, false, animal.label));
+                }
+                else
+                {
+                    addNewAnimal(animal, selection, shouldSelect, setting.Name);
+                }
+                
+            }
+            selection = selection.OrderBy(d => d.Value.label).ToDictionary(d => d.Key, d => d.Value);
+            setting.Value.InnerList = selection;
+        }
+
+        internal static void addNewAnimal(ThingDef animal, Dictionary<string, AnimalRecord> selection, bool shouldSelect, String settingName)
+        {
+                CompProperties_Mount prop = animal.GetCompProperties<CompProperties_Mount>();
+                float mass = animal.race.baseBodySize;
+                if (prop != null && prop.isException && settingName == "Animalselecter")
+                {
+                    selection.Add(animal.defName, new AnimalRecord(false, true, animal.label));
+                }
+                else if (prop != null && prop.drawFront && settingName == "drawSelecter")
+                {
+                    selection.Add(animal.defName, new AnimalRecord(true, true, animal.label));
+                }
+                else
+                {
+                    selection.Add(animal.defName, new AnimalRecord(shouldSelect, false, animal.label));
+                }
+        }
+
+
         internal static bool CustomDrawer_MatchingAnimals_active(Rect wholeRect, SettingHandle<DictAnimalRecordHandler> setting, List<ThingDef> allAnimals, SettingHandle<float> filter = null, string yesText = "Is a mount", string noText = "Is not a mount")
         {
             drawBackground(wholeRect, background);
@@ -184,34 +237,12 @@ namespace RunAndGun.Utilities
             rightRect.position = new Vector2(rightRect.position.x, rightRect.position.y + TextMargin);
 
             int iconsPerRow = 1;
-            if(setting.Value == null)
-            {
-                setting.Value = new DictAnimalRecordHandler();
-            }
-
-            Dictionary<String, AnimalRecord> selection = new Dictionary<string, AnimalRecord>();
-            for (int i = 0; i < allAnimals.Count; i++)
-            {
-                bool shouldSelect = false;
-                if (filter != null)
-                {
-                    float mass = allAnimals[i].race.baseBodySize;
-                    shouldSelect = mass >= filter.Value;
-                }
-                AnimalRecord value = null;
-                bool found = setting.Value.InnerList.TryGetValue(allAnimals[i].defName, out value);
-                if (found && value.isException)
-                {
-                    selection.Add(allAnimals[i].defName, value);
-                }
-                else
-                {
-                    selection.Add(allAnimals[i].defName, new AnimalRecord(shouldSelect, false, allAnimals[i].label));
-                }
-            }
-
             bool change = false;
             int numSelected = 0;
+
+            filterAnimals(ref setting, allAnimals, filter);
+            Dictionary<string, AnimalRecord> selection = setting.Value.InnerList;
+
             foreach (KeyValuePair<String, AnimalRecord> item in selection)
             {
                 if (item.Value.isSelected)
@@ -219,6 +250,7 @@ namespace RunAndGun.Utilities
                     numSelected++;
                 }
             }
+
 
             int biggerRows = Math.Max( numSelected/ iconsPerRow, (selection.Count - numSelected) / iconsPerRow);
             setting.CustomDrawerHeight = (biggerRows * rowHeight) + ((biggerRows) * BottomMargin) + TextMargin;

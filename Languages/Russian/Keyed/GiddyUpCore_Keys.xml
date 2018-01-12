@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
- <GUC_AccuracyPenalty_Description>Штраф к меткости</GUC_AccuracyPenalty_Description>
+
+ <GUC_HandlingMovementImpact_Title>Изменение движения (%) за уровень животноводства</GUC_HandlingMovementImpact_Title>
+ <GUC_HandlingMovementImpact_Description>Если навык животноводства наездника ниже уровня, требуемого для приручения животного - это штраф за уровень разницы. Если навык выше - это бонус за уровень разницы.</GUC_HandlingMovementImpact_Description>
+ 
  <GUC_tab1>Седлаемые животные..</GUC_tab1>
  <GUC_tab2>Настройки изображений..</GUC_tab2>
  <GUC_Tabs_Title>Настройки конфигураций</GUC_Tabs_Title>

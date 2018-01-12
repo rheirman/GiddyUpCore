@@ -3,7 +3,9 @@
 	<name>Giddy-up! Core</name>
 	<author>Roolo</author>
 	<targetVersion>0.18.0</targetVersion>
-	<description> 
-The core files for the Giddy-up! series.
+	<description>The core files for the Giddy-up! series.
+
+&lt;color=orange&gt;&lt;b&gt;Dependencies &lt;/b&gt;&lt;/color&gt;
+This mod depends on Hugslib. Load order should be: Hugslib -> Giddy-up! Core.
 	</description>	
 </ModMetaData>

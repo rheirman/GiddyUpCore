@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
- <GUC_AccuracyPenalty_Description>Accuracy penalty</GUC_AccuracyPenalty_Description>
+
+ <GUC_HandlingMovementImpact_Title>Movement impact(%) per animal handling level</GUC_HandlingMovementImpact_Title>
+ <GUC_HandlingMovementImpact_Description>If the animal handling skill of a pawn is below the level that would be needed to tame the animal, this is a per level-penalty. Otherwise it is a per-level bonus.</GUC_HandlingMovementImpact_Description>
+ 
  <GUC_tab1>Mountable animals..</GUC_tab1>
  <GUC_tab2>Drawing options..</GUC_tab2>
  <GUC_Tabs_Title>Configuration options</GUC_Tabs_Title>

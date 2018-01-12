@@ -58,15 +58,22 @@
     <Compile Include="Base.cs" />
     <Compile Include="CompBattlemounts.cs" />
     <Compile Include="CompProperties_BattleMounts.cs" />
+    <Compile Include="Concepts\GUC_ConceptDefOf.cs" />
+    <Compile Include="Harmony\Building_Door_get_BlockedOpenMomentary.cs" />
     <Compile Include="Harmony\Pawn_DrawAt.cs" />
     <Compile Include="Harmony\Pawn_TicksPerMove.cs" />
+    <Compile Include="Jobs\GUC_JobDefOf.cs" />
+    <Compile Include="Jobs\JobDriver_Mount.cs" />
+    <Compile Include="Jobs\JobDriver_Mounted.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage\ExtendedDataStorage.cs" />
     <Compile Include="Storage\ExtendedPawnData.cs" />
     <Compile Include="DictAnimalRecordHandler.cs" />
     <Compile Include="Utilities\DefUtility.cs" />
     <Compile Include="Utilities\DrawUtility.cs" />
+    <Compile Include="Utilities\NPCMountUtility.cs" />
     <Compile Include="Utilities\TextureUtility.cs" />
+    <Compile Include="Utilities\TicksPerMoveUtility.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
