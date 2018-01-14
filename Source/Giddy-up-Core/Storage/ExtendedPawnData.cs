@@ -20,7 +20,8 @@ namespace GiddyUpCore.Storage
         {
             Scribe_References.Look(ref mount, "mount", false);
             Scribe_References.Look(ref caravanMount, "caravanMount", false);
-            Scribe_References.Look(ref caravanMount, "caravanRider", false);
+            Scribe_References.Look(ref caravanRider, "caravanRider", false);
+            Scribe_Values.Look(ref selectedForCaravan, "selectedForCaravan", false);
             Scribe_Values.Look(ref drawOffset, "drawOffset", 0);
 
         }
