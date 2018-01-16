@@ -16,9 +16,15 @@ namespace GiddyUpCore.Harmony
 
         static bool Prefix(Pawn __instance, Vector3 drawLoc, bool flip = false)
         {
-            ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(__instance);
+            ExtendedDataStorage store = Base.Instance.GetExtendedDataStorage();
 
-            if (pawnData.mount != null)
+            if (store == null)
+            {
+                return true;
+            }
+            ExtendedPawnData pawnData = store.GetExtendedDataFor(__instance);
+
+            if (pawnData != null && pawnData.mount != null)
             {
                 drawLoc = pawnData.mount.Drawer.DrawPos;
 
