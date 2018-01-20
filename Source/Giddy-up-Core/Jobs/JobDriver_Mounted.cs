@@ -140,25 +140,8 @@ namespace GiddyUpCore.Jobs
                 pawn.Drawer.tweener = Rider.Drawer.tweener;
 
                 pawn.Position = Rider.Position;
+                tryAttackEnemy();
                 pawn.Rotation = Rider.Rotation;
-                Pawn target = Rider.TargetCurrentlyAimingAt.Thing as Pawn;
-                if(target != null && target.HostileTo(Rider))
-                {
-                    Verb verb = target.CurrentEffectiveVerb;
-                    if (verb.verbProps.MeleeRange)
-                    {
-                        pawn.meleeVerbs.TryMeleeAttack(target);
-                    }
-                    else
-                    {
-                        pawn.TryStartAttack(target);
-                    }
-
-                    //pawn.meleeVerbs.TryMeleeAttack(Rider.TargetCurrentlyAimingAt.Thing, this.job.verbToUse, false);
-
-
-                }
-
             };
 
             toil.AddFinishAction(delegate {
@@ -178,6 +161,31 @@ namespace GiddyUpCore.Jobs
 
             return toil;
 
+        }
+
+        private void tryAttackEnemy()
+        {
+            Thing targetThing = null;
+
+            if (Rider.TargetCurrentlyAimingAt != null)
+            {
+                targetThing = Rider.TargetCurrentlyAimingAt.Thing;
+            }
+            else if (Rider.CurJob.def == JobDefOf.AttackMelee && Rider.CurJob.targetA.Thing.HostileTo(Rider))
+            {
+                targetThing = Rider.CurJob.targetA.Thing;
+            }
+            if (targetThing != null && targetThing.HostileTo(Rider))
+            {
+                if (!pawn.meleeVerbs.TryGetMeleeVerb().CanHitTarget(targetThing))
+                {
+                    pawn.TryStartAttack(targetThing);
+                }
+                else
+                {
+                    pawn.meleeVerbs.TryMeleeAttack(targetThing);
+                }
+            }
         }
     }
 }
