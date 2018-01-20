@@ -142,9 +142,21 @@ namespace GiddyUpCore.Jobs
                 pawn.Position = Rider.Position;
                 pawn.Rotation = Rider.Rotation;
                 Pawn target = Rider.TargetCurrentlyAimingAt.Thing as Pawn;
-                if(target != null && target.Faction.HostileTo(Rider.Faction))
+                if(target != null && target.HostileTo(Rider))
                 {
-                    pawn.meleeVerbs.TryMeleeAttack(Rider.TargetCurrentlyAimingAt.Thing, this.job.verbToUse, false);
+                    Verb verb = target.CurrentEffectiveVerb;
+                    if (verb.verbProps.MeleeRange)
+                    {
+                        pawn.meleeVerbs.TryMeleeAttack(target);
+                    }
+                    else
+                    {
+                        pawn.TryStartAttack(target);
+                    }
+
+                    //pawn.meleeVerbs.TryMeleeAttack(Rider.TargetCurrentlyAimingAt.Thing, this.job.verbToUse, false);
+
+
                 }
 
             };
