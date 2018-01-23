@@ -6,7 +6,7 @@ Download the zip from one of the releases, unpack and place the unpacked folder 
 
 ## Contributing
 
-Translations are always very welcome. Just create a pull request, preferably in the development branch. 
+Translations are always very welcome. Just create a pull request.
 
 ## Licence
 Feel free to add this mod to modpacks or to use the code or icons for other projects. 
