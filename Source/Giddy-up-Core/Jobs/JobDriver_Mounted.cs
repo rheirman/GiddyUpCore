@@ -156,7 +156,7 @@ namespace GiddyUpCore.Jobs
                 riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
                 riderData.reset();
                 pawn.Drawer.tweener = new PawnTweener(pawn);
-                //pawn.Position = Rider.Position;
+                pawn.Position = Rider.Position;
             });
 
             return toil;
