@@ -157,6 +157,8 @@ namespace GiddyUpCore.Jobs
                 riderData.reset();
                 pawn.Drawer.tweener = new PawnTweener(pawn);
                 pawn.Position = Rider.Position;
+                pawn.pather.ResetToCurrentPosition();
+
             });
 
             return toil;
