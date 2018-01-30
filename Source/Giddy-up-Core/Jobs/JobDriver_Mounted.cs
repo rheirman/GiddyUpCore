@@ -84,6 +84,7 @@ namespace GiddyUpCore.Jobs
                 }
             }
 
+
             if (riderData.mount == null)
             {
                 //Log.Message("cancel job, rider has no mount");
@@ -98,9 +99,10 @@ namespace GiddyUpCore.Jobs
             Toil toil = new Toil();
 
             toil.defaultCompleteMode = ToilCompleteMode.Never;
-
             toil.tickAction = delegate
             {
+                //Log.Message("waiting for rider");
+
                 riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
                 if (riderData.mount != null && riderData.mount == pawn)
                 {
@@ -145,11 +147,13 @@ namespace GiddyUpCore.Jobs
             };
 
             toil.AddFinishAction(delegate {
+                //Log.Message("finish action for mounted  job called");
                 if (!Rider.IsColonist)
                 {
                     if (pawn.Faction != null)
                     {
                         pawn.SetFaction(null);
+                        //Log.Message("setting faction to null");
                     }
                 }
                 isFinished = true;

@@ -23,10 +23,28 @@ namespace GiddyUpCore.Jobs
 
             this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
             this.FailOnDowned(TargetIndex.A);
+            yield return letMountParticipate();
             yield return Toils_General.Wait(1);//wait one tick to ensure animal is waiting to get mounted before proceding. 
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
             yield return Toils_Interpersonal.WaitToBeAbleToInteract(this.pawn);
             yield return TalkToAnimal(TargetIndex.A);
+        }
+        private Toil letMountParticipate()
+        {
+            Toil toil = new Toil();
+
+            toil.defaultCompleteMode = ToilCompleteMode.Never;
+            //Log.Message("letMountParticipate");
+            toil.initAction = delegate
+            {
+                Mount.jobs.StopAll();
+                Mount.pather.StopDead();
+                Job jobAnimal = new Job(GUC_JobDefOf.Mounted, pawn);
+                jobAnimal.count = 1;
+                Mount.jobs.TryTakeOrderedJob(jobAnimal);
+                ReadyForNextToil();
+            };
+            return toil;
         }
 
         private Toil TalkToAnimal(TargetIndex tameeInd)

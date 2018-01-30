@@ -1,0 +1,7 @@
+	<Defs>
+		<DesignationDef>
+			<defName>GUC_Designator_Stable</defName>
+			<texturePath>UI/GUC_Designator_Stable</texturePath>
+			<targetType>Cell</targetType>
+		</DesignationDef>
+	</Defs>

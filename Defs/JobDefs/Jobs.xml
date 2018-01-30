@@ -12,4 +12,10 @@
     <reportString>Mounted</reportString>
     <casualInterruptible>false</casualInterruptible>
   </JobDef>
+  <JobDef>
+    <defName>Dismount</defName>
+    <driverClass>GiddyUpCore.Jobs.JobDriver_Dismount</driverClass>
+    <reportString>Dismount</reportString>
+    <casualInterruptible>false</casualInterruptible>
+  </JobDef>
 </Defs>
