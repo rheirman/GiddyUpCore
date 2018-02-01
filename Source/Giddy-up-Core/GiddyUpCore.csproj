@@ -59,9 +59,11 @@
     <Compile Include="CompBattlemounts.cs" />
     <Compile Include="CompProperties_BattleMounts.cs" />
     <Compile Include="Concepts\GUC_ConceptDefOf.cs" />
-    <Compile Include="Harmony\AreaManager.cs" />
     <Compile Include="Harmony\Building_Door_get_BlockedOpenMomentary.cs" />
+    <Compile Include="Harmony\Dialog_ManageAreas.cs" />
     <Compile Include="Harmony\Pawn_DrawAt.cs" />
+    <Compile Include="Harmony\Pawn_JobTracker.cs" />
+    <Compile Include="Harmony\Pawn_PlayerSettings .cs" />
     <Compile Include="Harmony\Pawn_TicksPerMove.cs" />
     <Compile Include="Jobs\GUC_JobDefOf.cs" />
     <Compile Include="Jobs\JobDriver_Dismount.cs" />
@@ -72,6 +74,7 @@
     <Compile Include="Storage\ExtendedPawnData.cs" />
     <Compile Include="DictAnimalRecordHandler.cs" />
     <Compile Include="Utilities\DefUtility.cs" />
+    <Compile Include="Utilities\DistanceUtility.cs" />
     <Compile Include="Utilities\DrawUtility.cs" />
     <Compile Include="Utilities\NPCMountUtility.cs" />
     <Compile Include="Utilities\TextureUtility.cs" />
@@ -80,7 +83,7 @@
     <Compile Include="Zones\Designator_Stable.cs" />
     <Compile Include="Zones\Designator_Stable_Clear.cs" />
     <Compile Include="Zones\Designator_Stable_Expand.cs" />
-    <Compile Include="Zones\StaticDefLoader.cs" />
+    <Compile Include="Zones\Extensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

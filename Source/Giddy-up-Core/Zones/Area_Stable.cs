@@ -1,4 +1,5 @@
 ﻿using Harmony;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,12 @@ namespace GiddyUpCore.Zones
 {
     class Area_Stable : Area
     {
-        private String label = "GUC_Area_Stable";
+        private String label = "GUC_Area_Stable_Label".Translate();
         private Color color = Color.magenta;
 
         public Area_Stable(AreaManager areaManager) : base(areaManager)
         {
+            this.color = new Color(Rand.Value, Rand.Value, Rand.Value);
         }
 
         public override string Label
@@ -48,6 +50,11 @@ namespace GiddyUpCore.Zones
                 return 300;
             }
         }
+        public override bool AssignableAsAllowed(AllowedAreaMode mode)
+        {
+            return true;
+        }
+
 
         public override string GetUniqueLoadID()
         {

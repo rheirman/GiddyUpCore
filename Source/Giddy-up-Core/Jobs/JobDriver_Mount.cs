@@ -57,7 +57,7 @@ namespace GiddyUpCore.Jobs
                 actor.interactions.TryInteractWith(Mount, InteractionDefOf.AnimalChat);
             };
             toil.defaultCompleteMode = ToilCompleteMode.Delay;
-            toil.defaultDuration = 150;
+            toil.defaultDuration = 1;
             toil.AddFinishAction(delegate {
                 if (Mount.CurJob != null && Mount.CurJob.def == GUC_JobDefOf.Mounted)
                 {

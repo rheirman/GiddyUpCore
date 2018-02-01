@@ -12,8 +12,10 @@ namespace GiddyUpCore.Storage
     public class ExtendedPawnData : IExposable
     {
         public Pawn mount = null;
-        public Pawn caravanMount = null;
-        public Pawn caravanRider = null;
+        public Pawn caravanMount = null; 
+        public Pawn caravanRider = null; //TODO: check if this can be generalized to OwnedBy without screwing up existing saves
+        public Pawn ownedBy = null;
+        public Pawn owning = null;
         public bool selectedForCaravan = false;
         public float drawOffset = -1;
         
@@ -23,6 +25,8 @@ namespace GiddyUpCore.Storage
             Scribe_References.Look(ref mount, "mount", false);
             Scribe_References.Look(ref caravanMount, "caravanMount", false);
             Scribe_References.Look(ref caravanRider, "caravanRider", false);
+            Scribe_References.Look(ref ownedBy, "ownedBy", false);
+            Scribe_References.Look(ref owning, "owning", false);
             Scribe_Values.Look(ref selectedForCaravan, "selectedForCaravan", false);
             Scribe_Values.Look(ref drawOffset, "drawOffset", 0);
 

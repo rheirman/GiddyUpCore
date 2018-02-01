@@ -14,7 +14,7 @@ namespace GiddyUpCore.Utilities
     public class NPCMountUtility
     {
 
-        public static bool generateMounts(List<Pawn> list, IncidentParms parms, int inBiomeWeight, int outBiomeWeight, int nonWildWeight, int mountChance, int mountChanceTribal)
+        public static bool generateMounts(ref List<Pawn> list, IncidentParms parms, int inBiomeWeight, int outBiomeWeight, int nonWildWeight, int mountChance, int mountChanceTribal)
         {
             Map map = parms.target as Map;
             if (map == null)
@@ -40,7 +40,7 @@ namespace GiddyUpCore.Utilities
             float inBiomeWeightNormalized = (float)inBiomeWeight / (float)totalWeight * 100f;
             float outBiomeWeightNormalized = (float)outBiomeWeight / (float)totalWeight * 100f;
 
-
+            List<Pawn> animals = new List<Pawn>();
             foreach (Pawn pawn in list)
             {
                 //TODO add chance
@@ -51,52 +51,68 @@ namespace GiddyUpCore.Utilities
                 }
                 rndInt = rand.Next(1, 100);
                 int pawnHandlingLevel = pawn.skills.GetSkill(SkillDefOf.Animals).Level;
-                PawnKindDef pawnKindDef;
-                if (rndInt <= inBiomeWeightNormalized)//TODO: change this
-                {
-                    pawnKindDef = (from a in map.Biome.AllWildAnimals
-                                   where map.mapTemperature.SeasonAcceptableFor(a.race) && isMountable(a.defName)
-                                   select a).RandomElementByWeight((PawnKindDef def) => calculateCommonality(def, map, pawnHandlingLevel));
-                }
-                else if (rndInt <= inBiomeWeightNormalized + outBiomeWeightNormalized)
-                {
-                    pawnKindDef = (from a in DefDatabase<PawnKindDef>.AllDefs
-                                   where isAnimal(a) && a.wildSpawn_spawnWild && map.mapTemperature.SeasonAcceptableFor(a.race) && isMountable(a.defName)
-                                   select a).RandomElementByWeight((PawnKindDef def) => calculateCommonality(def, map, pawnHandlingLevel));
-                }
-                else
-                {
-                    pawnKindDef = (from a in DefDatabase<PawnKindDef>.AllDefs
-                                   where isAnimal(a) && !a.wildSpawn_spawnWild && map.mapTemperature.SeasonAcceptableFor(a.race) && isMountable(a.defName)
-                                   select a).RandomElementByWeight((PawnKindDef def) => 1 - def.RaceProps.wildness);
-                }
+                PawnKindDef pawnKindDef = determinePawnKind(map, isAnimal, inBiomeWeightNormalized, outBiomeWeightNormalized, rndInt, pawnHandlingLevel);
 
                 if (pawnKindDef == null)
                 {
                     Log.Error("No spawnable animals right now.");
                     return false;
                 }
-
-
                 Pawn animal = PawnGenerator.GeneratePawn(pawnKindDef, parms.faction);
                 GenSpawn.Spawn(animal, pawn.Position, map, parms.spawnRotation, false);
-                ExtendedPawnData pawnData = GiddyUpCore.Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
-                pawnData.mount = animal;
-                TextureUtility.setDrawOffset(pawnData);
-
-                if (animal.jobs == null)
-                {
-                    animal.jobs = new Pawn_JobTracker(animal);
-                }
-
-                Job jobAnimal = new Job(GUC_JobDefOf.Mounted, pawn);
-                jobAnimal.count = 1;
-                animal.jobs.TryTakeOrderedJob(jobAnimal);
+                ConfigureSpawnedAnimal(pawn, ref animal);
+                animals.Add(animal);
 
             }
+            list = list.Concat(animals).ToList();
             return true;
         }
 
+        private static void ConfigureSpawnedAnimal(Pawn pawn, ref Pawn animal)
+        {
+            ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
+            ExtendedPawnData animalData = GiddyUpCore.Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(animal);
+            pawnData.mount = animal;
+            TextureUtility.setDrawOffset(pawnData);
+            animal.mindState.duty = new PawnDuty(DutyDefOf.Defend);
+            if (animal.jobs == null)
+            {
+                animal.jobs = new Pawn_JobTracker(animal);
+            }
+            Job jobAnimal = new Job(GUC_JobDefOf.Mounted, pawn);
+            jobAnimal.count = 1;
+            animal.jobs.TryTakeOrderedJob(jobAnimal);
+            animal.playerSettings = new Pawn_PlayerSettings(animal);
+            animal.playerSettings.master = pawn;
+            animal.training.Train(TrainableDefOf.Obedience, pawn);
+            pawnData.owning = animal;
+
+        }
+
+        private static PawnKindDef determinePawnKind(Map map, Predicate<PawnKindDef> isAnimal, float inBiomeWeightNormalized, float outBiomeWeightNormalized, int rndInt, int pawnHandlingLevel)
+        {
+            PawnKindDef pawnKindDef;
+            if (rndInt <= inBiomeWeightNormalized)//TODO: change this
+            {
+                pawnKindDef = (from a in map.Biome.AllWildAnimals
+                               where map.mapTemperature.SeasonAcceptableFor(a.race) && isMountable(a.defName)
+                               select a).RandomElementByWeight((PawnKindDef def) => calculateCommonality(def, map, pawnHandlingLevel));
+            }
+            else if (rndInt <= inBiomeWeightNormalized + outBiomeWeightNormalized)
+            {
+                pawnKindDef = (from a in DefDatabase<PawnKindDef>.AllDefs
+                               where isAnimal(a) && a.wildSpawn_spawnWild && map.mapTemperature.SeasonAcceptableFor(a.race) && isMountable(a.defName)
+                               select a).RandomElementByWeight((PawnKindDef def) => calculateCommonality(def, map, pawnHandlingLevel));
+            }
+            else
+            {
+                pawnKindDef = (from a in DefDatabase<PawnKindDef>.AllDefs
+                               where isAnimal(a) && !a.wildSpawn_spawnWild && map.mapTemperature.SeasonAcceptableFor(a.race) && isMountable(a.defName)
+                               select a).RandomElementByWeight((PawnKindDef def) => 1 - def.RaceProps.wildness);
+            }
+
+            return pawnKindDef;
+        }
 
         private static float calculateCommonality(PawnKindDef def, Map map, int pawnHandlingLevel)
         {

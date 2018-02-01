@@ -148,7 +148,8 @@ namespace GiddyUpCore.Jobs
 
             toil.AddFinishAction(delegate {
                 //Log.Message("finish action for mounted  job called");
-                if (!Rider.IsColonist)
+                Pawn ownedBy = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn).ownedBy;
+                if (!Rider.IsColonist && (pawn.playerSettings == null || pawn.playerSettings.master == null || pawn.playerSettings.master.Dead || !pawn.playerSettings.master.Spawned))
                 {
                     if (pawn.Faction != null)
                     {
