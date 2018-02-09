@@ -10,7 +10,7 @@ using Verse;
 
 namespace GiddyUpCore.Harmony
 {
-
+    /*
     [HarmonyPatch(typeof(Dialog_ManageAreas), "DoWindowContents")]
     class Dialog_ManageAreas_DoWindowContents
     {
@@ -42,4 +42,5 @@ namespace GiddyUpCore.Harmony
             }
         }
     }
+    */
 }

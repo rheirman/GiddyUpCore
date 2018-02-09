@@ -70,19 +70,20 @@ namespace GiddyUpCore.Jobs
                     return true;
                 }
             }
-
+            /*
             if (!Rider.Drafted && Rider.IsColonist )
             {
-                if((Rider.mindState != null && Rider.mindState.duty != null && (Rider.mindState.duty.def == DutyDefOf.TravelOrWait || Rider.mindState.duty.def == DutyDefOf.TravelOrLeave)))
+                if((Rider.mindState != null && Rider.mindState.duty != null && (Rider.mindState.duty.def == DutyDefOf.TravelOrWait || Rider.mindState.duty.def == DutyDefOf.TravelOrLeave || riderData.owning != null)))
                 {
                     //if forming caravan, stay mounted. 
                 }
                 else
                 {
                     return true;
-                    //Log.Message("cancel job, rider not drafted while being colonist");
+                    Log.Message("cancel job, rider not drafted while being colonist");
                 }
             }
+            */
 
 
             if (riderData.mount == null)
@@ -110,7 +111,7 @@ namespace GiddyUpCore.Jobs
                 }
                 if (Rider.CurJob.def != GUC_JobDefOf.Mount && Rider.CurJob.def != JobDefOf.Vomit && Rider.CurJob.def != JobDefOf.WaitMaintainPosture && Rider.CurJob.def != JobDefOf.SocialRelax && riderData.mount == null)
                 {
-                    //Log.Message("cancel wait for rider, rider is not mounting, curJob: " + Rider.CurJob.def.defName);
+                    Log.Message("cancel wait for rider, rider is not mounting, curJob: " + Rider.CurJob.def.defName);
                     
                     shouldEnd = true;
                     ReadyForNextToil();
@@ -149,7 +150,8 @@ namespace GiddyUpCore.Jobs
             toil.AddFinishAction(delegate {
                 //Log.Message("finish action for mounted  job called");
                 Pawn ownedBy = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn).ownedBy;
-                if (!Rider.IsColonist && (pawn.playerSettings == null || pawn.playerSettings.master == null || pawn.playerSettings.master.Dead || !pawn.playerSettings.master.Spawned))
+                //if (!Rider.IsColonist && (pawn.playerSettings == null || pawn.playerSettings.master == null || pawn.playerSettings.master.Dead || !pawn.playerSettings.master.Spawned))
+                if (!Rider.IsColonist)
                 {
                     if (pawn.Faction != null)
                     {

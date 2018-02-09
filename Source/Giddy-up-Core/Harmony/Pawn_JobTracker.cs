@@ -57,22 +57,17 @@ namespace GiddyUpCore.Harmony
 
             if (lord.CurLordToil is LordToil_ExitMapAndEscortCarriers)
             {
-                if (PawnData.owning != null && PawnData.mount == null)
+                if (PawnData.owning != null && PawnData.mount == null && !PawnData.owning.Downed && PawnData.owning.Spawned)
                 {
-                    //mountAnimal(__instance, PawnData, ref __result);
-                    //Job oldJob = __result.Job;
-                    Job mountJob = new Job(GUC_JobDefOf.Mount, PawnData.owning);
-                    //mountJob.count = 1;
-                    __result = new ThinkResult(mountJob, __result.SourceNode, __result.Tag, false);
-                    __instance.jobQueue.EnqueueFirst(mountJob);
-                    pawn.mindState.duty = new PawnDuty(DutyDefOf.ExitMapBest);
+                    mountAnimal(__instance, pawn, PawnData, ref __result);
+
                 }
             }
             else if(lord.CurLordToil.GetType().Name == "LordToil_DefendTraderCaravan") //internal class, therefore this way of accessing. 
             {
                 if (PawnData.mount != null)
                 {
-                    parkAnimal(__instance, PawnData);
+                    parkAnimal(__instance, pawn, PawnData);
                 }
             }
 
@@ -90,25 +85,33 @@ namespace GiddyUpCore.Harmony
 
         }
 
-        private static void mountAnimal(Pawn_JobTracker __instance, ExtendedPawnData PawnData, ref ThinkResult __result)
+        private static void mountAnimal(Pawn_JobTracker __instance, Pawn pawn, ExtendedPawnData PawnData, ref ThinkResult __result)
         {
             //Log.Message("mount animal job issued");
 
-
+            //Job oldJob = __result.Job;
+            Job mountJob = new Job(GUC_JobDefOf.Mount, PawnData.owning);
+            //mountJob.count = 1;
+            __result = new ThinkResult(mountJob, __result.SourceNode, __result.Tag, false);
+            __instance.jobQueue.EnqueueFirst(mountJob);
+            pawn.mindState.duty = new PawnDuty(DutyDefOf.ExitMapBest);
         }
 
-        private static void parkAnimal(Pawn_JobTracker __instance, ExtendedPawnData PawnData)
+        private static void parkAnimal(Pawn_JobTracker __instance, Pawn pawn, ExtendedPawnData PawnData)
         {
             //Log.Message("park animal job issued");
 
             Job dismountJob = new Job(GUC_JobDefOf.Dismount);
             dismountJob.count = 1;
             __instance.jobQueue.EnqueueFirst(dismountJob);
-            
-            if (PawnData.mount.playerSettings == null)
+            List<Area> areas = pawn.Map.areaManager.AllAreas;
+            foreach(Area area in areas)
             {
-                //Log.Message("mount does not have player settings");
+                //area.
+                IntVec3 loc = area.ActiveCells.First();
             }
+
+            
         }
     }
 }

@@ -50,12 +50,6 @@ namespace GiddyUpCore.Zones
                 return 300;
             }
         }
-        public override bool AssignableAsAllowed(AllowedAreaMode mode)
-        {
-            return true;
-        }
-
-
         public override string GetUniqueLoadID()
         {
             throw new NotImplementedException();

@@ -20,7 +20,7 @@ namespace GiddyUpCore.Zones
             this.soundDragChanged = SoundDefOf.DesignateDragStandardChanged;
             this.useMouseIcon = true;
         }
-
+        /*
         public override int DraggableDimensions
         {
             get
@@ -36,7 +36,7 @@ namespace GiddyUpCore.Zones
                 return true;
             }
         }
-
+        */
         public override AcceptanceReport CanDesignateCell(IntVec3 loc)
         {
             if (!loc.InBounds(base.Map))
@@ -72,13 +72,15 @@ namespace GiddyUpCore.Zones
         public override void SelectedUpdate()
         {
             GenUI.RenderMouseoverBracket();
-            base.Map.areaManager.GetLabeled("GUC_Area_Stable").MarkForDraw();
+            if(selectedArea != null)
+            {
+                selectedArea.MarkForDraw();
+            }
         }
 
         protected override void FinalizeDesignationSucceeded()
         {
             base.FinalizeDesignationSucceeded();
-            PlayerKnowledgeDatabase.KnowledgeDemonstrated(ConceptDefOf.AllowedAreas, KnowledgeAmount.SpecificInteraction);
         }
 
     }
