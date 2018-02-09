@@ -9,9 +9,10 @@ using Verse;
 
 namespace GiddyUpCore.Zones
 {
-    class Area_Stable : Area
+    public class Area_Stable : Area
     {
-        private String label = "GUC_Area_Stable_Label".Translate();
+        private String label = Base.STABLE_LABEL;
+        
         private Color color = Color.magenta;
 
         public Area_Stable(AreaManager areaManager) : base(areaManager)
@@ -52,7 +53,7 @@ namespace GiddyUpCore.Zones
         }
         public override string GetUniqueLoadID()
         {
-            throw new NotImplementedException();
+            return label; //only one such area, so label is sufficient. 
         }
 
         public override void ExposeData()

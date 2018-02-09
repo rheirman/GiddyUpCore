@@ -1,6 +1,7 @@
 ﻿using GiddyUpCore.Jobs;
 using GiddyUpCore.Storage;
 using GiddyUpCore.Utilities;
+using GiddyUpCore.Zones;
 using Harmony;
 using RimWorld;
 using System;
@@ -24,22 +25,19 @@ namespace GiddyUpCore.Harmony
             Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
 
             if (pawn.IsColonistPlayerControlled || pawn.RaceProps.Animal)
-            {
-                
+            {            
                 return;
             }
 
             LocalTargetInfo target = DistanceUtility.GetFirstTarget(__result.Job, TargetIndex.A);
             if (!target.IsValid)
             {
-                //Log.Message("target is not valid");
                 return;
             }
 
             ExtendedDataStorage store = Base.Instance.GetExtendedDataStorage();
             if (store == null)
             {
-                //Log.Message("store is null");
                 return;
             }
 
@@ -51,6 +49,12 @@ namespace GiddyUpCore.Harmony
                 return;
 
             }
+            QueuedJob qJob = pawn.jobs.jobQueue.FirstOrFallback(null);
+            if(qJob != null && (qJob.job.def == GUC_JobDefOf.Dismount))
+            {
+                return;
+            }
+
             Log.Message("curLordToil: " + pawn.GetLord().CurLordToil.ToString() + ", pawn name: " + pawn.Name);
             Log.Message("lordJob: " + pawn.GetLord().LordJob + ", pawn name: " + pawn.Name);
             Log.Message("lord.CurLordToil.GetType().Name" + lord.CurLordToil.GetType().Name);
@@ -63,35 +67,18 @@ namespace GiddyUpCore.Harmony
 
                 }
             }
-            else if(lord.CurLordToil.GetType().Name == "LordToil_DefendTraderCaravan") //internal class, therefore this way of accessing. 
+            else if(lord.CurLordToil.GetType().Name == "LordToil_DefendTraderCaravan" || lord.CurLordToil.GetType().Name == "LordToil_DefendPoint") //internal class, therefore this way of accessing. 
             {
                 if (PawnData.mount != null)
                 {
                     parkAnimal(__instance, pawn, PawnData);
                 }
             }
-
-
-
-
-            //Log.Message("determine next job");
-
-
-
-
-            //PawnData.mount.playerSettings.
-
-            //float pawnTargetDistance = DistanceUtility.QuickDistance(pawn.Position, target.Cell);
-
         }
 
-        private static void mountAnimal(Pawn_JobTracker __instance, Pawn pawn, ExtendedPawnData PawnData, ref ThinkResult __result)
+        private static void mountAnimal(Pawn_JobTracker __instance, Pawn pawn, ExtendedPawnData pawnData, ref ThinkResult __result)
         {
-            //Log.Message("mount animal job issued");
-
-            //Job oldJob = __result.Job;
-            Job mountJob = new Job(GUC_JobDefOf.Mount, PawnData.owning);
-            //mountJob.count = 1;
+            Job mountJob = new Job(GUC_JobDefOf.Mount, pawnData.owning);
             __result = new ThinkResult(mountJob, __result.SourceNode, __result.Tag, false);
             __instance.jobQueue.EnqueueFirst(mountJob);
             pawn.mindState.duty = new PawnDuty(DutyDefOf.ExitMapBest);
@@ -99,19 +86,25 @@ namespace GiddyUpCore.Harmony
 
         private static void parkAnimal(Pawn_JobTracker __instance, Pawn pawn, ExtendedPawnData PawnData)
         {
-            //Log.Message("park animal job issued");
+            Area_Stable areaFound = (Area_Stable) pawn.Map.areaManager.GetLabeled(Base.STABLE_LABEL);
+            IntVec3 targetLoc = pawn.Position;
+
+            if(areaFound != null)
+            {
+                targetLoc = DistanceUtility.getClosestAreaLoc(pawn, areaFound);
+            }
 
             Job dismountJob = new Job(GUC_JobDefOf.Dismount);
             dismountJob.count = 1;
             __instance.jobQueue.EnqueueFirst(dismountJob);
-            List<Area> areas = pawn.Map.areaManager.AllAreas;
-            foreach(Area area in areas)
+            __instance.jobQueue.EnqueueFirst(new Job(JobDefOf.Goto, targetLoc));
+            PawnDuty animalDuty = PawnData.mount.mindState.duty;
+            if(animalDuty != null)
             {
-                //area.
-                IntVec3 loc = area.ActiveCells.First();
+                animalDuty.focus = new LocalTargetInfo(targetLoc);
             }
-
-            
         }
+
+
     }
 }

@@ -21,6 +21,24 @@ namespace GiddyUpCore.Zones
         {
             selectedArea[c] = false;
         }
+
+        public override int DraggableDimensions
+        {
+            get
+            {
+                return 2;
+            }
+        }
+
+        public override bool DragDrawMeasurements
+        {
+            get
+            {
+                return true;
+            }
+        }
+
+
         public override AcceptanceReport CanDesignateCell(IntVec3 c)
         {
             return c.InBounds(base.Map) && selectedArea != null && selectedArea[c];

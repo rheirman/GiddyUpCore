@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GiddyUpCore.Zones;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,21 @@ namespace GiddyUpCore.Utilities
                 return job.GetTargetQueue(index)[0];
             }
             return job.GetTarget(index);
+        }
+        public static IntVec3 getClosestAreaLoc(Pawn pawn, Area_Stable areaFound)
+        {
+            IntVec3 targetLoc = new IntVec3();
+            double minDistance = double.MaxValue;
+            foreach (IntVec3 loc in areaFound.ActiveCells)
+            {
+                double distance = DistanceUtility.QuickDistance(loc, pawn.Position);
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    targetLoc = loc;
+                }
+            }
+            return targetLoc;
         }
     }
 }

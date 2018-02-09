@@ -20,23 +20,7 @@ namespace GiddyUpCore.Zones
             this.soundDragChanged = SoundDefOf.DesignateDragStandardChanged;
             this.useMouseIcon = true;
         }
-        /*
-        public override int DraggableDimensions
-        {
-            get
-            {
-                return 2;
-            }
-        }
 
-        public override bool DragDrawMeasurements
-        {
-            get
-            {
-                return true;
-            }
-        }
-        */
         public override AcceptanceReport CanDesignateCell(IntVec3 loc)
         {
             if (!loc.InBounds(base.Map))
@@ -52,7 +36,7 @@ namespace GiddyUpCore.Zones
             {
                 return;
             }
-            selectedArea = base.Map.areaManager.GetLabeled("GUC_Area_Stable");
+            selectedArea = base.Map.areaManager.GetLabeled(Base.STABLE_LABEL);
             if (selectedArea == null)
             {
                 //If no area was created yet, create one and add it to areaManager.
