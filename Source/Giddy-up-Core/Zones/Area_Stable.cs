@@ -15,6 +15,10 @@ namespace GiddyUpCore.Zones
         
         private Color color = Color.magenta;
 
+        public Area_Stable()
+        {
+
+        }
         public Area_Stable(AreaManager areaManager) : base(areaManager)
         {
             this.color = new Color(Rand.Value, Rand.Value, Rand.Value);

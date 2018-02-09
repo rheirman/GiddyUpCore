@@ -61,6 +61,7 @@
     <Compile Include="Concepts\GUC_ConceptDefOf.cs" />
     <Compile Include="Harmony\Building_Door_get_BlockedOpenMomentary.cs" />
     <Compile Include="Harmony\Dialog_ManageAreas.cs" />
+    <Compile Include="Harmony\LordToil_DefendPoint.cs" />
     <Compile Include="Harmony\Pawn_DrawAt.cs" />
     <Compile Include="Harmony\Pawn_JobTracker.cs" />
     <Compile Include="Harmony\Pawn_PlayerSettings .cs" />

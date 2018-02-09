@@ -20,9 +20,32 @@ namespace GiddyUpCore.Harmony
     static class Pawn_JobTracker_DetermineNextJob
     {
 
+
+        static void Prefix(Pawn_JobTracker __instance, ref ThinkResult __result)
+        {
+            Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
+
+            if (pawn.RaceProps.Animal && pawn.Faction != Faction.OfPlayer)
+            {
+
+                if(pawn.GetLord() != null && pawn.GetLord().CurLordToil is LordToil_DefendPoint || pawn.GetLord().CurLordToil.GetType().Name == "LordToil_DefendTraderCaravan")
+                {
+                    Log.Message("set duty radius 4 for animal");
+                    //pawn.mindState.duty.radius = 4f;
+                    if( __result.SourceNode is JobGiver_Wander)
+                    {
+                        JobGiver_Wander jgWander = (JobGiver_Wander)__result.SourceNode;
+                        Traverse.Create(__result.SourceNode).Field("wanderRadius").SetValue(5f);
+                    }
+
+                }
+                
+            }
+        }
         static void Postfix(Pawn_JobTracker __instance, ref ThinkResult __result)
         {
             Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
+
 
             if (pawn.IsColonistPlayerControlled || pawn.RaceProps.Animal)
             {            
@@ -67,7 +90,7 @@ namespace GiddyUpCore.Harmony
 
                 }
             }
-            else if(lord.CurLordToil.GetType().Name == "LordToil_DefendTraderCaravan" || lord.CurLordToil.GetType().Name == "LordToil_DefendPoint") //internal class, therefore this way of accessing. 
+            else if(lord.CurLordToil.GetType().Name == "LordToil_DefendTraderCaravan" || lord.CurLordToil is LordToil_DefendPoint) //first option is internal class, hence this way of accessing. 
             {
                 if (PawnData.mount != null)
                 {
@@ -75,7 +98,7 @@ namespace GiddyUpCore.Harmony
                 }
             }
         }
-
+        
         private static void mountAnimal(Pawn_JobTracker __instance, Pawn pawn, ExtendedPawnData pawnData, ref ThinkResult __result)
         {
             Job mountJob = new Job(GUC_JobDefOf.Mount, pawnData.owning);
@@ -84,7 +107,7 @@ namespace GiddyUpCore.Harmony
             pawn.mindState.duty = new PawnDuty(DutyDefOf.ExitMapBest);
         }
 
-        private static void parkAnimal(Pawn_JobTracker __instance, Pawn pawn, ExtendedPawnData PawnData)
+        private static void parkAnimal(Pawn_JobTracker __instance, Pawn pawn, ExtendedPawnData pawnData)
         {
             Area_Stable areaFound = (Area_Stable) pawn.Map.areaManager.GetLabeled(Base.STABLE_LABEL);
             IntVec3 targetLoc = pawn.Position;
@@ -98,7 +121,7 @@ namespace GiddyUpCore.Harmony
             dismountJob.count = 1;
             __instance.jobQueue.EnqueueFirst(dismountJob);
             __instance.jobQueue.EnqueueFirst(new Job(JobDefOf.Goto, targetLoc));
-            PawnDuty animalDuty = PawnData.mount.mindState.duty;
+            PawnDuty animalDuty = pawnData.mount.mindState.duty;
             if(animalDuty != null)
             {
                 animalDuty.focus = new LocalTargetInfo(targetLoc);
