@@ -9,19 +9,20 @@ using Verse;
 
 namespace GiddyUpCore.Zones
 {
-    public class Area_Stable : Area
+    public class Area_GU : Area
     {
-        private String label = Base.STABLE_LABEL;
+        private String label;
         
         private Color color = Color.magenta;
 
-        public Area_Stable()
+        public Area_GU()
         {
 
         }
-        public Area_Stable(AreaManager areaManager) : base(areaManager)
+        public Area_GU(AreaManager areaManager, string label) : base(areaManager)
         {
             this.color = new Color(Rand.Value, Rand.Value, Rand.Value);
+            this.label = label;
         }
 
         public override string Label

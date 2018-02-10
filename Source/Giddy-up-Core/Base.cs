@@ -18,7 +18,6 @@ namespace GiddyUpCore
     {
         private ExtendedDataStorage _extendedDataStorage;
         public static Base Instance { get; private set; }
-        internal const string STABLE_LABEL = "GUC_Area_Stable";
         internal static SettingHandle<float> handlingMovementImpact;
         public static SettingHandle<DictAnimalRecordHandler> animalSelecter;
         public static SettingHandle<DictAnimalRecordHandler> drawSelecter;
