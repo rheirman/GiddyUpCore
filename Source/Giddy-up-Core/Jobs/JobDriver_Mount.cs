@@ -17,12 +17,13 @@ namespace GiddyUpCore.Jobs
             return true;
         }
         private Pawn Mount { get { return job.targetA.Thing as Pawn; } }
-
+        
         protected override IEnumerable<Toil> MakeNewToils()
         {
-
+            job.canBash = true;
             this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
             this.FailOnDowned(TargetIndex.A);
+
             yield return letMountParticipate();
             yield return Toils_General.Wait(1);//wait one tick to ensure animal is waiting to get mounted before proceding. 
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
@@ -34,7 +35,7 @@ namespace GiddyUpCore.Jobs
             Toil toil = new Toil();
 
             toil.defaultCompleteMode = ToilCompleteMode.Never;
-            //Log.Message("letMountParticipate");
+            Log.Message("letMountParticipate");
             toil.initAction = delegate
             {
                 Mount.jobs.StopAll();

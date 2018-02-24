@@ -31,46 +31,46 @@ namespace GiddyUpCore.Jobs
         {
             if(riderData == null)
             {
-                //Log.Message("riderData is null");
+                Log.Message("riderData is null");
                 return true;
             }
             if (shouldEnd)
             {
-                //Log.Message("cancel job, shouldEnd called");
+                Log.Message("cancel job, shouldEnd called");
                 return true;
             }
             Thing thing = pawn as Thing;
             if (Rider.Downed || Rider.Dead || pawn.Downed || pawn.Dead || pawn.IsBurning() || Rider.IsBurning())
             {
-                //Log.Message("cancel job, rider downed or dead");
+                Log.Message("cancel job, rider downed or dead");
                 return true;
             }
             if (pawn.InMentalState || (Rider.InMentalState && Rider.MentalState.def != MentalStateDefOf.PanicFlee))
             {
-                //Log.Message("cancel job, rider or mount in mental state");
+                Log.Message("cancel job, rider or mount in mental state");
                 return true;
             }
             if (!Rider.Spawned)
             {
                 if (!Rider.IsColonist && !Rider.Dead)
                 {
-                    //Log.Message("rider not spawned, despawn");
+                    Log.Message("rider not spawned, despawn");
                     pawn.ExitMap(false);
                     return true;
                 }
                 else if(Rider.IsColonist)
                 {
-                    //Log.Message("rider moved to map, despawn");
+                    Log.Message("rider moved to map, despawn");
                     pawn.ExitMap(true);
                     return true;
                 }
                 else
                 {
-                    //Log.Message("rider died, dismount");
+                    Log.Message("rider died, dismount");
                     return true;
                 }
             }
-            /*
+            
             if (!Rider.Drafted && Rider.IsColonist )
             {
                 if((Rider.mindState != null && Rider.mindState.duty != null && (Rider.mindState.duty.def == DutyDefOf.TravelOrWait || Rider.mindState.duty.def == DutyDefOf.TravelOrLeave || riderData.owning != null)))
@@ -83,7 +83,7 @@ namespace GiddyUpCore.Jobs
                     Log.Message("cancel job, rider not drafted while being colonist");
                 }
             }
-            */
+            
 
 
             if (riderData.mount == null)
@@ -109,10 +109,9 @@ namespace GiddyUpCore.Jobs
                 {
                     ReadyForNextToil();
                 }
-                if (Rider.CurJob.def != GUC_JobDefOf.Mount && Rider.CurJob.def != JobDefOf.Vomit && Rider.CurJob.def != JobDefOf.WaitMaintainPosture && Rider.CurJob.def != JobDefOf.SocialRelax && riderData.mount == null)
+                if (Rider.CurJob.def != GUC_JobDefOf.Mount && Rider.CurJob.def != JobDefOf.Vomit && Rider.CurJob.def != JobDefOf.WaitMaintainPosture && Rider.CurJob.def != JobDefOf.SocialRelax && Rider.CurJob.def != JobDefOf.Wait && riderData.mount == null)
                 {
-                    Log.Message("cancel wait for rider, rider is not mounting, curJob: " + Rider.CurJob.def.defName);
-                    
+                    Log.Message("cancel wait for rider, rider is not mounting, curJob: " + Rider.CurJob.def.defName);                  
                     shouldEnd = true;
                     ReadyForNextToil();
                 }
