@@ -95,19 +95,19 @@ namespace GiddyUpCore.Utilities
             if (rndInt <= inBiomeWeightNormalized)//TODO: change this
             {
                 pawnKindDef = (from a in map.Biome.AllWildAnimals
-                               where map.mapTemperature.SeasonAcceptableFor(a.race) && isMountable(a.defName)
+                               where map.mapTemperature.SeasonAcceptableFor(a.race) && IsMountableUtility.isAllowedInModOptions(a.defName)
                                select a).RandomElementByWeight((PawnKindDef def) => calculateCommonality(def, map, pawnHandlingLevel));
             }
             else if (rndInt <= inBiomeWeightNormalized + outBiomeWeightNormalized)
             {
                 pawnKindDef = (from a in DefDatabase<PawnKindDef>.AllDefs
-                               where isAnimal(a) && a.wildSpawn_spawnWild && map.mapTemperature.SeasonAcceptableFor(a.race) && isMountable(a.defName)
+                               where isAnimal(a) && a.wildSpawn_spawnWild && map.mapTemperature.SeasonAcceptableFor(a.race) && IsMountableUtility.isAllowedInModOptions(a.defName)
                                select a).RandomElementByWeight((PawnKindDef def) => calculateCommonality(def, map, pawnHandlingLevel));
             }
             else
             {
                 pawnKindDef = (from a in DefDatabase<PawnKindDef>.AllDefs
-                               where isAnimal(a) && !a.wildSpawn_spawnWild && map.mapTemperature.SeasonAcceptableFor(a.race) && isMountable(a.defName)
+                               where isAnimal(a) && !a.wildSpawn_spawnWild && map.mapTemperature.SeasonAcceptableFor(a.race) && IsMountableUtility.isAllowedInModOptions(a.defName)
                                select a).RandomElementByWeight((PawnKindDef def) => 1 - def.RaceProps.wildness);
             }
 
@@ -143,18 +143,6 @@ namespace GiddyUpCore.Utilities
             {
                 return -1;
             }
-        }
-
-        //TODO: refactor this, should be in core
-        private static bool isMountable(String animalName)
-        {
-            GiddyUpCore.AnimalRecord value;
-            bool found = GiddyUpCore.Base.animalSelecter.Value.InnerList.TryGetValue(animalName, out value);
-            if (found && value.isSelected)
-            {
-                return true;
-            }
-            return false;
         }
     }
 }

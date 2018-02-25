@@ -7,10 +7,10 @@ using Verse;
 
 namespace GiddyUpCore.Utilities
 {
-    public class CanMountUtility
+    public static class IsMountableUtility
     {
         public enum Reason{NotFullyGrown, NeedsObedience, NotInModOptions, CanMount};
-        public static bool canMount(Pawn animal, out Reason reason)
+        public static bool isMountable(Pawn animal, out Reason reason)
         {
             bool canMount = true;
             reason = Reason.CanMount;
@@ -24,13 +24,23 @@ namespace GiddyUpCore.Utilities
                 reason = Reason.NeedsObedience;
                 canMount = false;
             }
-            bool found = GiddyUpCore.Base.animalSelecter.Value.InnerList.TryGetValue(animal.def.defName, out AnimalRecord value);
-            if (found && !value.isSelected)
+            if (!isAllowedInModOptions(animal.def.defName))
             {
                 reason = Reason.NotInModOptions;
                 canMount = false;
             }
             return canMount;
+        }
+
+        public static bool isAllowedInModOptions(String animalName)
+        {
+            GiddyUpCore.AnimalRecord value;
+            bool found = GiddyUpCore.Base.animalSelecter.Value.InnerList.TryGetValue(animalName, out value);
+            if (found && value.isSelected)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
