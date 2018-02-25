@@ -10,26 +10,31 @@ namespace GiddyUpCore.Utilities
     public static class IsMountableUtility
     {
         public enum Reason{NotFullyGrown, NeedsObedience, NotInModOptions, CanMount};
+
+        public static bool isMountable(Pawn animal)
+        {
+            return isMountable(animal, out Reason reason);
+        }
+
         public static bool isMountable(Pawn animal, out Reason reason)
         {
-            bool canMount = true;
             reason = Reason.CanMount;
-            if (animal.ageTracker.CurLifeStageIndex != animal.RaceProps.lifeStageAges.Count - 1)
-            {
-                reason = Reason.NotFullyGrown;
-                canMount = false;
-            }
-            if (!(animal.training != null && animal.training.IsCompleted(TrainableDefOf.Obedience)))
-            {
-                reason = Reason.NeedsObedience;
-                canMount = false;
-            }
             if (!isAllowedInModOptions(animal.def.defName))
             {
                 reason = Reason.NotInModOptions;
-                canMount = false;
+                return false;
             }
-            return canMount;
+            if (animal.ageTracker.CurLifeStageIndex != animal.RaceProps.lifeStageAges.Count - 1)
+            {
+                reason = Reason.NotFullyGrown;
+                return false;
+            }
+            if (animal.training == null || (animal.training != null && !animal.training.IsCompleted(TrainableDefOf.Obedience)))
+            {
+                reason = Reason.NeedsObedience;
+                return false;
+            }
+            return true;
         }
 
         public static bool isAllowedInModOptions(String animalName)
