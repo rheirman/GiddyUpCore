@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Verse;
+using Verse.AI;
 
 namespace GiddyUpCore.Harmony
 {
@@ -20,16 +21,14 @@ namespace GiddyUpCore.Harmony
             //If an enemy animal is downed, make it a wild animal so it can be rescued. 
             if (pawn.RaceProps.Animal && pawn.Faction != null && !pawn.Faction.IsPlayer)
             {
-                ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
                 pawn.SetFaction(null);
-
             }
 
             //If the owner of an NPC mount is downed, let the animal flee
             if (pawn.RaceProps.Humanlike && pawn.Faction != null && !pawn.Faction.IsPlayer)
             {
                 ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
-                if (pawnData.owning != null)
+                if (pawnData != null && pawnData.owning != null && !pawnData.owning.Dead && pawnData.owning.Spawned)
                 {
                     pawnData.owning.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.PanicFlee);
                 }
@@ -48,7 +47,7 @@ namespace GiddyUpCore.Harmony
             if (pawn.RaceProps.Humanlike && pawn.Faction != null && !pawn.Faction.IsPlayer)
             {
                 ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
-                if (pawnData.owning != null)
+                if (pawnData != null && pawnData.owning != null && !pawnData.owning.Dead && pawnData.owning.Spawned)
                 {
                     pawnData.owning.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.PanicFlee);
                 }

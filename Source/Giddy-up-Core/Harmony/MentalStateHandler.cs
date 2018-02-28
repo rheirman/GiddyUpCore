@@ -21,7 +21,11 @@ namespace GiddyUpCore.Harmony
                 Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
                 if(pawn.CurJob != null && pawn.CurJob.def == GUC_JobDefOf.Mounted)
                 {
-                    return false;
+                    ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
+                    if(pawnData.ownedBy != null && !pawnData.ownedBy.Dead && !pawnData.ownedBy.Downed)
+                    {
+                        return false;
+                    }
                 }
             }
             return true;
