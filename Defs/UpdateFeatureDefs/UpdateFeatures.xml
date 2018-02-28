@@ -33,7 +33,8 @@ Note: Place this spot in a room and you have your own stable for guests!
 
 &lt;color=orange&gt;&lt;b&gt; Small changes and fixes  &lt;/b&gt;&lt;/color&gt;
 - The caravan dialog should no longer lag when using Giddy-up! Caravan. 
-- Fixed GUI issue in caravan dialog that appeared when a mount died during a map event (like an ambush).
+- Fixed UI issue in caravan dialog that appeared when a mount died during a map event (like an ambush).
+- Fixed UI issue in caravan dialog that made it impossible to use multiple similar mounts that still had their default name. 
 - The right click menu item for mounting now also displays the mounts name when using Giddy-up! Battle Mounts.
 - Updated Spanish translations (by mora145)
 		
