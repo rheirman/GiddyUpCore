@@ -27,10 +27,14 @@ namespace GiddyUpCore.Harmony
             //If the owner of an NPC mount is downed, let the animal flee
             if (pawn.RaceProps.Humanlike && pawn.Faction != null && !pawn.Faction.IsPlayer)
             {
-                ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
-                if (pawnData != null && pawnData.owning != null && !pawnData.owning.Dead && pawnData.owning.Spawned)
+                ExtendedDataStorage dataStorage = Base.Instance.GetExtendedDataStorage();
+                if(dataStorage != null)
                 {
-                    pawnData.owning.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.PanicFlee);
+                    ExtendedPawnData pawnData = dataStorage.GetExtendedDataFor(pawn);
+                    if (pawnData != null && pawnData.owning != null && !pawnData.owning.Dead && pawnData.owning.Spawned)
+                    {
+                        pawnData.owning.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.PanicFlee);
+                    }
                 }
             }
         }
@@ -46,10 +50,14 @@ namespace GiddyUpCore.Harmony
             //If the owner of an NPC mount is downed, let the animal flee
             if (pawn.RaceProps.Humanlike && pawn.Faction != null && !pawn.Faction.IsPlayer)
             {
-                ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
-                if (pawnData != null && pawnData.owning != null && !pawnData.owning.Dead && pawnData.owning.Spawned)
+                ExtendedDataStorage dataStorage = Base.Instance.GetExtendedDataStorage();
+                if (dataStorage != null)
                 {
-                    pawnData.owning.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.PanicFlee);
+                    ExtendedPawnData pawnData = dataStorage.GetExtendedDataFor(pawn);
+                    if (pawnData != null && pawnData.owning != null && !pawnData.owning.Dead && pawnData.owning.Spawned)
+                    {
+                        pawnData.owning.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.PanicFlee);
+                    }
                 }
             }
         }

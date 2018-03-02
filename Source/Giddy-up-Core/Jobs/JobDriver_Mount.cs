@@ -35,7 +35,6 @@ namespace GiddyUpCore.Jobs
             Toil toil = new Toil();
 
             toil.defaultCompleteMode = ToilCompleteMode.Never;
-            Log.Message("letMountParticipate");
             toil.initAction = delegate
             {
                 Mount.jobs.StopAll();
