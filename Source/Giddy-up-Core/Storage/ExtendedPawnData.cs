@@ -17,6 +17,10 @@ namespace GiddyUpCore.Storage
         public Pawn ownedBy = null;
         public Pawn owning = null;
         public bool selectedForCaravan = false;
+        public bool mountableByAnyone = false; //used in Giddy-up Ride and Roll
+        public bool mountableByMaster = true; //used in Giddy-up Ride and Roll
+        public bool wasRidingToJob = false;//used in Giddy-up Ride and Roll
+
         public float drawOffset = -1;
         
 
@@ -28,6 +32,9 @@ namespace GiddyUpCore.Storage
             Scribe_References.Look(ref ownedBy, "ownedBy", false);
             Scribe_References.Look(ref owning, "owning", false);
             Scribe_Values.Look(ref selectedForCaravan, "selectedForCaravan", false);
+            Scribe_Values.Look(ref mountableByAnyone, "mountableByAnyone", false);
+            Scribe_Values.Look(ref mountableByMaster, "mountableByMaster", true);
+            Scribe_Values.Look(ref wasRidingToJob, "wasRidingToJob", false);
             Scribe_Values.Look(ref drawOffset, "drawOffset", 0);
 
         }

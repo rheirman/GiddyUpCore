@@ -27,13 +27,58 @@ namespace GiddyUpCore.Utilities
                     return false;
                 }
             }
+
             Predicate<PawnKindDef> isAnimal = (PawnKindDef d) => d.race != null && d.race.race.Animal;
 
-            int enemyMountChance = getMountChance(parms, mountChance, mountChanceTribal);
-            if (enemyMountChance == -1)//wrong faction
+            mountChance = getMountChance(parms, mountChance, mountChanceTribal);
+            if (mountChance == -1)//wrong faction
             {
                 return false;
             }
+            List<string> factionFarmAnimalRestrictions = new List<string>();
+            List<string> factionWildAnimalRestrictions = new List<string>();
+            Log.Message("Faction: " + parms.faction.def);
+            if (parms.faction.def.HasModExtension<FactionRestrictionsPatch>())
+            {
+                Log.Message("Faction has mod exstension");
+                FactionRestrictionsPatch factionRestrictions = parms.faction.def.GetModExtension<FactionRestrictionsPatch>();
+                factionFarmAnimalRestrictions = factionRestrictions.getAllowedFarmAnimalsAsList();
+                factionWildAnimalRestrictions = factionRestrictions.getAllowedWildAnimalsAsList();
+
+                if(factionRestrictions.mountChance > -1)
+                {
+                    mountChance = factionRestrictions.mountChance;
+                }
+
+                if(!factionWildAnimalRestrictions.NullOrEmpty() && factionFarmAnimalRestrictions.NullOrEmpty() && factionRestrictions.wildAnimalWeight >= 0)
+                {
+                    Log.Message("out biome only");
+                    inBiomeWeight = 0;
+                    nonWildWeight = 0;
+                    outBiomeWeight = factionRestrictions.wildAnimalWeight;
+                }
+                if (factionWildAnimalRestrictions.NullOrEmpty() && !factionFarmAnimalRestrictions.NullOrEmpty() && factionRestrictions.domesticAnimalWeight >= 0)
+                {
+                    Log.Message("non wild only");
+                    inBiomeWeight = 0;
+                    outBiomeWeight = 0;
+                    nonWildWeight = factionRestrictions.domesticAnimalWeight;
+                }
+                if (!factionWildAnimalRestrictions.NullOrEmpty() && !factionFarmAnimalRestrictions.NullOrEmpty())
+                {
+                    Log.Message("both");
+                    inBiomeWeight = 0;
+                    if(factionRestrictions.wildAnimalWeight >= 0)
+                    outBiomeWeight = factionRestrictions.wildAnimalWeight;
+                    if (factionRestrictions.domesticAnimalWeight >= 0)
+                    nonWildWeight = factionRestrictions.domesticAnimalWeight;
+                }
+            }
+            Log.Message("inBiomeWeight: " + inBiomeWeight);
+            Log.Message("nonWildWeight: " + nonWildWeight);
+            Log.Message("outBiomeWeight: " + outBiomeWeight);
+
+
             Random rand = new Random(DateTime.Now.Millisecond);
 
             int totalWeight = inBiomeWeight + outBiomeWeight + nonWildWeight;
@@ -45,13 +90,13 @@ namespace GiddyUpCore.Utilities
             {
                 //TODO add chance
                 int rndInt = rand.Next(1, 100);
-                if (enemyMountChance <= rndInt || !pawn.RaceProps.Humanlike)
+                if (mountChance <= rndInt || !pawn.RaceProps.Humanlike)
                 {
                     continue;
                 }
-                rndInt = rand.Next(1, 100);
                 int pawnHandlingLevel = pawn.skills.GetSkill(SkillDefOf.Animals).Level;
-                PawnKindDef pawnKindDef = determinePawnKind(map, isAnimal, inBiomeWeightNormalized, outBiomeWeightNormalized, rndInt, pawnHandlingLevel);
+
+                PawnKindDef pawnKindDef = determinePawnKind(map, isAnimal, inBiomeWeightNormalized, outBiomeWeightNormalized, rndInt, pawnHandlingLevel, factionFarmAnimalRestrictions, factionWildAnimalRestrictions);
 
                 if (pawnKindDef == null)
                 {
@@ -91,26 +136,41 @@ namespace GiddyUpCore.Utilities
 
         }
 
-        private static PawnKindDef determinePawnKind(Map map, Predicate<PawnKindDef> isAnimal, float inBiomeWeightNormalized, float outBiomeWeightNormalized, int rndInt, int pawnHandlingLevel)
+        private static PawnKindDef determinePawnKind(Map map, Predicate<PawnKindDef> isAnimal, float inBiomeWeightNormalized, float outBiomeWeightNormalized, int rndInt, int pawnHandlingLevel, List<string> factionFarmAnimalRestrictions, List<string> factionWildAnimalRestrictions)
         {
-            PawnKindDef pawnKindDef;
-            if (rndInt <= inBiomeWeightNormalized)//TODO: change this
+            PawnKindDef pawnKindDef = null;
+
+
+
+            if (factionWildAnimalRestrictions.NullOrEmpty() && rndInt <= inBiomeWeightNormalized)
             {
-                pawnKindDef = (from a in map.Biome.AllWildAnimals
-                               where map.mapTemperature.SeasonAcceptableFor(a.race) && IsMountableUtility.isAllowedInModOptions(a.defName)
-                               select a).RandomElementByWeight((PawnKindDef def) => calculateCommonality(def, map, pawnHandlingLevel));
+                Log.Message("trying to spawn inbiomeweight animal rndInt: " + rndInt + " inBiomeWeightNormalized: " + inBiomeWeightNormalized);
+                (from a in map.Biome.AllWildAnimals
+                               where map.mapTemperature.SeasonAcceptableFor(a.race) 
+                               && IsMountableUtility.isAllowedInModOptions(a.defName)
+                               select a).TryRandomElementByWeight((PawnKindDef def) => calculateCommonality(def, map, pawnHandlingLevel), out pawnKindDef);
             }
             else if (rndInt <= inBiomeWeightNormalized + outBiomeWeightNormalized)
             {
-                pawnKindDef = (from a in DefDatabase<PawnKindDef>.AllDefs
-                               where isAnimal(a) && a.wildSpawn_spawnWild && map.mapTemperature.SeasonAcceptableFor(a.race) && IsMountableUtility.isAllowedInModOptions(a.defName)
-                               select a).RandomElementByWeight((PawnKindDef def) => calculateCommonality(def, map, pawnHandlingLevel));
+                Log.Message("trying to spawn out biomeweight animal rndInt: " + rndInt + " outBiomeWeightNormalized: " + outBiomeWeightNormalized);
+                (from a in DefDatabase<PawnKindDef>.AllDefs
+                               where isAnimal(a) 
+                               && a.wildSpawn_spawnWild 
+                               && map.mapTemperature.SeasonAcceptableFor(a.race) 
+                               && IsMountableUtility.isAllowedInModOptions(a.defName)
+                               && (factionWildAnimalRestrictions.NullOrEmpty() || factionWildAnimalRestrictions.Contains(a.defName))
+                               select a).TryRandomElementByWeight((PawnKindDef def) => calculateCommonality(def, map, pawnHandlingLevel), out pawnKindDef);
             }
             else
             {
-                pawnKindDef = (from a in DefDatabase<PawnKindDef>.AllDefs
-                               where isAnimal(a) && !a.wildSpawn_spawnWild && map.mapTemperature.SeasonAcceptableFor(a.race) && IsMountableUtility.isAllowedInModOptions(a.defName)
-                               select a).RandomElementByWeight((PawnKindDef def) => 1 - def.RaceProps.wildness);
+                Log.Message("trying to spawn non wild animal rndInt: " + rndInt + " outBiomeWeightNormalized: " + outBiomeWeightNormalized);
+                (from a in DefDatabase<PawnKindDef>.AllDefs
+                               where isAnimal(a) 
+                               && !a.wildSpawn_spawnWild 
+                               && map.mapTemperature.SeasonAcceptableFor(a.race) 
+                               && IsMountableUtility.isAllowedInModOptions(a.defName)
+                               && (factionFarmAnimalRestrictions.NullOrEmpty() || factionFarmAnimalRestrictions.Contains(a.defName))
+                 select a).TryRandomElementByWeight((PawnKindDef def) => 1 - def.RaceProps.wildness, out pawnKindDef);
             }
 
             return pawnKindDef;

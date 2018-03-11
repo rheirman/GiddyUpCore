@@ -86,7 +86,7 @@ namespace GiddyUpCore.Harmony
         /*
         static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            Log.Message("calling transpiler");
+            //Log.Message("calling transpiler");
 
             var instructionsList = new List<CodeInstruction>(instructions);
             for (var i = 0; i < instructionsList.Count; i++)
@@ -94,11 +94,11 @@ namespace GiddyUpCore.Harmony
 
                 //Log.Message(instructionsList[i].labels.ToString());
                 if(instructionsList[i].operand != null)
-                Log.Message(instructionsList[i].operand.ToString());
+                //Log.Message(instructionsList[i].operand.ToString());
 
                 if (instructionsList[i].operand == typeof(Pawn_JobTracker).GetMethod("EndCurrentJob"))
                 {
-                    Log.Message("found EndCurrentJob");
+                    //Log.Message("found EndCurrentJob");
                     yield return new CodeInstruction(OpCodes.Call, typeof(Pawn_PlayerSettings_GetGizmos).GetMethod("EndCurrentJob"));//Injected code     
                 }
                 else
@@ -110,7 +110,7 @@ namespace GiddyUpCore.Harmony
         }
         public static void EndCurrentJob(Pawn pawn, JobCondition condition, bool startNewJob = true)
         {
-            Log.Message("EndCurrentJob called, pawn: " + pawn.Name);
+            //Log.Message("EndCurrentJob called, pawn: " + pawn.Name);
         }
         */
 

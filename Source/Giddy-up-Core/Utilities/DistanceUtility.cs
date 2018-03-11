@@ -25,13 +25,21 @@ namespace GiddyUpCore.Utilities
             }
             return job.GetTarget(index);
         }
-        public static IntVec3 getClosestAreaLoc(Pawn pawn, Area_GU areaFound)
+        public static LocalTargetInfo GetLastTarget(Job job, TargetIndex index)
+        {
+            if (!job.GetTargetQueue(index).NullOrEmpty<LocalTargetInfo>())
+            {
+                return job.GetTargetQueue(index)[job.GetTargetQueue(index).Count - 1];
+            }
+            return job.GetTarget(index);
+        }
+        public static IntVec3 getClosestAreaLoc(IntVec3 sourceLocation, Area_GU areaFound)
         {
             IntVec3 targetLoc = new IntVec3();
             double minDistance = double.MaxValue;
             foreach (IntVec3 loc in areaFound.ActiveCells)
             {
-                double distance = DistanceUtility.QuickDistance(loc, pawn.Position);
+                double distance = DistanceUtility.QuickDistance(loc, sourceLocation);
                 if (distance < minDistance)
                 {
                     minDistance = distance;
@@ -39,6 +47,11 @@ namespace GiddyUpCore.Utilities
                 }
             }
             return targetLoc;
+        }
+
+        public static IntVec3 getClosestAreaLoc(Pawn pawn, Area_GU areaFound)
+        {
+            return getClosestAreaLoc(pawn.Position, areaFound);
         }
     }
 }

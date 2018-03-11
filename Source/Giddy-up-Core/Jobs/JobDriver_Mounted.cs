@@ -71,7 +71,7 @@ namespace GiddyUpCore.Jobs
                 }
             }
             
-            if (!Rider.Drafted && Rider.IsColonist )
+            if (!Rider.Drafted && Rider.IsColonist && (riderData.owning == null || riderData.owning != pawn)) //TODO refactor this as a postfix in Giddy-up Caravan. 
             {
                 if((Rider.mindState != null && Rider.mindState.duty != null && (Rider.mindState.duty.def == DutyDefOf.TravelOrWait || Rider.mindState.duty.def == DutyDefOf.TravelOrLeave || riderData.owning != null)))
                 {
@@ -146,18 +146,24 @@ namespace GiddyUpCore.Jobs
                 pawn.Rotation = Rider.Rotation;
             };
 
-            toil.AddFinishAction(delegate {
-                isFinished = true;
-                riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
-                riderData.reset();
-                pawn.Drawer.tweener = new PawnTweener(pawn);
-                pawn.Position = Rider.Position;
-                pawn.pather.ResetToCurrentPosition();
+            toil.AddFinishAction(delegate
+            {
+                FinishAction();
 
             });
 
             return toil;
 
+        }
+
+        private void FinishAction()
+        {
+            isFinished = true;
+            riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
+            riderData.reset();
+            pawn.Drawer.tweener = new PawnTweener(pawn);
+            pawn.Position = Rider.Position;
+            pawn.pather.ResetToCurrentPosition();
         }
 
         private void tryAttackEnemy()
