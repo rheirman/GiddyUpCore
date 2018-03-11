@@ -35,15 +35,13 @@ In the example, the Pirate faction is patched so that it only uses Muffalos and 
 		<li Class="PatchOperationAdd">
 			<xpath>*/FactionDef[ defName = "Pirate"]/modExtensions</xpath> 
 			<value>
-				<modExtensions>
-					<li Class="GiddyUpCore.FactionRestrictionsPatch">
-						<mountChance>30</mountChance>
-						<wildAnimalWeight>100</wildAnimalWeight> <!--Weights can have any integer value, and the relative fraction to the other weight will determine the change a type of animal spawns-->
-						<domesticAnimalWeight>0</domesticAnimalWeight> <!-- setting this to 0 ensures no default domestic animals are spawned -->
-						<allowedWildAnimalsCSV>Muffalo,Cougar</allowedWildAnimalsCSV> <!--Use a csv with animal DefNames-->
-						<allowedDomesticAnimalsCSV>""</allowedDomesticAnimalsCSV> <!-- only making this empty will imply no restrictions at all, so make sure domesticAnimalWeight is 0 if you don't want any domestic animals-->
-					</li>
-				</modExtensions>
+				<li Class="GiddyUpCore.FactionRestrictionsPatch">
+					<mountChance>30</mountChance>
+					<wildAnimalWeight>100</wildAnimalWeight> <!--Weights can have any integer value, and the relative fraction to the other weight will determine the change a type of animal spawns-->
+					<domesticAnimalWeight>0</domesticAnimalWeight> <!-- setting this to 0 ensures no default domestic animals are spawned -->
+					<allowedWildAnimalsCSV>Muffalo,Cougar</allowedWildAnimalsCSV> <!--Use a csv with animal DefNames-->
+					<allowedDomesticAnimalsCSV></allowedDomesticAnimalsCSV> <!-- only making this empty will imply no restrictions at all, so make sure domesticAnimalWeight is 0 if you don't want any domestic animals-->
+				</li>
 			</value>
 		</li>
 		</operations>
