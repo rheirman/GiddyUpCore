@@ -28,6 +28,7 @@ If you want a certain faction only to use certain mounts, you can create a patch
 In the example, the Pirate faction is patched so that it only uses Muffalos and Cougars. Two patches are used to ensure it also works when the faction already has a modExtensions tag. 
  
 ```xml
+<Patch>
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
 		<operations>
@@ -67,4 +68,5 @@ In the example, the Pirate faction is patched so that it only uses Muffalos and 
 		</li>
 		</operations>
 	</Operation>
+</Patch>
 ```
