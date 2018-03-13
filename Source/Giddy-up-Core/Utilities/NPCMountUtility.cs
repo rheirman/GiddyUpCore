@@ -37,12 +37,10 @@ namespace GiddyUpCore.Utilities
             }
             List<string> factionFarmAnimalRestrictions = new List<string>();
             List<string> factionWildAnimalRestrictions = new List<string>();
-            Log.Message("Faction: " + parms.faction.def);
             if (parms.faction.def.HasModExtension<FactionRestrictionsPatch>())
             {
-                Log.Message("Faction has mod exstension");
                 FactionRestrictionsPatch factionRestrictions = parms.faction.def.GetModExtension<FactionRestrictionsPatch>();
-                factionFarmAnimalRestrictions = factionRestrictions.getAllowedFarmAnimalsAsList();
+                factionFarmAnimalRestrictions = factionRestrictions.getAllowedNonWildAnimalsAsList();
                 factionWildAnimalRestrictions = factionRestrictions.getAllowedWildAnimalsAsList();
 
                 if(factionRestrictions.mountChance > -1)
@@ -52,32 +50,25 @@ namespace GiddyUpCore.Utilities
 
                 if(!factionWildAnimalRestrictions.NullOrEmpty() && factionFarmAnimalRestrictions.NullOrEmpty() && factionRestrictions.wildAnimalWeight >= 0)
                 {
-                    Log.Message("out biome only");
                     inBiomeWeight = 0;
                     nonWildWeight = 0;
                     outBiomeWeight = factionRestrictions.wildAnimalWeight;
                 }
-                if (factionWildAnimalRestrictions.NullOrEmpty() && !factionFarmAnimalRestrictions.NullOrEmpty() && factionRestrictions.domesticAnimalWeight >= 0)
+                if (factionWildAnimalRestrictions.NullOrEmpty() && !factionFarmAnimalRestrictions.NullOrEmpty() && factionRestrictions.nonWildAnimalWeight >= 0)
                 {
-                    Log.Message("non wild only");
                     inBiomeWeight = 0;
                     outBiomeWeight = 0;
-                    nonWildWeight = factionRestrictions.domesticAnimalWeight;
+                    nonWildWeight = factionRestrictions.nonWildAnimalWeight;
                 }
                 if (!factionWildAnimalRestrictions.NullOrEmpty() && !factionFarmAnimalRestrictions.NullOrEmpty())
                 {
-                    Log.Message("both");
                     inBiomeWeight = 0;
                     if(factionRestrictions.wildAnimalWeight >= 0)
                     outBiomeWeight = factionRestrictions.wildAnimalWeight;
-                    if (factionRestrictions.domesticAnimalWeight >= 0)
-                    nonWildWeight = factionRestrictions.domesticAnimalWeight;
+                    if (factionRestrictions.nonWildAnimalWeight >= 0)
+                    nonWildWeight = factionRestrictions.nonWildAnimalWeight;
                 }
             }
-            Log.Message("inBiomeWeight: " + inBiomeWeight);
-            Log.Message("nonWildWeight: " + nonWildWeight);
-            Log.Message("outBiomeWeight: " + outBiomeWeight);
-
 
             Random rand = new Random(DateTime.Now.Millisecond);
 
@@ -144,7 +135,6 @@ namespace GiddyUpCore.Utilities
 
             if (factionWildAnimalRestrictions.NullOrEmpty() && rndInt <= inBiomeWeightNormalized)
             {
-                Log.Message("trying to spawn inbiomeweight animal rndInt: " + rndInt + " inBiomeWeightNormalized: " + inBiomeWeightNormalized);
                 (from a in map.Biome.AllWildAnimals
                                where map.mapTemperature.SeasonAcceptableFor(a.race) 
                                && IsMountableUtility.isAllowedInModOptions(a.defName)
@@ -152,7 +142,6 @@ namespace GiddyUpCore.Utilities
             }
             else if (rndInt <= inBiomeWeightNormalized + outBiomeWeightNormalized)
             {
-                Log.Message("trying to spawn out biomeweight animal rndInt: " + rndInt + " outBiomeWeightNormalized: " + outBiomeWeightNormalized);
                 (from a in DefDatabase<PawnKindDef>.AllDefs
                                where isAnimal(a) 
                                && a.wildSpawn_spawnWild 
@@ -163,7 +152,6 @@ namespace GiddyUpCore.Utilities
             }
             else
             {
-                Log.Message("trying to spawn non wild animal rndInt: " + rndInt + " outBiomeWeightNormalized: " + outBiomeWeightNormalized);
                 (from a in DefDatabase<PawnKindDef>.AllDefs
                                where isAnimal(a) 
                                && !a.wildSpawn_spawnWild 

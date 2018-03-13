@@ -29,9 +29,9 @@ namespace GiddyUpCore.Jobs
 
         private bool shouldCancelJob(ExtendedPawnData riderData)
         {
-            if(riderData == null)
+            if(riderData == null || riderData.mount == null)
             {
-                //Log.Message("riderData is null");
+                //Log.Message("riderData is null or riderData.mount is null");
                 return true;
             }
             if (shouldEnd)
@@ -79,8 +79,9 @@ namespace GiddyUpCore.Jobs
                 }
                 else
                 {
-                    return true;
                     //Log.Message("cancel job, rider not drafted while being colonist");
+                    //Log.Message("riderData.owning: " + riderData.owning);
+                    return true;
                 }
             }
             
@@ -148,22 +149,24 @@ namespace GiddyUpCore.Jobs
 
             toil.AddFinishAction(delegate
             {
-                FinishAction();
-
+                isFinished = true;
+                riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
+                riderData.reset();
+                pawn.Drawer.tweener = new PawnTweener(pawn);
+                pawn.Position = Rider.Position;
+                pawn.pather.ResetToCurrentPosition();
+                Log.Message("before calling ExtraFinishAction");
+                ExtraFinishAction();
             });
 
             return toil;
 
         }
 
-        private void FinishAction()
+        private void ExtraFinishAction()
         {
-            isFinished = true;
-            riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
-            riderData.reset();
-            pawn.Drawer.tweener = new PawnTweener(pawn);
-            pawn.Position = Rider.Position;
-            pawn.pather.ResetToCurrentPosition();
+            Log.Message("inside ExtraFinishAction");
+            //can be used for patches
         }
 
         private void tryAttackEnemy()

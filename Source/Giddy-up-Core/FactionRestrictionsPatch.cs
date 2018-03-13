@@ -9,14 +9,14 @@ namespace GiddyUpCore
     class FactionRestrictionsPatch : DefModExtension
     {
         //Can be used in xml patches to restrict animals per faction. 
-        string allowedDomesticAnimalsCSV = ""; 
+        string allowedNonWildAnimalsCSV = ""; 
         string allowedWildAnimalsCSV = "";
         public int mountChance = -1;
         public int wildAnimalWeight = -1;
-        public int domesticAnimalWeight = -1;
-        public List<string> getAllowedFarmAnimalsAsList()
+        public int nonWildAnimalWeight = -1;
+        public List<string> getAllowedNonWildAnimalsAsList()
         {
-            return allowedDomesticAnimalsCSV.Split(',').ToList();
+            return allowedNonWildAnimalsCSV.Split(',').ToList();
         }
         public List<string> getAllowedWildAnimalsAsList()
         {

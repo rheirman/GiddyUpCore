@@ -15,18 +15,30 @@ namespace GiddyUpCore.Jobs
         public override bool TryMakePreToilReservations()
         {
             //For automatic mounting, reserve the mount aswell as targets of the job the pawn is riding to (target B and possibly C). 
-            if(job.count == -1)
+            if (job.count == -1)
             {
                 job.count = 1;
             }
-
+            int stackCount = -1;
+            if (job.count > 1)
+            {
+                stackCount = 0;
+            }
+            if (!this.job.targetQueueA.NullOrEmpty())
+            {
+                this.pawn.ReserveAsManyAsPossible(this.job.targetQueueA, this.job, 1, -1, null);
+            }
+            if (!this.job.targetQueueB.NullOrEmpty())
+            {
+                this.pawn.ReserveAsManyAsPossible(this.job.targetQueueA, this.job, 1, -1, null);
+            }
             if (this.job.targetB != null && this.job.targetC != null)
             {
-                return this.pawn.Reserve(this.job.GetTarget(TargetIndex.B), this.job, 1, -1, null) && this.pawn.Reserve(this.job.GetTarget(TargetIndex.C), this.job, 1, -1, null);
+                return this.pawn.Reserve(this.job.GetTarget(TargetIndex.A), this.job, 1, -1, null) && this.pawn.Reserve(this.job.GetTarget(TargetIndex.B), this.job, 1, -1, null) && this.pawn.Reserve(this.job.GetTarget(TargetIndex.C), this.job, 1, -1, null);
             }
             else if (this.job.targetB != null)
             {
-                return this.pawn.Reserve(this.job.GetTarget(TargetIndex.B), this.job, this.job.count, -1, null);
+                return this.pawn.Reserve(this.job.GetTarget(TargetIndex.A), this.job, 1, -1, null) && this.pawn.Reserve(this.job.GetTarget(TargetIndex.B), this.job, this.job.count, stackCount, null);
             }
             return true;
         }
@@ -77,6 +89,9 @@ namespace GiddyUpCore.Jobs
                 {
                     Pawn actor = toil.GetActor();
                     ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(actor);
+                    ExtendedPawnData animalData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Mount);
+                    pawnData.owning = Mount;
+                    animalData.ownedBy = pawn;
                     pawnData.mount = (Pawn)((Thing)actor.CurJob.GetTarget(tameeInd));
                     TextureUtility.setDrawOffset(pawnData);
                 }
