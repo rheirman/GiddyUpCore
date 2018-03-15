@@ -18,4 +18,11 @@
  <GUC_SizeNotOk>Nicht reitbar</GUC_SizeNotOk>
  <GUC_DrawFront>Tier im Vordergrund</GUC_DrawFront>
  <GUC_DrawBack>Tier im Hintergrund</GUC_DrawBack>
+ 
+ <GUC_NotInModOptions>Aufsteigen nicht möglich, Tier in Mod-Einstellungen verboten</GUC_NotInModOptions>
+ <GUC_AnimalBusy>Aufsteigen nicht möglich, Tier beschäftigt</GUC_AnimalBusy>
+ <GUC_NotFullyGrown>Aufsteigen nicht möglich, Tier nicht ausgewachsen</GUC_NotFullyGrown>
+ <GUC_NeedsObedience>Aufsteigen nicht möglich, Tier nicht 'Gehorsam'</GUC_NeedsObedience>
+ <GUC_Mount>Aufsteigen</GUC_Mount>
+ <GUC_Dismount>Absteigen</GUC_Dismount>
 </LanguageData>

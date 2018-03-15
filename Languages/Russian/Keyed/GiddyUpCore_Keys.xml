@@ -18,4 +18,11 @@
  <GUC_SizeNotOk>Не седлаемые</GUC_SizeNotOk>
  <GUC_DrawFront>Животное спереди</GUC_DrawFront>
  <GUC_DrawBack>Животное позади наездника</GUC_DrawBack>
+ 
+ <GUC_NotInModOptions>Нельзя оседлать, животное запрещено в настройках мода</GUC_NotInModOptions>
+ <GUC_AnimalBusy>Нельзя оседлать, животное занято</GUC_AnimalBusy>
+ <GUC_NotFullyGrown>Нельзя оседлать, животное ещё не полностью выросло</GUC_NotFullyGrown>
+ <GUC_NeedsObedience>Нельзя оседлать, животное нужно обучить покорности</GUC_NeedsObedience>
+ <GUC_Mount>Оседлать</GUC_Mount>
+ <GUC_Dismount>Спешиться</GUC_Dismount>
 </LanguageData>

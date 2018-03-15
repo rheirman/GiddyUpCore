@@ -18,4 +18,11 @@
  <GUC_SizeNotOk>Not Mountable</GUC_SizeNotOk>
  <GUC_DrawFront>Animal in front</GUC_DrawFront>
  <GUC_DrawBack>Animal behind pawn</GUC_DrawBack>
+ 
+ <GUC_NotInModOptions>Cannot mount, animal not allowed in mod options</GUC_NotInModOptions>
+ <GUC_AnimalBusy>Cannot mount, animal busy</GUC_AnimalBusy>
+ <GUC_NotFullyGrown>Cannot mount, animal not fully grown</GUC_NotFullyGrown>
+ <GUC_NeedsObedience>Cannot mount, animal needs obedience training</GUC_NeedsObedience>
+ <GUC_Mount>Mount</GUC_Mount>
+ <GUC_Dismount>Dismount</GUC_Dismount>
 </LanguageData>

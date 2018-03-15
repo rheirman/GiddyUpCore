@@ -16,8 +16,8 @@ namespace GiddyUpCore.Jobs
         {
             return true;
         }
-        private Pawn Mount { get { return job.targetA.Thing as Pawn; } }
-        
+        public Pawn Mount { get { return job.targetA.Thing as Pawn; } }
+
         protected override IEnumerable<Toil> MakeNewToils()
         {
             job.canBash = true;
@@ -58,20 +58,22 @@ namespace GiddyUpCore.Jobs
             };
             toil.defaultCompleteMode = ToilCompleteMode.Delay;
             toil.defaultDuration = 150;
-            toil.AddFinishAction(delegate {
-                if (Mount.CurJob != null && Mount.CurJob.def == GUC_JobDefOf.Mounted)
-                {
-                    Pawn actor = toil.GetActor();
-                    ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(actor);
-                    ExtendedPawnData animalData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Mount);
-                    pawnData.owning = Mount;
-                    animalData.ownedBy = pawn;
-                    pawnData.mount = (Pawn)((Thing)actor.CurJob.GetTarget(tameeInd));
-                    TextureUtility.setDrawOffset(pawnData);
-                }
+            toil.AddFinishAction(delegate
+            {
+                FinishAction();
             });
             return toil;
         }
 
+        private void FinishAction()
+        {
+            if (Mount.CurJob != null && Mount.CurJob.def == GUC_JobDefOf.Mounted)
+            {
+                ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(this.pawn);
+                ExtendedPawnData animalData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Mount);
+                pawnData.mount = Mount;
+                TextureUtility.setDrawOffset(pawnData);
+            }
+        }
     }
 }

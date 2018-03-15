@@ -18,5 +18,12 @@ Muchos animales deberían dibujarse detrás de los personajes, pero algunos (esp
   <GUC_SizeNotOk>No Montable</GUC_SizeNotOk>
   <GUC_DrawFront>Animal al frente</GUC_DrawFront>
   <GUC_DrawBack>Animal detrás del personaje</GUC_DrawBack>
+  
+  <GUC_NotInModOptions>No se puede montar, el animal no está permitido en el mod</GUC_NotInModOptions>
+  <GUC_AnimalBusy>No se puede montar, el animal está ocupado</GUC_AnimalBusy>
+  <GUC_NotFullyGrown>No se puede montar, el animal no ha crecido lo suficiente</GUC_NotFullyGrown>
+  <GUC_NeedsObedience>No se puede montar, el animal necesita el entrenamiento de obediencia</GUC_NeedsObedience>
+  <GUC_Mount>Montar</GUC_Mount>
+  <GUC_Dismount>Desmontar</GUC_Dismount>
 
 </LanguageData>
