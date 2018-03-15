@@ -22,7 +22,7 @@ No patching is needed to get Giddy-up working for other animal adding mods. Howe
 In the mod options animals can be forbidden to be used as mount and the drawing priority of mounted animals can be configured. If you want to have this preconfigured for the animals in a mod you've developed, a patch can be created. 
 Check out Patches/Races.xml for an example. 
 
-### Restrict used mount per faction. (Not released yet, only available on master)
+### Restrict used mount per faction.
 
 If you want a certain faction only to use certain mounts, you can create a patch like the following example. You can also directly add a <modExtensions> tag to a FactionDef instead of patching. 
 In the example, the Pirate faction is patched so that it only uses Muffalos and Cougars. Two patches are used to ensure it also works when the faction already has a modExtensions tag. 
