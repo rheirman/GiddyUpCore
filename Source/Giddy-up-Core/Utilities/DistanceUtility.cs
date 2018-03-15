@@ -15,7 +15,7 @@ namespace GiddyUpCore.Utilities
         {
             float arg_1D_0 = (float)(a.x - b.x);
             float num = (float)(a.z - b.z);
-            return arg_1D_0 * arg_1D_0 + num * num;
+            return (float) Math.Sqrt(arg_1D_0 * arg_1D_0 + num * num);
         }
         public static LocalTargetInfo GetFirstTarget(Job job, TargetIndex index)
         {
