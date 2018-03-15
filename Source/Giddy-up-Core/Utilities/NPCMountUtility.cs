@@ -120,9 +120,7 @@ namespace GiddyUpCore.Utilities
             animal.jobs.TryTakeOrderedJob(jobAnimal);
             animalData.ownedBy = pawn;
             animal.playerSettings = new Pawn_PlayerSettings(animal);
-            animal.playerSettings.master = pawn;
             animal.training.Train(TrainableDefOf.Obedience, pawn);
-            
             pawnData.owning = animal;
 
         }
