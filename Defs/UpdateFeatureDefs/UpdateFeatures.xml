@@ -42,4 +42,16 @@ Good luck playing!
 Roolo
 		</content>
 	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>GiddyUpCore_0_18_7</defName>
+		<assemblyVersion>0.18.7</assemblyVersion>
+		<content>A new mod for the Giddy-up! Series is released!
+"Hey Stein, can you go mine some steel? We're running out."
+"But Banastra, the only deposit is on the other side of the map! Why don't you do it?"
+"Well, I'm incapable of mining, you know that. Why don't you just take an animal and Ride and Roll?"
+"That's a thing now?"
+
+Yes it is. With Giddy-up! Ride and Roll, you'll save your colonists the pain of walking everywhere, as it allows them to use mounts whenever it makes sense. Go check it out on Steam!
+		</content>
+	</HugsLib.UpdateFeatureDef>
 </Defs>
