@@ -17,7 +17,7 @@
   <GUC_SizeNotOk>騎乗不可</GUC_SizeNotOk>
   <GUC_DrawFront>動物を前面に表示</GUC_DrawFront>
   <GUC_DrawBack>動物を背後に表示</GUC_DrawBack>
-  
+
   <GUC_NotInModOptions>騎乗できません、この動物はmodオプションで許可されていません</GUC_NotInModOptions>
   <GUC_AnimalBusy>騎乗できません、この動物は忙しいようです</GUC_AnimalBusy>
   <GUC_NotFullyGrown>騎乗できません、この動物は大人ではありません</GUC_NotFullyGrown>
