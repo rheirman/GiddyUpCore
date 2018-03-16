@@ -79,16 +79,17 @@ namespace GiddyUpCore.Jobs
                     {
                         return false;
                     }
-                    else
-                    {
-                        return true;
-                    }
+                    return true;
                     //if forming caravan, stay mounted. 
                 }
-                else
+                else if(riderData.owning == pawn)
                 {
                     //Log.Message("cancel job, rider not drafted while being colonist");
                     //Log.Message("riderData.owning: " + riderData.owning);
+                    return false;
+                }
+                else
+                {
                     return true;
                 }
             }
