@@ -20,7 +20,6 @@ namespace GiddyUpCore
         }
         public List<string> getAllowedWildAnimalsAsList()
         {
-            Log.Message("requesting allowedWildAnimalsCSV" + allowedWildAnimalsCSV);
             return allowedWildAnimalsCSV.Split(',').ToList();
         }
     }

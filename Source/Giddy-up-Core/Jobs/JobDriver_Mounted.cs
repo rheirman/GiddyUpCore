@@ -14,7 +14,7 @@ namespace GiddyUpCore.Jobs
     {
         public Pawn Rider { get { return job.targetA.Thing as Pawn; } }
         ExtendedPawnData riderData;
-        bool shouldEnd = false;
+        public bool interrupted = false;
         bool isFinished = false;
 
         protected override IEnumerable<Toil> MakeNewToils()
@@ -29,16 +29,18 @@ namespace GiddyUpCore.Jobs
 
         private bool shouldCancelJob(ExtendedPawnData riderData)
         {
-            if(riderData == null || riderData.mount == null)
-            {
-                //Log.Message("riderData is null or riderData.mount is null");
-                return true;
-            }
-            if (shouldEnd)
+            if (interrupted)
             {
                 //Log.Message("cancel job, shouldEnd called");
                 return true;
             }
+
+            if (riderData == null || riderData.mount == null)
+            {
+                //Log.Message("riderData is null or riderData.mount is null");
+                return true;
+            }
+
             Thing thing = pawn as Thing;
             if (Rider.Downed || Rider.Dead || pawn.Downed || pawn.Dead || pawn.IsBurning() || Rider.IsBurning())
             {
@@ -114,15 +116,23 @@ namespace GiddyUpCore.Jobs
             {
                 //Log.Message("waiting for rider");
 
+                if (Rider == null || Rider.Dead || !Rider.Spawned || Rider.Downed || Rider.InMentalState)
+                {
+                    interrupted = true;
+                    ReadyForNextToil();
+                    return;
+                }
+
                 riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
                 if (riderData.mount != null && riderData.mount == pawn)
                 {
                     ReadyForNextToil();
                 }
+
                 if (Rider.CurJob.def != GUC_JobDefOf.Mount && Rider.CurJob.def != JobDefOf.Vomit && Rider.CurJob.def != JobDefOf.WaitMaintainPosture && Rider.CurJob.def != JobDefOf.SocialRelax && Rider.CurJob.def != JobDefOf.Wait && riderData.mount == null)
                 {
                     //Log.Message("cancel wait for rider, rider is not mounting, curJob: " + Rider.CurJob.def.defName);                  
-                    shouldEnd = true;
+                    interrupted = true;
                     ReadyForNextToil();
                 }
 
@@ -158,9 +168,10 @@ namespace GiddyUpCore.Jobs
 
             toil.AddFinishAction(delegate
             {
+
                 FinishAction();
             });
-
+            
             return toil;
 
         }
@@ -171,9 +182,11 @@ namespace GiddyUpCore.Jobs
             riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
             riderData.reset();
             pawn.Drawer.tweener = new PawnTweener(pawn);
-            pawn.Position = Rider.Position;
+            if (!interrupted)
+            {
+                pawn.Position = Rider.Position;
+            }
             pawn.pather.ResetToCurrentPosition();
-            Log.Message("before calling ExtraFinishAction");
         }
 
         private void tryAttackEnemy()
