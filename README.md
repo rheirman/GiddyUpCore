@@ -25,7 +25,7 @@ Check out Patches/Races.xml for an example.
 ### Restrict used mount per faction.
 
 If you want a certain faction only to use certain mounts, you can create a patch like the following example. You can also directly add a <modExtensions> tag to a FactionDef instead of patching. 
-In the example, the Pirate faction is patched so that it only uses Muffalos and Cougars. Two patches are used to ensure it also works when the faction already has a modExtensions tag. 
+In the example, the Pirate faction is patched so that it only uses Muffalos and Cougars.
  
 ```xml
 <Patch>
