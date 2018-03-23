@@ -73,6 +73,8 @@ namespace GiddyUpCore
             base.WorldLoaded();
             LessonAutoActivator.TeachOpportunity(GUC_ConceptDefOf.GUC_Animal_Handling, OpportunityType.GoodToKnow);
 
+           
+
 
         }
 

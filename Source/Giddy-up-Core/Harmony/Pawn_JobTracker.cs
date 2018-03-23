@@ -21,10 +21,10 @@ namespace GiddyUpCore.Harmony
             //If a hostile pawn owns an animal, make sure it mounts it whenever possible
 
 
-            if (pawn.RaceProps.Humanlike && pawn.Faction != null && pawn.Faction.HostileTo(Faction.OfPlayer) && !pawn.Downed && !pawn.IsBurning())
+            if (pawn.RaceProps.Humanlike && pawn.Faction != null && pawn.Faction.HostileTo(Faction.OfPlayer) && !pawn.Downed && !pawn.IsBurning() && !pawn.IsPrisoner)
             {
                 ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
-                if (pawnData.owning == null || pawnData.mount != null || pawnData.owning.Downed || pawnData.owning.Dead || !pawnData.owning.Spawned || pawnData.owning.IsBurning())
+                if (pawnData.owning == null || pawnData.owning.Faction != pawn.Faction || pawnData.mount != null || pawnData.owning.Downed || pawnData.owning.Dead || !pawnData.owning.Spawned || pawnData.owning.IsBurning())
                 {
                     return;
                 }

@@ -80,6 +80,11 @@ namespace GiddyUpCore.Utilities
             foreach (Pawn pawn in list)
             {
                 //TODO add chance
+                if (!pawn.RaceProps.Humanlike)
+                {
+                    continue;
+                }
+
                 int rndInt = rand.Next(1, 100);
                 if (mountChance <= rndInt || !pawn.RaceProps.Humanlike)
                 {
@@ -179,6 +184,10 @@ namespace GiddyUpCore.Utilities
 
         private static int getMountChance(IncidentParms parms, int mountChance, int mountChanceTribal)
         {
+            if(parms.faction == null)
+            {
+                return -1;
+            }
             if (parms.faction.def == FactionDefOf.Tribe)
             {
                 return mountChanceTribal;
