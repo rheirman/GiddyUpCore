@@ -9,6 +9,7 @@ using Verse.AI;
 
 namespace GiddyUpCore.Harmony
 {
+    /*
     [HarmonyPatch(typeof(PawnUtility), "GetPosture")]
     class PawnUtility_GetPosture
     {
@@ -25,4 +26,5 @@ namespace GiddyUpCore.Harmony
             return true;
         }
     }
+    */
 }
