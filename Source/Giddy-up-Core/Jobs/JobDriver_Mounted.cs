@@ -60,7 +60,7 @@ namespace GiddyUpCore.Jobs
                     pawn.ExitMap(false);
                     return true;
                 }
-                else if(Rider.IsColonist)
+                else if(Rider.IsColonist && (Rider.CurJob.def == null || Rider.CurJob.def != JobDefOf.EnterTransporter))
                 {
                     //Log.Message("rider moved to map, despawn");
                     pawn.ExitMap(true);

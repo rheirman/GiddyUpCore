@@ -51,6 +51,7 @@ namespace GiddyUpCore.Jobs
         {
             Toil toil = new Toil();
             toil.AddFailCondition(delegate { return Mount.CurJob.def != GUC_JobDefOf.Mounted; });
+            //toil.AddFailCondition(delegate { return Mount.CurJob.targetA.Thing != pawn; });
             toil.initAction = delegate
             {
                 Pawn actor = toil.GetActor();

@@ -24,6 +24,11 @@ namespace GiddyUpCore.Utilities
                 var pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
                 Pawn animal = (Pawn)current.Thing;
 
+                if (animal.Faction != null && animal.Faction != Faction.OfPlayer)
+                {
+                    return;
+                }
+
                 if (pawnData.mount == null)
                 {
                     bool canMount = IsMountableUtility.isMountable(animal, out IsMountableUtility.Reason reason);
@@ -55,6 +60,7 @@ namespace GiddyUpCore.Utilities
                         opts.Add(new FloatMenuOption("GUC_NeedsObedience".Translate(), null, MenuOptionPriority.Low));
                         return;
                     }
+
 
                     Action action = delegate
                     {
