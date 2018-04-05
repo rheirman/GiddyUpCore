@@ -47,6 +47,26 @@ Giddy-up automatically detects the position of the back of the animal to determi
 	</Operation>
 </Patch>
 ```
+### Custom allowed life stages (Only on master branch, not released yet)
+
+By default, only animals in their final life stage can be mounted. However, by patching, you can allow other life stages. The following example patch allows that the Muffalo can be mounted during any life stage:
+
+```xml
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAddModExtension">
+			<xpath>*/ThingDef[ defName = "Muffalo"]</xpath> 
+			<value>
+				<li Class="GiddyUpCore.AllowedLifeStagesPatch">
+					<allowedLifeStagesCSV>0,1,2</allowedLifeStagesCSV> <!-- Provide the life stage indices as csv here.-->	
+				</li>
+			</value>
+		</li>
+		</operations>
+	</Operation>
+</Patch>
 
 ### Restrict used mount per faction.
 
@@ -77,24 +97,5 @@ In the example, the Pirate faction is patched so that it only uses Muffalos and 
 </Patch>
 ```
 
-### Custom allowed life stages 
 
-By default, only animals in their final life stage can be mounted. However, by patching, you can allow other life stages. The following example patch allows that the Muffalo can be mounted during any life stage:
-
-```xml
-<Patch>
-	<Operation Class="PatchOperationSequence">
-		<success>Always</success>
-		<operations>
-		<li Class="PatchOperationAddModExtension">
-			<xpath>*/ThingDef[ defName = "Muffalo"]</xpath> 
-			<value>
-				<li Class="GiddyUpCore.AllowedLifeStagesPatch">
-					<allowedLifeStagesCSV>0,1,2</allowedLifeStagesCSV> <!-- Provide the life stage indices as csv here.-->	
-				</li>
-			</value>
-		</li>
-		</operations>
-	</Operation>
-</Patch>
 ```
