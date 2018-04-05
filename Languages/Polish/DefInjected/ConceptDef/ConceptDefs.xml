@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <GUC_Animal_Handling.label>Giddy-up!: Umiejętność ujeżdżania zwierząt</GUC_Animal_Handling.label>
+  <GUC_Animal_Handling.helpText>Umiejętność ujeżdżania zwierząt u kolonisty wpływa na to jak efektytwnie może on ujeżdżać zwierzę.Za każdy poziom umiejętności poniżej wymaganego do oswojenia zwierzęcia, nadawana jest kara do prędkości ruchu (2%) i kara do celności (0.5%), za każdy poziom różnicy. W wypadku posiadania umiejętności wyższych niż wymagane, nadana zostaje nagroda o takiej samej wartości procentowej za każdy poziom. Wartości nagród i kar można dostosować w ustawieniach modyfikacji. </GUC_Animal_Handling.helpText>
+
+</LanguageData>
