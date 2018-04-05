@@ -27,23 +27,25 @@ Check out Patches/Races.xml for an example.
 Giddy-up automatically detects the position of the back of the animal to determine where to draw the rider. In some cases it may look better when deviating from this automatically determined position. For this purpose, you can configure custom drawing offsets for each animal individually. This offset is relative to the drawing position determined automatically by the mod. The following example patch ensures riders are drawn on the back of thrumbo's instead of on their neck. 
 
 ```xml
-<Operation Class="PatchOperationSequence">
-	<success>Always</success>
-	<operations>
-	<li Class="PatchOperationAddModExtension">
-		<xpath>*/ThingDef[ defName = "Thrumbo"]</xpath> 
-		<value>
-			<li Class="GiddyUpCore.DrawingOffsetPatch">
-				<!--Offsets can be configured for each view (north, south, west, east) separately using comma separated floating point values-->
-				<northOffsetCSV>0,0,-0.6</northOffsetCSV><!--x,y,z coordinates. Mind that x: horizontal axis, y: drawing priority, z: vertical axis -->	
-				<southOffsetCSV>0,0,-0.6</southOffsetCSV>	
-				<eastOffsetCSV>-0.5,0,-0.6</eastOffsetCSV>	
-				<westOffsetCSV>0.5,0,-0.6</westOffsetCSV>	
-			</li>
-		</value>
-	</li>
-	</operations>
-</Operation>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAddModExtension">
+			<xpath>*/ThingDef[ defName = "Thrumbo"]</xpath> 
+			<value>
+				<li Class="GiddyUpCore.DrawingOffsetPatch">
+					<!--Offsets can be configured for each view (north, south, west, east) separately using comma separated floating point values-->
+					<northOffsetCSV>0,0,-0.6</northOffsetCSV><!--x,y,z coordinates. Mind that x: horizontal axis, y: drawing priority, z: vertical axis -->	
+					<southOffsetCSV>0,0,-0.6</southOffsetCSV>	
+					<eastOffsetCSV>-0.5,0,-0.6</eastOffsetCSV>	
+					<westOffsetCSV>0.5,0,-0.6</westOffsetCSV>	
+				</li>
+			</value>
+		</li>
+		</operations>
+	</Operation>
+</Patch>
 ```
 
 ### Restrict used mount per faction.
@@ -67,6 +69,28 @@ In the example, the Pirate faction is patched so that it only uses Muffalos and 
 					<!-- nonWild animals are the animals that cannot spawn in the wild, examples are Thrumbo's, farm animals etc.  -->
 					<allowedWildAnimalsCSV>Muffalo,Cougar</allowedWildAnimalsCSV> <!--Use a csv with animal DefNames-->
 					<allowedNonWildAnimalsCSV>""</allowedNonWildAnimalsCSV> <!-- only making this empty will imply no restrictions at all, so make sure domesticAnimalWeight is 0 if you don't want any domestic animals-->
+				</li>
+			</value>
+		</li>
+		</operations>
+	</Operation>
+</Patch>
+```
+
+### Custom allowed life stages 
+
+By default, only animals in their final life stage can be mounted. However, by patching, you can allow other life stages. The following example patch allows that the Muffalo can be mounted during any life stage:
+
+```xml
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAddModExtension">
+			<xpath>*/ThingDef[ defName = "Muffalo"]</xpath> 
+			<value>
+				<li Class="GiddyUpCore.AllowedLifeStagesPatch">
+					<allowedLifeStagesCSV>0,1,2</allowedLifeStagesCSV> <!-- Provide the life stage indices as csv here.-->	
 				</li>
 			</value>
 		</li>
