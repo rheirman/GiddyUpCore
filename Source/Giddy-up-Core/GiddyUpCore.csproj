@@ -59,7 +59,8 @@
     <Compile Include="CompBattlemounts.cs" />
     <Compile Include="CompProperties_BattleMounts.cs" />
     <Compile Include="Concepts\GUC_ConceptDefOf.cs" />
-    <Compile Include="FactionRestrictionsPatch.cs" />
+    <Compile Include="ModExtensions\DrawingOffsetPatch.cs" />
+    <Compile Include="ModExtensions\FactionRestrictionsPatch.cs" />
     <Compile Include="Harmony\Building_Door.cs" />
     <Compile Include="Harmony\MentalStateHandler.cs" />
     <Compile Include="Harmony\PawnUtility.cs" />

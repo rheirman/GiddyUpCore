@@ -64,6 +64,15 @@ namespace GiddyUpCore
 
             DrawUtility.filterAnimals(ref animalSelecter, allAnimals, bodySizeFilter);
             DrawUtility.filterAnimals(ref drawSelecter, allAnimals, null);
+
+            foreach(ThingDef td in allAnimals)
+            {
+                if (td.HasModExtension<DrawingOffsetPatch>())
+                {
+                    Log.Message("initted " + td.defName);
+                    td.GetModExtension<DrawingOffsetPatch>().Init();
+                }
+            }
         }
 
 
@@ -72,6 +81,7 @@ namespace GiddyUpCore
             _extendedDataStorage = UtilityWorldObjectManager.GetUtilityWorldObject<ExtendedDataStorage>();
             base.WorldLoaded();
             LessonAutoActivator.TeachOpportunity(GUC_ConceptDefOf.GUC_Animal_Handling, OpportunityType.GoodToKnow);
+
 
            
 
