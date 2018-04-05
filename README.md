@@ -67,7 +67,7 @@ By default, only animals in their final life stage can be mounted. However, by p
 		</operations>
 	</Operation>
 </Patch>
-
+```
 ### Restrict used mount per faction.
 
 If you want a certain faction only to use certain mounts, you can create a patch like the following example. You can also directly add a <modExtensions> tag to a FactionDef instead of patching. 
@@ -95,7 +95,4 @@ In the example, the Pirate faction is patched so that it only uses Muffalos and 
 		</operations>
 	</Operation>
 </Patch>
-```
-
-
 ```
