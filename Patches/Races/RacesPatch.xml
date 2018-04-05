@@ -5,6 +5,20 @@ Two patch operations per animal are needed for vanilla animals to ensure compati
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
 		<operations>
+		<li Class="PatchOperationAddModExtension">
+			<xpath>*/ThingDef[ defName = "Muffalo"]</xpath> 
+			<value>
+				<li Class="GiddyUpCore.AllowedLifeStagesPatch">
+					<allowedLifeStagesCSV>0,1,2</allowedLifeStagesCSV>	
+				</li>
+			</value>
+		</li>
+		</operations>
+	</Operation>
+	
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
 		<li Class="PatchOperationAdd">
 			<xpath>*/ThingDef[defName = "LabradorRetriever" or defName = "Ibex" or defName = "Caribou"]/comps</xpath>
 			<value>
