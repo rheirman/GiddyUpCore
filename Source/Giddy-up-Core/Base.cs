@@ -69,7 +69,6 @@ namespace GiddyUpCore
             {
                 if (td.HasModExtension<DrawingOffsetPatch>())
                 {
-                    Log.Message("initted " + td.defName);
                     td.GetModExtension<DrawingOffsetPatch>().Init();
                 }
             }

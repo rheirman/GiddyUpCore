@@ -38,15 +38,6 @@ namespace GiddyUpCore
             }
             Vector3 result = new Vector3();
 
-            List<string> strs = extractFrom.Split(',').ToList();
-            foreach(string str in strs)
-            {
-                Log.Message("str: " + str);
-            }
-            foreach (string str in strs)
-            {
-                float f = float.Parse(str);
-            }
             List<float> values = extractFrom.Split(',').ToList().Select(x => float.Parse(x)).ToList();
             if (values.Count >= 1)
             {
