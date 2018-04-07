@@ -1,4 +1,6 @@
-﻿using RimWorld;
+﻿using GiddyUpCore.Jobs;
+using GiddyUpCore.Storage;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,22 @@ namespace GiddyUpCore.Utilities
         public static bool isMountable(Pawn animal)
         {
             return isMountable(animal, out Reason reason);
+        }
+
+        public static bool IsCurrentlyMounted(Pawn animal)
+        {
+            if(animal.CurJob == null || animal.CurJob.def != GUC_JobDefOf.Mounted)
+            {
+                return false;
+            }
+            JobDriver_Mounted mountedDriver = (JobDriver_Mounted)animal.jobs.curDriver;
+            Pawn Rider = mountedDriver.Rider;
+            ExtendedDataStorage store = Base.Instance.GetExtendedDataStorage();
+            if(store == null || store.GetExtendedDataFor(Rider).mount == null)
+            {
+                return false;
+            }
+            return true;
         }
 
         public static bool isMountable(Pawn animal, out Reason reason)
