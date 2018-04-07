@@ -80,20 +80,42 @@ namespace GiddyUpCore.Utilities
             foreach (Pawn pawn in list)
             {
                 //TODO add chance
+                Log.Message(pawn.kindDef.defName);
+                PawnKindDef pawnKindDef = null;
+
+
+
                 if (!pawn.RaceProps.Humanlike)
                 {
                     continue;
                 }
 
                 int rndInt = rand.Next(1, 100);
-                if (mountChance <= rndInt || !pawn.RaceProps.Humanlike)
+
+                if (pawn.kindDef.HasModExtension<CustomMountsPatch>())
                 {
-                    continue;
+                    CustomMountsPatch modExtension = pawn.kindDef.GetModExtension<CustomMountsPatch>();
+                    if(modExtension.mountChance <= rndInt)
+                    {
+                        continue;
+                    }
+
+                    bool found = modExtension.possibleMounts.TryRandomElementByWeight((KeyValuePair<String, int> mount) => mount.Value, out KeyValuePair<String, int> selectedMount);
+                    if (found)
+                    {
+                        pawnKindDef = DefDatabase<PawnKindDef>.GetNamed(selectedMount.Key);
+                    }
                 }
-                int pawnHandlingLevel = pawn.skills.GetSkill(SkillDefOf.Animals).Level;
+                else
+                {
+                    if (mountChance <= rndInt || !pawn.RaceProps.Humanlike)
+                    {
+                        continue;
+                    }
+                    int pawnHandlingLevel = pawn.skills.GetSkill(SkillDefOf.Animals).Level;
 
-                PawnKindDef pawnKindDef = determinePawnKind(map, isAnimal, inBiomeWeightNormalized, outBiomeWeightNormalized, rndInt, pawnHandlingLevel, factionFarmAnimalRestrictions, factionWildAnimalRestrictions);
-
+                    pawnKindDef = determinePawnKind(map, isAnimal, inBiomeWeightNormalized, outBiomeWeightNormalized, rndInt, pawnHandlingLevel, factionFarmAnimalRestrictions, factionWildAnimalRestrictions);
+                }
                 if (pawnKindDef == null)
                 {
                     Log.Error("No spawnable animals right now.");

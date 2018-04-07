@@ -37,7 +37,7 @@ namespace GiddyUpCore
         public override void DefsLoaded()
         {
             base.DefsLoaded();
-      
+
             List<ThingDef> allAnimals = DefUtility.getAnimals();
             allAnimals = allAnimals.OrderBy(o => o.defName).ToList();
 
@@ -49,7 +49,7 @@ namespace GiddyUpCore
             animalSelecter = Settings.GetHandle<DictAnimalRecordHandler>("Animalselecter", "GUC_Animalselection_Title".Translate(), "GUC_Animalselection_Description".Translate(), null);
             drawSelecter = Settings.GetHandle<DictAnimalRecordHandler>("drawSelecter", "GUC_Drawselection_Title".Translate(), "GUC_Drawselection_Description".Translate(), null);
 
-            
+
             tabsHandler.CustomDrawer = rect => { return DrawUtility.CustomDrawer_Tabs(rect, tabsHandler, tabNames); };
 
             bodySizeFilter.CustomDrawer = rect => { return DrawUtility.CustomDrawer_Filter(rect, bodySizeFilter, false, 0, 5, highlight1); };
@@ -65,13 +65,22 @@ namespace GiddyUpCore
             DrawUtility.filterAnimals(ref animalSelecter, allAnimals, bodySizeFilter);
             DrawUtility.filterAnimals(ref drawSelecter, allAnimals, null);
 
-            foreach(ThingDef td in allAnimals)
+            foreach (ThingDef td in allAnimals)
             {
                 if (td.HasModExtension<DrawingOffsetPatch>())
                 {
                     td.GetModExtension<DrawingOffsetPatch>().Init();
                 }
             }
+            /*
+            foreach (PawnKindDef pd in DefDatabase<PawnKindDef>.AllDefs)
+            {
+                if (pd.HasModExtension<CustomMountsPatch>())
+                {
+                    pd.GetModExtension<CustomMountsPatch>().Init();
+                }
+            }
+            */
         }
 
 

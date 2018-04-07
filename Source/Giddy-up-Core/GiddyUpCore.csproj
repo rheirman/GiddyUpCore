@@ -60,6 +60,7 @@
     <Compile Include="CompProperties_BattleMounts.cs" />
     <Compile Include="Concepts\GUC_ConceptDefOf.cs" />
     <Compile Include="ModExtensions\AllowedLifeStagesPatch.cs" />
+    <Compile Include="ModExtensions\CustomMountsPatch.cs" />
     <Compile Include="ModExtensions\DrawingOffsetPatch.cs" />
     <Compile Include="ModExtensions\FactionRestrictionsPatch.cs" />
     <Compile Include="Harmony\Building_Door.cs" />
