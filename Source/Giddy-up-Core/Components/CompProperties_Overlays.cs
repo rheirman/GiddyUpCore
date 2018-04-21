@@ -9,12 +9,30 @@ namespace GiddyUpCore
 {
     public class CompProperties_Overlay : CompProperties
     {
-        public GraphicOverlay overlay;
+        public GraphicOverlay overlayFront;
+        public GraphicOverlay overlaySide;
+        public GraphicOverlay overlayBack;
+
 
         public class GraphicOverlay
         {
-            public GraphicData graphicData;
-            public Vector3 offset = Vector3.zero;
+            public GraphicData graphicDataDefault;
+            public GraphicData graphicDataFemale;
+            public Vector3 offsetDefault = Vector3.zero;
+            public Vector3 offsetFemale = Vector3.zero;
+
+        }
+        public GraphicOverlay GetOverlay(Rot4 dir)
+        {
+            if (dir == Rot4.South)
+            {
+                return overlayFront;
+            }
+            if (dir == Rot4.North)
+            {
+                return overlayBack;
+            }
+            return overlaySide;
         }
 
         public CompProperties_Overlay()
