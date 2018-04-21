@@ -149,13 +149,13 @@ To achieve this, the parts of the animal that should overlap the animal are prov
 			<value>
 				<li Class="GiddyUpCore.CompProperties_Overlay">
 					<overlayFront> <!--Different overlays can be provided for different viewpoints, possibilities are: overlayFront, overlaySide, and overlayBack -->
-						<graphicDataDefault><!-- Different graphics data can be provided for different genders, possibilities are: graphicDataDefault, graphicsDataMale and graphicsDataFemale -->
+						<graphicDataDefault><!-- Different graphics data can be provided for different genders, possibilities are: graphicDataDefault(for all genders), graphicsDataMale and graphicsDataFemale -->
 						  <texPath>Things/Pawn/Caribou_overlay_front</texPath>
 						  <graphicClass>Graphic_Single</graphicClass>
 						  <drawSize>4.38</drawSize>
 						  <drawRotated>false</drawRotated>
 						</graphicDataDefault>					
-					    <offsetDefault>(0,0,0,0)</offsetDefault> <!--  Different offset can be provided for different genders. Possibilities are: offsetDefault, offsetFemale and offsetMale --> 
+					    <offsetDefault>(0,0,0,0)</offsetDefault> <!--  Different offsets can be provided for different genders. Possibilities are: offsetDefault(for all genders), offsetFemale and offsetMale --> 
 					</overlayFront>
 					<overlaySide>
 						<graphicDataDefault>
