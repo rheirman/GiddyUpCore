@@ -154,6 +154,7 @@ To achieve this, the parts of the animal that should overlap the animal are prov
 						  <graphicClass>Graphic_Single</graphicClass>
 						  <drawSize>4.38</drawSize>
 						  <drawRotated>false</drawRotated>
+						  <shaderType>MetaOverlay</shaderType>
 						</graphicDataDefault>					
 					    <offsetDefault>(0,0,0,0)</offsetDefault> <!--  Different offsets can be provided for different genders. Possibilities are: offsetDefault(for all genders), offsetFemale and offsetMale --> 
 					</overlayFront>
@@ -163,6 +164,7 @@ To achieve this, the parts of the animal that should overlap the animal are prov
 						  <graphicClass>Graphic_Single</graphicClass>
 						  <drawSize>4.38</drawSize>
 						  <drawRotated>false</drawRotated>
+	                                          <shaderType>MetaOverlay</shaderType>
 						</graphicDataDefault>
 					    <offsetDefault>(0,0,0,0)</offsetDefault>
 					</overlaySide>
