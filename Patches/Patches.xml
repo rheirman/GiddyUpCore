@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-
+<!-- These patches set the exceptions of the mod settings. The same patching method can be used for other mods that add animals and want default options for them. 
+Two patch operations per animal are needed for vanilla animals to ensure compatibility with mods that add comps. Note that this is probably not needed for patches of other mods that add animals-->
 <Patch>
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
@@ -14,6 +15,7 @@
 						  <graphicClass>Graphic_Single</graphicClass>
 						  <drawSize>4.38</drawSize>
 						  <drawRotated>false</drawRotated>
+						  <shaderType>MetaOverlay</shaderType>
 						</graphicDataDefault>
 					    <offsetDefault>(0,0,0,0)</offsetDefault>
 					</overlayFront>
@@ -23,6 +25,7 @@
 						  <graphicClass>Graphic_Single</graphicClass>
 						  <drawSize>4.38</drawSize>
 						  <drawRotated>false</drawRotated>
+						  <shaderType>MetaOverlay</shaderType>
 						</graphicDataDefault>
 					    <offsetDefault>(0,0,0,0)</offsetDefault>
 					</overlaySide>
@@ -31,8 +34,7 @@
 		</li>
 		</operations>
 	</Operation>
-<!-- These patches set the exceptions of the mod settings. The same patching method can be used for other mods that add animals and want default options for them. 
-Two patch operations per animal are needed for vanilla animals to ensure compatibility with mods that add comps. Note that this is probably not needed for patches of other mods that add animals-->
+
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
 		<operations>

@@ -35,13 +35,11 @@ namespace GiddyUpCore
 
             Vector3 drawPos = parent.DrawPos;
             GraphicData gd;
-            if(overlay.graphicDataFemale == null)
+
+            gd = (pawn.gender == Gender.Female) ? overlay.graphicDataFemale : overlay.graphicDataMale;
+            if(gd == null)
             {
                 gd = overlay.graphicDataDefault;
-            }
-            else
-            {
-                gd = (pawn.gender == Gender.Female) ? overlay.graphicDataFemale : overlay.graphicDataDefault;
             }
             if (gd == null)
             {
@@ -49,14 +47,12 @@ namespace GiddyUpCore
             }
             //g.data.
             drawPos.y += 0.046875f;
-            if(overlay.offsetFemale == Vector3.zero)
+            Vector3 offset = (pawn.gender == Gender.Female) ? overlay.offsetFemale : overlay.offsetMale;
+            if(offset == Vector3.zero)
             {
-                drawPos += overlay.offsetDefault;
+                offset = overlay.offsetDefault;
             }
-            else
-            {
-                drawPos += (pawn.gender == Gender.Female) ? overlay.offsetFemale : overlay.offsetDefault;
-            }
+            drawPos += offset;
            
             //Somehow the rotation is flipped, hence the use of GetOpposite. 
             gd.Graphic.Draw(drawPos, parent.Rotation, parent, 0f);

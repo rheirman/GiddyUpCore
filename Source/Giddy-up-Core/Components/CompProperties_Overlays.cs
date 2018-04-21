@@ -18,8 +18,12 @@ namespace GiddyUpCore
         {
             public GraphicData graphicDataDefault;
             public GraphicData graphicDataFemale;
+            public GraphicData graphicDataMale;
+
             public Vector3 offsetDefault = Vector3.zero;
             public Vector3 offsetFemale = Vector3.zero;
+            public Vector3 offsetMale = Vector3.zero;
+
 
         }
         public GraphicOverlay GetOverlay(Rot4 dir)
