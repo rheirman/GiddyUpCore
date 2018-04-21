@@ -34,7 +34,7 @@ namespace GiddyUpCore.Harmony
                 }
                 if (pawnData.mount.def.HasModExtension<DrawingOffsetPatch>())
                 {
-                    drawLoc += addCustomOffsets(__instance, pawnData);
+                    drawLoc += AddCustomOffsets(__instance, pawnData);
                 }
 
                 if (__instance.Rotation == Rot4.South )
@@ -52,7 +52,12 @@ namespace GiddyUpCore.Harmony
             return true;
         }
 
-        private static Vector3 addCustomOffsets(Pawn __instance, ExtendedPawnData pawnData)
+        private static void DrawGraphicsOverlay()
+        {
+
+        }
+
+        private static Vector3 AddCustomOffsets(Pawn __instance, ExtendedPawnData pawnData)
         {
             DrawingOffsetPatch customOffsets = pawnData.mount.def.GetModExtension<DrawingOffsetPatch>();
             if (__instance.Rotation == Rot4.North)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GiddyUpCore.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,35 +24,13 @@ namespace GiddyUpCore
         //Since it is used for drawing pawns, it is expected to be called VERY frequently. Therefore by initting this instead of converting on the fly, possible impact on performance is reduced. 
         public void Init()
         {
-            northOffset = ExtractVector3(northOffsetCSV);
-            southOffset = ExtractVector3(southOffsetCSV);
-            eastOffset = ExtractVector3(eastOffsetCSV);
-            westOffset = ExtractVector3(westOffsetCSV);
+            northOffset = TextureUtility.ExtractVector3(northOffsetCSV);
+            southOffset = TextureUtility.ExtractVector3(southOffsetCSV);
+            eastOffset = TextureUtility.ExtractVector3(eastOffsetCSV);
+            westOffset = TextureUtility.ExtractVector3(westOffsetCSV);
         }
 
 
-        private Vector3 ExtractVector3(String extractFrom)
-        {
-            if (extractFrom.NullOrEmpty())
-            {
-                return new Vector3();
-            }
-            Vector3 result = new Vector3();
 
-            List<float> values = extractFrom.Split(',').ToList().Select(x => float.Parse(x)).ToList();
-            if (values.Count >= 1)
-            {
-                result.x = values[0];
-            }
-            if (values.Count >= 2)
-            {
-                result.y = values[1];
-            }
-            if (values.Count >= 3)
-            {
-                result.z = values[2];
-            }
-            return result;
-        }
     }
 }

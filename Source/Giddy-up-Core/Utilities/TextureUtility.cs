@@ -12,6 +12,7 @@ namespace GiddyUpCore.Utilities
     {
 
 
+
         public static void setDrawOffset(ExtendedPawnData pawnData)
         {
             if (pawnData.mount == null)
@@ -30,6 +31,33 @@ namespace GiddyUpCore.Utilities
             //Small extra offset, you don't want to draw pawn exactly on back
             extraOffset += (float)textureHeight * backHeightRelative / 20f;
             pawnData.drawOffset = (textureHeight * backHeightRelative - extraOffset);
+        }
+
+        /*
+         * Exctracts Vector3 object from its string representation. 
+         */
+        public static Vector3 ExtractVector3(String extractFrom)
+        {
+            if (extractFrom.NullOrEmpty())
+            {
+                return new Vector3();
+            }
+            Vector3 result = new Vector3();
+
+            List<float> values = extractFrom.Split(',').ToList().Select(x => float.Parse(x)).ToList();
+            if (values.Count >= 1)
+            {
+                result.x = values[0];
+            }
+            if (values.Count >= 2)
+            {
+                result.y = values[1];
+            }
+            if (values.Count >= 3)
+            {
+                result.z = values[2];
+            }
+            return result;
         }
 
         /*

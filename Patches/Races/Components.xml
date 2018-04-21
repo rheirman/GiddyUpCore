@@ -2,11 +2,63 @@
 <!-- These patches set the exceptions of the mod settings. The same patching method can be used for other mods that add animals and want default options for them. 
 Two patch operations per animal are needed for vanilla animals to ensure compatibility with mods that add comps. Note that this is probably not needed for patches of other mods that add animals-->
 <Patch>
+	
+	
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
 		<operations>
 		<li Class="PatchOperationAdd">
-			<xpath>*/ThingDef[defName = "LabradorRetriever" or defName = "Ibex" or defName = "Caribou"]/comps</xpath>
+			<xpath>*/ThingDef[defName = "Caribou"]/comps</xpath>
+			<value>
+				<li Class="GiddyUpCore.CompProperties_Overlay">
+					<overlay>
+						<graphicData>
+						  <texPath>Things/Pawn/Caribou_overlay</texPath>
+						  <graphicClass>Graphic_Single</graphicClass>
+						  <shaderType>None</shaderType>
+						  <drawSize>4.38</drawSize>
+						</graphicData>
+					    <offset>(0,0,0,0)</offset>
+
+					</overlay>
+				
+				</li>
+			</value>
+		</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAdd">
+			<xpath>*/ThingDef[defName = "Caribou" and not(comps)]</xpath>
+			<value>
+				<comps>
+				<li Class="GiddyUpCore.CompProperties_Overlay">
+					<overlay>
+						<graphicData>
+						  <texPath>Things/Pawns/Caribou_overlay</texPath>
+						  <graphicClass>Graphic_Single</graphicClass>
+						  <shaderType>None</shaderType>
+						  <drawSize>3.1</drawSize>
+						  <offset>(0,0,0,0)</offset>
+						</graphicData>
+					</overlay>
+				
+				</li>
+				</comps>
+			</value>
+		</li>
+		</operations>
+	</Operation>
+	
+	
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAdd">
+			<xpath>*/ThingDef[defName = "LabradorRetriever" or defName = "Ibex"]/comps</xpath>
 			<value>
 				<li Class="GiddyUpCore.CompProperties_Mount">
 					<isException>true</isException>
@@ -19,7 +71,7 @@ Two patch operations per animal are needed for vanilla animals to ensure compati
 		<success>Always</success>
 		<operations>
 		<li Class="PatchOperationAdd">
-			<xpath>*/ThingDef[(defName = "LabradorRetriever" or defName = "Ibex" or defName = "Caribou") and not(comps)]</xpath>
+			<xpath>*/ThingDef[(defName = "LabradorRetriever" or defName = "Ibex") and not(comps)]</xpath>
 			<value>
 				<comps>
 					<li Class="GiddyUpCore.CompProperties_Mount">

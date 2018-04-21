@@ -56,8 +56,10 @@
   <ItemGroup>
     <Compile Include="AnimalRecord.cs" />
     <Compile Include="Base.cs" />
-    <Compile Include="CompBattlemounts.cs" />
-    <Compile Include="CompProperties_BattleMounts.cs" />
+    <Compile Include="Components\CompBattlemounts.cs" />
+    <Compile Include="Components\CompOverlay.cs" />
+    <Compile Include="Components\CompProperties_Overlays.cs" />
+    <Compile Include="Components\CompProperties_BattleMounts.cs" />
     <Compile Include="Concepts\GUC_ConceptDefOf.cs" />
     <Compile Include="ModExtensions\AllowedLifeStagesPatch.cs" />
     <Compile Include="ModExtensions\CustomMountsPatch.cs" />
