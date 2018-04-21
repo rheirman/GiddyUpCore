@@ -22,7 +22,7 @@ No patching is needed to get Giddy-up working for other animal adding mods. Howe
 In the mod options animals can be forbidden to be used as mount and the drawing priority of mounted animals can be configured. If you want to have this preconfigured for the animals in a mod you've developed, a patch can be created. 
 Check out Patches/Races.xml for an example. 
 
-### Custom drawing offsets for riders (Only on master branch, not released yet)
+### Custom drawing offsets for riders
 
 Giddy-up automatically detects the position of the back of the animal to determine where to draw the rider. In some cases it may look better when deviating from this automatically determined position. For this purpose, you can configure custom drawing offsets for each animal individually. This offset is relative to the drawing position determined automatically by the mod. The following example patch ensures riders are drawn on the back of thrumbo's instead of on their neck. 
 
@@ -47,7 +47,7 @@ Giddy-up automatically detects the position of the back of the animal to determi
 	</Operation>
 </Patch>
 ```
-### Custom allowed life stages (Only on master branch, not released yet)
+### Custom allowed life stages 
 
 By default, only animals in their final life stage can be mounted. However, by patching, you can allow other life stages. The following example patch allows that the Muffalo can be mounted during any life stage:
 
@@ -68,7 +68,7 @@ By default, only animals in their final life stage can be mounted. However, by p
 	</Operation>
 </Patch>
 ```
-### Restrict used mount per faction.
+### Restrict mount usage per faction.
 
 If you want a certain faction only to use certain mounts, you can create a patch like the following example. You can also directly add a <modExtensions> tag to a FactionDef instead of patching. 
 In the example, the Pirate faction is patched so that it only uses Muffalos and Cougars.
@@ -96,3 +96,41 @@ In the example, the Pirate faction is patched so that it only uses Muffalos and 
 	</Operation>
 </Patch>
 ```
+### Restrict mount usage per PawnKind. (Not released yet, only available on the master branch)
+
+It's also possible to restrict the mount usage of certain PawnKinds. In this example, the MercenarySlasher PawnKind, is patched so it only uses muffalo's and thrumbos as mount (with a high thrumbo chance :)). 
+
+```xml
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAddModExtension">
+			<xpath>*/PawnKindDef[ defName = "MercenarySlasher"]</xpath>
+			<value>
+				<li Class="GiddyUpCore.CustomMountsPatch">
+					<mountChance>100</mountChance><!-- % chance the pawn of the PawnKind will be a rider with a mount-->
+					<possibleMounts>
+						<li>
+							<key>Muffalo</key> <!-- DefName of the mount-->
+							<value>10</value> <!-- Weight determining the chance the mount will be of the type of the key --> 
+						</li>
+						<li>
+							<key>Thrumbo</key>
+							<value>200</value><!-- note that the weights don't have to add up to 100, as they are normalized automatically -->
+						</li>
+					</possibleMounts>
+				</li>
+			</value>
+		</li>
+		</operations>
+	</Operation>
+</Patch>
+	
+```
+
+
+
+
+
+
