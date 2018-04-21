@@ -128,6 +128,56 @@ It's also possible to restrict the mount usage of certain PawnKinds. In this exa
 </Patch>
 	
 ```
+### Using overlay textures to make some mounts look good. 
+
+Some mounts, especially the ones with long horns or long necks, look strange when the pawn is drawn in front, or behind them, because the pawn either overlaps strange parts of the animal, or drawing the pawn behind the animal doesn't look appropriate. An example of such an animal is the caribou. By patching, it's possible to solve this problem.
+
+By default, a mounted caribou would look like this: 
+![Image of Caribou - problematic](https://i.imgur.com/zYVXxLE.jpg)
+
+However, when patched properly it looks like this: 
+![Image of Caribou - patched](https://i.imgur.com/KElb0NV.jpg)
+
+To achieve this, the parts of the animal that should overlap the animal are provided as images, and the following patch is used:
+```xml
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAdd">
+			<xpath>*/ThingDef[defName = "Caribou"]/comps</xpath>
+			<value>
+				<li Class="GiddyUpCore.CompProperties_Overlay">
+					<overlayFront> <!--Different overlays can be provided for different viewpoints, possibilities are: overlayFront, overlaySide, and overlayBack -->
+						<graphicDataDefault><!-- Different graphics data can be provided for different genders, possibilities are: graphicDataDefault(for all genders), graphicsDataMale and graphicsDataFemale -->
+						  <texPath>Things/Pawn/Caribou_overlay_front</texPath>
+						  <graphicClass>Graphic_Single</graphicClass>
+						  <drawSize>4.38</drawSize>
+						  <drawRotated>false</drawRotated>
+						</graphicDataDefault>					
+					    <offsetDefault>(0,0,0,0)</offsetDefault> <!--  Different offsets can be provided for different genders. Possibilities are: offsetDefault(for all genders), offsetFemale and offsetMale --> 
+					</overlayFront>
+					<overlaySide>
+						<graphicDataDefault>
+						  <texPath>Things/Pawn/Caribou_overlay_side</texPath>
+						  <graphicClass>Graphic_Single</graphicClass>
+						  <drawSize>4.38</drawSize>
+						  <drawRotated>false</drawRotated>
+						</graphicDataDefault>
+					    <offsetDefault>(0,0,0,0)</offsetDefault>
+					</overlaySide>
+				</li>
+			</value>
+		</li>
+		</operations>
+	</Operation>
+</Patch>
+```
+
+
+
+
+
 
 
 
