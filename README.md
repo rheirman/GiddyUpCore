@@ -130,13 +130,13 @@ It's also possible to restrict the mount usage of certain PawnKinds. In this exa
 ```
 ### Using overlay textures to make some mounts look good. 
 
-Some mounts, especially the ones with long horns or long necks, look strange when the pawn is drawn in front, or behind them, because the pawn either overlaps strange parts of the animal, or drawing the pawn behind the animal doesn't look appropriate. An example of such an animal is the caribou. By patching, it's possible to solve this problem. By default, a mounted caribou would look like this: 
+Some mounts, especially the ones with long horns or long necks, look strange when the pawn is drawn in front, or behind them, because the pawn either overlaps strange parts of the animal, or drawing the pawn behind the animal doesn't look appropriate. An example of such an animal is the caribou. By patching, it's possible to solve this problem.
 
-![Image of Caribou - problematic](https://imgur.com/a/YVJ9g1h)
+By default, a mounted caribou would look like this: 
+![Image of Caribou - problematic](https://i.imgur.com/zYVXxLE.jpg)
 
 However, when patched properly it looks like this: 
-
-![Image of Caribou - patched](https://imgur.com/a/o2vlAmN)
+![Image of Caribou - patched](https://i.imgur.com/KElb0NV.jpg)
 
 
 
