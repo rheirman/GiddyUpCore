@@ -138,6 +138,42 @@ By default, a mounted caribou would look like this:
 However, when patched properly it looks like this: 
 ![Image of Caribou - patched](https://i.imgur.com/KElb0NV.jpg)
 
+To achieve this, the parts of the animal that should overlap the animal are provided as images, and the following patch is used:
+```xml
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAdd">
+			<xpath>*/ThingDef[defName = "Caribou"]/comps</xpath>
+			<value>
+				<li Class="GiddyUpCore.CompProperties_Overlay">
+					<overlayFront> <!--Different overlays can be provided for different viewpoints, possibilities are: overlayFront, overlaySide, and overlayBack -->
+						<graphicDataDefault><!-- Different graphics data can be provided for different genders, possibilities are: graphicDataDefault, graphicsDataMale and graphicsDataFemale -->
+						  <texPath>Things/Pawn/Caribou_overlay_front</texPath>
+						  <graphicClass>Graphic_Single</graphicClass>
+						  <drawSize>4.38</drawSize>
+						  <drawRotated>false</drawRotated>
+						</graphicDataDefault>					
+					    <offsetDefault>(0,0,0,0)</offsetDefault> <!--  Different offset can be provided for different genders. Possibilities are: offsetDefault, offsetFemale and offsetMale --> 
+					</overlayFront>
+					<overlaySide>
+						<graphicDataDefault>
+						  <texPath>Things/Pawn/Caribou_overlay_side</texPath>
+						  <graphicClass>Graphic_Single</graphicClass>
+						  <drawSize>4.38</drawSize>
+						  <drawRotated>false</drawRotated>
+						</graphicDataDefault>
+					    <offsetDefault>(0,0,0,0)</offsetDefault>
+					</overlaySide>
+				</li>
+			</value>
+		</li>
+		</operations>
+	</Operation>
+</Patch>
+```
+
 
 
 
