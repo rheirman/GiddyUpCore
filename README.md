@@ -138,7 +138,7 @@ By default, a mounted caribou would look like this:
 However, when patched properly it looks like this: 
 ![Image of Caribou - patched](https://i.imgur.com/KElb0NV.jpg)
 
-To achieve this, the parts of the animal that should overlap the animal are provided as images, and the following patch is used:
+To achieve this, the parts of the animal that should overlap the rider are provided as images, and the following patch is used:
 ```xml
 <Patch>
 	<Operation Class="PatchOperationSequence">
