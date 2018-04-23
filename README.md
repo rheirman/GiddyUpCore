@@ -145,7 +145,7 @@ To achieve this, the parts of the animal that should overlap the rider are provi
 		<success>Always</success>
 		<operations>
 		<li Class="PatchOperationAdd">
-			<xpath>*/ThingDef[defName = "Caribou"]/comps</xpath>
+			<xpath>*/ThingDef[defName = "Caribou"]/comps</xpath> <!-- Note that the Caribou always has comps. some animals don't have comps by default though. Make sure to take this into account when patching. -->
 			<value>
 				<li Class="GiddyUpCore.CompProperties_Overlay">
 					<overlayFront> <!--Different overlays can be provided for different viewpoints, possibilities are: overlayFront, overlaySide, and overlayBack -->
