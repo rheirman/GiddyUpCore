@@ -85,7 +85,7 @@ namespace GiddyUpCore.Utilities
 
 
 
-                if (!pawn.RaceProps.Humanlike)
+                if (!pawn.RaceProps.Humanlike || pawn.kindDef == PawnKindDefOf.Slave)
                 {
                     continue;
                 }
