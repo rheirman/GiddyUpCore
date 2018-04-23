@@ -34,12 +34,100 @@ Two patch operations per animal are needed for vanilla animals to ensure compati
 		</li>
 		</operations>
 	</Operation>
+	
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAdd">
+			<xpath>*/ThingDef[defName = "Ibex"]/comps</xpath>
+			<value>
+				<li Class="GiddyUpCore.CompProperties_Overlay">
+					<overlayFront>
+						<graphicDataMale>
+						  <texPath>Things/Pawn/IbexMale_overlay_front</texPath>
+						  <graphicClass>Graphic_Single</graphicClass>
+						  <drawSize>1.8</drawSize>
+						  <drawRotated>false</drawRotated>
+						</graphicDataMale>
+						<graphicDataFemale>
+						  <texPath>Things/Pawn/IbexFemale_overlay_front</texPath>
+						  <graphicClass>Graphic_Single</graphicClass>
+						  <drawSize>1.7</drawSize>
+						  <drawRotated>false</drawRotated>
+						</graphicDataFemale>
+					    <offsetDefault>(0,0,0,0)</offsetDefault>
+					</overlayFront>
+					<overlaySide>
+						<graphicDataMale>
+						  <texPath>Things/Pawn/IbexMale_overlay_side</texPath>
+						  <graphicClass>Graphic_Single</graphicClass>
+						  <drawSize>1.8</drawSize>
+						  <drawRotated>false</drawRotated>
+						</graphicDataMale>
+						<graphicDataFemale>
+						  <texPath>Things/Pawn/IbexFemale_overlay_side</texPath>
+						  <graphicClass>Graphic_Single</graphicClass>
+						  <drawSize>1.7</drawSize>
+						  <drawRotated>false</drawRotated>
+						</graphicDataFemale>
+					    <offsetDefault>(0,0,0,0)</offsetDefault>
+					</overlaySide>
+				</li>
+			</value>
+		</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAdd">
+			<xpath>*/ThingDef[defName = "Ibex" and not(comps)]</xpath>
+			<value>
+				<comps>
+					<li Class="GiddyUpCore.CompProperties_Overlay">
+						<overlayFront>
+							<graphicDataMale>
+							  <texPath>Things/Pawn/IbexMale_overlay_front</texPath>
+							  <graphicClass>Graphic_Single</graphicClass>
+							  <drawSize>1.8</drawSize>
+							  <drawRotated>false</drawRotated>
+							</graphicDataMale>
+							<graphicDataFemale>
+							  <texPath>Things/Pawn/IbexFemale_overlay_front</texPath>
+							  <graphicClass>Graphic_Single</graphicClass>
+							  <drawSize>1.7</drawSize>
+							  <drawRotated>false</drawRotated>
+							</graphicDataFemale>
+							<offsetDefault>(0,0,0,0)</offsetDefault>
+						</overlayFront>
+						<overlaySide>
+							<graphicDataMale>
+							  <texPath>Things/Pawn/IbexMale_overlay_side</texPath>
+							  <graphicClass>Graphic_Single</graphicClass>
+							  <drawSize>1.8</drawSize>
+							  <drawRotated>false</drawRotated>
+							</graphicDataMale>
+							<graphicDataFemale>
+							  <texPath>Things/Pawn/IbexFemale_overlay_side</texPath>
+							  <graphicClass>Graphic_Single</graphicClass>
+							  <drawSize>1.7</drawSize>
+							  <drawRotated>false</drawRotated>
+							</graphicDataFemale>
+							<offsetDefault>(0,0,0,0)</offsetDefault>
+					</overlaySide>
+					</li>
+				</comps>
+			</value>
+		</li>
+		</operations>
+	</Operation>
+
 
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
 		<operations>
 		<li Class="PatchOperationAdd">
-			<xpath>*/ThingDef[defName = "LabradorRetriever" or defName = "Ibex"]/comps</xpath>
+			<xpath>*/ThingDef[defName = "LabradorRetriever"]/comps</xpath>
 			<value>
 				<li Class="GiddyUpCore.CompProperties_Mount">
 					<isException>true</isException>
@@ -52,7 +140,7 @@ Two patch operations per animal are needed for vanilla animals to ensure compati
 		<success>Always</success>
 		<operations>
 		<li Class="PatchOperationAdd">
-			<xpath>*/ThingDef[(defName = "LabradorRetriever" or defName = "Ibex") and not(comps)]</xpath>
+			<xpath>*/ThingDef[defName = "LabradorRetriever" and not(comps)]</xpath>
 			<value>
 				<comps>
 					<li Class="GiddyUpCore.CompProperties_Mount">
