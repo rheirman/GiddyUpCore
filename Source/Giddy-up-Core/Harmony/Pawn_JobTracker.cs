@@ -33,7 +33,7 @@ namespace GiddyUpCore.Harmony
                 {
                     return;
                 }
-                if(__result.Job.def == GUC_JobDefOf.Mount)
+                if (__result.Job.def == GUC_JobDefOf.Mount)
                 {
                     return;
                 }
@@ -44,5 +44,19 @@ namespace GiddyUpCore.Harmony
             }
         }
     }
-    
+    [HarmonyPatch(typeof(Pawn_JobTracker), "Notify_MasterDrafted")]
+    static class Pawn_JobTracker_Notify_MasterDrafted
+    {
+        static bool Prefix(Pawn_JobTracker __instance)
+        {
+            Pawn pawn = __instance.curDriver.pawn;
+            if (pawn.CurJob != null && pawn.CurJob.def == GUC_JobDefOf.Mounted)
+            {
+                return false;
+            }
+            return true;
+
+        }
+        
+    }
 }
