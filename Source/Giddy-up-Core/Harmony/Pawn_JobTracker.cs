@@ -49,8 +49,8 @@ namespace GiddyUpCore.Harmony
     {
         static bool Prefix(Pawn_JobTracker __instance)
         {
-            Pawn pawn = __instance.curDriver.pawn;
-            if (pawn.CurJob != null && pawn.CurJob.def == GUC_JobDefOf.Mounted)
+            Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
+            if (pawn != null && pawn.CurJob != null && pawn.CurJob.def == GUC_JobDefOf.Mounted)
             {
                 return false;
             }

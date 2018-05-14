@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using HugsLib.Utils;
+using Verse;
 
 namespace GiddyUpCore.Storage
 {
-    using System.Collections.Generic;
-    using HugsLib.Utils;
-    using RimWorld;
-    using Verse;
+
 
     public class ExtendedDataStorage : UtilityWorldObject, IExposable
     {
