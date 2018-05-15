@@ -96,7 +96,7 @@ In the example, the Pirate faction is patched so that it only uses Muffalos and 
 	</Operation>
 </Patch>
 ```
-### Restrict mount usage per PawnKind. (Not released yet, only available on the master branch)
+### Restrict mount usage per PawnKind. 
 
 It's also possible to restrict the mount usage of certain PawnKinds. In this example, the MercenarySlasher PawnKind, is patched so it only uses muffalo's and thrumbos as mount (with a high thrumbo chance :)). 
 
@@ -128,7 +128,7 @@ It's also possible to restrict the mount usage of certain PawnKinds. In this exa
 </Patch>
 	
 ```
-### Using overlay textures to make some mounts look good. (Not released yet, only available on the master branch)
+### Using overlay textures to make some mounts look good.
 
 Some mounts, especially the ones with long horns or long necks, look strange when the pawn is drawn in front, or behind them, because the pawn either overlaps strange parts of the animal, or drawing the pawn behind the animal doesn't look appropriate. An example of such an animal is the caribou. By patching, it's possible to solve this problem.
 
