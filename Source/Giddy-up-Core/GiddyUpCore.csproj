@@ -61,7 +61,6 @@
     <Compile Include="Components\CompProperties_Overlays.cs" />
     <Compile Include="Components\CompProperties_BattleMounts.cs" />
     <Compile Include="Concepts\GUC_ConceptDefOf.cs" />
-    <Compile Include="Harmony\MedicalCareUtility.cs" />
     <Compile Include="ModExtensions\AllowedLifeStagesPatch.cs" />
     <Compile Include="ModExtensions\CustomMountsPatch.cs" />
     <Compile Include="ModExtensions\DrawingOffsetPatch.cs" />
