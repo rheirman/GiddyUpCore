@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <Mount.reportString>탑승</Mount.reportString>
+  <Mounted.reportString>탑승중</Mounted.reportString>
+  <Dismount.reportString>내리기</Dismount.reportString>
+</LanguageData>

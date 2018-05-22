@@ -38,14 +38,14 @@ namespace GiddyUpCore.Utilities
                         opts.Add(new FloatMenuOption("GUC_NotInModOptions".Translate(), null, MenuOptionPriority.Low));
                         return;
                     }
-                    if (animal.InMentalState ||
+                    if (animal.CurJob != null && (animal.InMentalState ||
                         animal.IsBurning() ||
                         animal.CurJob.def == JobDefOf.LayEgg ||
                         animal.CurJob.def == JobDefOf.Nuzzle ||
                         animal.CurJob.def == JobDefOf.Lovin ||
                         animal.CurJob.def == JobDefOf.WaitDowned ||
                         animal.CurJob.def == GUC_JobDefOf.Mounted
-                        )
+                        ))
                     {
                         opts.Add(new FloatMenuOption("GUC_AnimalBusy".Translate(), null, MenuOptionPriority.Low));
                         return;
