@@ -25,6 +25,7 @@ namespace GiddyUpCore
         internal static SettingHandle<float> bodySizeFilter;
         private static Color highlight1 = new Color(0.5f, 0, 0, 0.1f);
         String[] tabNames = { "GUC_tab1".Translate(), "GUC_tab2".Translate()};
+        internal static bool GiddyUpWhatTheHackLoaded = false;
 
         public override string ModIdentifier
         {
@@ -37,6 +38,10 @@ namespace GiddyUpCore
         public override void DefsLoaded()
         {
             base.DefsLoaded();
+            if (AssemblyExists("GiddyUpBattleMechs"))
+            {
+                GiddyUpWhatTheHackLoaded = true;
+            }
 
             List<ThingDef> allAnimals = DefUtility.getAnimals();
             allAnimals = allAnimals.OrderBy(o => o.defName).ToList();
@@ -89,11 +94,17 @@ namespace GiddyUpCore
             _extendedDataStorage = UtilityWorldObjectManager.GetUtilityWorldObject<ExtendedDataStorage>();
             base.WorldLoaded();
             LessonAutoActivator.TeachOpportunity(GUC_ConceptDefOf.GUC_Animal_Handling, OpportunityType.GoodToKnow);
+        }
 
-
-           
-
-
+        private bool AssemblyExists(string assemblyName)
+        {
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                Log.Message(assembly.FullName);
+                if (assembly.FullName.StartsWith(assemblyName))
+                    return true;
+            }
+            return false;
         }
 
         public ExtendedDataStorage GetExtendedDataStorage()

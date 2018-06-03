@@ -10,7 +10,7 @@ using HugsLib.Settings;
 
 namespace GiddyUpCore.Utilities
 {
-    class DrawUtility
+    public class DrawUtility
     {
         
         private const float ContentPadding = 5f;
@@ -214,7 +214,7 @@ namespace GiddyUpCore.Utilities
         }
 
 
-        internal static bool CustomDrawer_MatchingAnimals_active(Rect wholeRect, SettingHandle<DictAnimalRecordHandler> setting, List<ThingDef> allAnimals, SettingHandle<float> filter = null, string yesText = "Is a mount", string noText = "Is not a mount")
+        public static bool CustomDrawer_MatchingAnimals_active(Rect wholeRect, SettingHandle<DictAnimalRecordHandler> setting, List<ThingDef> allAnimals, SettingHandle<float> filter = null, string yesText = "Is a mount", string noText = "Is not a mount")
         {
             drawBackground(wholeRect, background);
 

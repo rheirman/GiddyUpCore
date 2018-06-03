@@ -13,9 +13,9 @@ namespace GiddyUpCore.Utilities
     {
         public enum Reason{NotFullyGrown, NeedsObedience, NotInModOptions, CanMount};
 
-        public static bool isMountable(Pawn animal)
+        public static bool isMountable(Pawn pawn)
         {
-            return isMountable(animal, out Reason reason);
+            return isMountable(pawn, out Reason reason);
         }
 
         public static bool IsCurrentlyMounted(Pawn animal)
@@ -34,32 +34,32 @@ namespace GiddyUpCore.Utilities
             return true;
         }
 
-        public static bool isMountable(Pawn animal, out Reason reason)
+        public static bool isMountable(Pawn pawn, out Reason reason)
         {
             reason = Reason.CanMount;
-            if (!isAllowedInModOptions(animal.def.defName))
+            if (!isAllowedInModOptions(pawn.def.defName))
             {
                 reason = Reason.NotInModOptions;
                 return false;
             }
-            if (animal.ageTracker.CurLifeStageIndex != animal.RaceProps.lifeStageAges.Count - 1)
+            if (pawn.ageTracker.CurLifeStageIndex != pawn.RaceProps.lifeStageAges.Count - 1)
             {
-                if (!animal.def.HasModExtension<AllowedLifeStagesPatch>())
+                if (!pawn.def.HasModExtension<AllowedLifeStagesPatch>())
                 {
                     reason = Reason.NotFullyGrown;
                     return false;
                 }
                 else //Use custom life stages instead of last life stage if a patch exists for that
                 {
-                    AllowedLifeStagesPatch customLifeStages = animal.def.GetModExtension<AllowedLifeStagesPatch>();
-                    if (!customLifeStages.getAllowedLifeStagesAsList().Contains(animal.ageTracker.CurLifeStageIndex))
+                    AllowedLifeStagesPatch customLifeStages = pawn.def.GetModExtension<AllowedLifeStagesPatch>();
+                    if (!customLifeStages.getAllowedLifeStagesAsList().Contains(pawn.ageTracker.CurLifeStageIndex))
                     {
                         reason = Reason.NotFullyGrown;
                         return false;
                     }
                 }
             }
-            if (animal.training == null || (animal.training != null && !animal.training.IsCompleted(TrainableDefOf.Obedience)))
+            if (pawn.training == null || (pawn.training != null && !pawn.training.IsCompleted(TrainableDefOf.Obedience)))
             {
                 reason = Reason.NeedsObedience;
                 return false;
