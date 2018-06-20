@@ -44,8 +44,8 @@ namespace GiddyUpCore.Harmony
             }
         }
     }
-    [HarmonyPatch(typeof(Pawn_JobTracker), "Notify_MasterDrafted")]
-    static class Pawn_JobTracker_Notify_MasterDrafted
+    [HarmonyPatch(typeof(Pawn_JobTracker), "Notify_MasterDraftedOrUndrafted")]
+    static class Pawn_JobTracker_Notify_MasterDraftedOrUndrafted
     {
         static bool Prefix(Pawn_JobTracker __instance)
         {
