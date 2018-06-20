@@ -60,7 +60,7 @@ namespace GiddyUpCore.Zones
         {
             return label; //only one such area, so label is sufficient. 
         }
-        public override bool AssignableAsAllowed(AllowedAreaMode mode)
+        public override bool AssignableAsAllowed()
         {
             return false;
         }

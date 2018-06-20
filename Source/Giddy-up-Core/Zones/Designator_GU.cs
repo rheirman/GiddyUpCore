@@ -17,8 +17,8 @@ namespace GiddyUpCore.Zones
 
         public Designator_GU(DesignateMode mode)
         {
-            this.soundDragSustain = SoundDefOf.DesignateDragStandard;
-            this.soundDragChanged = SoundDefOf.DesignateDragStandardChanged;
+            this.soundDragSustain = SoundDefOf.Designate_DragStandard;
+            this.soundDragChanged = SoundDefOf.Designate_DragStandard_Changed;
             this.useMouseIcon = true;
         }
 

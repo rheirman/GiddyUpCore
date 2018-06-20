@@ -28,7 +28,7 @@ namespace GiddyUpCore.Harmony
             Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
             if (pawn.Drafted)
             {
-                if (PawnUtility.SpawnedMasteredPawns(pawn).Any((Pawn p) => p.training.IsCompleted(TrainableDefOf.Release)))
+                if (PawnUtility.SpawnedMasteredPawns(pawn).Any((Pawn p) => p.training.HasLearned(TrainableDefOf.Release)))
                 {
                     yield return new Command_Toggle
                     {

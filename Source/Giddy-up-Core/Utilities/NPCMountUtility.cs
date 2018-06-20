@@ -122,7 +122,7 @@ namespace GiddyUpCore.Utilities
                     return false;
                 }
                 Pawn animal = PawnGenerator.GeneratePawn(pawnKindDef, parms.faction);
-                GenSpawn.Spawn(animal, pawn.Position, map, parms.spawnRotation, false);
+                GenSpawn.Spawn(animal, pawn.Position, map, parms.spawnRotation);
                 ConfigureSpawnedAnimal(pawn, ref animal);
                 animals.Add(animal);
 
@@ -169,7 +169,7 @@ namespace GiddyUpCore.Utilities
             {
                 (from a in DefDatabase<PawnKindDef>.AllDefs
                                where isAnimal(a) 
-                               && a.wildSpawn_spawnWild 
+                               && !a.RaceProps.wildBiomes.NullOrEmpty()
                                && map.mapTemperature.SeasonAcceptableFor(a.race) 
                                && IsMountableUtility.isAllowedInModOptions(a.defName)
                                && (factionWildAnimalRestrictions.NullOrEmpty() || factionWildAnimalRestrictions.Contains(a.defName))
@@ -179,7 +179,7 @@ namespace GiddyUpCore.Utilities
             {
                 (from a in DefDatabase<PawnKindDef>.AllDefs
                                where isAnimal(a) 
-                               && !a.wildSpawn_spawnWild 
+                               && a.RaceProps.wildBiomes.NullOrEmpty()
                                && map.mapTemperature.SeasonAcceptableFor(a.race) 
                                && IsMountableUtility.isAllowedInModOptions(a.defName)
                                && (factionFarmAnimalRestrictions.NullOrEmpty() || factionFarmAnimalRestrictions.Contains(a.defName))
@@ -210,11 +210,11 @@ namespace GiddyUpCore.Utilities
             {
                 return -1;
             }
-            if (parms.faction.def == FactionDefOf.Tribe)
+            if (parms.faction.def == FactionDefOf.Ancients || parms.faction.def == FactionDefOf.AncientsHostile)
             {
                 return mountChanceTribal;
             }
-            else if (parms.faction.def != FactionDefOf.Spacer && parms.faction.def != FactionDefOf.SpacerHostile && parms.faction.def != FactionDefOf.Mechanoid)
+            else if (parms.faction.def != FactionDefOf.Mechanoid)
             {
                 return mountChance;
             }

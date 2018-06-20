@@ -57,13 +57,13 @@ namespace GiddyUpCore.Jobs
                 if (!Rider.IsColonist && !Rider.Dead)
                 {
                     //Log.Message("rider not spawned, despawn");
-                    pawn.ExitMap(false);
+                    pawn.ExitMap(false, CellRect.WholeMap(base.Map).GetClosestEdge(this.pawn.Position));
                     return true;
                 }
                 else if(Rider.IsColonist && (Rider.CurJob == null || Rider.CurJob.def != JobDefOf.EnterTransporter))
                 {
                     //Log.Message("rider moved to map, despawn");
-                    pawn.ExitMap(true);
+                    pawn.ExitMap(true, CellRect.WholeMap(base.Map).GetClosestEdge(this.pawn.Position));
                     return true;
                 }
                 else
@@ -129,7 +129,7 @@ namespace GiddyUpCore.Jobs
                     ReadyForNextToil();
                 }
 
-                if (Rider.CurJob.def != GUC_JobDefOf.Mount && Rider.CurJob.def != JobDefOf.Vomit && Rider.CurJob.def != JobDefOf.WaitMaintainPosture && Rider.CurJob.def != JobDefOf.SocialRelax && Rider.CurJob.def != JobDefOf.Wait && riderData.mount == null)
+                if (Rider.CurJob.def != GUC_JobDefOf.Mount && Rider.CurJob.def != JobDefOf.Vomit && Rider.CurJob.def != JobDefOf.Wait_MaintainPosture && Rider.CurJob.def != JobDefOf.SocialRelax && Rider.CurJob.def != JobDefOf.Wait && riderData.mount == null)
                 {
                     //Log.Message("cancel wait for rider, rider is not mounting, curJob: " + Rider.CurJob.def.defName);                  
                     interrupted = true;
@@ -203,7 +203,7 @@ namespace GiddyUpCore.Jobs
             }
             if (targetThing != null && targetThing.HostileTo(Rider))
             {
-                if (!pawn.meleeVerbs.TryGetMeleeVerb().CanHitTarget(targetThing))
+                if (!pawn.meleeVerbs.TryGetMeleeVerb(targetThing).CanHitTarget(targetThing))
                 {
                     pawn.TryStartAttack(targetThing);
                 }

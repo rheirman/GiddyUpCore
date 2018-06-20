@@ -56,7 +56,7 @@ namespace GiddyUpCore.Utilities
                         mount.CurJob.def == JobDefOf.LayEgg ||
                         mount.CurJob.def == JobDefOf.Nuzzle ||
                         mount.CurJob.def == JobDefOf.Lovin ||
-                        mount.CurJob.def == JobDefOf.WaitDowned ||
+                        mount.CurJob.def == JobDefOf.Wait_Downed ||
                         mount.CurJob.def == GUC_JobDefOf.Mounted
                         ))
                     {

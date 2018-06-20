@@ -59,7 +59,7 @@ namespace GiddyUpCore.Utilities
                     }
                 }
             }
-            if (pawn.training == null || (pawn.training != null && !pawn.training.IsCompleted(TrainableDefOf.Obedience)))
+            if (pawn.training == null || (pawn.training != null && !pawn.training.HasLearned(TrainableDefOf.Obedience)))
             {
                 reason = Reason.NeedsObedience;
                 return false;

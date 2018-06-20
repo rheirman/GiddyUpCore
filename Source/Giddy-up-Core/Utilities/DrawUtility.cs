@@ -60,7 +60,7 @@ namespace GiddyUpCore.Utilities
         private static bool DrawTileForAnimal(KeyValuePair<String, AnimalRecord> Animal, Rect contentRect, Vector2 iconOffset, int buttonID)
         {
             var iconRect = new Rect(contentRect.x + iconOffset.x, contentRect.y + iconOffset.y, contentRect.width, rowHeight);
-            MouseoverSounds.DoRegion(iconRect, SoundDefOf.MouseoverCommand);
+            MouseoverSounds.DoRegion(iconRect, SoundDefOf.Mouseover_Command);
             Color save = GUI.color;
 
             if (Mouse.IsOver(iconRect))

@@ -20,7 +20,7 @@ namespace GiddyUpCore.Utilities
                 return;
             }
             PawnKindLifeStage curKindLifeStage = pawnData.mount.ageTracker.CurKindLifeStage;
-            Texture2D unreadableTexture = curKindLifeStage.bodyGraphicData.Graphic.MatSide.mainTexture as Texture2D;
+            Texture2D unreadableTexture = curKindLifeStage.bodyGraphicData.Graphic.MatEast.mainTexture as Texture2D;
             Texture2D t = TextureUtility.getReadableTexture(unreadableTexture);
             int backHeight = TextureUtility.getBackHeight(t);
             float backHeightRelative = (float)backHeight / (float)t.height;
