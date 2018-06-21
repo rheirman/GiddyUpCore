@@ -155,43 +155,57 @@ namespace GiddyUpCore.Utilities
         private static PawnKindDef determinePawnKind(Map map, Predicate<PawnKindDef> isAnimal, float inBiomeWeightNormalized, float outBiomeWeightNormalized, int rndInt, int pawnHandlingLevel, List<string> factionFarmAnimalRestrictions, List<string> factionWildAnimalRestrictions)
         {
             PawnKindDef pawnKindDef = null;
-
-
-
+            float averageCommonality = AverageAnimalCommonality(map);
             if (factionWildAnimalRestrictions.NullOrEmpty() && rndInt <= inBiomeWeightNormalized)
             {
                 (from a in map.Biome.AllWildAnimals
-                               where map.mapTemperature.SeasonAcceptableFor(a.race) 
-                               && IsMountableUtility.isAllowedInModOptions(a.defName)
-                               select a).TryRandomElementByWeight((PawnKindDef def) => calculateCommonality(def, map, pawnHandlingLevel), out pawnKindDef);
+                 where map.mapTemperature.SeasonAcceptableFor(a.race)
+                 && IsMountableUtility.isAllowedInModOptions(a.defName)
+                 select a).TryRandomElementByWeight((PawnKindDef def) => calculateCommonality(def, map, pawnHandlingLevel), out pawnKindDef);
             }
             else if (rndInt <= inBiomeWeightNormalized + outBiomeWeightNormalized)
             {
-                (from a in DefDatabase<PawnKindDef>.AllDefs
-                               where isAnimal(a) 
-                               && !a.RaceProps.wildBiomes.NullOrEmpty()
-                               && map.mapTemperature.SeasonAcceptableFor(a.race) 
-                               && IsMountableUtility.isAllowedInModOptions(a.defName)
-                               && (factionWildAnimalRestrictions.NullOrEmpty() || factionWildAnimalRestrictions.Contains(a.defName))
-                               select a).TryRandomElementByWeight((PawnKindDef def) => calculateCommonality(def, map, pawnHandlingLevel), out pawnKindDef);
+                (from a in Base.animalsWithBiome
+                 where isAnimal(a)
+                 && map.mapTemperature.SeasonAcceptableFor(a.race)
+                 && IsMountableUtility.isAllowedInModOptions(a.defName)
+                 && (factionWildAnimalRestrictions.NullOrEmpty() || factionWildAnimalRestrictions.Contains(a.defName))
+                 select a).TryRandomElementByWeight((PawnKindDef def) => calculateCommonality(def, map, pawnHandlingLevel, averageCommonality), out pawnKindDef);
             }
             else
             {
-                (from a in DefDatabase<PawnKindDef>.AllDefs
-                               where isAnimal(a) 
-                               && a.RaceProps.wildBiomes.NullOrEmpty()
-                               && map.mapTemperature.SeasonAcceptableFor(a.race) 
-                               && IsMountableUtility.isAllowedInModOptions(a.defName)
-                               && (factionFarmAnimalRestrictions.NullOrEmpty() || factionFarmAnimalRestrictions.Contains(a.defName))
-                 select a).TryRandomElementByWeight((PawnKindDef def) => 1 - def.RaceProps.wildness, out pawnKindDef);
+                (from a in Base.animalsWithoutBiome
+                 where isAnimal(a)
+                 && map.mapTemperature.SeasonAcceptableFor(a.race)
+                 && IsMountableUtility.isAllowedInModOptions(a.defName)
+                 && (factionFarmAnimalRestrictions.NullOrEmpty() || factionFarmAnimalRestrictions.Contains(a.defName))
+                 select a).TryRandomElementByWeight((PawnKindDef def) => calculateCommonality(def, map, pawnHandlingLevel, averageCommonality), out pawnKindDef);
             }
-
             return pawnKindDef;
         }
 
-        private static float calculateCommonality(PawnKindDef def, Map map, int pawnHandlingLevel)
+        private static float AverageAnimalCommonality(Map map)
         {
-            float commonality = map.Biome.CommonalityOfAnimal(def);
+            float sum = 0;
+            foreach (PawnKindDef animalKind in map.Biome.AllWildAnimals)
+            {
+                sum += 1;
+            }
+            return sum / map.Biome.AllWildAnimals.Count();
+        }
+
+        private static float calculateCommonality(PawnKindDef def, Map map, int pawnHandlingLevel, float averageCommonality = 0)
+        {
+            float commonality;
+            if (averageCommonality == 0)
+            {
+                commonality = map.Biome.CommonalityOfAnimal(def);
+            }
+            else
+            {
+                commonality = averageCommonality;
+            }
+                
             //minimal level to get bonus. 
             pawnHandlingLevel = pawnHandlingLevel > 5 ? pawnHandlingLevel - 5 : 0;
 

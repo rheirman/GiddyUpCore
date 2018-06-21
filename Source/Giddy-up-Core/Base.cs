@@ -26,6 +26,8 @@ namespace GiddyUpCore
         private static Color highlight1 = new Color(0.5f, 0, 0, 0.1f);
         String[] tabNames = { "GUC_tab1".Translate(), "GUC_tab2".Translate()};
         internal static bool GiddyUpWhatTheHackLoaded = false;
+        internal static List<PawnKindDef> animalsWithBiome = new List<PawnKindDef>();
+        internal static List<PawnKindDef> animalsWithoutBiome = new List<PawnKindDef>();
 
         public override string ModIdentifier
         {
@@ -77,6 +79,23 @@ namespace GiddyUpCore
                     td.GetModExtension<DrawingOffsetPatch>().Init();
                 }
             }
+
+            foreach(BiomeDef biomeDef in DefDatabase<BiomeDef>.AllDefs)
+            {
+                foreach(PawnKindDef animalKind in biomeDef.AllWildAnimals)
+                {
+                    if (!animalsWithBiome.Contains(animalKind))
+                    {
+                        animalsWithBiome.Add(animalKind);
+                    }
+                }
+            }
+            foreach (PawnKindDef animalWithoutBiome in from d in DefDatabase<PawnKindDef>.AllDefs
+                                               where d.RaceProps.Animal &&  !animalsWithBiome.Contains(d)
+                                          select d)
+            {
+                animalsWithoutBiome.Add(animalWithoutBiome);
+            }
             /*
             foreach (PawnKindDef pd in DefDatabase<PawnKindDef>.AllDefs)
             {
@@ -100,7 +119,6 @@ namespace GiddyUpCore
         {
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
-                Log.Message(assembly.FullName);
                 if (assembly.FullName.StartsWith(assemblyName))
                     return true;
             }
