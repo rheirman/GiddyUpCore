@@ -25,7 +25,7 @@ namespace GiddyUpCore.Jobs
             this.FailOnDowned(TargetIndex.A);
 
             yield return letMountParticipate();
-            yield return Toils_General.Wait(1);//wait one tick to ensure animal is waiting to get mounted before proceding. 
+            //yield return Toils_General.Wait(1);//wait one tick to ensure animal is waiting to get mounted before proceding. 
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
             yield return Toils_Interpersonal.WaitToBeAbleToInteract(this.pawn);
             yield return TalkToAnimal(TargetIndex.A);
