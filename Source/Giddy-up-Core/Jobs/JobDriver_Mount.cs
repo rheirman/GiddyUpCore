@@ -12,7 +12,7 @@ namespace GiddyUpCore.Jobs
 {
     public class JobDriver_Mount : JobDriver
     {
-        public override bool TryMakePreToilReservations()
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
             return true;
         }

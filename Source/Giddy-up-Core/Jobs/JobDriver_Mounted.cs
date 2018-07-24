@@ -22,7 +22,7 @@ namespace GiddyUpCore.Jobs
             yield return waitForRider();
             yield return delegateMovement();
         }
-        public override bool TryMakePreToilReservations()
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
             return true;
         }
@@ -163,7 +163,8 @@ namespace GiddyUpCore.Jobs
 
                 pawn.Position = Rider.Position;
                 tryAttackEnemy();
-                pawn.Rotation = Rider.Rotation;
+                pawn.CurJob.targetC = Rider.Rotation.FacingCell;
+                rotateToFace = TargetIndex.C;
             };
 
             toil.AddFinishAction(delegate
@@ -186,6 +187,7 @@ namespace GiddyUpCore.Jobs
             {
                 pawn.Position = Rider.Position;
             }
+
             pawn.pather.ResetToCurrentPosition();
         }
 
@@ -211,6 +213,8 @@ namespace GiddyUpCore.Jobs
                 {
                     pawn.meleeVerbs.TryMeleeAttack(targetThing);
                 }
+                //pawn.rotationTracker.FaceCell(Rider.Rotation.FacingCell);
+                //pawn.rotationTracker.UpdateRotation();
             }
         }
     }

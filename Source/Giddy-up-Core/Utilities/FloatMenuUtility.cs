@@ -25,7 +25,7 @@ namespace GiddyUpCore.Utilities
 
                 if (!mount.RaceProps.Animal)
                 {
-                    if ((mount.RaceProps.IsMechanoid && Base.GiddyUpWhatTheHackLoaded))
+                    if (mount.RaceProps.IsMechanoid && Base.GiddyUpWhatTheHackLoaded && pawn.Drafted)
                     {
                         //continue
                     }
@@ -74,26 +74,27 @@ namespace GiddyUpCore.Utilities
                         return;
                     }
 
-
-                    Action action = delegate
+                    if (canMount)
                     {
+                        Action action = delegate
+                        {
 
-                        Job jobRider = new Job(GUC_JobDefOf.Mount, mount);
-                        jobRider.count = 1;
-                        pawn.jobs.TryTakeOrderedJob(jobRider);
-                    };
-                    opts.Add(new FloatMenuOption("GUC_Mount".Translate() + " " + mount.Name, action, MenuOptionPriority.Low));
-
+                            Job jobRider = new Job(GUC_JobDefOf.Mount, mount);
+                            jobRider.count = 1;
+                            pawn.jobs.TryTakeOrderedJob(jobRider);
+                        };
+                        opts.Add(new FloatMenuOption("GUC_Mount".Translate() + " " + mount.Name, action, MenuOptionPriority.Low));
+                    }
                 }
                 else if (mount == pawnData.mount)
                 {
-                    if (opts.Count > 0) opts.RemoveAt(0);//Remove option to attack your own mount
+                    //if (opts.Count > 0) opts.RemoveAt(0);//Remove option to attack your own mount
 
                     Action action = delegate
                     {
                         pawnData.reset();
                     };
-                    opts.Add(new FloatMenuOption("GUC_Dismount".Translate(), action, MenuOptionPriority.Default));
+                    opts.Add(new FloatMenuOption("GUC_Dismount".Translate(), action, MenuOptionPriority.High));
 
                 }
             }

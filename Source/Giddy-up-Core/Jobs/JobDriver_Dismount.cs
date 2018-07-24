@@ -11,7 +11,7 @@ namespace GiddyUpCore.Jobs
 {
     class JobDriver_Dismount : JobDriver
     {
-        public override bool TryMakePreToilReservations()
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
             return true;
         }
