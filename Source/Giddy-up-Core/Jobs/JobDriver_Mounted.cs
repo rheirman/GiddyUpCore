@@ -163,8 +163,9 @@ namespace GiddyUpCore.Jobs
 
                 pawn.Position = Rider.Position;
                 tryAttackEnemy();
-                pawn.CurJob.targetC = Rider.Rotation.FacingCell;
-                rotateToFace = TargetIndex.C;
+                pawn.Rotation = Rider.Rotation;
+                //pawn.CurJob.targetC = Rider.Rotation.FacingCell;
+                //rotateToFace = TargetIndex.C;
             };
 
             toil.AddFinishAction(delegate
@@ -213,8 +214,8 @@ namespace GiddyUpCore.Jobs
                 {
                     pawn.meleeVerbs.TryMeleeAttack(targetThing);
                 }
-                //pawn.rotationTracker.FaceCell(Rider.Rotation.FacingCell);
-                //pawn.rotationTracker.UpdateRotation();
+                pawn.rotationTracker.FaceCell(Rider.Rotation.FacingCell);
+                pawn.rotationTracker.UpdateRotation();
             }
         }
     }
