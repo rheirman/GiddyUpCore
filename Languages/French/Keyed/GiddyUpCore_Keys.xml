@@ -18,5 +18,11 @@
   <GUC_SizeNotOk>Non Montable</GUC_SizeNotOk>
   <GUC_DrawFront>Animal devant</GUC_DrawFront>
   <GUC_DrawBack>Animal derrière le colon</GUC_DrawBack>
+  <GUC_NotInModOptions>Impossible de monter, animal interdit dans les options du mod.</GUC_NotInModOptions>
+  <GUC_AnimalBusy>Impossible à monter, animal occupé</GUC_AnimalBusy>
+  <GUC_NotFullyGrown>Ne peut pas monter, animal non adulte</GUC_NotFullyGrown>
+  <GUC_NeedsObedience>Ne peut pas monter, l'animal a besoin de dressage : obéissance</GUC_NeedsObedience>
+  <GUC_Mount>Monter</GUC_Mount>
+  <GUC_Dismount>Descendre</GUC_Dismount>
 
 </LanguageData>

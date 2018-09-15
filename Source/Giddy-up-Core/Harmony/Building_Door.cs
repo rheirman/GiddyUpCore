@@ -44,4 +44,5 @@ namespace GiddyUpCore.Harmony
 
         }
     }
+
 }

@@ -1,8 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
- <Mount_BattleMount.reportString>乘騎動物</Mount_BattleMount.reportString>
-  <Mounted_BattleMount.reportString>被人騎乘</Mounted_BattleMount.reportString>
+  <GUC_Animal_Handling.label>騎乘戰鬥 馴獸技能影響</GUC_Animal_Handling.label>
+  <GUC_Animal_Handling.helpText>乘騎動物時馴獸技能會影響騎乘效果，若低於馴獸所需的等級，每低一級會降低2%的移動速度和0.5%的射擊精度。如果高於所需的等級，每級會獲得等量的增益，這些數值可以在mod選項中設置。</GUC_Animal_Handling.helpText>
 
+
+  <!--<Mount_BattleMount.reportString>乘騎動物</Mount_BattleMount.reportString>-->
+  <!--<Mounted_BattleMount.reportString>被人騎乘</Mounted_BattleMount.reportString>-->
 
 </LanguageData>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- These patches set the exceptions of the mod settings. The same patching method can be used for other mods that add animals and want default options for them. 
+Two patch operations per animal are needed for vanilla animals to ensure compatibility with mods that add comps. Note that this is probably not needed for patches of other mods that add animals-->
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAdd">
+			<xpath>*/ThingDef[defName = "Caribou"]/comps</xpath>
+			<value>
+				<li Class="GiddyUpCore.CompProperties_Overlay">
+					<overlayFront>
+						<graphicDataDefault>
+						  <texPath>Things/Pawn/Caribou_overlay_front</texPath>
+						  <graphicClass>Graphic_Single</graphicClass>
+						  <drawSize>4.38</drawSize>
+						  <drawRotated>false</drawRotated>
+						  <shaderType>MetaOverlay</shaderType>
+						</graphicDataDefault>
+					    <offsetDefault>(0,0,0,0)</offsetDefault>
+					</overlayFront>
+					<overlaySide>
+						<graphicDataDefault>
+						  <texPath>Things/Pawn/Caribou_overlay_side</texPath>
+						  <graphicClass>Graphic_Single</graphicClass>
+						  <drawSize>4.38</drawSize>
+						  <drawRotated>false</drawRotated>
+						  <shaderType>MetaOverlay</shaderType>
+						</graphicDataDefault>
+					    <offsetDefault>(0,0,0,0)</offsetDefault>
+					</overlaySide>
+				</li>
+			</value>
+		</li>
+		</operations>
+	</Operation>
+	
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAdd">
+			<xpath>*/ThingDef[defName = "Ibex"]/comps</xpath>
+			<value>
+				<li Class="GiddyUpCore.CompProperties_Overlay">
+					<overlayFront>
+						<graphicDataMale>
+						  <texPath>Things/Pawn/IbexMale_overlay_front</texPath>
+						  <graphicClass>Graphic_Single</graphicClass>
+						  <drawSize>1.8</drawSize>
+						  <drawRotated>false</drawRotated>
+						</graphicDataMale>
+						<graphicDataFemale>
+						  <texPath>Things/Pawn/IbexFemale_overlay_front</texPath>
+						  <graphicClass>Graphic_Single</graphicClass>
+						  <drawSize>1.7</drawSize>
+						  <drawRotated>false</drawRotated>
+						</graphicDataFemale>
+					    <offsetDefault>(0,0,0,0)</offsetDefault>
+					</overlayFront>
+					<overlaySide>
+						<graphicDataMale>
+						  <texPath>Things/Pawn/IbexMale_overlay_side</texPath>
+						  <graphicClass>Graphic_Single</graphicClass>
+						  <drawSize>1.8</drawSize>
+						  <drawRotated>false</drawRotated>
+						</graphicDataMale>
+						<graphicDataFemale>
+						  <texPath>Things/Pawn/IbexFemale_overlay_side</texPath>
+						  <graphicClass>Graphic_Single</graphicClass>
+						  <drawSize>1.7</drawSize>
+						  <drawRotated>false</drawRotated>
+						</graphicDataFemale>
+					    <offsetDefault>(0,0,0,0)</offsetDefault>
+					</overlaySide>
+				</li>
+			</value>
+		</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAdd">
+			<xpath>*/ThingDef[defName = "Ibex" and not(comps)]</xpath>
+			<value>
+				<comps>
+					<li Class="GiddyUpCore.CompProperties_Overlay">
+						<overlayFront>
+							<graphicDataMale>
+							  <texPath>Things/Pawn/IbexMale_overlay_front</texPath>
+							  <graphicClass>Graphic_Single</graphicClass>
+							  <drawSize>1.8</drawSize>
+							  <drawRotated>false</drawRotated>
+							</graphicDataMale>
+							<graphicDataFemale>
+							  <texPath>Things/Pawn/IbexFemale_overlay_front</texPath>
+							  <graphicClass>Graphic_Single</graphicClass>
+							  <drawSize>1.7</drawSize>
+							  <drawRotated>false</drawRotated>
+							</graphicDataFemale>
+							<offsetDefault>(0,0,0,0)</offsetDefault>
+						</overlayFront>
+						<overlaySide>
+							<graphicDataMale>
+							  <texPath>Things/Pawn/IbexMale_overlay_side</texPath>
+							  <graphicClass>Graphic_Single</graphicClass>
+							  <drawSize>1.8</drawSize>
+							  <drawRotated>false</drawRotated>
+							</graphicDataMale>
+							<graphicDataFemale>
+							  <texPath>Things/Pawn/IbexFemale_overlay_side</texPath>
+							  <graphicClass>Graphic_Single</graphicClass>
+							  <drawSize>1.7</drawSize>
+							  <drawRotated>false</drawRotated>
+							</graphicDataFemale>
+							<offsetDefault>(0,0,0,0)</offsetDefault>
+					</overlaySide>
+					</li>
+				</comps>
+			</value>
+		</li>
+		</operations>
+	</Operation>
+
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAdd">
+			<xpath>*/ThingDef[defName = "LabradorRetriever"]/comps</xpath>
+			<value>
+				<li Class="GiddyUpCore.CompProperties_Mount">
+					<isException>true</isException>
+				</li>
+			</value>
+		</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAdd">
+			<xpath>*/ThingDef[defName = "LabradorRetriever" and not(comps)]</xpath>
+			<value>
+				<comps>
+					<li Class="GiddyUpCore.CompProperties_Mount">
+						<isException>true</isException>
+					</li>
+				</comps>
+			</value>
+		</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAdd">
+			<xpath>*/ThingDef[defName = "Alpaca" or defName = "Elk" or defName = "Ostrich" or defName = "Thrumbo"]/comps</xpath>
+			<value>
+				<li Class="GiddyUpCore.CompProperties_Mount">
+					<drawFront>true</drawFront>
+				</li>
+			</value>
+		</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+		<li Class="PatchOperationAdd">
+			<xpath>*/ThingDef[(defName = "Alpaca" or defName = "Elk" or defName = "Ostrich" or defName = "Thrumbo") and not(comps)]</xpath>
+			<value>
+				<comps>
+					<li Class="GiddyUpCore.CompProperties_Mount">
+						<drawFront>true</drawFront>
+					</li>
+				</comps>
+			</value>
+		</li>
+		</operations>
+	</Operation>
+
+</Patch>

@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
+  <GUC_HandlingMovementImpact_Title>每級馴獸技能將影響多少移動速度(%)</GUC_HandlingMovementImpact_Title>
+  <GUC_HandlingMovementImpact_Description>如果騎乘者的馴獸等級低於馴服這種動物所需要等級，每級將會受到這麼多的減益，高於時則獲得這麼多的增益。</GUC_HandlingMovementImpact_Description>
+
   <GUC_tab1>動物設定</GUC_tab1>
   <GUC_tab2>圖像設定</GUC_tab2>
   <GUC_Tabs_Title>配置選項</GUC_Tabs_Title>
@@ -14,11 +17,12 @@
   <GUC_SizeNotOk>不可乘騎</GUC_SizeNotOk>
   <GUC_DrawFront>動物在人之前</GUC_DrawFront>
   <GUC_DrawBack>動物在人之後</GUC_DrawBack>
-  <BM_NotInModOptions>不能騎乘，這個動物在設置中沒有被設定為可騎乘動物</BM_NotInModOptions>
-  <BM_AnimalBusy>不能騎乘，這個動物正在做其他事</BM_AnimalBusy>
-  <BM_NotFullyGrown>不能騎乘, 這個動物還沒有成熟</BM_NotFullyGrown>
-  <BM_NeedsObedience>不能騎乘, 動物沒有訓練“服從”</BM_NeedsObedience>
-  <BM_Mount>乘騎動物</BM_Mount>
-  <BM_Dismount>從動物身上下來</BM_Dismount>
+
+  <GUC_NotInModOptions>不能騎乘，這個動物在設置中沒有被設定為可騎乘動物</GUC_NotInModOptions>
+  <GUC_AnimalBusy>不能騎乘，這個動物正在做其他事</GUC_AnimalBusy>
+  <GUC_NotFullyGrown>不能騎乘，這個動物還沒有成熟</GUC_NotFullyGrown>
+  <GUC_NeedsObedience>不能騎乘，動物沒有訓練“服從”</GUC_NeedsObedience>
+  <GUC_Mount>乘騎動物</GUC_Mount>
+  <GUC_Dismount>從動物身上下來</GUC_Dismount>
 
 </LanguageData>

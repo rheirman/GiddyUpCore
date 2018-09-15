@@ -12,5 +12,7 @@ namespace GiddyUpCore.Jobs
     {
         public static JobDef Mount;
         public static JobDef Mounted;
+        public static JobDef Dismount; 
     }
+
 }

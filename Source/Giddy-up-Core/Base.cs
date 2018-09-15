@@ -18,7 +18,6 @@ namespace GiddyUpCore
     {
         private ExtendedDataStorage _extendedDataStorage;
         public static Base Instance { get; private set; }
-
         internal static SettingHandle<float> handlingMovementImpact;
         public static SettingHandle<DictAnimalRecordHandler> animalSelecter;
         public static SettingHandle<DictAnimalRecordHandler> drawSelecter;
@@ -26,6 +25,9 @@ namespace GiddyUpCore
         internal static SettingHandle<float> bodySizeFilter;
         private static Color highlight1 = new Color(0.5f, 0, 0, 0.1f);
         String[] tabNames = { "GUC_tab1".Translate(), "GUC_tab2".Translate()};
+        internal static bool GiddyUpWhatTheHackLoaded = false;
+        internal static List<PawnKindDef> animalsWithBiome = new List<PawnKindDef>();
+        internal static List<PawnKindDef> animalsWithoutBiome = new List<PawnKindDef>();
 
         public override string ModIdentifier
         {
@@ -38,7 +40,11 @@ namespace GiddyUpCore
         public override void DefsLoaded()
         {
             base.DefsLoaded();
-      
+            if (AssemblyExists("GiddyUpBattleMechs"))
+            {
+                GiddyUpWhatTheHackLoaded = true;
+            }
+
             List<ThingDef> allAnimals = DefUtility.getAnimals();
             allAnimals = allAnimals.OrderBy(o => o.defName).ToList();
 
@@ -50,7 +56,7 @@ namespace GiddyUpCore
             animalSelecter = Settings.GetHandle<DictAnimalRecordHandler>("Animalselecter", "GUC_Animalselection_Title".Translate(), "GUC_Animalselection_Description".Translate(), null);
             drawSelecter = Settings.GetHandle<DictAnimalRecordHandler>("drawSelecter", "GUC_Drawselection_Title".Translate(), "GUC_Drawselection_Description".Translate(), null);
 
-            
+
             tabsHandler.CustomDrawer = rect => { return DrawUtility.CustomDrawer_Tabs(rect, tabsHandler, tabNames); };
 
             bodySizeFilter.CustomDrawer = rect => { return DrawUtility.CustomDrawer_Filter(rect, bodySizeFilter, false, 0, 5, highlight1); };
@@ -65,6 +71,40 @@ namespace GiddyUpCore
 
             DrawUtility.filterAnimals(ref animalSelecter, allAnimals, bodySizeFilter);
             DrawUtility.filterAnimals(ref drawSelecter, allAnimals, null);
+
+            foreach (ThingDef td in allAnimals)
+            {
+                if (td.HasModExtension<DrawingOffsetPatch>())
+                {
+                    td.GetModExtension<DrawingOffsetPatch>().Init();
+                }
+            }
+
+            foreach(BiomeDef biomeDef in DefDatabase<BiomeDef>.AllDefs)
+            {
+                foreach(PawnKindDef animalKind in biomeDef.AllWildAnimals)
+                {
+                    if (!animalsWithBiome.Contains(animalKind))
+                    {
+                        animalsWithBiome.Add(animalKind);
+                    }
+                }
+            }
+            foreach (PawnKindDef animalWithoutBiome in from d in DefDatabase<PawnKindDef>.AllDefs
+                                               where d.RaceProps.Animal &&  !animalsWithBiome.Contains(d)
+                                          select d)
+            {
+                animalsWithoutBiome.Add(animalWithoutBiome);
+            }
+            /*
+            foreach (PawnKindDef pd in DefDatabase<PawnKindDef>.AllDefs)
+            {
+                if (pd.HasModExtension<CustomMountsPatch>())
+                {
+                    pd.GetModExtension<CustomMountsPatch>().Init();
+                }
+            }
+            */
         }
 
 
@@ -73,7 +113,16 @@ namespace GiddyUpCore
             _extendedDataStorage = UtilityWorldObjectManager.GetUtilityWorldObject<ExtendedDataStorage>();
             base.WorldLoaded();
             LessonAutoActivator.TeachOpportunity(GUC_ConceptDefOf.GUC_Animal_Handling, OpportunityType.GoodToKnow);
+        }
 
+        private bool AssemblyExists(string assemblyName)
+        {
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                if (assembly.FullName.StartsWith(assemblyName))
+                    return true;
+            }
+            return false;
         }
 
         public ExtendedDataStorage GetExtendedDataStorage()

@@ -18,5 +18,11 @@
   <GUC_DrawFront>動物を前面に表示</GUC_DrawFront>
   <GUC_DrawBack>動物を背後に表示</GUC_DrawBack>
 
+  <GUC_NotInModOptions>騎乗できません、この動物はmodオプションで許可されていません</GUC_NotInModOptions>
+  <GUC_AnimalBusy>騎乗できません、この動物は忙しいようです</GUC_AnimalBusy>
+  <GUC_NotFullyGrown>騎乗できません、この動物は大人ではありません</GUC_NotFullyGrown>
+  <GUC_NeedsObedience>騎乗できません、この動物は服従訓練を受けていません</GUC_NeedsObedience>
+  <GUC_Mount>騎乗する</GUC_Mount>
+  <GUC_Dismount>降りる</GUC_Dismount>
 
 </LanguageData>

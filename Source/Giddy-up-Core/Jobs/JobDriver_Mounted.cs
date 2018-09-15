@@ -14,7 +14,7 @@ namespace GiddyUpCore.Jobs
     {
         public Pawn Rider { get { return job.targetA.Thing as Pawn; } }
         ExtendedPawnData riderData;
-        bool shouldEnd = false;
+        public bool interrupted = false;
         bool isFinished = false;
 
         protected override IEnumerable<Toil> MakeNewToils()
@@ -22,23 +22,25 @@ namespace GiddyUpCore.Jobs
             yield return waitForRider();
             yield return delegateMovement();
         }
-        public override bool TryMakePreToilReservations()
+        public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
             return true;
         }
 
         private bool shouldCancelJob(ExtendedPawnData riderData)
         {
-            if(riderData == null)
-            {
-                //Log.Message("riderData is null");
-                return true;
-            }
-            if (shouldEnd)
+            if (interrupted)
             {
                 //Log.Message("cancel job, shouldEnd called");
                 return true;
             }
+
+            if (riderData == null || riderData.mount == null)
+            {
+                //Log.Message("riderData is null or riderData.mount is null");
+                return true;
+            }
+
             Thing thing = pawn as Thing;
             if (Rider.Downed || Rider.Dead || pawn.Downed || pawn.Dead || pawn.IsBurning() || Rider.IsBurning())
             {
@@ -55,13 +57,13 @@ namespace GiddyUpCore.Jobs
                 if (!Rider.IsColonist && !Rider.Dead)
                 {
                     //Log.Message("rider not spawned, despawn");
-                    pawn.ExitMap(false);
+                    pawn.ExitMap(false, CellRect.WholeMap(base.Map).GetClosestEdge(this.pawn.Position));
                     return true;
                 }
-                else if(Rider.IsColonist)
+                else if(Rider.IsColonist && (Rider.CurJob == null || Rider.CurJob.def != JobDefOf.EnterTransporter))
                 {
                     //Log.Message("rider moved to map, despawn");
-                    pawn.ExitMap(true);
+                    pawn.ExitMap(true, CellRect.WholeMap(base.Map).GetClosestEdge(this.pawn.Position));
                     return true;
                 }
                 else
@@ -70,19 +72,31 @@ namespace GiddyUpCore.Jobs
                     return true;
                 }
             }
-
-            if (!Rider.Drafted && Rider.IsColonist )
+            
+            if (!Rider.Drafted && Rider.IsColonist) //TODO refactor this as a postfix in Giddy-up Caravan. 
             {
-                if((Rider.mindState != null && Rider.mindState.duty != null && (Rider.mindState.duty.def == DutyDefOf.TravelOrWait || Rider.mindState.duty.def == DutyDefOf.TravelOrLeave)))
+                if((Rider.mindState != null && Rider.mindState.duty != null && (Rider.mindState.duty.def == DutyDefOf.TravelOrWait || Rider.mindState.duty.def == DutyDefOf.TravelOrLeave )))
                 {
+                    if(riderData.caravanMount == pawn)
+                    {
+                        return false;
+                    }
+                    return true;
                     //if forming caravan, stay mounted. 
+                }
+                else if(riderData.owning == pawn)
+                {
+                    //Log.Message("cancel job, rider not drafted while being colonist");
+                    //Log.Message("riderData.owning: " + riderData.owning);
+                    return false;
                 }
                 else
                 {
                     return true;
-                    //Log.Message("cancel job, rider not drafted while being colonist");
                 }
             }
+            
+
 
             if (riderData.mount == null)
             {
@@ -98,19 +112,27 @@ namespace GiddyUpCore.Jobs
             Toil toil = new Toil();
 
             toil.defaultCompleteMode = ToilCompleteMode.Never;
-
             toil.tickAction = delegate
             {
+                //Log.Message("waiting for rider");
+
+                if (Rider == null || Rider.Dead || !Rider.Spawned || Rider.Downed || Rider.InMentalState)
+                {
+                    interrupted = true;
+                    ReadyForNextToil();
+                    return;
+                }
+
                 riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
                 if (riderData.mount != null && riderData.mount == pawn)
                 {
                     ReadyForNextToil();
                 }
-                if (Rider.CurJob.def != GUC_JobDefOf.Mount && Rider.CurJob.def != JobDefOf.Vomit && Rider.CurJob.def != JobDefOf.WaitMaintainPosture && Rider.CurJob.def != JobDefOf.SocialRelax && riderData.mount == null)
+
+                if (Rider.CurJob.def != GUC_JobDefOf.Mount && Rider.CurJob.def != JobDefOf.Vomit && Rider.CurJob.def != JobDefOf.Wait_MaintainPosture && Rider.CurJob.def != JobDefOf.SocialRelax && Rider.CurJob.def != JobDefOf.Wait && riderData.mount == null)
                 {
-                    //Log.Message("cancel wait for rider, rider is not mounting, curJob: " + Rider.CurJob.def.defName);
-                    
-                    shouldEnd = true;
+                    //Log.Message("cancel wait for rider, rider is not mounting, curJob: " + Rider.CurJob.def.defName);                  
+                    interrupted = true;
                     ReadyForNextToil();
                 }
 
@@ -140,32 +162,61 @@ namespace GiddyUpCore.Jobs
                 pawn.Drawer.tweener = Rider.Drawer.tweener;
 
                 pawn.Position = Rider.Position;
+                tryAttackEnemy();
                 pawn.Rotation = Rider.Rotation;
-                Pawn target = Rider.TargetCurrentlyAimingAt.Thing as Pawn;
-                if(target != null && target.Faction.HostileTo(Rider.Faction))
-                {
-                    pawn.meleeVerbs.TryMeleeAttack(Rider.TargetCurrentlyAimingAt.Thing, this.job.verbToUse, false);
-                }
-
+                //pawn.CurJob.targetC = Rider.Rotation.FacingCell;
+                //rotateToFace = TargetIndex.C;
             };
 
-            toil.AddFinishAction(delegate {
-                if (!Rider.IsColonist)
-                {
-                    if (pawn.Faction != null)
-                    {
-                        pawn.SetFaction(null);
-                    }
-                }
-                isFinished = true;
-                riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
-                riderData.reset();
-                pawn.Drawer.tweener = new PawnTweener(pawn);
-                //pawn.Position = Rider.Position;
-            });
+            toil.AddFinishAction(delegate
+            {
 
+                FinishAction();
+            });
+            
             return toil;
 
+        }
+
+        private void FinishAction()
+        {
+            isFinished = true;
+            riderData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(Rider);
+            riderData.reset();
+            pawn.Drawer.tweener = new PawnTweener(pawn);
+            if (!interrupted)
+            {
+                pawn.Position = Rider.Position;
+            }
+
+            pawn.pather.ResetToCurrentPosition();
+        }
+
+        private void tryAttackEnemy()
+        {
+            Thing targetThing = null;
+
+            if (Rider.TargetCurrentlyAimingAt != null)
+            {
+                targetThing = Rider.TargetCurrentlyAimingAt.Thing;
+            }
+            else if (Rider.CurJob.def == JobDefOf.AttackMelee && Rider.CurJob.targetA.Thing.HostileTo(Rider))
+            {
+                targetThing = Rider.CurJob.targetA.Thing;
+            }
+            if (targetThing != null && targetThing.HostileTo(Rider))
+            {
+                if (!pawn.meleeVerbs.TryGetMeleeVerb(targetThing).CanHitTarget(targetThing))
+                {
+                    pawn.TryStartAttack(targetThing);
+                }
+                else
+                {
+                    pawn.meleeVerbs.TryMeleeAttack(targetThing);
+                }
+                pawn.rotationTracker.FaceCell(Rider.Rotation.FacingCell);
+                pawn.rotationTracker.UpdateRotation();
+            }
         }
     }
 }
