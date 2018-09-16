@@ -159,7 +159,7 @@ namespace GiddyUpCore.Utilities
             return change;
         }
 
-        internal static void filterAnimals(ref SettingHandle<DictAnimalRecordHandler> setting, List<ThingDef> allAnimals, SettingHandle<float> filter = null)
+        public static void filterAnimals(ref SettingHandle<DictAnimalRecordHandler> setting, List<ThingDef> allAnimals, SettingHandle<float> filter = null)
         {
             if (setting.Value == null)
             {

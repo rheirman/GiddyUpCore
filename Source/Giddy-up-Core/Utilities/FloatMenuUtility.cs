@@ -14,7 +14,7 @@ namespace GiddyUpCore.Utilities
     {
         public static void AddMountingOptions(Vector3 clickPos, Pawn pawn, List<FloatMenuOption> opts)
         {
-            foreach (LocalTargetInfo current in GenUI.TargetsAt(clickPos, TargetingParameters.ForAttackHostile(), true))
+            foreach (LocalTargetInfo current in GenUI.TargetsAt(clickPos, TargetingParameters.ForAttackAny(), true))
             {
 
                 if (!(current.Thing is Pawn))
@@ -22,18 +22,6 @@ namespace GiddyUpCore.Utilities
                     return;
                 }
                 Pawn mount = (Pawn)current.Thing;
-
-                if (!mount.RaceProps.Animal)
-                {
-                    if (mount.RaceProps.IsMechanoid && Base.GiddyUpWhatTheHackLoaded && pawn.Drafted)
-                    {
-                        //continue
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
 
                 var pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
 
@@ -44,41 +32,59 @@ namespace GiddyUpCore.Utilities
 
                 if (pawnData.mount == null)
                 {
-                    bool canMount = IsMountableUtility.isMountable(mount, out IsMountableUtility.Reason reason);
+                    bool canMount = false;
+                    if (Base.GiddyUpBattleMechsLoaded && mount.RaceProps.IsMechanoid)
+                    {
+                        canMount = true; //additional checking takes place in Giddy-up! Battle Mechs. 
+                    }
+                    if (mount.RaceProps.Animal)
+                    {
+                        canMount = IsMountableUtility.isMountable(mount, out IsMountableUtility.Reason reason);
 
-                    if (!canMount && reason == IsMountableUtility.Reason.NotInModOptions)
-                    {
-                        opts.Add(new FloatMenuOption("GUC_NotInModOptions".Translate(), null, MenuOptionPriority.Low));
-                        return;
-                    }
-                    if (mount.CurJob != null && (mount.InMentalState ||
-                        mount.IsBurning() ||
-                        mount.CurJob.def == JobDefOf.LayEgg ||
-                        mount.CurJob.def == JobDefOf.Nuzzle ||
-                        mount.CurJob.def == JobDefOf.Lovin ||
-                        mount.CurJob.def == JobDefOf.Wait_Downed ||
-                        mount.CurJob.def == GUC_JobDefOf.Mounted
-                        ))
-                    {
-                        opts.Add(new FloatMenuOption("GUC_AnimalBusy".Translate(), null, MenuOptionPriority.Low));
-                        return;
-                    }
-                    if (!canMount && reason == IsMountableUtility.Reason.NotFullyGrown)
-                    {
-                        opts.Add(new FloatMenuOption("GUC_NotFullyGrown".Translate(), null, MenuOptionPriority.Low));
-                        return;
-                    }
-                    if (!canMount && reason == IsMountableUtility.Reason.NeedsObedience)
-                    {
-                        opts.Add(new FloatMenuOption("GUC_NeedsObedience".Translate(), null, MenuOptionPriority.Low));
-                        return;
+                        if (!canMount && reason == IsMountableUtility.Reason.NotInModOptions)
+                        {
+                            opts.Add(new FloatMenuOption("GUC_NotInModOptions".Translate(), null, MenuOptionPriority.Low));
+                            return;
+                        }
+                        if (mount.CurJob != null && (mount.InMentalState ||
+                            mount.IsBurning() ||
+                            mount.CurJob.def == JobDefOf.LayEgg ||
+                            mount.CurJob.def == JobDefOf.Nuzzle ||
+                            mount.CurJob.def == JobDefOf.Lovin ||
+                            mount.CurJob.def == JobDefOf.Wait_Downed ||
+                            mount.CurJob.def == GUC_JobDefOf.Mounted
+                            ))
+                        {
+                            opts.Add(new FloatMenuOption("GUC_AnimalBusy".Translate(), null, MenuOptionPriority.Low));
+                            return;
+                        }
+                        if (!canMount && reason == IsMountableUtility.Reason.NotFullyGrown)
+                        {
+                            opts.Add(new FloatMenuOption("GUC_NotFullyGrown".Translate(), null, MenuOptionPriority.Low));
+                            return;
+                        }
+                        if (!canMount && reason == IsMountableUtility.Reason.NeedsObedience)
+                        {
+                            opts.Add(new FloatMenuOption("GUC_NeedsObedience".Translate(), null, MenuOptionPriority.Low));
+                            return;
+                        }
                     }
 
                     if (canMount)
                     {
                         Action action = delegate
                         {
-
+                            if (Base.GiddyUpBattleMechsLoaded && mount.RaceProps.IsMechanoid)
+                            {
+                                if (!pawn.Drafted)
+                                {
+                                    pawn.drafter.Drafted = true;     
+                                }
+                                if(mount.drafter != null && mount.Drafted)
+                                {
+                                    mount.drafter.Drafted = false;
+                                }
+                            }
                             Job jobRider = new Job(GUC_JobDefOf.Mount, mount);
                             jobRider.count = 1;
                             pawn.jobs.TryTakeOrderedJob(jobRider);
