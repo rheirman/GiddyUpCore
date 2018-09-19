@@ -19,6 +19,8 @@ namespace GiddyUpCore
         private ExtendedDataStorage _extendedDataStorage;
         public static Base Instance { get; private set; }
         internal static SettingHandle<float> handlingMovementImpact;
+        internal static SettingHandle<int> accuracyPenalty;
+        internal static SettingHandle<float> handlingAccuracyImpact;
         public static SettingHandle<DictAnimalRecordHandler> animalSelecter;
         public static SettingHandle<DictAnimalRecordHandler> drawSelecter;
         internal static SettingHandle<String> tabsHandler;
@@ -28,6 +30,8 @@ namespace GiddyUpCore
         internal static bool GiddyUpBattleMechsLoaded = false;
         internal static List<PawnKindDef> animalsWithBiome = new List<PawnKindDef>();
         internal static List<PawnKindDef> animalsWithoutBiome = new List<PawnKindDef>();
+        private int minPercentage = 0;
+        private int maxPercentage = 100;
 
         public override string ModIdentifier
         {
@@ -49,6 +53,8 @@ namespace GiddyUpCore
             allAnimals = allAnimals.OrderBy(o => o.defName).ToList();
 
             handlingMovementImpact = Settings.GetHandle<float>("handlingMovementImpact", "GUC_HandlingMovementImpact_Title".Translate(), "GUC_HandlingMovementImpact_Description".Translate(), 1.5f, Validators.FloatRangeValidator(0f, 5f));
+            accuracyPenalty = Settings.GetHandle<int>("accuracyPenalty", "GUC_AccuracyPenalty_Title".Translate(), "GUC_AccuracyPenalty_Description".Translate(), 10, Validators.IntRangeValidator(minPercentage, maxPercentage));
+            handlingAccuracyImpact = Settings.GetHandle<float>("handlingAccuracyImpact", "GUC_HandlingAccuracyImpact_Title".Translate(), "GUC_HandlingAccuracyImpact_Description".Translate(), 0.5f, Validators.FloatRangeValidator(0f, 2f));
 
 
             tabsHandler = Settings.GetHandle<String>("tabs", "GUC_Tabs_Title".Translate(), "", "none");

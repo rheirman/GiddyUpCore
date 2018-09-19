@@ -23,7 +23,6 @@ namespace GiddyUpCore.Harmony
                     {
                         return true;
                     }
-                    Log.Message("changing rotation for mech to next adjacent cell");
                     Traverse.Create(__instance).Method("FaceAdjacentCell", new object[] { jobDriver.Rider.pather.nextCell });
                     return false;
                 }
