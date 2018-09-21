@@ -31,7 +31,7 @@ namespace GiddyUpCore.Harmony
                 if(dataStorage != null)
                 {
                     ExtendedPawnData pawnData = dataStorage.GetExtendedDataFor(pawn);
-                    if (pawnData != null && pawnData.owning != null && !pawnData.owning.Dead && pawnData.owning.Spawned)
+                    if (pawnData != null && pawnData.owning != null && !pawnData.owning.Dead && pawnData.owning.Spawned && pawnData.owning.RaceProps.Animal)
                     {
                         pawnData.owning.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.PanicFlee);
                     }
