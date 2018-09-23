@@ -13,7 +13,12 @@ namespace GiddyUpCore.Utilities
     {
         public static int adjustedTicksPerMove(Pawn pawn, Pawn mount, bool diagonal)
         {
-            float adjustedLevel = pawn.skills.GetSkill(SkillDefOf.Animals).levelInt - Mathf.RoundToInt(mount.GetStatValue(StatDefOf.MinimumHandlingSkill, true));
+            float adjustedLevel = 5;
+            if (pawn.skills != null && pawn.skills.GetSkill(SkillDefOf.Animals) is SkillRecord skill)
+            {
+                adjustedLevel = skill.levelInt - Mathf.RoundToInt(mount.GetStatValue(StatDefOf.MinimumHandlingSkill, true));
+            }
+
             float animalHandlingOffset = 1f - (adjustedLevel * Base.handlingMovementImpact) / 100f;
             if (diagonal)
             {

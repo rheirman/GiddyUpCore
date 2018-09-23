@@ -27,7 +27,7 @@ namespace GiddyUpCore
         internal static SettingHandle<float> bodySizeFilter;
         private static Color highlight1 = new Color(0.5f, 0, 0, 0.1f);
         String[] tabNames = { "GUC_tab1".Translate(), "GUC_tab2".Translate()};
-        internal static bool GiddyUpBattleMechsLoaded = false;
+        internal static bool GiddyUpMechanoidsLoaded = false;
         internal static List<PawnKindDef> animalsWithBiome = new List<PawnKindDef>();
         internal static List<PawnKindDef> animalsWithoutBiome = new List<PawnKindDef>();
         private int minPercentage = 0;
@@ -44,9 +44,9 @@ namespace GiddyUpCore
         public override void DefsLoaded()
         {
             base.DefsLoaded();
-            if (AssemblyExists("GiddyUpBattleMechs"))
+            if (AssemblyExists("GiddyUpMechanoids"))
             {
-                GiddyUpBattleMechsLoaded = true;
+                GiddyUpMechanoidsLoaded = true;
             }
 
             List<ThingDef> allAnimals = DefUtility.getAnimals();

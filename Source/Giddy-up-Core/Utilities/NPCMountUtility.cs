@@ -80,7 +80,6 @@ namespace GiddyUpCore.Utilities
             foreach (Pawn pawn in list)
             {
                 //TODO add chance
-                Log.Message(pawn.kindDef.defName);
                 PawnKindDef pawnKindDef = null;
 
 

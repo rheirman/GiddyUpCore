@@ -24,7 +24,7 @@ namespace GiddyUpCore.Utilities
             if (pawnData.mount == null)
             {
                 bool canMount = false;
-                if (Base.GiddyUpBattleMechsLoaded && target.RaceProps.IsMechanoid)
+                if (Base.GiddyUpMechanoidsLoaded && target.RaceProps.IsMechanoid)
                 {
                     canMount = true; //additional checking takes place in Giddy-up! Battle Mechs. 
                 }
@@ -65,7 +65,7 @@ namespace GiddyUpCore.Utilities
                 {
                     Action action = delegate
                     {
-                        if (Base.GiddyUpBattleMechsLoaded && target.RaceProps.IsMechanoid)
+                        if (Base.GiddyUpMechanoidsLoaded && target.RaceProps.IsMechanoid)
                         {
                             if (!pawn.Drafted)
                             {

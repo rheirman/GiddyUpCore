@@ -64,6 +64,7 @@
     <Compile Include="Harmony\GenDraw_DrawAimPie.cs" />
     <Compile Include="Harmony\Pawn_RotationTracker.cs" />
     <Compile Include="Harmony\Projectile_Launch.cs" />
+    <Compile Include="Harmony\SelfDefenceUtility.cs" />
     <Compile Include="Harmony\ShieldBelt_DrawWornExtras.cs" />
     <Compile Include="Harmony\VerbProperties_AdjustedAccuracy.cs" />
     <Compile Include="ModExtensions\AllowedLifeStagesPatch.cs" />
@@ -71,7 +72,6 @@
     <Compile Include="ModExtensions\DrawingOffsetPatch.cs" />
     <Compile Include="ModExtensions\FactionRestrictionsPatch.cs" />
     <Compile Include="Harmony\Building_Door.cs" />
-    <Compile Include="Harmony\MentalStateHandler.cs" />
     <Compile Include="Harmony\Pawn_DrawAt.cs" />
     <Compile Include="Harmony\Pawn_HealthTracker.cs" />
     <Compile Include="Harmony\Pawn_JobTracker.cs" />

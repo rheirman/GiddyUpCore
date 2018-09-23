@@ -27,7 +27,10 @@ namespace GiddyUpCore.Jobs
             yield return letMountParticipate();
             //yield return Toils_General.Wait(1);//wait one tick to ensure animal is waiting to get mounted before proceding. 
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.Touch);
-            yield return Toils_Interpersonal.WaitToBeAbleToInteract(this.pawn);
+            if(this.pawn.interactions != null)
+            {
+                yield return Toils_Interpersonal.WaitToBeAbleToInteract(this.pawn);
+            }
             yield return TalkToAnimal(TargetIndex.A);
         }
         private Toil letMountParticipate()
@@ -55,7 +58,10 @@ namespace GiddyUpCore.Jobs
             toil.initAction = delegate
             {
                 Pawn actor = toil.GetActor();
-                actor.interactions.TryInteractWith(Mount, InteractionDefOf.AnimalChat);
+                if(actor.interactions != null)
+                {
+                    actor.interactions.TryInteractWith(Mount, InteractionDefOf.AnimalChat);
+                }
             };
             toil.defaultCompleteMode = ToilCompleteMode.Delay;
             toil.defaultDuration = 150;
