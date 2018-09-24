@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
-
+ <GUC_HandlingAccuracyImpact_Title>동물 탑승 스킬 레벨에 따른 정확도(%)</GUC_HandlingAccuracyImpact_Title>
+ <GUC_HandlingAccuracyImpact_Description>만일 동물 탑승 레벨이 길들이는데 필요한 수준보다 낮다면, 레벨당 패널티가 되며 그보다 높을 경우 보너스가 됩니다.</GUC_HandlingAccuracyImpact_Description>  
  <GUC_HandlingMovementImpact_Title>동물 탑승 스킬 레벨에 따른 이동 영향(%)</GUC_HandlingMovementImpact_Title>
  <GUC_HandlingMovementImpact_Description>만일 동물 조련 레벨이 길들이는데 필요한 수준보다 낮다면, 레벨당 패널티가 되며 그보다 높을 경우 보너스가 됩니다.</GUC_HandlingMovementImpact_Description>
- 
+ <GUC_AccuracyPenalty_Title>정확도 패널티</GUC_AccuracyPenalty_Title>
+ <GUC_AccuracyPenalty_Description>탑승시 정확도 패널티</GUC_AccuracyPenalty_Description>
 
  <GUC_tab1>탑승 가능한 동물..</GUC_tab1>
  <GUC_tab2>그리기 설정..</GUC_tab2>

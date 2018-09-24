@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
+ <GUC_HandlingAccuracyImpact_Title>Wpływ celności(%) za każdy poziom umięjętności oswajania</GUC_HandlingAccuracyImpact_Title>
+ <GUC_HandlingAccuracyImpact_Description>Jeżeli poziom oswajania u kolonisty jest poniżej poziomu wymaganego do oswojenia zwierzęcia, zostanie nadana kara za każdy poziom poniżej wymogu. W przeciwnym wypadku nadawany jest bonu za każdy poziom ponad wymóg.</GUC_HandlingAccuracyImpact_Description> 
  <GUC_HandlingMovementImpact_Title>Wpływ na ruch(%) za każdy poziom umięjętności oswajania</GUC_HandlingMovementImpact_Title>
  <GUC_HandlingMovementImpact_Description>Jeżeli poziom oswajania u kolonisty jest poniżej poziomu wymaganego do oswojenia zwierzęcia, zostanie nadana kara za każdy poziom poniżej wymogu. W przeciwnym wypadku nadawany jest bonus za każdy poziom ponad wymóg.</GUC_HandlingMovementImpact_Description>
+ <GUC_AccuracyPenalty_Title>Kara do celności</GUC_AccuracyPenalty_Title>
+ <GUC_AccuracyPenalty_Description>Kara do celności kiedy kolonista jest na wierzchowcu</GUC_AccuracyPenalty_Description>
  
  <GUC_tab1>Zwierzęta możliwe do ujeżdżania.</GUC_tab1>
  <GUC_tab2>Opcje rysowania.</GUC_tab2>
