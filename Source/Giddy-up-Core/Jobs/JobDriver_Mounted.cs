@@ -204,9 +204,9 @@ namespace GiddyUpCore.Jobs
             }
             if (targetThing != null && targetThing.HostileTo(Rider))
             {
-                if (!pawn.meleeVerbs.TryGetMeleeVerb(targetThing).CanHitTarget(targetThing))
+                if (pawn.meleeVerbs == null || pawn.meleeVerbs.TryGetMeleeVerb(targetThing) == null || !pawn.meleeVerbs.TryGetMeleeVerb(targetThing).CanHitTarget(targetThing))
                 {
-                    pawn.TryStartAttack(targetThing);
+                    pawn.TryStartAttack(targetThing); //Try start ranged attack if possible
                 }
                 else
                 {
