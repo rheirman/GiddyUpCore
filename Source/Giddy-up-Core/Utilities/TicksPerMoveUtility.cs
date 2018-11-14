@@ -20,13 +20,19 @@ namespace GiddyUpCore.Utilities
             }
 
             float animalHandlingOffset = 1f - (adjustedLevel * Base.handlingMovementImpact) / 100f;
+            float customSpeedModifier = 1f;
+            if (mount.def.GetModExtension<CustomStatsPatch>() is CustomStatsPatch modExt)
+            {
+                customSpeedModifier = 1f/modExt.speedModifier;
+            }
+            float factor = animalHandlingOffset * customSpeedModifier;
             if (diagonal)
             {
-                return Mathf.RoundToInt((float)mount.TicksPerMoveDiagonal * animalHandlingOffset);
+                return Mathf.RoundToInt((float)mount.TicksPerMoveDiagonal * factor);
             }
             else
             {
-                return Mathf.RoundToInt((float)mount.TicksPerMoveCardinal * animalHandlingOffset);
+                return Mathf.RoundToInt((float)mount.TicksPerMoveCardinal * factor);
             }
         }
     }

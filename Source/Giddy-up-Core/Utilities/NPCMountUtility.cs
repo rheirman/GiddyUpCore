@@ -188,7 +188,7 @@ namespace GiddyUpCore.Utilities
             float sum = 0;
             foreach (PawnKindDef animalKind in map.Biome.AllWildAnimals)
             {
-                sum += 1;
+                sum += map.Biome.CommonalityOfAnimal(animalKind);
             }
             return sum / map.Biome.AllWildAnimals.Count();
         }

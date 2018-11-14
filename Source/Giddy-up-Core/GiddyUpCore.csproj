@@ -61,6 +61,7 @@
     <Compile Include="Components\CompProperties_Overlays.cs" />
     <Compile Include="Components\CompProperties_BattleMounts.cs" />
     <Compile Include="Concepts\GUC_ConceptDefOf.cs" />
+    <Compile Include="Harmony\ArmorUtility.cs" />
     <Compile Include="Harmony\GenDraw_DrawAimPie.cs" />
     <Compile Include="Harmony\Pawn_RotationTracker.cs" />
     <Compile Include="Harmony\Projectile_Launch.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Harmony\VerbProperties_AdjustedAccuracy.cs" />
     <Compile Include="ModExtensions\AllowedLifeStagesPatch.cs" />
     <Compile Include="ModExtensions\CustomMountsPatch.cs" />
+    <Compile Include="ModExtensions\CustomStatsPatch.cs" />
     <Compile Include="ModExtensions\DrawingOffsetPatch.cs" />
     <Compile Include="ModExtensions\FactionRestrictionsPatch.cs" />
     <Compile Include="Harmony\Building_Door.cs" />
