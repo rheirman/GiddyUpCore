@@ -176,8 +176,22 @@ To achieve this, the parts of the animal that should overlap the rider are provi
 </Patch>
 ```
 
+### Custom stats when animals are mounted. 
 
-
+Want to make an animal faster when it's mounted? Or want it to have more armor? Then this patching option is what you need. In the following example, a Thrumbo is patched so it's 3x as fast, and has a rediculous amount of armor when mounted:
+```xml
+<Operation Class="PatchOperationAddModExtension">
+	<xpath>*/ThingDef[ defName = "Thrumbo"]</xpath> 
+	<value>
+		<li Class="GiddyUpCore.CustomStatsPatch">
+			<!--Extra speed factor. This patch makes thrumbo's 1.1x or in other words 10% faster when used as mount -->
+			<speedModifier>1.1</speedModifier>
+			<armorModifier>10.0</armorModifier>
+			<useMetalArmor>true</useMetalArmor>
+		</li>
+	</value>
+</Operation>
+```
 
 
 
