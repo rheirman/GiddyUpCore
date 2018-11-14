@@ -7,7 +7,6 @@
   <GUC_HandlingMovementImpact_Description>如果骑乘者的驯兽等级低于驯服这种动物所需要等级，每级将会受到这么多的减益，高于时则获得这么多的增益。</GUC_HandlingMovementImpact_Description>
   <GUC_AccuracyPenalty_Title>射击精度惩罚</GUC_AccuracyPenalty_Title>
   <GUC_AccuracyPenalty_Description>当人骑乘时射击精度受到的惩罚</GUC_AccuracyPenalty_Description>
-  
   <GUC_tab1>动物设定</GUC_tab1>
   <GUC_tab2>图像设定</GUC_tab2>
   <GUC_Tabs_Title>配置选项</GUC_Tabs_Title>
