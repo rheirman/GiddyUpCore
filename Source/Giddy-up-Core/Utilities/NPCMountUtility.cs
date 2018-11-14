@@ -113,7 +113,7 @@ namespace GiddyUpCore.Utilities
                     }
                     int pawnHandlingLevel = pawn.skills.GetSkill(SkillDefOf.Animals).Level;
 
-                    pawnKindDef = determinePawnKind(map, isAnimal, inBiomeWeightNormalized, outBiomeWeightNormalized, rndInt, pawnHandlingLevel, factionFarmAnimalRestrictions, factionWildAnimalRestrictions);
+                    pawnKindDef = determinePawnKind(map, isAnimal, inBiomeWeightNormalized, outBiomeWeightNormalized, rndInt, pawnHandlingLevel, factionFarmAnimalRestrictions, factionWildAnimalRestrictions, parms);
                 }
                 if (pawnKindDef == null)
                 {
@@ -151,23 +151,22 @@ namespace GiddyUpCore.Utilities
 
         }
 
-        private static PawnKindDef determinePawnKind(Map map, Predicate<PawnKindDef> isAnimal, float inBiomeWeightNormalized, float outBiomeWeightNormalized, int rndInt, int pawnHandlingLevel, List<string> factionFarmAnimalRestrictions, List<string> factionWildAnimalRestrictions)
+        private static PawnKindDef determinePawnKind(Map map, Predicate<PawnKindDef> isAnimal, float inBiomeWeightNormalized, float outBiomeWeightNormalized, int rndInt, int pawnHandlingLevel, List<string> factionFarmAnimalRestrictions, List<string> factionWildAnimalRestrictions, IncidentParms parms)
         {
             PawnKindDef pawnKindDef = null;
             float averageCommonality = AverageAnimalCommonality(map);
+            Predicate<PawnKindDef> canUseAnimal = (PawnKindDef a) => map.mapTemperature.SeasonAcceptableFor(a.race) && IsMountableUtility.isAllowedInModOptions(a.defName) && parms.points > a.combatPower * 2f;
             if (factionWildAnimalRestrictions.NullOrEmpty() && rndInt <= inBiomeWeightNormalized)
             {
                 (from a in map.Biome.AllWildAnimals
-                 where map.mapTemperature.SeasonAcceptableFor(a.race)
-                 && IsMountableUtility.isAllowedInModOptions(a.defName)
+                 where canUseAnimal(a)
                  select a).TryRandomElementByWeight((PawnKindDef def) => calculateCommonality(def, map, pawnHandlingLevel), out pawnKindDef);
             }
             else if (rndInt <= inBiomeWeightNormalized + outBiomeWeightNormalized)
             {
                 (from a in Base.animalsWithBiome
                  where isAnimal(a)
-                 && map.mapTemperature.SeasonAcceptableFor(a.race)
-                 && IsMountableUtility.isAllowedInModOptions(a.defName)
+                 && canUseAnimal(a)
                  && (factionWildAnimalRestrictions.NullOrEmpty() || factionWildAnimalRestrictions.Contains(a.defName))
                  select a).TryRandomElementByWeight((PawnKindDef def) => calculateCommonality(def, map, pawnHandlingLevel, averageCommonality), out pawnKindDef);
             }
@@ -175,8 +174,7 @@ namespace GiddyUpCore.Utilities
             {
                 (from a in Base.animalsWithoutBiome
                  where isAnimal(a)
-                 && map.mapTemperature.SeasonAcceptableFor(a.race)
-                 && IsMountableUtility.isAllowedInModOptions(a.defName)
+                 && canUseAnimal(a)
                  && (factionFarmAnimalRestrictions.NullOrEmpty() || factionFarmAnimalRestrictions.Contains(a.defName))
                  select a).TryRandomElementByWeight((PawnKindDef def) => calculateCommonality(def, map, pawnHandlingLevel, averageCommonality), out pawnKindDef);
             }
