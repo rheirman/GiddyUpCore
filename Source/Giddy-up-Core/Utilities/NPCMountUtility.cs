@@ -117,7 +117,6 @@ namespace GiddyUpCore.Utilities
                 }
                 if (pawnKindDef == null)
                 {
-                    Log.Error("No spawnable animals right now.");
                     return false;
                 }
                 Pawn animal = PawnGenerator.GeneratePawn(pawnKindDef, parms.faction);
