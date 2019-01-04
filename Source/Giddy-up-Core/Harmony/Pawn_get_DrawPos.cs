@@ -9,13 +9,15 @@ using Verse;
 
 namespace GiddyUpCore.Harmony
 {
-    [HarmonyPatch(typeof(Pawn), "DrawAt")]
-    [HarmonyPatch(new Type[] { typeof(Vector3), typeof(bool) })]
-    static class Pawn_DrawAt
+    
+    [HarmonyPatch(typeof(Pawn), "get_DrawPos")]
+    //[HarmonyPatch(new Type[] { typeof(Vector3), typeof(bool) })]
+    static class Pawn_get_DrawPos
     {
 
-        static bool Prefix(Pawn __instance, Vector3 drawLoc, bool flip = false)
+        static bool Prefix(Pawn __instance, ref Vector3 __result)
         {
+            Vector3 drawLoc = __instance.Drawer.DrawPos;
             ExtendedDataStorage store = Base.Instance.GetExtendedDataStorage();
 
             if (store == null)
@@ -46,15 +48,10 @@ namespace GiddyUpCore.Harmony
                         drawLoc.y = pawnData.mount.Drawer.DrawPos.y - 1;
                     }
                 }
-                __instance.Drawer.DrawAt(drawLoc);
+                __result = drawLoc;
                 return false;
             }
             return true;
-        }
-
-        private static void DrawGraphicsOverlay()
-        {
-
         }
 
         private static Vector3 AddCustomOffsets(Pawn __instance, ExtendedPawnData pawnData)
@@ -75,4 +72,5 @@ namespace GiddyUpCore.Harmony
             return customOffsets.westOffset;
         }
     }
+    
 }

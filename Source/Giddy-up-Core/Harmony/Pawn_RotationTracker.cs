@@ -17,15 +17,8 @@ namespace GiddyUpCore.Harmony
             Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
             if(!pawn.Destroyed && pawn.jobs.curDriver is JobDriver_Mounted jobDriver)
             {
-                if (jobDriver.Rider.pather.Moving)
-                {
-                    if (jobDriver.Rider.pather.curPath == null || jobDriver.Rider.pather.curPath.NodesLeftCount < 1)
-                    {
-                        return true;
-                    }
-                    Traverse.Create(__instance).Method("FaceAdjacentCell", new object[] { jobDriver.Rider.pather.nextCell });
-                    return false;
-                }
+                pawn.Rotation = jobDriver.Rider.Rotation;
+                return false;      
                 //Log.Message("changing rotation for mech");
                 //__instance.Face(jobDriver.Rider.Rotation.FacingCell.ToVector3());
                 //return false; 

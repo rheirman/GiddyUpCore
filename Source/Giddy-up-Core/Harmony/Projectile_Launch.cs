@@ -9,8 +9,9 @@ using Verse;
 
 namespace GiddyUpCore.Harmony
 {
-
+    /*
     [HarmonyPatch(typeof(Projectile), "Launch")]
+    [HarmonyPriority(Priority.High)]
     [HarmonyPatch(new Type[] { typeof(Thing), typeof(Vector3), typeof(LocalTargetInfo), typeof(LocalTargetInfo), typeof(ProjectileHitFlags), typeof(Thing), typeof(ThingDef) })]
     static class Projectile_Launch
     {
@@ -29,4 +30,5 @@ namespace GiddyUpCore.Harmony
             }
         }
     }
+    */
 }

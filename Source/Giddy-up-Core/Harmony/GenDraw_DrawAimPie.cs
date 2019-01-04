@@ -9,6 +9,7 @@ using Verse;
 
 namespace GiddyUpCore.Harmony
 {
+    /*
     [HarmonyPatch(typeof(GenDraw), "DrawAimPie")]
     static class GenDraw_DrawAimPie
     {
@@ -42,4 +43,5 @@ namespace GiddyUpCore.Harmony
 
         }
     }
+    */
 }
