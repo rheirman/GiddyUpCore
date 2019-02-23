@@ -52,7 +52,13 @@ namespace GiddyUpCore
             {
                 offset = overlay.offsetDefault;
             }
+            if(pawn.Rotation == Rot4.West)
+            {
+                offset.x = -offset.x;
+            }
+
             drawPos += offset;
+            
            
             //Somehow the rotation is flipped, hence the use of GetOpposite. 
             gd.Graphic.Draw(drawPos, parent.Rotation, parent, 0f);

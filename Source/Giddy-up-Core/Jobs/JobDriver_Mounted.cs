@@ -206,12 +206,10 @@ namespace GiddyUpCore.Jobs
             {
                 if (pawn.meleeVerbs == null || pawn.meleeVerbs.TryGetMeleeVerb(targetThing) == null || !pawn.meleeVerbs.TryGetMeleeVerb(targetThing).CanHitTarget(targetThing))
                 {
-                    Log.Message("mount try start attack");
                     pawn.TryStartAttack(targetThing); //Try start ranged attack if possible
                 }
                 else
                 {
-                    Log.Message("mount try start melee attack");
                     pawn.meleeVerbs.TryMeleeAttack(targetThing);
                 }
             }
