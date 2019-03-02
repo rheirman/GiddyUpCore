@@ -1,4 +1,5 @@
 ﻿using GiddyUpCore.Storage;
+using GiddyUpCore.Utilities;
 using Harmony;
 using System;
 using System.Collections.Generic;
@@ -10,21 +11,22 @@ using Verse;
 namespace GiddyUpCore.Harmony
 {
     
-    [HarmonyPatch(typeof(Pawn), "get_DrawPos")]
+    [HarmonyPatch(typeof(Pawn_DrawTracker), "get_DrawPos")]
     //[HarmonyPatch(new Type[] { typeof(Vector3), typeof(bool) })]
-    static class Pawn_get_DrawPos
+    static class Pawn_DrawTracker_get_DrawPos
     {
 
-        static bool Prefix(Pawn __instance, ref Vector3 __result)
+        static void Postfix(Pawn_DrawTracker __instance, ref Vector3 __result)
         {
-            Vector3 drawLoc = __instance.Drawer.DrawPos;
+            Vector3 drawLoc = __result;
+            Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
             ExtendedDataStorage store = Base.Instance.GetExtendedDataStorage();
 
             if (store == null)
             {
-                return true;
+                return;
             }
-            ExtendedPawnData pawnData = store.GetExtendedDataFor(__instance);
+            ExtendedPawnData pawnData = store.GetExtendedDataFor(pawn);
 
             if (pawnData != null && pawnData.mount != null)
             {
@@ -36,10 +38,9 @@ namespace GiddyUpCore.Harmony
                 }
                 if (pawnData.mount.def.HasModExtension<DrawingOffsetPatch>())
                 {
-                    drawLoc += AddCustomOffsets(__instance, pawnData);
+                    drawLoc += AddCustomOffsets(pawn, pawnData);
                 }
-
-                if (__instance.Rotation == Rot4.South )
+                if (pawn.Rotation == Rot4.South )
                 {
                     AnimalRecord value;
                     bool found = Base.drawSelecter.Value.InnerList.TryGetValue(pawnData.mount.def.defName, out value);
@@ -49,9 +50,16 @@ namespace GiddyUpCore.Harmony
                     }
                 }
                 __result = drawLoc;
-                return false;
+                if (Base.facialStuffLoaded){ 
+                    __result.y += 0.1f;
+                }
+
+
             }
-            return true;
+            //if (IsMountableUtility.IsCurrentlyMounted(pawn))
+            //{
+              //  __result.y -= 5;
+            //}
         }
 
         private static Vector3 AddCustomOffsets(Pawn __instance, ExtendedPawnData pawnData)

@@ -53,6 +53,17 @@ Roolo
 
 Yes it is. With Giddy-up! Ride and Roll, you'll save your colonists the pain of walking everywhere, as it allows them to use mounts whenever it makes sense. Go check it out on Steam!
 		</content>
+		
+	</HugsLib.UpdateFeatureDef>
+		<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>GiddyUpCore_1_1_4</defName>
+		<assemblyVersion>1.1.4</assemblyVersion>
+		<content>
+Hi fellow Rimworlders. Normally I only create these in-game notifications for big updates, but this minor update can be significant for some players, and it would probably be missed without this notification.
+Update notes: 
+- Giddy-up! is now fully compatible again with Facial Stuff out of the box. No longer will you colonists be drawn behind animals when they really shouldn't when using both mods, and no longer it'll appear as if they're "riding" the animal on a "different" (read NSFW) way. 
+- Gear added by Combat Extended like backpacks and shields are now drawn properly for colonists riding animals. 
+		</content>
 	</HugsLib.UpdateFeatureDef>
 	
 </Defs>

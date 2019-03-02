@@ -32,7 +32,7 @@ namespace GiddyUpCore
         internal static List<PawnKindDef> animalsWithoutBiome = new List<PawnKindDef>();
         private int minPercentage = 0;
         private int maxPercentage = 100;
-
+        internal static bool facialStuffLoaded;
         public override string ModIdentifier
         {
             get { return "GiddyUpCore"; }
@@ -47,6 +47,10 @@ namespace GiddyUpCore
             if (AssemblyExists("GiddyUpMechanoids"))
             {
                 GiddyUpMechanoidsLoaded = true;
+            }
+            if (AssemblyExists("FacialStuff"))
+            {
+                facialStuffLoaded = true;
             }
 
             List<ThingDef> allAnimals = DefUtility.getAnimals();
@@ -121,6 +125,7 @@ namespace GiddyUpCore
             LessonAutoActivator.TeachOpportunity(GUC_ConceptDefOf.GUC_Animal_Handling, OpportunityType.GoodToKnow);
         }
 
+        //Mod names sometimes change when Rimworld changes its version. Checking for the assembly name, which probably won't change is therefore a better idea than using ModLister.HasActiveModWithName
         private bool AssemblyExists(string assemblyName)
         {
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())

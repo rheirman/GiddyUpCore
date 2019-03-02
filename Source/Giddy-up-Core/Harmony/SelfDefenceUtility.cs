@@ -14,10 +14,6 @@ namespace GiddyUpCore.Harmony
     {
         static bool Prefix(Pawn pawn, ref bool __result)
         {
-            if (pawn.RaceProps.Animal)
-            {
-                Log.Message("ShouldFleeFrom called for animal");
-            }
             if(pawn.CurJob != null && pawn.CurJob.def == GUC_JobDefOf.Mounted)
             {
                 __result = false;

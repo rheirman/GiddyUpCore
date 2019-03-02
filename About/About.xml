@@ -2,7 +2,9 @@
 <ModMetaData>
 	<name>Giddy-up! Core</name>
 	<author>Roolo</author>
-	<targetVersion>1.0.0</targetVersion>
+	<supportedVersions>
+			<li>1.0</li>
+	</supportedVersions>
 	<description>The core files for the Giddy-up! series.
 
 &lt;color=orange&gt;&lt;b&gt;Dependencies &lt;/b&gt;&lt;/color&gt;

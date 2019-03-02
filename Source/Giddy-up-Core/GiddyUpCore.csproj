@@ -74,7 +74,7 @@
     <Compile Include="ModExtensions\DrawingOffsetPatch.cs" />
     <Compile Include="ModExtensions\FactionRestrictionsPatch.cs" />
     <Compile Include="Harmony\Building_Door.cs" />
-    <Compile Include="Harmony\Pawn_get_DrawPos.cs" />
+    <Compile Include="Harmony\Pawn_DrawTracker_get_DrawPos.cs" />
     <Compile Include="Harmony\Pawn_HealthTracker.cs" />
     <Compile Include="Harmony\Pawn_JobTracker.cs" />
     <Compile Include="Harmony\Pawn_PlayerSettings .cs" />
