@@ -72,10 +72,10 @@ namespace GiddyUpCore.Jobs
                     return true;
                 }
             }
-            
+
             if (!Rider.Drafted && Rider.IsColonist) //TODO refactor this as a postfix in Giddy-up Caravan. 
             {
-                if((Rider.mindState != null && Rider.mindState.duty != null && (Rider.mindState.duty.def == DutyDefOf.TravelOrWait || Rider.mindState.duty.def == DutyDefOf.TravelOrLeave )))
+                if((Rider.mindState != null && Rider.mindState.duty != null && (Rider.mindState.duty.def == DutyDefOf.TravelOrWait || Rider.mindState.duty.def == DutyDefOf.TravelOrLeave || Rider.mindState.duty.def == DutyDefOf.PrepareCaravan_GatherPawns || Rider.mindState.duty.def == DutyDefOf.PrepareCaravan_GatherPawns)))
                 {
                     if(riderData.caravanMount == pawn)
                     {
