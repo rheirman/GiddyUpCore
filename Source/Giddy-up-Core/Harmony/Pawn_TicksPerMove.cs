@@ -11,6 +11,7 @@ using Verse;
 
 namespace GiddyUpCore.Harmony
 {
+    /*
     [HarmonyPatch(typeof(Pawn), "TicksPerMove")]
     static class Pawn_TicksPerMove
     {
@@ -31,5 +32,6 @@ namespace GiddyUpCore.Harmony
 
         }
     }
+    */
 }
 
