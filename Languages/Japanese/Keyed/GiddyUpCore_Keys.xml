@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
+  <GUC_GiddyUp>Giddy up!</GUC_GiddyUp>
+  <GUC_StatPart_MountMoveSpeed>騎乗移動速度（ポーンの移動速度を上書き)</GUC_StatPart_MountMoveSpeed>
+  <GUC_StatPart_HandlingMultiplier>騎手の騎乗スキル係数</GUC_StatPart_HandlingMultiplier>
+  <GUC_StatPart_HandlingSkill>騎手の動物手なづけスキル</GUC_StatPart_HandlingSkill>
+  <GUC_StatPart_SkillReq>動物スキルの条件</GUC_StatPart_SkillReq>
+  <GUC_StatPart_LevelsAbove>条件以上のスキルレベル</GUC_StatPart_LevelsAbove>
+  <GUC_StatPart_HandlingMovementImpact>レベルの速度影響（Mod設定で変更）</GUC_StatPart_HandlingMovementImpact>
+  <GUC_StatPart_MountTypeMultiplier>騎乗タイプの係数</GUC_StatPart_MountTypeMultiplier>
+
   <GUC_HandlingAccuracyImpact_Title>動物スキルのレベルによる命中率影響（％）</GUC_HandlingAccuracyImpact_Title>
   <GUC_HandlingAccuracyImpact_Description>ポーンの動物スキルが、その動物を飼いならすのに必要なレベルよりも低い場合、これは足りない動物スキルレベルごとのペナルティです。それ必要スキル以上の場合はレベルごとのボーナスです。</GUC_HandlingAccuracyImpact_Description>
   <GUC_HandlingMovementImpact_Title>動物スキルのレベルによる移動影響（％）</GUC_HandlingMovementImpact_Title>
