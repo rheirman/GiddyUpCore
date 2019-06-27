@@ -84,6 +84,8 @@
     <Compile Include="Jobs\JobDriver_Mount.cs" />
     <Compile Include="Jobs\JobDriver_Mounted.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stats\StatPart_Armor.cs" />
+    <Compile Include="Stats\StatPart_Riding.cs" />
     <Compile Include="Storage\ExtendedDataStorage.cs" />
     <Compile Include="Storage\ExtendedPawnData.cs" />
     <Compile Include="DictAnimalRecordHandler.cs" />

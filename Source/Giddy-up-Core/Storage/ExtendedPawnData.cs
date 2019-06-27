@@ -45,7 +45,7 @@ namespace GiddyUpCore.Storage
         public void reset()
         {
             mount = null;
-            drawOffset = -1;
+            //drawOffset = -1;
         }
     }
 }

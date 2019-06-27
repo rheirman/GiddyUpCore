@@ -10,6 +10,8 @@ using GiddyUpCore.Storage;
 
 namespace GiddyUpCore.Harmony
 {
+        //TODO: remove this? 
+        /*
         [HarmonyPatch(typeof(ShieldBelt), "DrawWornExtras")]
         static class ShieldBelt_DrawWornExtras
         {
@@ -52,5 +54,6 @@ namespace GiddyUpCore.Harmony
             return false;
             }
         }
+        */
 
 }

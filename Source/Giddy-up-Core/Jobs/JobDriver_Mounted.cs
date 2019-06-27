@@ -1,5 +1,6 @@
 ﻿using GiddyUpCore.Storage;
 using RimWorld;
+using RimWorld.Planet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,7 @@ namespace GiddyUpCore.Jobs
             }
 
             Thing thing = pawn as Thing;
-            if (Rider.Downed || Rider.Dead || pawn.Downed || pawn.Dead || pawn.IsBurning() || Rider.IsBurning())
+            if (Rider.Downed || Rider.Dead || pawn.Downed || pawn.Dead || pawn.IsBurning() || Rider.IsBurning() || Rider.GetPosture() != PawnPosture.Standing)
             {
                 //Log.Message("cancel job, rider downed or dead");
                 return true;
@@ -60,7 +61,7 @@ namespace GiddyUpCore.Jobs
                     pawn.ExitMap(false, CellRect.WholeMap(base.Map).GetClosestEdge(this.pawn.Position));
                     return true;
                 }
-                else if(Rider.IsColonist && (Rider.CurJob == null || Rider.CurJob.def != JobDefOf.EnterTransporter))
+                else if(Rider.IsColonist && Rider.GetCaravan() != null)
                 {
                     //Log.Message("rider moved to map, despawn");
                     pawn.ExitMap(true, CellRect.WholeMap(base.Map).GetClosestEdge(this.pawn.Position));

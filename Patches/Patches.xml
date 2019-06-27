@@ -2,6 +2,36 @@
 <!-- These patches set the exceptions of the mod settings. The same patching method can be used for other mods that add animals and want default options for them. 
 Two patch operations per animal are needed for vanilla animals to ensure compatibility with mods that add comps. Note that this is probably not needed for patches of other mods that add animals-->
 <Patch>
+
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/ThingDef[defName = "Ostrich"]</xpath> 
+		<value>
+			<li Class="GiddyUpCore.CustomStatsPatch">
+				<!--Speed factor. -->
+				<speedModifier>1.5</speedModifier>
+				<!--Armor factor. -->
+				<armorModifier>1.2</armorModifier>
+				<!--Setting useMetalArmor to true, makes the animal's skin have the metal bounce of effect when hit when used as mount --> 
+				<useMetalArmor>false</useMetalArmor>
+			</li>
+		</value>
+	</Operation>
+	
+	<Operation Class = "PatchOperationAdd">
+		<xpath>Defs/StatDef[defName="ArmorRating_Sharp" or defName="ArmorRating_Blunt"]/parts</xpath>
+		<value>
+			<li Class="GiddyUpCore.Stats.StatPart_Armor">
+				<priority>999</priority>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/StatDef[defName="MoveSpeed"]/parts</xpath>
+		<value>
+			<li Class="GiddyUpCore.Stats.StatPart_Riding"/>
+		</value>
+	</Operation>
+	
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
 		<operations>

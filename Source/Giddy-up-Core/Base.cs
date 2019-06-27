@@ -56,7 +56,7 @@ namespace GiddyUpCore
             List<ThingDef> allAnimals = DefUtility.getAnimals();
             allAnimals = allAnimals.OrderBy(o => o.defName).ToList();
 
-            handlingMovementImpact = Settings.GetHandle<float>("handlingMovementImpact", "GUC_HandlingMovementImpact_Title".Translate(), "GUC_HandlingMovementImpact_Description".Translate(), 1.5f, Validators.FloatRangeValidator(0f, 5f));
+            handlingMovementImpact = Settings.GetHandle<float>("handlingMovementImpact", "GUC_HandlingMovementImpact_Title".Translate(), "GUC_HandlingMovementImpact_Description".Translate(), 2.5f, Validators.FloatRangeValidator(0f, 10f));
             accuracyPenalty = Settings.GetHandle<int>("accuracyPenalty", "GUC_AccuracyPenalty_Title".Translate(), "GUC_AccuracyPenalty_Description".Translate(), 10, Validators.IntRangeValidator(minPercentage, maxPercentage));
             handlingAccuracyImpact = Settings.GetHandle<float>("handlingAccuracyImpact", "GUC_HandlingAccuracyImpact_Title".Translate(), "GUC_HandlingAccuracyImpact_Description".Translate(), 0.5f, Validators.FloatRangeValidator(0f, 2f));
 
