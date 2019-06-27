@@ -70,4 +70,26 @@ Roolo
 		</content>
 	</HugsLib.UpdateFeatureDef>
 	
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>GiddyUpCore_1_1_6</defName>
+		<assemblyVersion>1.1.6</assemblyVersion>
+		<content>
+&lt;color=orange&gt;&lt;b&gt;Giddy-up! Core&lt;/b&gt;&lt;/color&gt; is updated to v1.1.6. This minor update comes with some important fixes and improvements. 
+
+- The stat info tab now properly shows the movement speed of riders and mounts, with a breakdown of how everything is calculated. 
+- Pawns no longer try to train animals that are mounted. 
+- Added save game sanitizer that automatically cleans unneeded records of Giddy-up on startup. This should reduce the load time of your save (in some cases significantly). 
+- Animals can no longer disappear when a rider enters a drop pod (this issue was introduced in the latest major update of Ride and Roll). 
+- Shields are now drawn correctly for riders 
+
+&lt;color=orange&gt;&lt;b&gt;Giddy-up! Ride and Roll&lt;/b&gt;&lt;/color&gt; has been updates as well, to v1.2.1
+
+- The way pawns ride to jobs is simplified (there's no longer a "ride to job" job anymore). It should be less error-prone now, and this fixes an issue due to which pawns cannot reserve double beds properly (yes, it's really fixed this time :)), as well as some other (less serious) reservation issues. 
+- Fixed crash when riders start a new colony on the world map, should also fix any other crashes related to pawns entering sites when using certain mods. 
+
+Cheers,
+Roolo
+		</content>
+	</HugsLib.UpdateFeatureDef>
+	
 </Defs>

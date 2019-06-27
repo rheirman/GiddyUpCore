@@ -28,7 +28,7 @@ namespace GiddyUpCore.Stats
                 {
                     float mountSpeed = pawnData.mount.GetStatValue(StatDefOf.MoveSpeed);
                     sb.AppendLine("GUC_GiddyUp".Translate());
-                    sb.AppendLine("    " + "GUC_StatPart_MountMoveSpeed".Translate() + ": " + mountSpeed.ToStringByStyle(ToStringStyle.FloatMaxTwo));
+                    sb.AppendLine("    " + "GUC_StatPart_MountMoveSpeed".Translate() + ": " + mountSpeed.ToStringByStyle(ToStringStyle.FloatTwo));
                 }
 
                 if(pawn.jobs != null && pawn.jobs.curDriver is JobDriver_Mounted jobDriver)

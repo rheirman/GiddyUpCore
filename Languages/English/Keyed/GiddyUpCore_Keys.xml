@@ -7,7 +7,7 @@
 	<GUC_StatPart_HandlingSkill>Animal handling skill of rider</GUC_StatPart_HandlingSkill>
 	<GUC_StatPart_SkillReq>Skill requirement for animal</GUC_StatPart_SkillReq>
 	<GUC_StatPart_LevelsAbove>Levels above skill requirement</GUC_StatPart_LevelsAbove>
-	<GUC_StatPart_HandlingMovementImpact>Speed impact per level</GUC_StatPart_HandlingMovementImpact>
+	<GUC_StatPart_HandlingMovementImpact>Speed impact per level (configured in mod settings)</GUC_StatPart_HandlingMovementImpact>
 	<GUC_StatPart_MountTypeMultiplier>Multiplier for mount type</GUC_StatPart_MountTypeMultiplier>
 	
 	<GUC_HandlingAccuracyImpact_Title>Accuracy impact(%) per animal handling level</GUC_HandlingAccuracyImpact_Title>
