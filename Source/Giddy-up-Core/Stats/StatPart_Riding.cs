@@ -43,7 +43,7 @@ namespace GiddyUpCore.Stats
                         sb.AppendLine("        " + "GUC_StatPart_HandlingSkill".Translate() + ": " + skill.levelInt);
                         sb.AppendLine("        " + "GUC_StatPart_SkillReq".Translate() + ": " + Mathf.RoundToInt(pawn.GetStatValue(StatDefOf.MinimumHandlingSkill, true)));
                         sb.AppendLine("        " + "GUC_StatPart_LevelsAbove".Translate() + ": " + adjustedLevel);
-                        sb.AppendLine("        " + "GUC_StatPart_HandlingMovementImpact".Translate() + ": " + Base.handlingMovementImpact.Value.ToStringByStyle(ToStringStyle.PercentOne));
+                        sb.AppendLine("        " + "GUC_StatPart_HandlingMovementImpact".Translate() + ": " + (Base.handlingMovementImpact.Value/ 100f).ToStringByStyle(ToStringStyle.PercentOne));
                     }
                     if (pawn.def.GetModExtension<CustomStatsPatch>() is CustomStatsPatch modExt)
                     {
