@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using Verse;
 using Verse.AI;
@@ -42,6 +43,34 @@ namespace GiddyUpCore.Storage
             Scribe_Values.Look(ref drawOffset, "drawOffset", 0);
             
         }
+
+        public bool ShouldClean()
+        {
+            bool foundValue = false;
+            foreach (FieldInfo fi in this.GetType().GetFields())
+            {
+                var fival = fi.GetValue(this);
+
+                if (fival is bool val) { 
+                    if(val == true && fi.Name != "mountableByAnyone") {
+                        foundValue = true;
+                    }
+                    if(val == false && fi.Name == "mountableByAnyone"){
+                        foundValue = true;
+                    }
+                }
+                else if (fival != null && !(fival is int) && !(fival is float) && !(fival is bool))
+                {
+                    foundValue = true;
+                }
+            }
+            if (!foundValue)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public void reset()
         {
             mount = null;

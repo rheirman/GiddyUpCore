@@ -100,8 +100,6 @@
     <Compile Include="Zones\Area_GU.cs" />
     <Compile Include="Zones\Designator_GU.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Depricated\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

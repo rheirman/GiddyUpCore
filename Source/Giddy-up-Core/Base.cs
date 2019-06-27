@@ -121,8 +121,10 @@ namespace GiddyUpCore
         public override void WorldLoaded()
         {
             _extendedDataStorage = UtilityWorldObjectManager.GetUtilityWorldObject<ExtendedDataStorage>();
+            _extendedDataStorage.Cleanup();
             base.WorldLoaded();
             LessonAutoActivator.TeachOpportunity(GUC_ConceptDefOf.GUC_Animal_Handling, OpportunityType.GoodToKnow);
+
         }
 
         //Mod names sometimes change when Rimworld changes its version. Checking for the assembly name, which probably won't change is therefore a better idea than using ModLister.HasActiveModWithName

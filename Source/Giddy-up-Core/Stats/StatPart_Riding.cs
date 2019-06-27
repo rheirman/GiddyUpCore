@@ -81,13 +81,10 @@ namespace GiddyUpCore.Stats
                     }
                     float animalHandlingOffset = 1f + (adjustedLevel * Base.handlingMovementImpact) / 100f;
                     val *= animalHandlingOffset;
-
-                    Log.Message("animal handling offset: " + animalHandlingOffset);
                     if (pawn.def.GetModExtension<CustomStatsPatch>() is CustomStatsPatch modExt)
                     {
                         float customSpeedModifier = modExt.speedModifier;
                         val *= customSpeedModifier;
-                        Log.Message("customSpeedModifier: " + customSpeedModifier);
                     }
                 }
 

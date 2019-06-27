@@ -49,5 +49,23 @@ namespace GiddyUpCore.Storage
         {
             _store.Remove(pawn.thingIDNumber);
         }
+
+        public void Cleanup()
+        {
+            List<int> shouldRemove = new List<int>();
+            foreach (KeyValuePair<int, ExtendedPawnData> kv in _store)
+            {
+                if (kv.Value == null || kv.Value.ShouldClean())
+                {
+                    shouldRemove.Add(kv.Key);
+                }
+            }
+            foreach (int key in shouldRemove)
+            {
+                _store.Remove(key);
+            }
+            Log.Message("Cleaned up " + shouldRemove.Count + " depricated records from Giddy-up!");
+        }
+
     }
 }
