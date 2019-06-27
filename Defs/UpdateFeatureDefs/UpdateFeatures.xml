@@ -87,6 +87,8 @@ Roolo
 - The way pawns ride to jobs is simplified (there's no longer a "ride to job" job anymore). It should be less error-prone now, and this fixes an issue due to which pawns cannot reserve double beds properly (yes, it's really fixed this time :)), as well as some other (less serious) reservation issues. 
 - Fixed crash when riders start a new colony on the world map, should also fix any other crashes related to pawns entering sites when using certain mods. 
 
+Liking these updates? Consider supporting me on Ko-fi. You'll find a link on the Steam page or Ludeon Forum page of this mod. 
+
 Cheers,
 Roolo
 		</content>
