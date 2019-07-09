@@ -1,97 +1,19 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<Defs>
-	<HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase">
-		<modNameReadable>Giddy-up Core</modNameReadable>
-		<modIdentifier>GiddyUpCore</modIdentifier>
-		<linkUrl>https://ludeon.com/forums/index.php?topic=37323</linkUrl>
-	</HugsLib.UpdateFeatureDef>
-	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
-		<defName>GiddyUpCore_0_18_5</defName>
-		<assemblyVersion>0.18.5</assemblyVersion>
-		<content>A new mod for the Giddy-up! Series is released!
-		
-I am proud to present Giddy-up! Caravan. With this mod you can let your colonists ride to far lands on elephants, muffalos, lamas or any other animal, modded or not! 
-Check it out on steam, or on the mod's page on the Ludeon forums. 
-		</content>
-</HugsLib.UpdateFeatureDef>
-	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
-		<defName>GiddyUpCore_0_18_6</defName>
-		<assemblyVersion>0.18.6</assemblyVersion>
-		<content> I'm happy to announce a big update that applies to all Giddy-up! mods.
-		
-&lt;color=orange&gt;&lt;b&gt; Big changes in Giddy-up! Core: &lt;/b&gt;&lt;/color&gt;
-- Enemy and friendly NPC mounts that have their rider thrown off will no longer become wild animals, but instead they will keep fighting until one of the following happens:
---> Their rider remounts the animal (riders will now attempt to remount their animal whenever possible).
---> The rider owning the animal is killed or downed. In this case the animal will flee in panic and leave the map, as there's no longer a master around to control it. 
-Note: When facing a dangerous mount, it's now more important than ever to kill its rider, so that it starts fleeing.
-- If an enemy mount is downed, it is now turned into a wild animal so you can still tame or hunt it. 
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
 
-&lt;color=orange&gt;&lt;b&gt; Big changes in Giddy-up! Caravan:  &lt;/b&gt;&lt;/color&gt;
-- Friendly NPCs will now park their mount when arriving at your colony, and hop on again when they leave.
-- A new zone has been added, named: &lt;color=orange&gt;&lt;b&gt; NPC mount spot &lt;/b&gt;&lt;/color&gt;. When friendly NPCs arrive, they will park their mounts at the nearest NPC mount spot. Go check this out in Architect->Zone/Areas
-Note: Place this spot in a room and you have your own stable for guests! 
+  <GiddyUpCore_0_18_5.modNameReadable>Giddy-up Core</GiddyUpCore_0_18_5.modNameReadable>
+  <GiddyUpCore_0_18_5.content>Giddy-upシリーズの新Mod登場！\n&lt;color=orange&gt;&lt;b&gt;小規模な変更と修正&lt;/b&gt;&lt;/color&gt;\n私は自信をもって「Giddy-up！Caravan」を送り出します。このModで、あなたは入植者たちを象やマッファローやラマ、またはModで追加される他の動物たちに乗せて遠い土地に送り出すことができます！詳細はSteamでチェックするか、Ludeon公式フォーラムのmodのページで確認してください。</GiddyUpCore_0_18_5.content>
 
-&lt;color=orange&gt;&lt;b&gt; Small changes and fixes  &lt;/b&gt;&lt;/color&gt;
-- The caravan dialog should no longer lag when using Giddy-up! Caravan. 
-- Fixed UI issue in caravan dialog that appeared when a mount died during a map event (like an ambush).
-- Fixed UI issue in caravan dialog that made it impossible to use multiple similar mounts that still had their default name. 
-- The right click menu item for mounting now also displays the mounts name when using Giddy-up! Battle Mounts.
-- Updated Spanish translations (by mora145)
-		
-Good luck playing!
-Roolo
-		</content>
-</HugsLib.UpdateFeatureDef>
-	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
-		<defName>GiddyUpCore_0_18_7</defName>
-		<assemblyVersion>0.18.7</assemblyVersion>
-		<content>A new mod for the Giddy-up! Series is released!
-"Hey Stein, can you go mine some steel? We're running out."
-"But Banastra, the only deposit is on the other side of the map! Why don't you do it?"
-"Well, I'm incapable of mining, you know that. Why don't you just take an animal and Ride and Roll?"
-"That's a thing now?"
+  <GiddyUpCore_0_18_6.modNameReadable>Giddy-up Core</GiddyUpCore_0_18_6.modNameReadable>
+  <GiddyUpCore_0_18_6.content>Giddy-upシリーズの新Mod登場！\nすべてのGiddy-up!Modに適用される大きなアップデートを発表できて喜んでいます！\n&lt;color=orange&gt;&lt;b&gt;Giddy-up!Coreの大きな変化：&lt;/b&gt;&lt;/color&gt;\n－乗り手から見捨てられた敵と友軍のNPC騎乗動物は野生動物にならなくなりますが、代わりに次のいずれかが起こるまで戦い続けます：\n・乗り手は動物に再騎乗します（乗り手は可能な限り動物へ再度騎乗しようとします）。\n・動物の所有者である乗り手が殺されたり、倒れたりする。この場合、騎乗動物たちはパニック状態で逃げ出し、マップから逃げ出すでしょう。\n注意：危険な騎乗動物と対峙している場合は、乗り手を殺すことがこれまで以上に重要になっており、逃亡するようになっています。\n・敵の騎乗動物が倒れた場合は、野生動物に変化して、あなたはそれを飼いならしたり、狩猟することができます。\n\n&lt;color=orange&gt;&lt;b&gt;Giddy-up!Caravanの大きな変化：&lt;/b&gt;&lt;/color&gt;\n－友好的なNPCがあなたのコロニーに到着すると、彼らは騎乗動物から降ります。彼らは出発の際に再びそれらの動物たちに飛び乗るでしょう。\n－NPC騎乗場(NPC mount spot)という名前の新しいゾーンが追加されました。友好的なNPCが到着すると、彼らは最も近いNPC騎乗場に指定された場所に騎乗動物たちを停めます。アーキテクト-> ゾーンから新しいゾーンを確認してください。\n 注意：このNPC騎乗場は屋内に設置してください。あなたは、来客者のためにコロニーエリア内に厩舎の建物を作る必要があります！\n\n&lt;color=orange&gt;&lt;b&gt;小さな変更と修正&lt;/b&gt;&lt;/color&gt;\n－Giddy-up! Caravanを使用している際にキャラバンのダイアログはもう遅延しません。\n－キャラバンのダイアログ用UIの問題が修正されました。これにより、デフォルト名のままの複数の同じ名前の騎乗動物を使用できなくなりました。\n－マップイベント中に騎乗動物が死んだ際に表示されるキャラバンダイアログ用UIの問題を修正しました（待ち伏せなど）。\n－Giddy-up! Battle Mountsを使用している際に騎乗する時に表示される右クリックメニューの項目に動物の名前が表示されるようになりました。\n－スペイン語の翻訳を更新しました（by mora145）\n\n幸運を！\nMod作者:Roolo</GiddyUpCore_0_18_6.content>
 
-Yes it is. With Giddy-up! Ride and Roll, you'll save your colonists the pain of walking everywhere, as it allows them to use mounts whenever it makes sense. Go check it out on Steam!
-		</content>
-		
-	</HugsLib.UpdateFeatureDef>
-		<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
-		<defName>GiddyUpCore_1_1_4</defName>
-		<assemblyVersion>1.1.4</assemblyVersion>
-		<content>
-Hi fellow Rimworlders. Normally I only create these in-game notifications for big updates, but this minor update can be significant for some players, and it would probably be missed without this notification.
-Update notes: 
+ <GiddyUpCore_0_18_7.modNameReadable>Giddy-up Core</GiddyUpCore_0_18_7.modNameReadable>
+ <GiddyUpCore_0_18_7.content>Giddy-upシリーズの新Mod登場！\n「おいスタイン、少しスチールを掘りに行ってくれるかい？在庫が足りなくなってるんだ。」\n「でもバナストラ、唯一の鉱脈は地図の反対側にあるんだよ！なぜあなたは自分でやらないの？"」\n「ええ、君も知っての通り、私は採掘ができないから。君は"Ride_and_Roll"を導入して動物に乗って作業するだけで済むでしょ？」\n「今すぐにかい？」\n\nそうです。「Giddy-up!　Ride　and　Roll」を使えば、入植者が遠くまで徒歩で移動する苦労を、動物に乗って行う事で救う事ができるようになるでしょう。Steamでさっそく確認してください！</GiddyUpCore_0_18_7.content>
 
-- Giddy-up! is now fully compatible again with Facial Stuff out of the box. No longer will you colonists be drawn behind animals when they really shouldn't when using both mods, and no longer it'll appear as if they're "riding" the animal on a "different" (read NSFW) way. 
-- Gear added by Combat Extended like backpacks and shields are now drawn properly for colonists riding animals. 
+ <GiddyUpCore_1_1_4.modNameReadable>Giddy-up Core</GiddyUpCore_1_1_4.modNameReadable>
+ <GiddyUpCore_1_1_4.content>&lt;color=orange&gt;&lt;b&gt;Giddy-up!Core&lt;/b&gt;&lt;/color&gt;はv1.1.4にアップデートされました。\n\nRimworldをプレイする皆さん、こんにちは。通常、私は大規模なアップデートのためにこれらのゲーム内の案内を作成するだけですが、今回の小規模なアップデートは一部のプレイヤーにとって重要な可能性があるので、この通知がない場合に見逃される可能性があると判断しました。\n\n更新内容：\n・「Giddy-up!」は、「Facial_Stuff」と互換性が復活しました。入植者は、両方のModを使用するときに実際にはそうなるべきではないのに、もう動物の後ろに表示されることはなくなり、以前とは「別の」（NSFWを読んで）方法で動物に「乗っている」ように見えます。\n・バックパックや盾のように、「Combat_Extended」によって追加された装備は、動物に乗っている入植者のために正常に描画されます。\n\nそれでは！\nMod作者:Roolo</GiddyUpCore_1_1_4.content>
 
-Cheers,
-Roolo
-		</content>
-	</HugsLib.UpdateFeatureDef>
-	
-	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
-		<defName>GiddyUpCore_1_1_6</defName>
-		<assemblyVersion>1.1.6</assemblyVersion>
-		<content>
-&lt;color=orange&gt;&lt;b&gt;Giddy-up! Core&lt;/b&gt;&lt;/color&gt; is updated to v1.1.6. This minor update comes with some important fixes and improvements. 
+ <GiddyUpCore_1_1_6.modNameReadable>Giddy-up Core</GiddyUpCore_1_1_6.modNameReadable>
+ <GiddyUpCore_1_1_6.content>&lt;color=orange&gt;&lt;b&gt;Giddy-up!Core&lt;/b&gt;&lt;/color&gt;はv1.1.6にアップデートされました。この小規模な更新にはいくつかの重要な修正と追加があります。 \n\n・ステータス情報タブは、騎手と騎乗動物の移動速度を、計算方法の情報と一緒に正しく表示されるようになりました。\n・ポーンは騎乗された動物を訓練しようとはしなくなりました。\n・起動時にGiddy-upの不要なログ情報を自動的に消去する「save game sanitizer(セーブデータ修正機能)」を追加しました。これによって、セーブデータのロード時間が短縮されるはずです（場合によっては大幅に改善）。\n・騎手がドロップポッドに入った際に、動物が消滅することはもうありません（この問題はRide and Rollの最新の大型アップデートで導入されました）。\n・シールドは騎手のために正しく描画されるようになりました。\n\n&lt;color=orange&gt;&lt;b&gt;Giddy-up! Ride and Roll&lt;/b&gt;&lt;/color&gt;もv1.2.1にアップデートされました。\n\n・ポーンが仕事で騎乗する方法が単純化されました（もう「仕事で騎乗する」仕事は無くなりました）。\nこれでエラーが発生しにくくなり、ポーンがダブルベッドを割り当てられなくなるという問題も修正されました（そう、今回は本当に修正されました!）。\n\n・騎手がワールドマップ上で新しいコロニーを建設したときのゲームクラッシュを修正しました。\nまた、特定のmodを使用している際、ワールドマップ上の地点(クエストサイト等)に入るポーンに関連した、色々なゲームクラッシュも修正される必要がありました。\n\n 詳細はSteamでチェックするか、Ludeon公式フォーラムのmodのページで確認してください。\n\nそれでは！\nMod作者:Roolo</GiddyUpCore_1_1_6.content>
 
-- The stat info tab now properly shows the movement speed of riders and mounts, with a breakdown of how everything is calculated. 
-- Pawns no longer try to train animals that are mounted. 
-- Added save game sanitizer that automatically cleans unneeded records of Giddy-up on startup. This should reduce the load time of your save (in some cases significantly). 
-- Animals can no longer disappear when a rider enters a drop pod (this issue was introduced in the latest major update of Ride and Roll). 
-- Shields are now drawn correctly for riders 
-
-&lt;color=orange&gt;&lt;b&gt;Giddy-up! Ride and Roll&lt;/b&gt;&lt;/color&gt; has been updates as well, to v1.2.1
-
-- The way pawns ride to jobs is simplified (there's no longer a "ride to job" job anymore). It should be less error-prone now, and this fixes an issue due to which pawns cannot reserve double beds properly (yes, it's really fixed this time :)), as well as some other (less serious) reservation issues. 
-- Fixed crash when riders start a new colony on the world map, should also fix any other crashes related to pawns entering sites when using certain mods. 
-
-Liking these updates? Consider supporting me on Ko-fi. You'll find a link on the Steam page or Ludeon Forum page of this mod. 
-
-Cheers,
-Roolo
-		</content>
-	</HugsLib.UpdateFeatureDef>
-	
-</Defs>
+</LanguageData>
