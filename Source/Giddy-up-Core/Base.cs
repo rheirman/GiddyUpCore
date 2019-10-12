@@ -101,7 +101,7 @@ namespace GiddyUpCore
                 }
             }
             foreach (PawnKindDef animalWithoutBiome in from d in DefDatabase<PawnKindDef>.AllDefs
-                                               where d.RaceProps.Animal &&  !animalsWithBiome.Contains(d)
+                                               where d.RaceProps.Animal &&  !animalsWithBiome.Contains(d) && !animalsWithoutBiome.Contains(d)
                                           select d)
             {
                 animalsWithoutBiome.Add(animalWithoutBiome);
