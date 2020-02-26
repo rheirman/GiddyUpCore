@@ -3,8 +3,19 @@
 	<name>Giddy-up! Core</name>
 	<author>Roolo</author>
 	<supportedVersions>
-			<li>1.0</li>
-	</supportedVersions>
+      <li>1.0</li>
+      <li>1.1</li>
+   </supportedVersions>
+	
+	<modDependencies>
+      <li>
+        <packageId>UnlimitedHugs.HugsLib</packageId>
+        <displayName>HugsLib</displayName>
+        <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=818773962</steamWorkshopUrl>
+      </li>
+     
+    </modDependencies>
+		<packageId>roolo.giddyupcore</packageId>
 	<description>The core files for the Giddy-up! series.
 
 &lt;color=orange&gt;&lt;b&gt;Dependencies &lt;/b&gt;&lt;/color&gt;
