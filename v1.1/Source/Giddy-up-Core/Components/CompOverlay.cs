@@ -1,6 +1,7 @@
 ﻿using GiddyUpCore.Utilities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using UnityEngine;
@@ -13,7 +14,8 @@ namespace GiddyUpCore
         public CompProperties_Overlay Props => props as CompProperties_Overlay;
         public override void PostDraw()
         {
-            if(!(parent is Pawn))
+
+            if (!(parent is Pawn))
             {
                 return;
             }
@@ -23,9 +25,8 @@ namespace GiddyUpCore
             {
                 return;
             }
-
-
             base.PostDraw();
+
 
             CompProperties_Overlay.GraphicOverlay overlay = Props.GetOverlay(parent.Rotation);
             if(overlay == null)
@@ -36,6 +37,9 @@ namespace GiddyUpCore
             Vector3 drawPos = parent.DrawPos;
             GraphicData gd;
 
+            
+
+
             gd = (pawn.gender == Gender.Female) ? overlay.graphicDataFemale : overlay.graphicDataMale;
             if(gd == null)
             {
@@ -45,6 +49,29 @@ namespace GiddyUpCore
             {
                 return;
             }
+
+            //support multi texture animals
+            if(overlay.allVariants != null)
+            {
+                string graphicPath = pawn.Drawer.renderer.graphics.nakedGraphic.path;
+                Log.Message(graphicPath);
+                string graphicName = graphicPath.Split('/').Last();
+                Log.Message(graphicName);
+                foreach (var variant in overlay.allVariants)
+                {
+                    string variantName = variant.texPath.Split('/').Last().Split('_').First();
+                    if (graphicName == variantName)
+                    {
+                        //set required properties
+                        string texPath = variant.texPath;
+                        variant.CopyFrom(gd);
+                        variant.texPath = texPath;
+                        gd = variant;
+                    }
+                }
+            }
+
+
             //g.data.
             drawPos.y += 0.046875f;
             Vector3 offset = (pawn.gender == Gender.Female) ? overlay.offsetFemale : overlay.offsetMale;
@@ -58,8 +85,8 @@ namespace GiddyUpCore
             }
 
             drawPos += offset;
-            
-           
+
+            Log.Message("before draw");
             //Somehow the rotation is flipped, hence the use of GetOpposite. 
             gd.Graphic.Draw(drawPos, parent.Rotation, parent, 0f);
         }

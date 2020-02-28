@@ -13,7 +13,6 @@ namespace GiddyUpCore
         public GraphicOverlay overlaySide;
         public GraphicOverlay overlayBack;
 
-
         public class GraphicOverlay
         {
             public GraphicData graphicDataDefault;
@@ -23,7 +22,8 @@ namespace GiddyUpCore
             public Vector3 offsetDefault = Vector3.zero;
             public Vector3 offsetFemale = Vector3.zero;
             public Vector3 offsetMale = Vector3.zero;
-            
+
+            public List<GraphicData> allVariants;
 
         }
         public GraphicOverlay GetOverlay(Rot4 dir)
