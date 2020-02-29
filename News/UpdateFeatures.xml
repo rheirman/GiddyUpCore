@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase_GiddyUpCore">
+		<modNameReadable>Giddy-up! Core</modNameReadable>
+		<modIdentifier>GiddyUpCore</modIdentifier>
+		<linkUrl>https://ludeon.com/forums/index.php?topic=37323.0</linkUrl>
+	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase_GiddyUpCore">
+		<defName>GiddyUpCore_2_0_0</defName>
+		<assemblyVersion>2.0.0</assemblyVersion>
+		<content>
+All Giddy-up! mods except Giddy-up! Mechanoids have been updated to support Rimworld version 1.1 (including the expansion). Credits for this update go to SargBjorgson, who's responsible for a major part of this update. This version also supports Rimworld 1.0, so no need to worry if you're still using that version. 
+Giddy-up! Mechanoids will be updated once What the Hack has been updates (which will take some time). 
+This update includes the following improvements and fixes: 
+- Added more overlays for vanilla animals. These overlays prevent that pawns overlap the heads, horns or other things that animals have. 
+- Made sure the name tag of a pawn doesn't overlap the animal's head when an animal is mounted. 
+- Fixed null reference errors that the wait for rider job sometimes threw. 
+		</content>
+	</HugsLib.UpdateFeatureDef>
+</Defs>
