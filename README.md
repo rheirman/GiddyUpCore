@@ -150,7 +150,7 @@ To achieve this, the parts of the animal that should overlap the rider are provi
 				<li Class="GiddyUpCore.CompProperties_Overlay">
 					<overlayFront> <!--Different overlays can be provided for different viewpoints, possibilities are: overlayFront, overlaySide, and overlayBack -->
 						<graphicDataDefault><!-- Different graphics data can be provided for different genders, possibilities are: graphicDataDefault(for all genders), graphicsDataMale and graphicsDataFemale -->
-						  <texPath>Things/Pawn/Caribou_overlay_front</texPath>
+						  <texPath>Things/Pawn/Caribou_overlay_front</texPath> <!-- Any property of the GraphicData class can be set here. This includes colors, shadows etc! -->
 						  <graphicClass>Graphic_Single</graphicClass>
 						  <drawSize>4.38</drawSize>
 						  <drawRotated>false</drawRotated>
@@ -188,12 +188,11 @@ In the case that an animal has multiple texture variants, creating overlays for 
 		<value>
 			<li Class="GiddyUpCore.CompProperties_Overlay">
 				<overlayFront>
-					<graphicDataDefault>
-					  <graphicClass>Graphic_Single</graphicClass>
+					<graphicDataDefault> <!-- all variants use the graphics data properties defined here. -->
+					  <graphicClass>Graphic_Single</graphicClass> <!-- Any property of the GraphicData class can be set here. This includes colors, shadows etc! -->
 					  <drawSize>2.1</drawSize>
 					  <drawRotated>false</drawRotated>
 					  <shaderType>MetaOverlay</shaderType>
-					  <color>(24,150,239)</color>
 					  <shadowData>
 						<volume>(0.8, 0.6, 0.6)</volume>
 						<offset>(0,0,-0.3)</offset>
