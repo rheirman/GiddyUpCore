@@ -3,3 +3,7 @@ E:\SteamLibrary\steamapps\common\RimWorld\Mods\GiddyUpCore\v1.1\Source\Giddy-up-
 E:\SteamLibrary\steamapps\common\RimWorld\Mods\GiddyUpCore\v1.1\Assemblies\GiddyUpCore.dll
 E:\SteamLibrary\steamapps\common\RimWorld\Mods\GiddyUpCore\v1.1\Source\Giddy-up-Core\obj\Debug\GiddyUpCore.csproj.CopyComplete
 E:\SteamLibrary\steamapps\common\RimWorld\Mods\GiddyUpCore\v1.1\Source\Giddy-up-Core\obj\Debug\GiddyUpCore.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\GiddyUpCore\v1.1\Assemblies\GiddyUpCore.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\GiddyUpCore\v1.1\Source\Giddy-up-Core\obj\Debug\GiddyUpCore.csprojAssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\GiddyUpCore\v1.1\Source\Giddy-up-Core\obj\Debug\GiddyUpCore.csproj.CopyComplete
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\GiddyUpCore\v1.1\Source\Giddy-up-Core\obj\Debug\GiddyUpCore.dll

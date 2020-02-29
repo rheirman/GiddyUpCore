@@ -310,6 +310,7 @@
     <Compile Include="Concepts\GUC_ConceptDefOf.cs" />
     <Compile Include="Harmony\ArmorUtility.cs" />
     <Compile Include="Harmony\GenDraw_DrawAimPie.cs" />
+    <Compile Include="Harmony\PawnUIOverlay.cs" />
     <Compile Include="Harmony\Pawn_RotationTracker.cs" />
     <Compile Include="Harmony\Projectile_Launch.cs" />
     <Compile Include="Harmony\SelfDefenceUtility.cs" />
@@ -343,6 +344,7 @@
     <Compile Include="Utilities\DistanceUtility.cs" />
     <Compile Include="Utilities\DrawUtility.cs" />
     <Compile Include="Utilities\NPCMountUtility.cs" />
+    <Compile Include="Utilities\PawnDataUtility.cs" />
     <Compile Include="Utilities\TextureUtility.cs" />
     <Compile Include="Utilities\TicksPerMoveUtility.cs" />
     <Compile Include="Zones\Area_GU.cs" />

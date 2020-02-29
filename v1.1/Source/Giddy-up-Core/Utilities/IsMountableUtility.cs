@@ -13,6 +13,15 @@ namespace GiddyUpCore.Utilities
     {
         public enum Reason{NotFullyGrown, NeedsObedience, NotInModOptions, CanMount};
 
+        public static Pawn CurMount(this Pawn pawn)
+        {
+            if (Base.Instance.GetExtendedDataStorage() is ExtendedDataStorage store && store.GetExtendedDataFor(pawn) is ExtendedPawnData pawnData)
+            {
+                return pawnData.mount;
+            }
+            return null;
+        }
+
         public static bool isMountable(Pawn pawn)
         {
             return isMountable(pawn, out Reason reason);

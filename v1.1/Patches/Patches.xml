@@ -3,20 +3,6 @@
 Two patch operations per animal are needed for vanilla animals to ensure compatibility with mods that add comps. Note that this is probably not needed for patches of other mods that add animals-->
 <Patch>
 
-	<Operation Class="PatchOperationAddModExtension">
-		<xpath>/Defs/ThingDef[defName = "Ostrich"]</xpath> 
-		<value>
-			<li Class="GiddyUpCore.CustomStatsPatch">
-				<!--Speed factor. -->
-				<speedModifier>1.5</speedModifier>
-				<!--Armor factor. -->
-				<armorModifier>1.2</armorModifier>
-				<!--Setting useMetalArmor to true, makes the animal's skin have the metal bounce of effect when hit when used as mount --> 
-				<useMetalArmor>false</useMetalArmor>
-			</li>
-		</value>
-	</Operation>
-
 	<Operation Class="PatchOperationSequence">
 		<success>Always</success>
 		<operations>
@@ -30,7 +16,6 @@ Two patch operations per animal are needed for vanilla animals to ensure compati
 								<graphicClass>Graphic_Single</graphicClass>
 								<drawSize>1.8</drawSize>
 								<drawRotated>false</drawRotated>
-								<shaderType>MetaOverlay</shaderType>
 							</graphicDataDefault>
 							<offsetDefault>(0,0,0,0)</offsetDefault>
 						</overlayFront>
@@ -54,7 +39,6 @@ Two patch operations per animal are needed for vanilla animals to ensure compati
 								<graphicClass>Graphic_Single</graphicClass>
 								<drawSize>1.6</drawSize>
 								<drawRotated>false</drawRotated>
-								<shaderType>MetaOverlay</shaderType>
 							</graphicDataDefault>
 							<offsetDefault>(0,0,0,0)</offsetDefault>
 						</overlayFront>
@@ -93,7 +77,6 @@ Two patch operations per animal are needed for vanilla animals to ensure compati
 								<graphicClass>Graphic_Single</graphicClass>
 								<drawSize>4.38</drawSize>
 								<drawRotated>false</drawRotated>
-								<shaderType>MetaOverlay</shaderType>
 							</graphicDataDefault>
 							<offsetDefault>(0,0,0,0)</offsetDefault>
 						</overlayFront>
@@ -103,7 +86,6 @@ Two patch operations per animal are needed for vanilla animals to ensure compati
 								<graphicClass>Graphic_Single</graphicClass>
 								<drawSize>4.38</drawSize>
 								<drawRotated>false</drawRotated>
-								<shaderType>MetaOverlay</shaderType>
 							</graphicDataDefault>
 							<offsetDefault>(0,0,0,0)</offsetDefault>
 						</overlaySide>
@@ -138,11 +120,6 @@ Two patch operations per animal are needed for vanilla animals to ensure compati
 								<graphicClass>Graphic_Single</graphicClass>
 								<drawSize>2.1</drawSize>
 								<drawRotated>false</drawRotated>
-								<shaderType>MetaOverlay</shaderType>
-								<shadowData>
-									<volume>(0.8, 0.6, 0.6)</volume>
-									<offset>(0,0,-0.3)</offset>
-								</shadowData>
 							</graphicDataDefault>
 							<allVariants>
 								<li>
@@ -199,8 +176,6 @@ Two patch operations per animal are needed for vanilla animals to ensure compati
 								<graphicClass>Graphic_Single</graphicClass>
 								<drawSize>2.18</drawSize>
 								<drawRotated>false</drawRotated>
-								<shaderType>MetaOverlay</shaderType>
-
 							</graphicDataDefault>
 
 							<offsetDefault>(0,0,0,0)</offsetDefault>
@@ -238,8 +213,6 @@ Two patch operations per animal are needed for vanilla animals to ensure compati
 								<graphicClass>Graphic_Single</graphicClass>
 								<drawSize>2.12</drawSize>
 								<drawRotated>false</drawRotated>
-								<shaderType>MetaOverlay</shaderType>
-
 							</graphicDataDefault>
 
 							<offsetDefault>(0,0,0,0)</offsetDefault>

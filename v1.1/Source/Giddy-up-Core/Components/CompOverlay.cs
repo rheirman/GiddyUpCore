@@ -54,9 +54,7 @@ namespace GiddyUpCore
             if(overlay.allVariants != null)
             {
                 string graphicPath = pawn.Drawer.renderer.graphics.nakedGraphic.path;
-                Log.Message(graphicPath);
                 string graphicName = graphicPath.Split('/').Last();
-                Log.Message(graphicName);
                 foreach (var variant in overlay.allVariants)
                 {
                     string variantName = variant.texPath.Split('/').Last().Split('_').First();
@@ -86,7 +84,6 @@ namespace GiddyUpCore
 
             drawPos += offset;
 
-            Log.Message("before draw");
             //Somehow the rotation is flipped, hence the use of GetOpposite. 
             gd.Graphic.Draw(drawPos, parent.Rotation, parent, 0f);
         }
