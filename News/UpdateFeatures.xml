@@ -14,7 +14,8 @@ Giddy-up! Mechanoids will be updated once What the Hack has been updates (which 
 This update includes the following improvements and fixes: 
 - Added more overlays for vanilla animals. These overlays prevent that pawns overlap the heads, horns or other things that animals have. 
 - Made sure the name tag of a pawn doesn't overlap the animal's head when an animal is mounted. 
-- Fixed null reference errors that the wait for rider job sometimes threw. 
+- Fixed null reference errors that the wait for rider job sometimes threw.
+- Compatibility with the new HugsLib version. 
 		</content>
 	</HugsLib.UpdateFeatureDef>
 </Defs>
