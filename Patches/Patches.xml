@@ -90,7 +90,6 @@ Two patch operations per animal are needed for vanilla animals to ensure compati
 						  <drawSize>2.1</drawSize>
 						  <drawRotated>false</drawRotated>
 						  <shaderType>MetaOverlay</shaderType>
-						  <color>(24,150,239)</color>
 						  <shadowData>
 							<volume>(0.8, 0.6, 0.6)</volume>
 							<offset>(0,0,-0.3)</offset>
