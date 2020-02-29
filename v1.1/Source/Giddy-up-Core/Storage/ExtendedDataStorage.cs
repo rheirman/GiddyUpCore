@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using HugsLib.Utils;
+using RimWorld.Planet;
 using Verse;
 
 namespace GiddyUpCore.Storage
 {
 
 
-    public class ExtendedDataStorage : UtilityWorldObject, IExposable
+    public class ExtendedDataStorage : WorldComponent, IExposable
     {
         private Dictionary<int, ExtendedPawnData> _store =
             new Dictionary<int, ExtendedPawnData>();
@@ -18,6 +19,9 @@ namespace GiddyUpCore.Storage
 
         private List<ExtendedPawnData> _extendedPawnDataWorkingList;
 
+        public ExtendedDataStorage(World world) : base(world)
+        {
+        }
 
         public override void ExposeData()
         {
