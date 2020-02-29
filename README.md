@@ -150,7 +150,7 @@ To achieve this, the parts of the animal that should overlap the rider are provi
 				<li Class="GiddyUpCore.CompProperties_Overlay">
 					<overlayFront> <!--Different overlays can be provided for different viewpoints, possibilities are: overlayFront, overlaySide, and overlayBack -->
 						<graphicDataDefault><!-- Different graphics data can be provided for different genders, possibilities are: graphicDataDefault(for all genders), graphicsDataMale and graphicsDataFemale -->
-						  <texPath>Things/Pawn/Caribou_overlay_front</texPath>
+						  <texPath>Things/Pawn/Caribou_overlay_front</texPath> <!-- Any property of the GraphicData class can be set here. This includes colors, shadows etc! -->
 						  <graphicClass>Graphic_Single</graphicClass>
 						  <drawSize>4.38</drawSize>
 						  <drawRotated>false</drawRotated>
@@ -174,6 +174,57 @@ To achieve this, the parts of the animal that should overlap the rider are provi
 		</operations>
 	</Operation>
 </Patch>
+```
+### Overlay textures with multi-texture support (Rimworld 1.1). 
+In the case that an animal has multiple texture variants, creating overlays for each texture variant is supported. I If you make sure that your overlay texture has the same naming convention as the original texture, Giddy-up will automatically match your overlay with the texture a given animal is using. Vanilla textures use the convention <DefName><index><orientation>. As long as your overlay starts with <DefName><index>, the auto-matching will work. In the following example a patch for the vanilla horse, introduced in Rimworld 1.1 is shown. It has 6 distinct textures, which are assigned randomly by the game.
+	
+
+```
+<Operation Class="PatchOperationSequence">
+	<success>Always</success>
+	<operations>
+	<li Class="PatchOperationAdd">
+		<xpath>*/ThingDef[defName = "Horse"]/comps</xpath>
+		<value>
+			<li Class="GiddyUpCore.CompProperties_Overlay">
+				<overlayFront>
+					<graphicDataDefault> <!-- all variants use the graphics data properties defined here. -->
+					  <graphicClass>Graphic_Single</graphicClass> <!-- Any property of the GraphicData class can be set here. This includes colors, shadows etc! -->
+					  <drawSize>2.1</drawSize>
+					  <drawRotated>false</drawRotated>
+					  <shaderType>MetaOverlay</shaderType>
+					  <shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					  </shadowData>
+					</graphicDataDefault>
+					<allVariants>
+						<li>
+							<texPath>Things/Pawn/Horse1_south</texPath>
+						</li>							
+						<li>
+							<texPath>Things/Pawn/Horse2_south</texPath>
+						</li>							
+						<li>
+							<texPath>Things/Pawn/Horse3_south</texPath>
+						</li>							
+						<li>
+							<texPath>Things/Pawn/Horse4_south</texPath>
+						</li>							
+						<li>
+							<texPath>Things/Pawn/Horse5_south</texPath>
+						</li>						
+						<li>
+							<texPath>Things/Pawn/Horse6_south</texPath>
+						</li>
+					</allVariants>
+				    <offsetDefault>(0,0,0,0)</offsetDefault>
+				</overlayFront>
+			</li>
+		</value>
+	</li>
+	</operations>
+</Operation>
 ```
 
 ### Custom stats when animals are mounted. 
