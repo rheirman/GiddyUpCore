@@ -15,6 +15,9 @@
       </li>
      
     </modDependencies>
+    <loadAfter>
+	  <li>UnlimitedHugs.HugsLib</li>
+    </loadAfter>
 	<packageId>roolo.giddyupcore</packageId>
 	<description>The core files for the Giddy-up! series.
 
