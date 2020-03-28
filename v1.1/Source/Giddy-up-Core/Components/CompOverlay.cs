@@ -55,6 +55,7 @@ namespace GiddyUpCore
             {
                 string graphicPath = pawn.Drawer.renderer.graphics.nakedGraphic.path;
                 string graphicName = graphicPath.Split('/').Last();
+                bool foundTex = false;
                 foreach (var variant in overlay.allVariants)
                 {
                     string variantName = variant.texPath.Split('/').Last().Split('_').First();
@@ -65,7 +66,13 @@ namespace GiddyUpCore
                         variant.CopyFrom(gd);
                         variant.texPath = texPath;
                         gd = variant;
+                        foundTex = true;
                     }
+                }
+                if (!foundTex)
+                {
+                    //Don't throw errors when there's no valid texture. 
+                    return;
                 }
             }
 

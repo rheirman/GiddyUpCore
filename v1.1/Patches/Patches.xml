@@ -123,6 +123,9 @@ Two patch operations per animal are needed for vanilla animals to ensure compati
 							</graphicDataDefault>
 							<allVariants>
 								<li>
+									<texPath>Things/Pawn/Horse_overlay_south</texPath>
+								</li>
+								<li>
 									<texPath>Things/Pawn/Horse1_overlay_south</texPath>
 								</li>							
 								<li>
