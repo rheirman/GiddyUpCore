@@ -195,11 +195,14 @@ namespace GiddyUpCore.Jobs
         {
             Thing targetThing = null;
 
+            if (Rider == null)
+                return;
+
             if (Rider.TargetCurrentlyAimingAt != null)
             {
                 targetThing = Rider.TargetCurrentlyAimingAt.Thing;
             }
-            else if (Rider.CurJob.def == JobDefOf.AttackMelee && Rider.CurJob.targetA.Thing.HostileTo(Rider))
+            else if (Rider.CurJob?.def == JobDefOf.AttackMelee && Rider.CurJob.targetA.Thing.HostileTo(Rider))
             {
                 targetThing = Rider.CurJob.targetA.Thing;
             }
