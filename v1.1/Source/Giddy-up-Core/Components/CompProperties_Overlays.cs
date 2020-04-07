@@ -25,6 +25,8 @@ namespace GiddyUpCore
 
             public List<GraphicData> allVariants;
 
+            public string stringDelimiter = "_";
+
         }
         public GraphicOverlay GetOverlay(Rot4 dir)
         {
