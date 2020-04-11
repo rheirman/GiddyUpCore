@@ -58,7 +58,9 @@ namespace GiddyUpCore
                 bool foundTex = false;
                 foreach (var variant in overlay.allVariants)
                 {
-                    string variantName = variant.texPath.Split('/').Last().Split('_').First();
+                    
+                    string variantName = variant.texPath.Split('/').Last().Split(overlay.stringDelimiter.ToCharArray()).First();
+                    Log.Message(variantName);
                     if (graphicName == variantName)
                     {
                         //set required properties
