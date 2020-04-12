@@ -60,7 +60,6 @@ namespace GiddyUpCore
                 {
                     
                     string variantName = variant.texPath.Split('/').Last().Split(overlay.stringDelimiter.ToCharArray()).First();
-                    Log.Message(variantName);
                     if (graphicName == variantName)
                     {
                         //set required properties

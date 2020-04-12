@@ -68,7 +68,7 @@ namespace GiddyUpCore.Storage
             {
                 _store.Remove(key);
             }
-            Log.Message("Cleaned up " + shouldRemove.Count + " depricated records from Giddy-up!");
+            Log.Message("Cleaned up " + shouldRemove.Count + " deprecated records from Giddy-up!");
         }
 
     }
