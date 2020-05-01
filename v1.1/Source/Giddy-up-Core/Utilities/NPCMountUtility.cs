@@ -1,4 +1,4 @@
-﻿using GiddyUpCore.Jobs;
+using GiddyUpCore.Jobs;
 using GiddyUpCore.Storage;
 using RimWorld;
 using RimWorld.Planet;
@@ -70,8 +70,6 @@ namespace GiddyUpCore.Utilities
                 }
             }
 
-            Random rand = new Random(DateTime.Now.Millisecond);
-
             int totalWeight = inBiomeWeight + outBiomeWeight + nonWildWeight;
             float inBiomeWeightNormalized = (float)inBiomeWeight / (float)totalWeight * 100f;
             float outBiomeWeightNormalized = (float)outBiomeWeight / (float)totalWeight * 100f;
@@ -89,7 +87,8 @@ namespace GiddyUpCore.Utilities
                     continue;
                 }
 
-                int rndInt = rand.Next(1, 100);
+                //changing from System.Random to Verse.Rand for better multiplayer compatibility
+                int rndInt = Rand.Range(1, 100);
 
                 if (pawn.kindDef.HasModExtension<CustomMountsPatch>())
                 {

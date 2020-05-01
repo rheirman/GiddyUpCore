@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -36,6 +36,9 @@
     <Reference Include="0Harmony, Version=2.0.0.9, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Lib.Harmony.2.0.0.9\lib\net472\0Harmony.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="0MultiplayerAPI">
+      <HintPath>packages\0MultiplayerAPI.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
@@ -319,6 +322,7 @@
     <Compile Include="Harmony\VerbProperties_AdjustedAccuracy.cs" />
     <Compile Include="Harmony\WorkGiver_Train.cs" />
     <Compile Include="ModExtensions\AllowedLifeStagesPatch.cs" />
+    <Compile Include="ModExtensions\MultiplayerPatch.cs" />
     <Compile Include="ModExtensions\CustomMountsPatch.cs" />
     <Compile Include="ModExtensions\CustomStatsPatch.cs" />
     <Compile Include="ModExtensions\DrawingOffsetPatch.cs" />
