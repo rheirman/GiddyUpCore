@@ -1,4 +1,4 @@
-﻿using GiddyUpCore.Jobs;
+using GiddyUpCore.Jobs;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -7,6 +7,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 using Verse.AI;
+using Multiplayer.API;
 
 namespace GiddyUpCore.Utilities
 {
@@ -69,11 +70,13 @@ namespace GiddyUpCore.Utilities
                         {
                             if (!pawn.Drafted)
                             {
-                                pawn.drafter.Drafted = true;     
+                                //pawn.drafter.Drafted = true; moving to external method to sync across multiplayer clients
+                                UpdatePawnDrafted(pawn, true);
                             }
                             if(target.drafter != null && target.Drafted)
                             {
-                                target.drafter.Drafted = false;
+                                //target.drafter.Drafted = false; moving to external method to sync across multiplayer clients
+                                UpdatePawnDrafted(target, false);
                             }
                         }
                         Job jobRider = new Job(GUC_JobDefOf.Mount, target);
@@ -89,11 +92,24 @@ namespace GiddyUpCore.Utilities
 
                 Action action = delegate
                 {
-                    pawnData.reset();
+                    //pawnData.reset(); moving to external method to sync across multiplayer clients
+                    ResetPawnData(pawnData);
                 };
                 opts.Add(new FloatMenuOption("GUC_Dismount".Translate(), action, MenuOptionPriority.High));
 
             }
+        }
+
+        [SyncMethod]
+        private static void UpdatePawnDrafted(Pawn pawn, bool draftedStatus)
+        {
+            pawn.drafter.Drafted = draftedStatus;
+        }
+
+        [SyncMethod]
+        private static void ResetPawnData(Storage.ExtendedPawnData pawnData)
+        {
+            pawnData.reset();
         }
     }
 }
