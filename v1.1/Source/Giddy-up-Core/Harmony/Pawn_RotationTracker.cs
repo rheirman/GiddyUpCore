@@ -12,12 +12,11 @@ namespace GiddyUpCore.Harmony
     [HarmonyPatch(typeof(Pawn_RotationTracker), "UpdateRotation")]
     class Pawn_RotationTracker_UpdateRotation
     {
-        static bool Prefix(ref Pawn_RotationTracker __instance)
+        static bool Prefix(ref Pawn_RotationTracker __instance, ref Pawn ___pawn)
         {
-            Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
-            if(!pawn.Destroyed && pawn.jobs.curDriver is JobDriver_Mounted jobDriver)
+            if(!___pawn.Destroyed && ___pawn.jobs.curDriver is JobDriver_Mounted jobDriver)
             {
-                pawn.Rotation = jobDriver.Rider.Rotation;
+                ___pawn.Rotation = jobDriver.Rider.Rotation;
                 return false;      
                 //Log.Message("changing rotation for mech");
                 //__instance.Face(jobDriver.Rider.Rotation.FacingCell.ToVector3());

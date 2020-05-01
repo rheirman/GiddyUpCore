@@ -16,17 +16,16 @@ namespace GiddyUpCore.Harmony
     static class Pawn_DrawTracker_get_DrawPos
     {
 
-        static void Postfix(Pawn_DrawTracker __instance, ref Vector3 __result)
+        static void Postfix(Pawn_DrawTracker __instance, ref Vector3 __result, ref Pawn ___pawn)
         {
             Vector3 drawLoc = __result;
-            Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
             ExtendedDataStorage store = Base.Instance.GetExtendedDataStorage();
 
             if (store == null)
             {
                 return;
             }
-            ExtendedPawnData pawnData = store.GetExtendedDataFor(pawn);
+            ExtendedPawnData pawnData = store.GetExtendedDataFor(___pawn);
 
             if (pawnData != null && pawnData.mount != null)
             {
@@ -38,9 +37,9 @@ namespace GiddyUpCore.Harmony
                 }
                 if (pawnData.mount.def.HasModExtension<DrawingOffsetPatch>())
                 {
-                    drawLoc += AddCustomOffsets(pawn, pawnData);
+                    drawLoc += AddCustomOffsets(___pawn, pawnData);
                 }
-                if (pawn.Rotation == Rot4.South )
+                if (___pawn.Rotation == Rot4.South )
                 {
                     AnimalRecord value;
                     bool found = Base.drawSelecter.Value.InnerList.TryGetValue(pawnData.mount.def.defName, out value);
