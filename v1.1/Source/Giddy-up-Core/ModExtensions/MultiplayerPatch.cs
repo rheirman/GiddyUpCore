@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -49,26 +49,23 @@ namespace GiddyUpCore.ModExtensions
 
         static void GetExtendedDataForPostfix(Pawn pawn, object __result)
         {
-            if (forward.ContainsKey(pawn))
+            if (!forward.ContainsKey(pawn))
             {
-                return;
-            }
-            forward.Add(pawn, __result);
-            if (backward.ContainsKey(pawn))
+                forward.Add(pawn, __result);
+            }    
+            if (!backward.ContainsKey(__result))
             {
-                return;
+                backward.Add(__result, pawn);
             }
-            backward.Add(__result, pawn);
         }
 
         static void DeleteExtendedDataForPostfix(Pawn pawn)
         {
-            if (!forward.ContainsKey(pawn))
+            if (forward.ContainsKey(pawn))
             {
-                return;
+                backward.Remove(forward[pawn]);
+                forward.Remove(pawn);
             }
-            backward.Remove(forward[pawn]);
-            forward.Remove(pawn);
         }
 
         static void ExtendedPawnData(SyncWorker sync, ref object obj)
