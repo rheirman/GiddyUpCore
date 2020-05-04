@@ -20,4 +20,17 @@ This update includes the following improvements and fixes:
 - Compatibility with the new HugsLib version. 
 		</content>
 	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase_GiddyUpCore">
+		<defName>GiddyUpCore_2_0_3</defName>
+		<assemblyVersion>2.0.3</assemblyVersion>
+		<content>
+Giddy up has been updated with the following changes!
+
+- Large performance improvement. Your game should run noticably smoother. Giddy-up should barely impact FPS from now on. 
+- Added built-in support for the Multiplayer mod (credits go to Cody-Spring)
+- Fixed a nasty issue that could occur when you change allowed areas, resulting in pawns getting stuck. 
+- Fixed Giddy-up Caravan issue that could result in caravans being overloaded after leaving the map. Credits go to okradonkey for this fix. 
+- The potential inventory mass of pawns is substracted from the mass a mounted animal can carry when world travelling. In other words: things a pawn carry no longer get a free ride when riding. 
+		</content>
+	</HugsLib.UpdateFeatureDef>
 </Defs>
