@@ -43,17 +43,16 @@ namespace GiddyUpCore.Harmony
     [HarmonyPatch(typeof(Pawn_HealthTracker), "SetDead")]
     static class Pawn_HealthTracker_SetDead
     {
-        static void Postfix(Pawn_HealthTracker __instance)
+        static void Postfix(Pawn_HealthTracker __instance, ref Pawn ___pawn)
         {
-            Pawn pawn = Traverse.Create(__instance).Field("pawn").GetValue<Pawn>();
 
             //If the owner of an NPC mount is downed, let the animal flee
-            if (pawn.RaceProps.Humanlike && pawn.Faction != null && !pawn.Faction.IsPlayer)
+            if (___pawn.RaceProps.Humanlike && ___pawn.Faction != null && !___pawn.Faction.IsPlayer)
             {
                 ExtendedDataStorage dataStorage = Base.Instance.GetExtendedDataStorage();
                 if (dataStorage != null)
                 {
-                    ExtendedPawnData pawnData = dataStorage.GetExtendedDataFor(pawn);
+                    ExtendedPawnData pawnData = dataStorage.GetExtendedDataFor(___pawn);
                     if (pawnData != null && pawnData.owning != null && !pawnData.owning.Dead && pawnData.owning.Spawned)
                     {
                         pawnData.owning.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.PanicFlee);
