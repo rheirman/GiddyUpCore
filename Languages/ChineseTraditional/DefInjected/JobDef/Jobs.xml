@@ -3,9 +3,7 @@
 
   <Mount.reportString>乘騎動物</Mount.reportString>
   <Mounted.reportString>被人乘騎</Mounted.reportString>
-  <Dismount.reportString>從動物身上下來中</Dismount.reportString>
+  <Dismount.reportString>從坐騎上下來中</Dismount.reportString>
 
-
-  <!--<Mounted_BattleMount.reportString>被人騎乘</Mounted_BattleMount.reportString>-->
 
 </LanguageData>
