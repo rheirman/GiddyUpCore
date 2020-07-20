@@ -21,11 +21,7 @@ namespace GiddyUpCore.Jobs
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            yield return waitForRider();
-            yield return Toils_General.Do(() =>
-            {
-
-            });
+            yield return waitForRider();          
             yield return delegateMovement();
         }
         public override bool TryMakePreToilReservations(bool errorOnFailed)
