@@ -1,4 +1,5 @@
-﻿using GiddyUpCore.Storage;
+﻿using GiddyUpCore.Harmony;
+using GiddyUpCore.Storage;
 using RimWorld;
 using RimWorld.Planet;
 using System;
@@ -20,7 +21,7 @@ namespace GiddyUpCore.Jobs
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            yield return waitForRider();
+            yield return waitForRider();          
             yield return delegateMovement();
         }
         public override bool TryMakePreToilReservations(bool errorOnFailed)
@@ -61,7 +62,7 @@ namespace GiddyUpCore.Jobs
                     pawn.ExitMap(false, CellRect.WholeMap(base.Map).GetClosestEdge(this.pawn.Position));
                     return true;
                 }
-                else if(Rider.IsColonist && Rider.GetCaravan() != null)
+                else if (Rider.IsColonist && Rider.GetCaravan() != null)
                 {
                     //Log.Message("rider moved to map, despawn");
                     pawn.ExitMap(true, CellRect.WholeMap(base.Map).GetClosestEdge(this.pawn.Position));
@@ -76,16 +77,16 @@ namespace GiddyUpCore.Jobs
 
             if (!Rider.Drafted && Rider.IsColonist) //TODO refactor this as a postfix in Giddy-up Caravan. 
             {
-                if((Rider.mindState != null && Rider.mindState.duty != null && (Rider.mindState.duty.def == DutyDefOf.TravelOrWait || Rider.mindState.duty.def == DutyDefOf.TravelOrLeave || Rider.mindState.duty.def == DutyDefOf.PrepareCaravan_GatherPawns || Rider.mindState.duty.def == DutyDefOf.PrepareCaravan_GatherPawns)))
+                if ((Rider.mindState != null && Rider.mindState.duty != null && (Rider.mindState.duty.def == DutyDefOf.TravelOrWait || Rider.mindState.duty.def == DutyDefOf.TravelOrLeave || Rider.mindState.duty.def == DutyDefOf.PrepareCaravan_GatherPawns || Rider.mindState.duty.def == DutyDefOf.PrepareCaravan_GatherPawns)))
                 {
-                    if(riderData.caravanMount == pawn)
+                    if (riderData.caravanMount == pawn)
                     {
                         return false;
                     }
                     return true;
                     //if forming caravan, stay mounted. 
                 }
-                else if(riderData.owning == pawn)
+                else if (riderData.owning == pawn)
                 {
                     //Log.Message("cancel job, rider not drafted while being colonist");
                     //Log.Message("riderData.owning: " + riderData.owning);
@@ -96,7 +97,7 @@ namespace GiddyUpCore.Jobs
                     return true;
                 }
             }
-            
+
 
 
             if (riderData.mount == null)
@@ -172,7 +173,7 @@ namespace GiddyUpCore.Jobs
 
                 FinishAction();
             });
-            
+
             return toil;
 
         }
