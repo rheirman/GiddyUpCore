@@ -33,4 +33,12 @@ Giddy up has been updated with the following changes!
 - The potential inventory mass of pawns is substracted from the mass a mounted animal can carry when world travelling. In other words: things a pawn carry no longer get a free ride when riding. 
 		</content>
 	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase_GiddyUpCore">
+		<defName>GiddyUpCore_3_0_0</defName>
+		<assemblyVersion>3.0.0</assemblyVersion>
+		<content>
+All Giddy-up! mods except Giddy-up! Mechanoids have been updated to support Rimworld version 1.2 (with multi-version support for 1.0 and 1.1). Giddy up Mechanoids will be updated once I'm done with the What the Hack update. Enjoy!
+Cheers, Roolo
+		</content>
+	</HugsLib.UpdateFeatureDef>
 </Defs>
