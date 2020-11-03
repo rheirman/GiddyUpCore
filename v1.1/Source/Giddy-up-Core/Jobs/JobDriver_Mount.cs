@@ -72,7 +72,7 @@ namespace GiddyUpCore.Jobs
             return toil;
         }
 
-        private void FinishAction()
+        public void FinishAction()
         {
             if (Mount.CurJob != null && Mount.CurJob.def == GUC_JobDefOf.Mounted)
             {
