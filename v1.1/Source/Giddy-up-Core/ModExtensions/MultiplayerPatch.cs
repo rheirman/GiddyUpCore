@@ -53,6 +53,15 @@ namespace GiddyUpCore.ModExtensions
             MP.RegisterSyncMethod(typeof(ExtendedPawnData), nameof(Storage.ExtendedPawnData.reset));
             MP.RegisterSyncMethod(typeof(Jobs.JobDriver_Mounted), nameof(Jobs.JobDriver_Mounted.delegateMovement));
             MP.RegisterSyncMethod(typeof(Jobs.JobDriver_Mount), nameof(Jobs.JobDriver_Mount.FinishAction));
+            
+            MP.RegisterSyncMethod(typeof(Utilities.DrawUtility), nameof(Utilities.DrawUtility.CustomDrawer_Tabs)); // Needed to sync with arbiter START
+            MP.RegisterSyncMethod(typeof(Utilities.DrawUtility), nameof(Utilities.DrawUtility.CustomDrawer_Filter));
+            MP.RegisterSyncMethod(typeof(Utilities.DrawUtility), nameof(Utilities.DrawUtility.filterAnimals));
+            MP.RegisterSyncMethod(typeof(Utilities.DrawUtility), nameof(Utilities.DrawUtility.CustomDrawer_MatchingAnimals_active));
+            MP.RegisterSyncMethod(typeof(Utilities.TextureUtility), nameof(Utilities.TextureUtility.setDrawOffset)); // END
+            
+            MP.RegisterSyncMethod(typeof(Utilities.TextureUtility), nameof(Harmony.Pawn_DrawTracker_get_DrawPos));
+
         }
 
         static void ExtendedDataStoragePostfix()
