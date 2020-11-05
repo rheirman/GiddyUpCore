@@ -59,9 +59,6 @@ namespace GiddyUpCore.ModExtensions
             MP.RegisterSyncMethod(typeof(Utilities.DrawUtility), nameof(Utilities.DrawUtility.filterAnimals));
             MP.RegisterSyncMethod(typeof(Utilities.DrawUtility), nameof(Utilities.DrawUtility.CustomDrawer_MatchingAnimals_active));
             MP.RegisterSyncMethod(typeof(Utilities.TextureUtility), nameof(Utilities.TextureUtility.setDrawOffset)); // END
-            
-            MP.RegisterSyncMethod(typeof(Utilities.TextureUtility), nameof(Harmony.Pawn_DrawTracker_get_DrawPos));
-
         }
 
         static void ExtendedDataStoragePostfix()
