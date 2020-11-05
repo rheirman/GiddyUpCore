@@ -44,7 +44,6 @@ namespace GiddyUpCore.ModExtensions
             
             var rngFixMethods = new[]
             {
-                "GiddyUpCore.Utilities.NPCMountUtility:generateMounts",
                 "GiddyUpCore.Utilities.NPCMountUtility:determinePawnKind",
             };
             PatchPushPopRand(rngFixMethods); // Needed for other faction pawn arrival

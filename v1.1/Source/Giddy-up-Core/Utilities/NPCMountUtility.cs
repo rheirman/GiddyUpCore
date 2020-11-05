@@ -93,9 +93,7 @@ namespace GiddyUpCore.Utilities
                 }
 
                 //changing from System.Random to Verse.Rand for better multiplayer compatibility
-                Rand.PushState();
                 int rndInt = Rand.Range(1, 100);
-                Rand.PopState();
 
                 if (pawn.kindDef.HasModExtension<CustomMountsPatch>())
                 {
