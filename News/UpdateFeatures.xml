@@ -41,4 +41,25 @@ All Giddy-up! mods except Giddy-up! Mechanoids have been updated to support Rimw
 Cheers, Roolo
 		</content>
 	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase_GiddyUpCore">
+		<defName>GiddyUpCore_3_0_1</defName>
+		<assemblyVersion>3.0.1</assemblyVersion>
+		<content>
+Giddy-up Core has been updated. Changes: 
+- Improved performance (credits go to Karim for this). 
+- Fixed multiplayer mod support (credits go to AriAlavi). Giddy-up is fully compatible with the multiplayer mod again, though with the following known issues: 
+    - If using arbiter and battlemounts, firing from a mount will cause a desync
+    - NPCs riding animals does not draw for the host, only clients (eventually leading to 
+	  desync). Therefore, NPC mounting is automatically disabled in the settings for 
+	  multiplayer users by default. 
+
+Thanks go to the testers of this update as well: 
+- ubergarm
+- Diego75547
+- Poj
+
+Cheers, 
+Roolo
+		</content>
+	</HugsLib.UpdateFeatureDef>
 </Defs>
