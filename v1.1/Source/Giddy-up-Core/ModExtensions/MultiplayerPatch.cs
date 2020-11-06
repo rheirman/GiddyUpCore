@@ -23,7 +23,7 @@ namespace GiddyUpCore.ModExtensions
         {
             if (!MP.enabled)
             {
-                
+                return;
             }
             MP.RegisterAll();
             
