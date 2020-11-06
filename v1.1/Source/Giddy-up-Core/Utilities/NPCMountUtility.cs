@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Multiplayer.API;
 using Verse;
 using Verse.AI;
 
@@ -16,6 +17,10 @@ namespace GiddyUpCore.Utilities
 
         public static bool generateMounts(ref List<Pawn> list, IncidentParms parms, int inBiomeWeight, int outBiomeWeight, int nonWildWeight, int mountChance, int mountChanceTribal)
         {
+            if (MP.enabled)
+            {
+                return false; // Best we can do for now
+            }
             Map map = parms.target as Map;
             if (map == null)
             {
@@ -97,8 +102,9 @@ namespace GiddyUpCore.Utilities
                     {
                         continue;
                     }
-
+                    Rand.PushState();
                     bool found = modExtension.possibleMounts.TryRandomElementByWeight((KeyValuePair<String, int> mount) => mount.Value, out KeyValuePair<String, int> selectedMount);
+                    Rand.PopState();
                     if (found)
                     {
                         pawnKindDef = DefDatabase<PawnKindDef>.GetNamed(selectedMount.Key);
@@ -154,6 +160,7 @@ namespace GiddyUpCore.Utilities
             PawnKindDef pawnKindDef = null;
             float averageCommonality = AverageAnimalCommonality(map);
             Predicate<PawnKindDef> canUseAnimal = (PawnKindDef a) => map.mapTemperature.SeasonAcceptableFor(a.race) && IsMountableUtility.isAllowedInModOptions(a.defName) && parms.points > a.combatPower * 2f;
+            Rand.PushState();
             if (factionWildAnimalRestrictions.NullOrEmpty() && rndInt <= inBiomeWeightNormalized)
             {
                 (from a in map.Biome.AllWildAnimals
@@ -176,6 +183,7 @@ namespace GiddyUpCore.Utilities
                  && (factionFarmAnimalRestrictions.NullOrEmpty() || factionFarmAnimalRestrictions.Contains(a.defName))
                  select a).TryRandomElementByWeight((PawnKindDef def) => calculateCommonality(def, map, pawnHandlingLevel, averageCommonality), out pawnKindDef);
             }
+            Rand.PopState();
             return pawnKindDef;
         }
 

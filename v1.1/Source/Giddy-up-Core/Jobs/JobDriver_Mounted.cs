@@ -28,7 +28,7 @@ namespace GiddyUpCore.Jobs
             return true;
         }
 
-        private bool shouldCancelJob(ExtendedPawnData riderData)
+        public bool shouldCancelJob(ExtendedPawnData riderData)
         {
             if (interrupted)
             {
@@ -143,7 +143,7 @@ namespace GiddyUpCore.Jobs
 
 
 
-        private Toil delegateMovement()
+        public Toil delegateMovement()
         {
             Toil toil = new Toil();
             toil.defaultCompleteMode = ToilCompleteMode.Never;
@@ -191,7 +191,7 @@ namespace GiddyUpCore.Jobs
             pawn.pather.ResetToCurrentPosition();
         }
 
-        private void tryAttackEnemy()
+        public void tryAttackEnemy()
         {
             Thing targetThing = null;
 
