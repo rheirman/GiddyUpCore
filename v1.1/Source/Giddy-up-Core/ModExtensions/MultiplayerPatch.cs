@@ -14,7 +14,7 @@ namespace GiddyUpCore.ModExtensions
     [StaticConstructorOnStartup]
     public static class MultiplayerPatch
     {
-        internal static readonly HarmonyLib.Harmony giddyUpMultiplayerHarmony = new HarmonyLib.Harmony("giddyup.multiplayer.compat");
+        internal static readonly HarmonyLib.Harmony giddyUpMultiplayerHarmony = null;
 
         public static Dictionary<object, Pawn> backward;
         public static Dictionary<Pawn, object> forward;
@@ -25,6 +25,8 @@ namespace GiddyUpCore.ModExtensions
             {
                 return;
             }
+            giddyUpMultiplayerHarmony = new HarmonyLib.Harmony("giddyup.multiplayer.compat");
+            
             MP.RegisterAll();
             
             Type type = AccessTools.TypeByName("GiddyUpCore.Storage.ExtendedDataStorage");
