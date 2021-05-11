@@ -149,7 +149,7 @@ To achieve this, the parts of the animal that should overlap the rider are provi
 			<value>
 				<li Class="GiddyUpCore.CompProperties_Overlay">
 					<overlayFront> <!--Different overlays can be provided for different viewpoints, possibilities are: overlayFront, overlaySide, and overlayBack -->
-						<graphicDataDefault><!-- Different graphics data can be provided for different genders, possibilities are: graphicDataDefault(for all genders), graphicsDataMale and graphicsDataFemale -->
+						<graphicDataDefault><!-- Different graphics data can be provided for different genders, possibilities are: graphicDataDefault(for all genders), graphicDataMale and graphicDataFemale -->
 						  <texPath>Things/Pawn/Caribou_overlay_front</texPath> <!-- Any property of the GraphicData class can be set here. This includes colors, shadows etc! -->
 						  <graphicClass>Graphic_Single</graphicClass>
 						  <drawSize>4.38</drawSize>
