@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <GUC_Animal_Handling.label>骑乘战斗 驯兽技能影响</GUC_Animal_Handling.label>
+  <GUC_Animal_Handling.helpText>乘骑动物时驯兽技能会影响骑乘效果，若低于驯兽所需的等级，每低一级会降低2%的移动速度和0.5%的射击精度。如果高于所需的等级，每级会获得等量的增益，这些数值可以在mod选项中设置。</GUC_Animal_Handling.helpText>
+
+</LanguageData>

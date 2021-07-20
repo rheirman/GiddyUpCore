@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase">
+		<modNameReadable>Giddy-up Core</modNameReadable>
+		<modIdentifier>GiddyUpCore</modIdentifier>
+		<linkUrl>https://ludeon.com/forums/index.php?topic=37323</linkUrl>
+	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>GiddyUpCore_0_18_5</defName>
+		<assemblyVersion>0.18.5</assemblyVersion>
+		<content>A new mod for the Giddy-up! Series is released!
+		
+I am proud to present Giddy-up! Caravan. With this mod you can let your colonists ride to far lands on elephants, muffalos, lamas or any other animal, modded or not! 
+Check it out on steam, or on the mod's page on the Ludeon forums. 
+		</content>
+</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>GiddyUpCore_0_18_6</defName>
+		<assemblyVersion>0.18.6</assemblyVersion>
+		<content> I'm happy to announce a big update that applies to all Giddy-up! mods.
+		
+&lt;color=orange&gt;&lt;b&gt; Big changes in Giddy-up! Core: &lt;/b&gt;&lt;/color&gt;
+- Enemy and friendly NPC mounts that have their rider thrown off will no longer become wild animals, but instead they will keep fighting until one of the following happens:
+--> Their rider remounts the animal (riders will now attempt to remount their animal whenever possible).
+--> The rider owning the animal is killed or downed. In this case the animal will flee in panic and leave the map, as there's no longer a master around to control it. 
+Note: When facing a dangerous mount, it's now more important than ever to kill its rider, so that it starts fleeing.
+- If an enemy mount is downed, it is now turned into a wild animal so you can still tame or hunt it. 
+
+&lt;color=orange&gt;&lt;b&gt; Big changes in Giddy-up! Caravan:  &lt;/b&gt;&lt;/color&gt;
+- Friendly NPCs will now park their mount when arriving at your colony, and hop on again when they leave.
+- A new zone has been added, named: &lt;color=orange&gt;&lt;b&gt; NPC mount spot &lt;/b&gt;&lt;/color&gt;. When friendly NPCs arrive, they will park their mounts at the nearest NPC mount spot. Go check this out in Architect->Zone/Areas
+Note: Place this spot in a room and you have your own stable for guests! 
+
+&lt;color=orange&gt;&lt;b&gt; Small changes and fixes  &lt;/b&gt;&lt;/color&gt;
+- The caravan dialog should no longer lag when using Giddy-up! Caravan. 
+- Fixed UI issue in caravan dialog that appeared when a mount died during a map event (like an ambush).
+- Fixed UI issue in caravan dialog that made it impossible to use multiple similar mounts that still had their default name. 
+- The right click menu item for mounting now also displays the mounts name when using Giddy-up! Battle Mounts.
+- Updated Spanish translations (by mora145)
+		
+Good luck playing!
+Roolo
+		</content>
+</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>GiddyUpCore_0_18_7</defName>
+		<assemblyVersion>0.18.7</assemblyVersion>
+		<content>A new mod for the Giddy-up! Series is released!
+"Hey Stein, can you go mine some steel? We're running out."
+"But Banastra, the only deposit is on the other side of the map! Why don't you do it?"
+"Well, I'm incapable of mining, you know that. Why don't you just take an animal and Ride and Roll?"
+"That's a thing now?"
+
+Yes it is. With Giddy-up! Ride and Roll, you'll save your colonists the pain of walking everywhere, as it allows them to use mounts whenever it makes sense. Go check it out on Steam!
+		</content>
+		
+	</HugsLib.UpdateFeatureDef>
+		<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>GiddyUpCore_1_1_4</defName>
+		<assemblyVersion>1.1.4</assemblyVersion>
+		<content>
+Hi fellow Rimworlders. Normally I only create these in-game notifications for big updates, but this minor update can be significant for some players, and it would probably be missed without this notification.
+Update notes: 
+
+- Giddy-up! is now fully compatible again with Facial Stuff out of the box. No longer will you colonists be drawn behind animals when they really shouldn't when using both mods, and no longer it'll appear as if they're "riding" the animal on a "different" (read NSFW) way. 
+- Gear added by Combat Extended like backpacks and shields are now drawn properly for colonists riding animals. 
+
+Cheers,
+Roolo
+		</content>
+	</HugsLib.UpdateFeatureDef>
+	
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>GiddyUpCore_1_1_6</defName>
+		<assemblyVersion>1.1.6</assemblyVersion>
+		<content>
+&lt;color=orange&gt;&lt;b&gt;Giddy-up! Core&lt;/b&gt;&lt;/color&gt; is updated to v1.1.6. This minor update comes with some important fixes and improvements. 
+
+- The stat info tab now properly shows the movement speed of riders and mounts, with a breakdown of how everything is calculated. 
+- Pawns no longer try to train animals that are mounted. 
+- Added save game sanitizer that automatically cleans unneeded records of Giddy-up on startup. This should reduce the load time of your save (in some cases significantly). 
+- Animals can no longer disappear when a rider enters a drop pod (this issue was introduced in the latest major update of Ride and Roll). 
+- Shields are now drawn correctly for riders 
+
+&lt;color=orange&gt;&lt;b&gt;Giddy-up! Ride and Roll&lt;/b&gt;&lt;/color&gt; has been updates as well, to v1.2.1
+
+- The way pawns ride to jobs is simplified (there's no longer a "ride to job" job anymore). It should be less error-prone now, and this fixes an issue due to which pawns cannot reserve double beds properly (yes, it's really fixed this time :)), as well as some other (less serious) reservation issues. 
+- Fixed crash when riders start a new colony on the world map, should also fix any other crashes related to pawns entering sites when using certain mods. 
+
+Liking these updates? Consider supporting me on Ko-fi. You'll find a link on the Steam page or Ludeon Forum page of this mod. 
+
+Cheers,
+Roolo
+		</content>
+	</HugsLib.UpdateFeatureDef>
+	
+</Defs>
