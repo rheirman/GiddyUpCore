@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+ <GiddyUpCore_2_0_0.modNameReadable>Giddy-up Core</GiddyUpCore_2_0_0.modNameReadable>
+ <GiddyUpCore_2_0_0.content>\nGiddy-up!シリーズModとGiddy-up!Mechanoidsが更新されてRimworldのversion1.1に対応しました（拡張DLCを含めて)。このアップデートの協力者としての感謝は、この更新の主要な部分を担当したSargBjornsonに与えられます。このバージョンはRimworld1.0もサポートしているので、そのバージョンをまだ使用している場合でも心配する必要はありません。\n\nGiddy-up!MechanoidsはこWhat_Hackが更新された後に更新します（しばらく時間がかかります）。\n\nこのアップデートには、以下の改善と修正が含まれます。\n・バニラの動物用にオーバーレイを追加しました。\n　これらのオーバーレイによって、ポーンが頭や角などが、動物のものと重なるのを防ぎます。\n・動物が騎乗されている際に、ポーンの名前タグが動物の頭に重ならないようになりました。\n・騎手の仕事が待機中だと時々null参照エラーが出る問題を修正しました。\n・新しいHugsLibとの互換性を追加しました。\n\nMod作者:Roolo</GiddyUpCore_2_0_0.content>
+
+ <GiddyUpCore_2_0_3.modNameReadable>Giddy-up Core</GiddyUpCore_2_0_3.modNameReadable>
+ <GiddyUpCore_2_0_3.content>\nGiddy-upが以下の様に更新されました！\n\n・大幅なパフォーマンスの向上。ゲームはこれまで以上にスムーズに実行されます。今後、Giddy-upはFPSにほとんど影響しません\n・マルチプレイヤーMODのサポートを追加（Cody-Springに感謝の言葉を送ります）\n・許可されたエリアを変更するとポーンが動かなくなるという厄介な問題を修正しました\n・マップを出た後にキャラバンが重量オーバーになる可能性があったGiddy-up_Caravanの問題を修正しました。この修正はokradonkeyに感謝します\n・ポーンの持つ潜在的なインベントリの重量は、ワールドマップを旅行する際に騎乗された動物が運べる重量から差し引かれます。言い換えれば、ポーンが運ぶものは、騎乗しても消滅しません。\n\n</GiddyUpCore_2_0_3.content>
+
+ <GiddyUpCore_3_0_0.modNameReadable>Giddy-up Core</GiddyUpCore_3_0_0.modNameReadable>
+ <GiddyUpCore_3_0_0.content>\nMechanoidsを除いたGiddy-up!シリーズ全てはRimWorldの1.2バージョンのサポートを更新しました(1.0から1.2までのマルチバージョンサポート)。What-the-Hackの更新が完了すると、Giddy-up!-Mechanoidsが更新されます。楽しんで！\n\nそれでは、Mod作者:Roolo</GiddyUpCore_3_0_0.content>
+
+ <GiddyUpCore_3_0_1.modNameReadable>Giddy-up Core</GiddyUpCore_3_0_1.modNameReadable>
+ <GiddyUpCore_3_0_1.content>\n更新内容:\n・パフォーマンスの向上（提供:Karim）\n・マルチプレイヤーMODのサポートを修正（提供:AriAlavia.k.aKIERKEGØRD）\n　Giddy-upは、マルチプレイヤーModと完全に互換性がありますが、以下の既知の（小規模な）問題があります。\n・arbiterとbattlemountsを同時に使用している場合、騎乗中に射撃すると非同期が発生します\n・動物に乗っているNPCはホストPCと同期せず、クライアントPCだけと同期します（最終的には非同期化する）。従って、NPCの騎乗は、デフォルトでマルチプレイヤーユーザーの設定で自動的に無効化します\n\nこのアップデートのテスターに感謝\n・ubergarm\n・Diego75547\n・Poj\n\nそれでは、Mod作者:Roolo</GiddyUpCore_3_0_1.content>
+
+</LanguageData>

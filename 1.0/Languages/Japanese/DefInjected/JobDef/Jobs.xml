@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <Mount.reportString>騎乗している</Mount.reportString>
+  <Mounted.reportString>騎乗済</Mounted.reportString>
+  <Dismount.reportString>動物から下りた</Dismount.reportString>
+</LanguageData>

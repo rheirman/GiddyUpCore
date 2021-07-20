@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <GUC_Animal_Handling.label>Giddy-up!: 動物の取り扱いスキル</GUC_Animal_Handling.label>
+  <GUC_Animal_Handling.helpText>ポーンの持つ動物取り扱いスキルは、騎乗がどのくらい効果的であるかに影響します。動物スキルが動物を飼いならすのに必要なレベルを下回っているスキルレベルでは、不足している各レベルごとに移動（2％）と命中精度（0.5％）のペナルティが適用されます。動物スキルのレベルが動物を飼いならすのに必要なレベルを上回っている場合、ペナルティと同じボーナス値が適用されます。この動物スキルレベルごとのボーナス/ペナルティは、mod設定で設定できます。</GUC_Animal_Handling.helpText>
+
+
+</LanguageData>

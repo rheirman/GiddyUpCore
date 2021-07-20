@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+ <GUC_HandlingAccuracyImpact_Title>Einfluss auf Genauigkeit(%) pro Stufe in Tierpflege</GUC_HandlingAccuracyImpact_Title>
+ <GUC_HandlingAccuracyImpact_Description>Wenn die Fähigkeit Tierpflege unter der benötigten Stufe ist, um ein Tier zu Zähmen, ist dies ein Malus pro Stufe. Ansonsten ein Bonus pro Stufe.</GUC_HandlingAccuracyImpact_Description> 
+ <GUC_HandlingMovementImpact_Title>Einfluss auf die Bewegung(%) pro Stufe in der Fähigkeit Tierpflege</GUC_HandlingMovementImpact_Title>
+ <GUC_HandlingMovementImpact_Description>Wenn die Fähigkeit Tierpflege bei dem Kolonisten niedriger ist, als benötigt, um das Tier zu Zähmen, ist das ein Malus pro Stufe. Ansonsten ein Bonus pro Stufe.</GUC_HandlingMovementImpact_Description>
+ <GUC_AccuracyPenalty_Title>Genauigkeitsmalus</GUC_AccuracyPenalty_Title>
+ <GUC_AccuracyPenalty_Description>Genauigkeitsmalus für berittene Kolonisten</GUC_AccuracyPenalty_Description>
+ 
+ <GUC_tab1>Reitbare Tiere..</GUC_tab1>
+ <GUC_tab2>Zeichen-Einstellungen..</GUC_tab2>
+ <GUC_Tabs_Title>Einstellungsauswahl</GUC_Tabs_Title>
+ <GUC_BodySizeFilter_Title>Nach Körpergröße filtern</GUC_BodySizeFilter_Title>
+ <GUC_BodySizeFilter_Description>Reitbare Tiere nach Körpergröße filtern</GUC_BodySizeFilter_Description>
+ <GUC_Animalselection_Title>Reitbare Tiere auswählen</GUC_Animalselection_Title>
+ <GUC_Animalselection_Description>Benutze den Filter für die Körpergröße und klicke die Felder, um Ausnahmen festzulegen</GUC_Animalselection_Description>
+ <GUC_Drawselection_Title>Setze Zeichenpriorität</GUC_Drawselection_Title>
+ <GUC_Drawselection_Description>Stelle ein, welche Tiere vor deinen Kolonisten gezeichnet werden sollen und welche dahinter. 
+ Die meisten Tiere sollten hinter den Kolonisten gezeichnet werden, aber manche (besonders Tiere mit langem Hals/ Hörnern) sehen besser davor aus.</GUC_Drawselection_Description>
+ <GUC_SizeOk>Reitbar</GUC_SizeOk>
+ <GUC_SizeNotOk>Nicht reitbar</GUC_SizeNotOk>
+ <GUC_DrawFront>Tier im Vordergrund</GUC_DrawFront>
+ <GUC_DrawBack>Tier im Hintergrund</GUC_DrawBack>
+ 
+ <GUC_NotInModOptions>Aufsteigen nicht möglich, Tier in Mod-Einstellungen verboten</GUC_NotInModOptions>
+ <GUC_AnimalBusy>Aufsteigen nicht möglich, Tier beschäftigt</GUC_AnimalBusy>
+ <GUC_NotFullyGrown>Aufsteigen nicht möglich, Tier nicht ausgewachsen</GUC_NotFullyGrown>
+ <GUC_NeedsObedience>Aufsteigen nicht möglich, Tier nicht 'Gehorsam'</GUC_NeedsObedience>
+ <GUC_Mount>Aufsteigen</GUC_Mount>
+ <GUC_Dismount>Absteigen</GUC_Dismount>
+</LanguageData>

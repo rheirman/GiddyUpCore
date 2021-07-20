@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<GiddyUpCore_0_18_5.content>
+Giddy-up 시리즈의 새로운 Mod가 출시 되었습니다!
+
+'Giddy-up! Caravan' 이 Mod에서 당신은 림을 각종 동물들 혹은 Mod로 추가한 다른 동물들을 태우고 먼 곳까지 이동 할 수 있습니다! 자세한 내용은 Steam에서 확인하거나 Ludeon 공식 포럼 mod 페이지에서 확인하십시오. 
+		</GiddyUpCore_0_18_5.content>
+
+	<GiddyUpCore_0_18_6.content>모든 Giddy-up 모드에 큰 업데이트를 발표하게되어 기쁩니다!
+
+&lt;color=orange&gt;&lt;b&gt; Giddy-up! Core의 큰 변경점 &lt;/b&gt;&lt;/color&gt;
+- 적대적 혹은 아군의 NPC 라이더가 떨어진 탈것은 더 이상 야생 동물이되지 않지만 대신 다음 중 하나가 발생할 때까지 계속 싸우게됩니다.
+--> 라이더는 다시 탈것에 올라 탑니다. (라이더는 가능하면 다시 탈것에 올라 타려고 시도 합니다.).
+--> 동물을 소유 한 라이더가 살해되거나 쓰러질 경우 동물은 공황 상태에서 맵을 방황 할 것입니다. 더 이상 주인이 통제 할 수 없기 때문입니다.
+참고 : 위험한 동물을 탑승한 라이더를 죽이는 것이 이제 그 어느 때보 다 중요해졌습니다.
+- 적의 탈것이 쓰러지면 야생 동물이되어 여전히 길들이거나 사냥을 할 수 있습니다. 
+
+&lt;color=orange&gt;&lt;b&gt; Giddy-up! Caravan의 큰 변경점  &lt;/b&gt;&lt;/color&gt;
+- 아군 NPC들은 당신의 식민지에 도착했을 때 그들의 탈것을 주차 한 채 머물고 떠날 때 다시 타고 갈 것입니다.
+- 새로운 영역 추가: &lt;color=orange&gt;&lt;b&gt; NPC 주차 영역 &lt;/b&gt;&lt;/color&gt;. 아군 NPC가 도착 하면, NPC 주차 영역 근처에 탈 것을 주차하고 내리려고 합니다. 건설 -> 영역 항목을 확인 하세요
+참고 :이 영역을 방에 만들면 손님을 위한 개인 공간이 생깁니다!
+
+&lt;color=orange&gt;&lt;b&gt; 작은 변경점과 수정사항  &lt;/b&gt;&lt;/color&gt;
+- Giddy-up! Caravan에서 더 이상 대화 렉이 발생하지 않습니다.
+- UI 수정:매복 같은 맵 이벤트중에 탈것이 죽었을 때 발생하는 이슈 수정.
+- 기본 이름에서 비슷한 이름을 여러개 사용할 수 없던 문제 수정. 
+- Giddy-up! Battle Mounts에서 우클릭 메뉴를 활성 하면 탈것의 이름이 표시 됩니다.
+- 스페인어 번역 추가 (by mora145)
+		
+Good luck playing!
+Roolo
+		</GiddyUpCore_0_18_6.content>
+
+	<GiddyUpCore_0_18_7.content>Giddy-up을위한 새로운 모드 시리즈 출시!
+"이봐, 스테인. 강철 광맥에 다녀와 줄래? 우리 철이 다 떨어지고있어."
+"바나스트라, 유일한 광맥이 지도 반대 편에 있어! 니가 가지 그래?"
+"근데, 나는 광산 채굴을 할 수 없어. 너도 알 잖아. 왜 그냥 동물을 타고 가면 안되는거야?"
+"그게 지금 되니?"
+
+예, 그렇습니다. Giddy-up! Ride and Roll을 사용하면 림 들이 어디든지 걷는 고통을 덜 수 있습니다. Steam에서 확인해보십시오!
+		</GiddyUpCore_0_18_7.content>
+
+</LanguageData>

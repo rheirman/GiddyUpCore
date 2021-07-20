@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase_GiddyUpCore">
+		<modNameReadable>Giddy-up! Core</modNameReadable>
+		<modIdentifier>GiddyUpCore</modIdentifier>
+		<linkUrl>https://ludeon.com/forums/index.php?topic=37323.0</linkUrl>
+	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase_GiddyUpCore">
+		<defName>GiddyUpCore_2_0_0</defName>
+		<assemblyVersion>2.0.0</assemblyVersion>
+		<content>
+All Giddy-up! mods except Giddy-up! Mechanoids have been updated to support Rimworld version 1.1 (including the expansion). Credits for this update go to Sarg Bjornson, who's responsible for a major part of this update. This version also supports Rimworld 1.0, so no need to worry if you're still using that version. 
+
+Giddy-up! Mechanoids will be updated once What the Hack has been updates (which will take some time). 
+
+This update includes the following improvements and fixes: 
+- Added more overlays for vanilla animals. These overlays prevent that pawns overlap the heads, horns or other things that animals have. 
+- Made sure the name tag of a pawn doesn't overlap the animal's head when an animal is mounted. 
+- Fixed null reference errors that the wait for rider job sometimes threw.
+- Compatibility with the new HugsLib version. 
+		</content>
+	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase_GiddyUpCore">
+		<defName>GiddyUpCore_2_0_3</defName>
+		<assemblyVersion>2.0.3</assemblyVersion>
+		<content>
+Giddy up has been updated with the following changes!
+
+- Large performance improvement. Your game should run noticably smoother. Giddy-up should barely impact FPS from now on. 
+- Added built-in support for the Multiplayer mod (credits go to Cody-Spring)
+- Fixed a nasty issue that could occur when you change allowed areas, resulting in pawns getting stuck. 
+- Fixed Giddy-up Caravan issue that could result in caravans being overloaded after leaving the map. Credits go to okradonkey for this fix. 
+- The potential inventory mass of pawns is substracted from the mass a mounted animal can carry when world travelling. In other words: things a pawn carry no longer get a free ride when riding. 
+		</content>
+	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase_GiddyUpCore">
+		<defName>GiddyUpCore_3_0_0</defName>
+		<assemblyVersion>3.0.0</assemblyVersion>
+		<content>
+All Giddy-up! mods except Giddy-up! Mechanoids have been updated to support Rimworld version 1.2 (with multi-version support for 1.0 and 1.1). Giddy up Mechanoids will be updated once I'm done with the What the Hack update. Enjoy!
+Cheers, Roolo
+		</content>
+	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase_GiddyUpCore">
+		<defName>GiddyUpCore_3_0_1</defName>
+		<assemblyVersion>3.0.1</assemblyVersion>
+		<content>
+Giddy-up Core has been updated. Changes: 
+- Improved performance (credits go to Karim for this). 
+- Fixed multiplayer mod support (credits go to AriAlavi). Giddy-up is fully compatible with the multiplayer mod again, though with the following known issues: 
+    - If using arbiter and battlemounts, firing from a mount will cause a desync
+    - NPCs riding animals does not draw for the host, only clients (eventually leading to 
+	  desync). Therefore, NPC mounting is automatically disabled in the settings for 
+	  multiplayer users by default. 
+
+Thanks go to the testers of this update as well: 
+- ubergarm
+- Diego75547
+- Poj
+
+Cheers, 
+Roolo
+		</content>
+	</HugsLib.UpdateFeatureDef>
+</Defs>

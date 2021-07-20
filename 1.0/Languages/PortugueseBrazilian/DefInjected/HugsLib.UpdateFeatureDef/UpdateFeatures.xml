@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- <GiddyUpCore_0_18_5.modNameReadable>Giddy-up Core</GiddyUpCore_0_18_5.modNameReadable>
+  <GiddyUpCore_0_18_5.content>Um novo mod para o Giddy-up! A série é lançada!Tenho orgulho de apresentar o Giddy-up! Caravan. Com este mod você pode deixar seus colonos cavalgarem para terras distantes em elefantes, muffalos, lhamas ou qualquer outro animal, modificado ou não!Confira no Steam ou na página de mod nos fóruns do Ludeon.</GiddyUpCore_0_18_5.content>
+
+  <GiddyUpCore_0_18_6.modNameReadable>Giddy-up Core</GiddyUpCore_0_18_6.modNameReadable>
+  <GiddyUpCore_0_18_6.content>Tenho o prazer de anunciar uma grande atualização que se aplica a todos os Giddy-up! modificações.
+Grandes mudanças no Giddy-up! Core:
+- Montarias NPC inimigas e amigáveis ​​que têm seu cavaleiro caído não se tornarão mais animais selvagens, mas continuarão lutando até que um dos seguintes aconteça:
+-> O cavaleiro remonta o animal (os cavaleiros agora tentarão remontar o animal sempre que possível).
+-> O cavaleiro que possui o animal é morto ou abatido. Nesse caso, o animal fugirá em pânico e deixará o mapa, pois não há mais um mestre por perto para controlá-lo.
+Nota: Ao enfrentar uma montaria perigosa, agora é mais importante do que nunca matar seu cavaleiro, para que ele comece a fugir.
+- Se uma montaria inimiga for abatida, ela agora se tornará um animal selvagem para que você ainda possa domesticá-la ou caçá-la.
+
+Grandes mudanças no Giddy-up! Caravan:
+- NPCs amigáveis ​​agora estacionarão sua montaria quando chegarem em sua colônia e pularão novamente quando eles partirem.
+- Uma nova zona foi adicionada, chamado: Local de montaria de NPC. Quando NPCs amigáveis ​​chegarem, eles estacionarão suas montarias no local de montaria de NPC mais próximo. Vá verificar isso em Architect-> Zonas / Areas
+Nota: Coloque este local em uma sala e você terá seu próprio estábulo para convidados!
+
+Pequenas mudanças e correções
+- A caixa de diálogo da caravana não deve mais atrasar ao usar o Giddy-up! Caravan.
+- Corrigido problema de interface do usuário na caixa de diálogo da caravana que aparecia quando uma montagem morria durante um evento de mapa (como uma emboscada).
+- Corrigido o problema de interface do usuário na caixa de diálogo da caravana que tornava impossível o uso de várias montagens semelhantes que ainda tinham seu nome padrão.
+- O item de menu do botão direito para montagem agora também exibe o nome da montagem ao usar o Giddy-up! Battle Mounts.
+- Traduções atualizadas para o espanhol (por mora145)
+Boa sorte jogando!
+Roolo</GiddyUpCore_0_18_6.content>
+
+ <GiddyUpCore_0_18_7.modNameReadable>Giddy-up Core</GiddyUpCore_0_18_7.modNameReadable>
+ <GiddyUpCore_0_18_7.content>Um novo mod para a coleção Giddy-up! é lançado!
+"Ei Stein, você pode minerar um pouco de aço? Estamos acabando."
+"Mas, Banastra, o único depósito fica do outro lado do mapa! Por que você não faz isso?"
+"Bem, eu sou incapaz de minerar, você sabe disso. Por que você simplesmente não pega um animal e Ride and Roll?"
+"Isso é uma coisa agora?"
+
+Sim, ele é. Com Giddy-up! Ride and Roll, você salvará seus colonos da dor de andar por toda parte, já que permite que eles usem montarias sempre que fizer sentido. Vá dar uma olhada no Steam!</GiddyUpCore_0_18_7.content>
+
+ <GiddyUpCore_1_1_4.modNameReadable>Giddy-up Core</GiddyUpCore_1_1_4.modNameReadable>
+ <GiddyUpCore_1_1_4.content>Olá companheiros Rimworlders. Normalmente, eu só crio essas notificações no jogo para grandes atualizações, mas essa pequena atualização pode ser significativa para alguns jogadores e provavelmente não seria observada sem essa notificação.
+Atualizar notas:
+
+- Giddy-up! agora é totalmente compatível  com Facial Stuff novamente. Vocês, colonos, não serão mais atraídos para trás dos animais quando realmente não deveriam ao usar os dois mods, e não mais parecerão como se estivessem "cavalgando" o animal de uma maneira "diferente".
+- Equipamentos adicionados pelo Combat Extended, como mochilas e escudos, agora são desenhados corretamente para os colonos montando animais.
+Felicidades,
+Roolo</GiddyUpCore_1_1_4.content>
+
+ <GiddyUpCore_1_1_6.modNameReadable>Giddy-up Core</GiddyUpCore_1_1_6.modNameReadable>
+ <GiddyUpCore_1_1_6.content>Giddy-up! Core é atualizado para v1.1.6. Esta pequena atualização vem com algumas correções e melhorias importantes.
+
+- A guia de informações estatísticas agora mostra corretamente a velocidade de movimento dos pilotos e montarias, com uma análise de como tudo é calculado.
+- Os peões não tentam mais treinar animais que estão montados.
+- Os animais não podem mais desaparecer quando um piloto entra em um drop pod (esse problema foi introduzido na última grande atualização do Ride and Roll).
+- Os escudos agora estão desenhados corretamente para os pilotos
+
+Giddy-up! Ride and Roll também foi atualizado, para v1.2.1
+
+- A maneira como os peões vão para o trabalho é simplificada (não há mais um trabalho de "viagem para o trabalho"). Deve ser menos sujeito a erros agora, e isso corrige um problema devido ao qual os peões não podem reservar camas de casal adequadamente (sim, está realmente corrigido desta vez :)), bem como alguns outros problemas de reserva (menos sérios).
+- Corrigida a falha quando os pilotos iniciam uma nova colônia no mapa mundial, também deve corrigir quaisquer outras falhas relacionadas a peões entrando em sites ao usar certos mods.
+
+Gostou dessas atualizações? Considere me apoiar no Ko-fi. Você encontrará um link na página Steam ou na página do Fórum Ludeon deste mod.
+Felicidades,
+Roolo</GiddyUpCore_1_1_6.content> -->
+
+</LanguageData>

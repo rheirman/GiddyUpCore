@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+ <GUC_HandlingAccuracyImpact_Title>Wpływ celności(%) za każdy poziom umięjętności oswajania</GUC_HandlingAccuracyImpact_Title>
+ <GUC_HandlingAccuracyImpact_Description>Jeżeli poziom oswajania u kolonisty jest poniżej poziomu wymaganego do oswojenia zwierzęcia, zostanie nadana kara za każdy poziom poniżej wymogu. W przeciwnym wypadku nadawany jest bonu za każdy poziom ponad wymóg.</GUC_HandlingAccuracyImpact_Description> 
+ <GUC_HandlingMovementImpact_Title>Wpływ na ruch(%) za każdy poziom umięjętności oswajania</GUC_HandlingMovementImpact_Title>
+ <GUC_HandlingMovementImpact_Description>Jeżeli poziom oswajania u kolonisty jest poniżej poziomu wymaganego do oswojenia zwierzęcia, zostanie nadana kara za każdy poziom poniżej wymogu. W przeciwnym wypadku nadawany jest bonus za każdy poziom ponad wymóg.</GUC_HandlingMovementImpact_Description>
+ <GUC_AccuracyPenalty_Title>Kara do celności</GUC_AccuracyPenalty_Title>
+ <GUC_AccuracyPenalty_Description>Kara do celności kiedy kolonista jest na wierzchowcu</GUC_AccuracyPenalty_Description>
+ 
+ <GUC_tab1>Zwierzęta możliwe do ujeżdżania.</GUC_tab1>
+ <GUC_tab2>Opcje rysowania.</GUC_tab2>
+ <GUC_Tabs_Title>Konfiguracja</GUC_Tabs_Title>
+ <GUC_BodySizeFilter_Title>Sortuj po rozmiarze ciała</GUC_BodySizeFilter_Title>
+ <GUC_BodySizeFilter_Description>Sortuj zwierzęta możliwe do ujeżdżania po rozmiarze ciała</GUC_BodySizeFilter_Description>
+ <GUC_Animalselection_Title>Wybierz zwierze możliwe do ujeżdżania</GUC_Animalselection_Title>
+ <GUC_Animalselection_Description>Skorzystaj z filtrów powyżej aby sortować po rozmiarze ciała, kliknij pozycje aby stworzyć wyjątek.</GUC_Animalselection_Description>
+ <GUC_Drawselection_Title>Ustaw piorytet rysowania</GUC_Drawselection_Title>
+ <GUC_Drawselection_Description>Skonfiguruj które zwierzęta powinny być rysowane przed kolonistami, a które za nimi.
+ Większość zwierząt powinna być rysowana za kolonistami, ale pewna część (Szczególnie zwierzęta z długimi szyjami lub rogami) wyglądają lepiej kiedy są rysowane przed kolonistami.</GUC_Drawselection_Description>
+ <GUC_SizeOk>Można ujeżdżać</GUC_SizeOk>
+ <GUC_SizeNotOk>Brat możliwości ujeżdżania</GUC_SizeNotOk>
+ <GUC_DrawFront>Zwierze przed kolonistą</GUC_DrawFront>
+ <GUC_DrawBack>Zwierze za kolonistą</GUC_DrawBack>
+ 
+ <GUC_NotInModOptions>Nie można ujeżdżać, zwierzę nie dozwolone w ustawieniach modyfikacji</GUC_NotInModOptions>
+ <GUC_AnimalBusy>Nie można ujeżdzać, zwierzę zajęte</GUC_AnimalBusy>
+ <GUC_NotFullyGrown>Nie można ujeżdzać, zwierzę nie urosło wystarczająco</GUC_NotFullyGrown>
+ <GUC_NeedsObedience>Nie można ujeżdzaćt, zwierzę wymaga ukończenia treningu</GUC_NeedsObedience>
+ <GUC_Mount>Ujeżdżaj</GUC_Mount>
+ <GUC_Dismount>Zsiądź</GUC_Dismount>
+</LanguageData>

@@ -1,0 +1,15 @@
+<xpath>*/PawnKindDef[ defName = "MercenarySlasher"]</xpath>
+ 
+<li Class="GiddyUpCore.CustomMountsPatch">
+	<mountChance>100</mountChance>
+	<possibleMounts>
+		<li>
+			<key>Muffalo</key>
+			<value>10</value>
+		</li>
+		<li>
+			<key>Thrumbo</key>
+			<value>90</value>
+		</li>
+	</possibleMounts>
+</li>

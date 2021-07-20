@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <Mount.reportString>Steigt auf</Mount.reportString>
+  <Mounted.reportString>Beritten</Mounted.reportString>
+  <Dismount.reportString>Steigt ab</Dismount.reportString>
+</LanguageData>

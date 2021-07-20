@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <GUC_HandlingAccuracyImpact_Title>Impacto de precisión(%) por nivel de manejo de animales</GUC_HandlingAccuracyImpact_Title>
+  <GUC_HandlingAccuracyImpact_Description>Si la habilidad de manejo del animal de un colono está por debajo del nivel que se necesitaría para domar al animal, esta es una penalización por nivel. De lo contrario, es una bonificación por nivel.</GUC_HandlingAccuracyImpact_Description>
+  <GUC_HandlingMovementImpact_Title>Impacto del movimiento(%) por nivel de manejo de animales</GUC_HandlingMovementImpact_Title>
+  <GUC_HandlingMovementImpact_Description>Si la habilidad de manejo del animal de un colono está por debajo del nivel que se necesitaría para domar al animal, esta es una penalización por nivel. De lo contrario, es una bonificación por nivel.</GUC_HandlingMovementImpact_Description>
+  <GUC_AccuracyPenalty_Title>Penalización de puntería</GUC_AccuracyPenalty_Title>
+  <GUC_AccuracyPenalty_Description>Penalización de puntería cuando los personajes están montados</GUC_AccuracyPenalty_Description>
+  
+  <GUC_tab1>Monturas</GUC_tab1>
+  <GUC_tab2>Opciones de diseño</GUC_tab2>
+  <GUC_Tabs_Title>Opciones de configuración</GUC_Tabs_Title>
+  <GUC_BodySizeFilter_Title>Filtrar por tamaño</GUC_BodySizeFilter_Title>
+  <GUC_BodySizeFilter_Description>Filtrar monturas por tamaño</GUC_BodySizeFilter_Description>
+  <GUC_Animalselection_Title>Seleccionar monturas</GUC_Animalselection_Title>
+  <GUC_Animalselection_Description>Utiliza el filtro de abajo para filtrar por tamaño y pulsa las teclas para añadir excepciones</GUC_Animalselection_Description>
+  <GUC_Drawselection_Title>Establecer prioridad del diseño</GUC_Drawselection_Title>
+  <GUC_Drawselection_Description>Configura qué animales deberían ser dibujados frente a los personajes y cuales deberían dibujarse detrás de los personajes.
+Muchos animales deberían dibujarse detrás de los personajes, pero algunos (especialmente los animales con un gran cuello o con grandes cuernos) se podrán ver mejor cuando se dibujen frente a los personajes</GUC_Drawselection_Description>
+  <GUC_SizeOk>Montable</GUC_SizeOk>
+  <GUC_SizeNotOk>No Montable</GUC_SizeNotOk>
+  <GUC_DrawFront>Animal al frente</GUC_DrawFront>
+  <GUC_DrawBack>Animal detrás del personaje</GUC_DrawBack>
+  
+  <GUC_NotInModOptions>No se puede montar, el animal no está permitido en el mod</GUC_NotInModOptions>
+  <GUC_AnimalBusy>No se puede montar, el animal está ocupado</GUC_AnimalBusy>
+  <GUC_NotFullyGrown>No se puede montar, el animal no ha crecido lo suficiente</GUC_NotFullyGrown>
+  <GUC_NeedsObedience>No se puede montar, el animal necesita el entrenamiento de obediencia</GUC_NeedsObedience>
+  <GUC_Mount>Montar</GUC_Mount>
+  <GUC_Dismount>Desmontar</GUC_Dismount>
+
+</LanguageData>

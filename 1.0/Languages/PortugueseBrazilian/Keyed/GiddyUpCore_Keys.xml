@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<GUC_GiddyUp>Giddy up!</GUC_GiddyUp>
+	<GUC_StatPart_MountMoveSpeed>Velocidade de movimento da montaria (substitui a velocidade de movimento do peão)</GUC_StatPart_MountMoveSpeed>
+	<GUC_StatPart_HandlingMultiplier>Multiplicador para habilidade de manejo do cavaleiro</GUC_StatPart_HandlingMultiplier>
+	<GUC_StatPart_HandlingSkill>Habilidade de manejo com animais do cavaleiro</GUC_StatPart_HandlingSkill>
+	<GUC_StatPart_SkillReq>Requisito de habilidade para animal</GUC_StatPart_SkillReq>
+	<GUC_StatPart_LevelsAbove>Níveis acima do requisito de habilidade</GUC_StatPart_LevelsAbove>
+	<GUC_StatPart_HandlingMovementImpact>Impacto da velocidade por nível (definido nas configurações do mod)</GUC_StatPart_HandlingMovementImpact>
+	<GUC_StatPart_MountTypeMultiplier>Multiplicador para tipo de montaria</GUC_StatPart_MountTypeMultiplier>
+	
+	<GUC_HandlingAccuracyImpact_Title>Impacto de precisão(%) por nível de manejo com animal</GUC_HandlingAccuracyImpact_Title>
+	<GUC_HandlingAccuracyImpact_Description>Se a habilidade de manejo com animais de um peão estiver abaixo do nível que seria necessário para domar o animal, esta é uma penalidade por nível. Caso contrário, é um bônus por nível.</GUC_HandlingAccuracyImpact_Description>  
+	<GUC_HandlingMovementImpact_Title>Impacto de movimento(%) por nível de manejo com animal</GUC_HandlingMovementImpact_Title>
+	<GUC_HandlingMovementImpact_Description>Se a habilidade de manejo com animais de um peão estiver abaixo do nível que seria necessário para domar o animal, esta é uma penalidade por nível. Caso contrário, é um bônus por nível.</GUC_HandlingMovementImpact_Description>
+	<GUC_AccuracyPenalty_Title>Penalidade de precisão</GUC_AccuracyPenalty_Title>
+	<GUC_AccuracyPenalty_Description>Penalidade de precisão quando os peões estão montados</GUC_AccuracyPenalty_Description>
+	<GUC_tab1>Animais montáveis..</GUC_tab1>
+	<GUC_tab2>Opções de desenho..</GUC_tab2>
+	<GUC_Tabs_Title>Opções de configuração</GUC_Tabs_Title>
+	<GUC_BodySizeFilter_Title>Filtrar por tamanho do corpo</GUC_BodySizeFilter_Title>
+	<GUC_BodySizeFilter_Description>Filtrar animais montáveis por tamanho do corpo</GUC_BodySizeFilter_Description>
+	<GUC_Animalselection_Title>Selecione animais montáveis</GUC_Animalselection_Title>
+	<GUC_Animalselection_Description>Use o filtro acima para filtrar por tamanho do corpo e clique nos blocos para fazer exceções</GUC_Animalselection_Description>
+	<GUC_Drawselection_Title>Definir prioridade de desenho</GUC_Drawselection_Title>
+	<GUC_Drawselection_Description>Configure quais animais devem ser puxados na frente dos peões e quais devem ser puxados atrás dos peões. 
+	A maioria dos animais deve ser puxada atrás dos peões, mas alguns (especialmente animais com pescoços ou chifres longos) parecem melhores quando puxados na frente dos peões</GUC_Drawselection_Description>
+	<GUC_SizeOk>Montável</GUC_SizeOk>
+	<GUC_SizeNotOk>Não Montável</GUC_SizeNotOk>
+	<GUC_DrawFront>Animal na frente</GUC_DrawFront>
+	<GUC_DrawBack>Animal atrás do peão</GUC_DrawBack>
+
+	<GUC_NotInModOptions>Não pode montar, animal não é permitido nas opções de mod</GUC_NotInModOptions>
+	<GUC_AnimalBusy>Não pode montar, animal ocupado</GUC_AnimalBusy>
+	<GUC_NotFullyGrown>Não pode montar, o animal não está totalmente crescido</GUC_NotFullyGrown>
+	<GUC_NeedsObedience>Não pode montar, o animal precisa de treinamento em Defender</GUC_NeedsObedience>
+	<GUC_Mount>Montar</GUC_Mount>
+	<GUC_Dismount>Desmontar</GUC_Dismount>
+</LanguageData>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <GUC_Animal_Handling.label>Giddy-up!: Habilidade de manejo com animais</GUC_Animal_Handling.label>
+  <GUC_Animal_Handling.helpText>A habilidade de manejo com animais de um peão afeta a eficácia do uso de montarias. Por nível em que a habilidade está abaixo do nível necessário para domar um animal, uma penalidade de movimento (2%) e precisão (0,5%) é aplicada para cada nível. Se o nível de habilidade está acima do nível necessário para domar o animal, um bônus igual é aplicado. Os bônus/penalidades por nível podem ser configurados nas configurações do mod.</GUC_Animal_Handling.helpText>
+
+
+</LanguageData>

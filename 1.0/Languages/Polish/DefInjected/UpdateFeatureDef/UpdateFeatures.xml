@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase">
+		<modNameReadable>Giddy-up Core</modNameReadable>
+		<modIdentifier>GiddyUpCore</modIdentifier>
+		<linkUrl>https://ludeon.com/forums/index.php?topic=37323</linkUrl>
+	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>GiddyUpCore_0_18_5</defName>
+		<assemblyVersion>0.18.5</assemblyVersion>
+		<content>Nowy mod z serii Giddy-up! został wydany!
+		
+Z dumą pragnę zaprezentować Giddy-up! Caravan. Modyfikajce która pozwoli Twoim kolonistą ujeżdżać słonie, mufalo, lamy czy dowolne inne zwierzęta pochodzące z modyfikacji czy vanilli, w celu podróży do dalekich krain.
+	Sprawdź już teraz na steam, lub na stronie modyfikacji na forum Ludeon studios.
+		</content>
+</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>GiddyUpCore_0_18_6</defName>
+		<assemblyVersion>0.18.6</assemblyVersion>
+		<content> Z radością zapowiadam dużą aktualizacje która wkrótce trafi do wszystkich modyfikacji z serii Giddy-up!.
+		
+&lt;color=orange&gt;&lt;b&gt; Duże zmiany w Giddy-up! Core: &lt;/b&gt;&lt;/color&gt;
+- Przyjazde i wrogo nastawione wierzchowce których ujeżdżający kolonista zostanie zrzucony nie będą dłużej stawały się dzikimi zwierzętami, lecz będą walczyły aż nie wydarzy się jedno z poniższych:
+--> Ujeżdżający uprzednio bohater wróci na zwierzę (Bohaterowie będą próbowali wrócić na wierzchowce jeśli będzie taka możliwość).
+--> Właściciel zwierzęcia zostanie zabity lub powalony. W takiej sytuacji zwierzę ucieknie w ponice i opuści mapę, ponieważ nie będzie na m,apie nikogo kto mógłby je kontrolować.
+Notatka: W wypadku potężniejszego zwierzęcia, aby zwierze uciekło musi zostać zabity jeźdzca.
+- Jeśli wrogi wierzchowiec zostanie powalony, stanie się dzikim zwierzęciem, więc będziesz mógł go oswoić lub upolować.
+
+&lt;color=orange&gt;&lt;b&gt; Wielkie zmiany w Giddy-up! Caravan:  &lt;/b&gt;&lt;/color&gt;
+- Sojusznicy będą teraz parkowali swoje wierzchowce kiedy przybędą do kolonii, oraz będą na nie wracali podczas opuszczania jej.
+- Została dodana nowa strea nazwana: &lt;color=orange&gt;&lt;b&gt; Miejsce dla wierzchowców NPC &lt;/b&gt;&lt;/color&gt;. Kiedy sojusnzicy przybędą, będą zostawiali swoje wierzchowce w najbliżsym wyznaczonym miejscu. Sprawdź co i jak w zakładce stref.
+Notatka: Ustaw to miejsce w pomieszczeniu i gotowe! Masz własną stajnie dla gości!
+
+&lt;color=orange&gt;&lt;b&gt; Drobne zmiany i poprawki &lt;/b&gt;&lt;/color&gt;
+- Okienko Giddy-up Caravan nie powinno już powodować lagów gry.
+- Naprawiaono problem z UI w okienku dialogowym karawanu które pojawiało się gdy wierzchowiec zginął podczas wydarzenia na mapie (np. zasadka).
+- Naprawiaono problem z UI w okienku dialogowym karawanu który powodował że nie można było używać podobnych wierzchowców domyślnym imieniem.
+- Kliknięcie prawym przyciskiem myszki na przedmiot do ujeżdżania teraz również wyświetla nazwę wierzchowca kiedy korzysta się z Giddy-up! Battle Mounts.
+- Zaktualizowano Hispzańskie tłumaczenie (stworzone przez: mora145)
+		
+Powodzenia podczas gry!
+Roolo
+		</content>
+</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>GiddyUpCore_0_18_7</defName>
+		<assemblyVersion>0.18.7</assemblyVersion>
+		<content>Nowy mod z serii Giddy-up! został wydany!
+"Hej Stein, możesz wykopać dla mnie trochę stali? Mamy jej coraz mniej."
+"Ale Banastra,jedyne skupisko jest po drugiej stronie mapy! Czemu się tym nie zajmiesz?"
+"Cóż, nie mogę wydobywać minerałów, wiesz o tym. Czemu nie weźmiesz zwierzaka i nie przejedziesz się na nim"
+"Tak się da?"
+
+Tak, dokładnie. Wraz z Giddy-up! Ride and Roll uratujesz swoich kolonistów od bólu podróży wszędzie z buta. Modyfikacja pozwala ujeżdżać wierzchowce kiedykolwiek miałoby to sens! Sprawdź już teraz na steam!
+		</content>
+	</HugsLib.UpdateFeatureDef>
+</Defs>

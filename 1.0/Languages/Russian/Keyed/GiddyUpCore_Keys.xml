@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+ <GUC_HandlingAccuracyImpact_Title>Изменение шанса попадания(%) за уровень животноводства</GUC_HandlingAccuracyImpact_Title>
+ <GUC_HandlingAccuracyImpact_Description>Если навык животноводства наездника ниже уровня, требуемого для приручения животного - это штраф за уровень разницы. Если навык выше - это бонус за уровень разницы.</GUC_HandlingAccuracyImpact_Description>  
+ <GUC_HandlingMovementImpact_Title>Изменение движения (%) за уровень животноводства</GUC_HandlingMovementImpact_Title>
+ <GUC_HandlingMovementImpact_Description>Если навык животноводства наездника ниже уровня, требуемого для приручения животного - это штраф за уровень разницы. Если навык выше - это бонус за уровень разницы.</GUC_HandlingMovementImpact_Description>
+ <GUC_AccuracyPenalty_Title>Штраф к меткости</GUC_AccuracyPenalty_Title>
+ <GUC_AccuracyPenalty_Description>Штраф к меткости атак наездника</GUC_AccuracyPenalty_Description>
+ 
+ <GUC_tab1>Седлаемые животные..</GUC_tab1>
+ <GUC_tab2>Настройки изображений..</GUC_tab2>
+ <GUC_Tabs_Title>Настройки конфигураций</GUC_Tabs_Title>
+ <GUC_BodySizeFilter_Title>Сортировать по габаритам</GUC_BodySizeFilter_Title>
+ <GUC_BodySizeFilter_Description>Отсортировать седлаемых животных по размеру тела</GUC_BodySizeFilter_Description>
+ <GUC_Animalselection_Title>Выбрать седлаемых животных</GUC_Animalselection_Title>
+ <GUC_Animalselection_Description>Используйте фильтр выше, чтобы отсортировать по габаритам, а затем кликните по клеткам, чтобы внести исключения</GUC_Animalselection_Description>
+ <GUC_Drawselection_Title>Указать приоритет изображений</GUC_Drawselection_Title>
+ <GUC_Drawselection_Description>Настройте, какие животные должны отображаться перед наездником, а какие - за ним. 
+ Многие животные должны отображаться позади наездника, но некоторым(особенно длинношеим или рогатым) больше подходит передний план</GUC_Drawselection_Description>
+ <GUC_SizeOk>Седлаемые</GUC_SizeOk>
+ <GUC_SizeNotOk>Не седлаемые</GUC_SizeNotOk>
+ <GUC_DrawFront>Животное спереди</GUC_DrawFront>
+ <GUC_DrawBack>Животное позади наездника</GUC_DrawBack>
+ 
+ <GUC_NotInModOptions>Нельзя оседлать, животное запрещено в настройках мода</GUC_NotInModOptions>
+ <GUC_AnimalBusy>Нельзя оседлать, животное занято</GUC_AnimalBusy>
+ <GUC_NotFullyGrown>Нельзя оседлать, животное ещё не полностью выросло</GUC_NotFullyGrown>
+ <GUC_NeedsObedience>Нельзя оседлать, животное нужно обучить покорности</GUC_NeedsObedience>
+ <GUC_Mount>Оседлать</GUC_Mount>
+ <GUC_Dismount>Спешиться</GUC_Dismount>
+</LanguageData>
