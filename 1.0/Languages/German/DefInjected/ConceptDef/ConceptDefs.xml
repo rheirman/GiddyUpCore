@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <GUC_Animal_Handling.label>Giddy-up!: Fähigkeit Tierpflege</GUC_Animal_Handling.label>
+  <GUC_Animal_Handling.helpText>Die Fähigkeit Tierpflege bestimmt, wie effizient ein Kolonist sein Reittier benutzen kann. Pro Stufe, die diese Fähigkeit über der benötigten Stufe ist ein Tier zu zähmen, bekommt er einen Bewegegungs-(2%) und Genauigkeits-(0.5%)Bonus pro Stufe darüber. Ansonsten das Gleiche als Malus pro Stufe darunter. Die Boni/Mali pro Stufe können in den Mod-Einstellungen angepasst werden.</GUC_Animal_Handling.helpText>
+
+</LanguageData>
