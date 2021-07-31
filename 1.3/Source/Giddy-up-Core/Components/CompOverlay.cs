@@ -79,7 +79,7 @@ namespace GiddyUpCore
 
 
             //g.data.
-            drawPos.y += 0.046875f;
+            drawPos.y += 0.2f;
             Vector3 offset = (pawn.gender == Gender.Female) ? overlay.offsetFemale : overlay.offsetMale;
             if(offset == Vector3.zero)
             {

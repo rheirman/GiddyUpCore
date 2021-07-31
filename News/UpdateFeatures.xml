@@ -47,7 +47,7 @@ Cheers, Roolo
 		<content>
 Giddy-up Core has been updated. Changes: 
 - Improved performance (credits go to Karim for this). 
-- Fixed multiplayer mod support (credits go to AriAlavi). Giddy-up is fully compatible with the multiplayer mod again, though with the following known issues: 
+- Fixed multiplayer mod support (credits go to AriAlavi a.k.a KIERKEGØRD). Giddy-up is fully compatible with the multiplayer mod again, though with the following known (minor) issues: 
     - If using arbiter and battlemounts, firing from a mount will cause a desync
     - NPCs riding animals does not draw for the host, only clients (eventually leading to 
 	  desync). Therefore, NPC mounting is automatically disabled in the settings for 

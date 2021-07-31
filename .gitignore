@@ -1,4 +1,6 @@
 *.vs
 Source/Giddy-up-Core/.vs/*
 Source/Giddy-up-Core/obj/*
-v1.1/Source/Giddy-up-Core/obj/*
+1.0/Source/Giddy-up-Core/obj/*
+1.1/Source/Giddy-up-Core/obj/*
+1.3/Source/Giddy-up-Core/obj/*
