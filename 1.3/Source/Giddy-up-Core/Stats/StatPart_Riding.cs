@@ -76,12 +76,6 @@ namespace GiddyUpCore.Stats
                 {
                     val = GetRidingSpeed(val, pawn, jdMounted.Rider);
                 }
-                else if (pawn.jobs != null && pawn.jobs.curDriver is JobDriver_Mounted )
-                {
-                    val = 
-                }
-
-
             }
             
         }

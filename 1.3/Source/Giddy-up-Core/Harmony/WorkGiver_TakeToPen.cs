@@ -21,6 +21,7 @@ namespace GiddyUpCore.Harmony
                 __result = null;
                 return false;
             }
+            
             return true;
         }
     }

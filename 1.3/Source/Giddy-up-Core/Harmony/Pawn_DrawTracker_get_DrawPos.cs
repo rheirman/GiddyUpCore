@@ -43,7 +43,6 @@ namespace GiddyUpCore.Harmony
                 {
                     AnimalRecord value;
                     bool found = Base.drawSelecter.Value.InnerList.TryGetValue(pawnData.mount.def.defName, out value);
-                    Log.Message("pawnData.mount.Drawer.DrawPos.y" + pawnData.mount.Drawer.DrawPos.y);
                     if (found && value.isSelected)
                     {
                         drawLoc.y = pawnData.mount.Drawer.DrawPos.y - 1;
@@ -51,7 +50,6 @@ namespace GiddyUpCore.Harmony
                 }
                 __result = drawLoc;
                 __result.y += 0.1f;
-                Log.Message("__result.y: " + __result.y);
             }
             //if (IsMountableUtility.IsCurrentlyMounted(pawn))
             //{
