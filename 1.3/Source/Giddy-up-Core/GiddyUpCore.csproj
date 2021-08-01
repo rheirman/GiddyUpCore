@@ -51,6 +51,7 @@
     <Compile Include="Harmony\SelfDefenceUtility.cs" />
     <Compile Include="Harmony\ShieldBelt_DrawWornExtras.cs" />
     <Compile Include="Harmony\VerbProperties_AdjustedAccuracy.cs" />
+    <Compile Include="Harmony\WorkGiver_TakeToPen.cs" />
     <Compile Include="Harmony\WorkGiver_Train.cs" />
     <Compile Include="ModExtensions\AllowedLifeStagesPatch.cs" />
     <Compile Include="ModExtensions\MultiplayerPatch.cs" />

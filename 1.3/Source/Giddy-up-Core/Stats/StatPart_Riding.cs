@@ -10,7 +10,7 @@ using Verse;
 
 namespace GiddyUpCore.Stats
 {
-    class StatPart_Riding : StatPart
+    public class StatPart_Riding : StatPart
     {
         public override string ExplanationPart(StatRequest req)
         {
@@ -72,26 +72,35 @@ namespace GiddyUpCore.Stats
                     val = mountSpeed;
                     return;
                 }
-                if (pawn.jobs != null && pawn.jobs.curDriver is JobDriver_Mounted jobDriver)
+                if (pawn.jobs != null && pawn.jobs.curDriver is JobDriver_Mounted jdMounted)
                 {
-                    float adjustedLevel = 0;
-                    if (jobDriver.Rider.skills != null && jobDriver.Rider.skills.GetSkill(SkillDefOf.Animals) is SkillRecord skill)
-                    {
-                        adjustedLevel = skill.levelInt - Mathf.RoundToInt(pawn.GetStatValue(StatDefOf.MinimumHandlingSkill, true));
-                    }
-                    float animalHandlingOffset = 1f + (adjustedLevel * Base.handlingMovementImpact) / 100f;
-                    val *= animalHandlingOffset;
-                    if (pawn.def.GetModExtension<CustomStatsPatch>() is CustomStatsPatch modExt)
-                    {
-                        float customSpeedModifier = modExt.speedModifier;
-                        val *= customSpeedModifier;
-                    }
+                    val = GetRidingSpeed(val, pawn, jdMounted.Rider);
+                }
+                else if (pawn.jobs != null && pawn.jobs.curDriver is JobDriver_Mounted )
+                {
+                    val = 
                 }
 
 
-               
             }
             
+        }
+
+        public static float GetRidingSpeed(float baseValue, Pawn pawn, Pawn rider)
+        {
+            float adjustedLevel = 0;
+            if (rider.skills != null && rider.skills.GetSkill(SkillDefOf.Animals) is SkillRecord skill)
+            {
+                adjustedLevel = skill.levelInt - Mathf.RoundToInt(pawn.GetStatValue(StatDefOf.MinimumHandlingSkill, true));
+            }
+            float animalHandlingOffset = 1f + (adjustedLevel * Base.handlingMovementImpact) / 100f;
+            baseValue *= animalHandlingOffset;
+            if (pawn.def.GetModExtension<CustomStatsPatch>() is CustomStatsPatch modExt)
+            {
+                float customSpeedModifier = modExt.speedModifier;
+                baseValue *= customSpeedModifier;
+            }
+            return baseValue;
         }
     }
 }
