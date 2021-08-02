@@ -134,7 +134,7 @@ namespace GiddyUpCore.Utilities
             return true;
         }
 
-        private static void ConfigureSpawnedAnimal(Pawn pawn, ref Pawn animal)
+        public static void ConfigureSpawnedAnimal(Pawn pawn, ref Pawn animal)
         {
             ExtendedPawnData pawnData = Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(pawn);
             ExtendedPawnData animalData = GiddyUpCore.Base.Instance.GetExtendedDataStorage().GetExtendedDataFor(animal);

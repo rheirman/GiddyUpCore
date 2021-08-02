@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 using Verse;
 using Verse.AI;
 
@@ -13,9 +14,9 @@ namespace GiddyUpCore.Utilities
         //TODO fix this
         public static float QuickDistance(IntVec3 a, IntVec3 b)
         {
-            float arg_1D_0 = (float)(a.x - b.x);
-            float num = (float)(a.z - b.z);
-            return (float) Math.Sqrt(arg_1D_0 * arg_1D_0 + num * num);
+            float xDist = Mathf.Abs(a.x - b.x);
+            float zDist = Mathf.Abs(a.z - b.z);
+            return (float) Math.Sqrt(xDist * xDist + zDist * zDist);
         }
         public static LocalTargetInfo GetFirstTarget(Job job, TargetIndex index)
         {

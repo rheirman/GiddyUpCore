@@ -21,7 +21,10 @@ namespace GiddyUpCore.Utilities
             }
             return null;
         }
-
+        public static bool IsMountable(ThingDef thingDef)
+        {
+            return isMountable(thingDef.GetConcreteExample() as Pawn);
+        }
         public static bool isMountable(Pawn pawn)
         {
             return isMountable(pawn, out Reason reason);
@@ -73,7 +76,7 @@ namespace GiddyUpCore.Utilities
                 reason = Reason.NeedsObedience;
                 return false;
             }
-            if (animal.roping.IsRoped)
+            if (animal.roping != null && animal.roping.IsRoped)
             {
                 reason = Reason.IsRoped;
                 return false;

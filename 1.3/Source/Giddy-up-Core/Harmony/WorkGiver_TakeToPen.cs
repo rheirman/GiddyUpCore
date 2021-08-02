@@ -1,4 +1,5 @@
-﻿using GiddyUpCore.Utilities;
+﻿using GiddyUpCore.Storage;
+using GiddyUpCore.Utilities;
 using HarmonyLib;
 using RimWorld;
 using System;
@@ -16,11 +17,18 @@ namespace GiddyUpCore.Harmony
     {
         static bool Prefix(WorkGiver_Train __instance, Pawn pawn, Thing t, ref Job __result)
         {
-            if (t is Pawn animal && animal.RaceProps.Animal && IsMountableUtility.IsCurrentlyMounted(animal))
+            if (t is Pawn animal && animal.RaceProps.Animal)
             {
-                __result = null;
-                return false;
+                ExtendedDataStorage store = Base.Instance.GetExtendedDataStorage();
+                bool isCaravanMount = store != null && store.GetExtendedDataFor(animal).caravanRider != null;
+                if (IsMountableUtility.IsCurrentlyMounted(animal) || isCaravanMount)
+                {
+                    __result = null;
+                    return false;
+                }
             }
+
+
             
             return true;
         }

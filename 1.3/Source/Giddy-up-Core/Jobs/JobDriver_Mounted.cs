@@ -20,6 +20,7 @@ namespace GiddyUpCore.Jobs
 
         public override IEnumerable<Toil> MakeNewToils()
         {
+            this.FailOnDespawnedNullOrForbidden(TargetIndex.A);
             yield return waitForRider();
             yield return delegateMovement();
         }
@@ -27,6 +28,7 @@ namespace GiddyUpCore.Jobs
         {
             return true;
         }
+
 
         public bool shouldCancelJob(ExtendedPawnData riderData)
         {

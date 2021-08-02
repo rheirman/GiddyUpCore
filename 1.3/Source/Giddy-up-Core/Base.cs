@@ -120,12 +120,10 @@ namespace GiddyUpCore
 
         public override void WorldLoaded()
         {
-            if (_extendedDataStorage == null)
-            {
-                _extendedDataStorage = Find.World.GetComponent<ExtendedDataStorage>();
-            }
-            _extendedDataStorage.Cleanup();
             base.WorldLoaded();
+
+            _extendedDataStorage = Find.World.GetComponent<ExtendedDataStorage>();
+            _extendedDataStorage.Cleanup();
             LessonAutoActivator.TeachOpportunity(GUC_ConceptDefOf.GUC_Animal_Handling, OpportunityType.GoodToKnow);
 
         }
