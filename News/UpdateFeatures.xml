@@ -62,4 +62,36 @@ Cheers,
 Roolo
 		</content>
 	</HugsLib.UpdateFeatureDef>
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase_GiddyUpCore">
+		<defName>GiddyUpCore_4_0_0</defName>
+		<assemblyVersion>4.0.0</assemblyVersion>
+		<content>
+Giddy-up up, and all its sub mods have been updated to be compatible with Rimworld 1.3. 
+First I want to thank Ogliss for being of great help during the update process. 
+
+This update comes with the following changes: 
+- 1.3 compatibility (of course :))
+- Compatibility with the new pen mechanic. 
+- Fixed issue of not loading the mounted state properly when reloading the game 
+- Giddy-up Ride and Roll: Improved auto mount mechani. Decision whether the auto-mount or not should be better now. 
+- Giddy-up Caravan: Changed how caravan speed is modified. The vanilla mechanic is used instead. You can still configure which animals 
+are ridden by which pawns, so they ride them when leaving/arriving. But this is not mandatory. 
+- Giddy-up Caravan: Changed what animals can be ridden in vanilla so that it matches what you configured in Giddy-up. 
+
+
+&lt;color=orange&gt;&lt;b&gt;Known issue&lt;/b&gt;&lt;/color&gt;: Ride and roll can cause animals roaming the map sometimes. I tried limiting this, but some occurences of it are hard to fix. 
+For instance, if an animal is sleep deprived, it will go to sleep. Giddy-up doesn't allow pawns to mount sleep-deprived animals, so the animal will be left where it is. 
+Fixing all of these issues requires more time than I have right now, and I didn't want to stall the update any longer. If you come across an issue like this, and feel like there's an easy solution, please report it. 
+
+As you might know I'm not really active as modder anymore, but I do intend to keep all my mods alive. The reason I'm no longer active is because I'm working on my own game: &lt;color=orange&gt;&lt;b&gt;Cursed Crew&lt;/b&gt;&lt;/color&gt;. If you like my work, be sure to check it out! You can find a link to Cursed Crew the mod page of every mod I created. 
+
+Enjoy the update!
+
+Cheers,
+Roolo
+
+Cheers, 
+Roolo
+		</content>
+	</HugsLib.UpdateFeatureDef>
 </Defs>
