@@ -19,9 +19,9 @@ namespace GiddyUpCore.Harmony
         {
             if (t is Pawn animal && animal.RaceProps.Animal)
             {
-                ExtendedDataStorage store = Base.Instance.GetExtendedDataStorage();
-                bool isCaravanMount = store != null && store.GetExtendedDataFor(animal).caravanRider != null;
-                if (IsMountableUtility.IsCurrentlyMounted(animal) || isCaravanMount)
+                //ExtendedDataStorage store = Base.Instance.GetExtendedDataStorage();
+                //bool isCaravanMount = store != null && store.GetExtendedDataFor(animal).caravanRider != null;
+                if (IsMountableUtility.IsCurrentlyMounted(animal))
                 {
                     __result = null;
                     return false;
