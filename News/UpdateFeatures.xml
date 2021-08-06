@@ -113,4 +113,26 @@ Cheers,
 Roolo
 		</content>
 	</HugsLib.UpdateFeatureDef>
+<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase_GiddyUpCore">
+		<defName>GiddyUpCore_4_1_1</defName>
+		<assemblyVersion>4.1.1</assemblyVersion>
+		<content>
+I've gotten some useful feedback after the latest updates, so I've implemented the following changes/fixes: 
+Ride and roll: 
+- Changed: non-pennable mounts will now also be brought to the nearest pen when entering a forbid riding area. 
+- Pawns will always prioritize mounting the mount that is following them to prevent the mount from being left behind. 
+- Changed: The tame job is now done mounted to prevent the mount from being left roaming. 
+- Children now inherit the settings that determine whether they are mountable by anyone/their master from their parent on birth. (only works for mammals though)
+
+Caravan: 
+- Fixed: Issue with caravan mounts being roped when leaving the map. 
+
+As you might know I'm not really active as modder anymore, but I do intend to keep all my mods alive. The reason I'm no longer active is because I'm working on my own game: &lt;color=orange&gt;&lt;b&gt;Cursed Crew&lt;/b&gt;&lt;/color&gt;. If you like my work, be sure to check it out! You can find a link to Cursed Crew the mod page of every mod I created. 
+
+Enjoy the update!
+
+Cheers,
+Roolo
+		</content>
+	</HugsLib.UpdateFeatureDef>	
 </Defs>

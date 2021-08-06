@@ -46,6 +46,7 @@
     <Compile Include="Harmony\ArmorUtility.cs" />
     <Compile Include="Harmony\GenDraw_DrawAimPie.cs" />
     <Compile Include="Harmony\PawnUIOverlay.cs" />
+    <Compile Include="Harmony\PawnUtility.cs" />
     <Compile Include="Harmony\Pawn_RotationTracker.cs" />
     <Compile Include="Harmony\Projectile_Launch.cs" />
     <Compile Include="Harmony\SelfDefenceUtility.cs" />
