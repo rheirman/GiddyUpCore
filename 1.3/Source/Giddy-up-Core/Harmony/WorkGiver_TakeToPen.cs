@@ -18,9 +18,7 @@ namespace GiddyUpCore.Harmony
         static bool Prefix(WorkGiver_Train __instance, Pawn pawn, Thing t, ref Job __result)
         {
             if (t is Pawn animal && animal.RaceProps.Animal)
-            {
-                //ExtendedDataStorage store = Base.Instance.GetExtendedDataStorage();
-                //bool isCaravanMount = store != null && store.GetExtendedDataFor(animal).caravanRider != null;
+            {        
                 if (IsMountableUtility.IsCurrentlyMounted(animal))
                 {
                     __result = null;

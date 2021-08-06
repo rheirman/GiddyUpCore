@@ -92,4 +92,25 @@ Cheers,
 Roolo
 		</content>
 	</HugsLib.UpdateFeatureDef>
+
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase_GiddyUpCore">
+		<defName>GiddyUpCore_4_1_0</defName>
+		<assemblyVersion>4.1.0</assemblyVersion>
+		<content>
+
+I wasn't happy with how pens worked with Ride and Roll, so I took some time to improve the mechanics. 
+This update comes with the following changes: 
+- Fixed: take to pen option not always showing
+- Changed: After a rider leaves a mount, it will enqueue a take to pen job automatically
+- Changed: Removed mount drop spots. Pens are now used for the same purpose instead. I really recommend people to use forbid riding zones in your base, and to 
+strategically place pens so pawns can easily drop off their mount when they enter a building. 
+
+As you might know I'm not really active as modder anymore, but I do intend to keep all my mods alive. The reason I'm no longer active is because I'm working on my own game: &lt;color=orange&gt;&lt;b&gt;Cursed Crew&lt;/b&gt;&lt;/color&gt;. If you like my work, be sure to check it out! You can find a link to Cursed Crew the mod page of every mod I created. 
+
+Enjoy the update!
+
+Cheers,
+Roolo
+		</content>
+	</HugsLib.UpdateFeatureDef>
 </Defs>
