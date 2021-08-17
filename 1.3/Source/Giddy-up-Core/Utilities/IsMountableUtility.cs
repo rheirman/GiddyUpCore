@@ -11,7 +11,7 @@ namespace GiddyUpCore.Utilities
 {
     public static class IsMountableUtility
     {
-        public enum Reason{NotFullyGrown, NeedsObedience, NotInModOptions, CanMount, IsRoped};
+        public enum Reason{NotFullyGrown, NotInModOptions, CanMount, IsRoped};
 
         public static Pawn CurMount(this Pawn pawn)
         {
@@ -70,11 +70,6 @@ namespace GiddyUpCore.Utilities
                         return false;
                     }
                 }
-            }
-            if (animal.training == null || (animal.training != null && !animal.training.HasLearned(TrainableDefOf.Tameness)))
-            {
-                reason = Reason.NeedsObedience;
-                return false;
             }
             if (animal.roping != null && animal.roping.IsRoped)
             {

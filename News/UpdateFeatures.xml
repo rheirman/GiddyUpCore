@@ -135,4 +135,30 @@ Cheers,
 Roolo
 		</content>
 	</HugsLib.UpdateFeatureDef>	
+
+<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase_GiddyUpCore">
+		<defName>GiddyUpCore_4_1_2</defName>
+		<assemblyVersion>4.1.2</assemblyVersion>
+		<content>
+I've implemented the following changes/fixes: 
+Core:
+- Fixed: untrainable animals not having a 'mountable by anyone' checkbox. 
+Caravan: 
+- Fixed: animals still needed obedience training to be set as caravan mount. 
+
+Ride and roll: 
+- I added back the mount drop spots for non-pennable animals. Non pennable animals will be taken to the nearest mount drop spot when a task destination is within a forbid riding zone. When there are no mount drop spots, the nearest pen is used as a drop spot instead. 
+Pennable animals will always be taken to the nearest pen. 
+- Fixed: Forbid riding zones being ignored in many situations. 
+- Added: When deciding whether to auto-mount or not, a penalty is applied when one of the job targets is in a forbid riding area. This should prevent 
+many silly pathing issues when an animal is nearby, but the job target is in a forbid riding area. 
+
+As you might know I'm not really active as modder anymore, but I do intend to keep all my mods alive. The reason I'm no longer active is because I'm working on my own game: &lt;color=orange&gt;&lt;b&gt;Cursed Crew&lt;/b&gt;&lt;/color&gt;. If you like my work, be sure to check it out! You can find a link to Cursed Crew the mod page of every mod I created. 
+
+Enjoy the update!
+
+Cheers,
+Roolo
+		</content>
+	</HugsLib.UpdateFeatureDef>	
 </Defs>
