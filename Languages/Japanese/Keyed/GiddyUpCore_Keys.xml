@@ -16,6 +16,7 @@
   <GUC_HandlingMovementImpact_Description>ポーンの動物スキルが、その動物を飼いならすのに必要なレベルよりも低い場合、これは足りない動物スキルレベルごとのペナルティです。それ必要スキル以上の場合はレベルごとのボーナスです。</GUC_HandlingMovementImpact_Description>
   <GUC_AccuracyPenalty_Title>命中精度ペナルティ</GUC_AccuracyPenalty_Title>
   <GUC_AccuracyPenalty_Description>ポーンが騎乗時している際の命中精度低下ペナルティです。</GUC_AccuracyPenalty_Description>
+  
   <GUC_tab1>騎乗可能な動物..</GUC_tab1>
   <GUC_tab2>表示オプション..</GUC_tab2>
   <GUC_Tabs_Title>設定オプション</GUC_Tabs_Title>
@@ -34,7 +35,7 @@
   <GUC_AnimalBusy>騎乗できません、この動物は忙しいようです</GUC_AnimalBusy>
   <GUC_NotFullyGrown>騎乗できません、この動物は大人ではありません</GUC_NotFullyGrown>
   <GUC_NeedsObedience>騎乗できません、この動物は服従訓練を受けていません</GUC_NeedsObedience>
-  <GUC_IsRoped>騎乗できません、この動物はロープで縛られています</GUC_IsRoped>
+  <GUC_IsRoped>騎乗できません、この動物はロープで繋がれています</GUC_IsRoped>
   <GUC_Mount>騎乗する</GUC_Mount>
   <GUC_Dismount>降りる</GUC_Dismount>
 
