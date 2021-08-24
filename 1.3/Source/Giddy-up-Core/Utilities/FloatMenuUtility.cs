@@ -55,6 +55,11 @@ namespace GiddyUpCore.Utilities
                         opts.Add(new FloatMenuOption("GUC_NotFullyGrown".Translate(), null, MenuOptionPriority.Low));
                         return;
                     }
+                    if (!canMount && reason == IsMountableUtility.Reason.NeedsTraining)
+                    {
+                        opts.Add(new FloatMenuOption("GUC_NeedsObedience".Translate(), null, MenuOptionPriority.Low));
+                        return;
+                    }
                     if (!canMount && reason == IsMountableUtility.Reason.IsRoped)
                     {
                         opts.Add(new FloatMenuOption("GUC_IsRoped".Translate(), null, MenuOptionPriority.Low));

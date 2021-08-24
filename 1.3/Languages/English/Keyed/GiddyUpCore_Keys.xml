@@ -34,7 +34,7 @@
 	<GUC_NotInModOptions>Cannot mount, animal not allowed in mod options</GUC_NotInModOptions>
 	<GUC_AnimalBusy>Cannot mount, animal busy</GUC_AnimalBusy>
 	<GUC_NotFullyGrown>Cannot mount, animal not fully grown</GUC_NotFullyGrown>
-	<GUC_NeedsObedience>Cannot mount, animal needs guard training</GUC_NeedsObedience>
+	<GUC_NeedsObedience>Cannot mount, animal needs to be tamed</GUC_NeedsObedience>
 	<GUC_IsRoped>Cannot mount, animal is roped</GUC_IsRoped>
 	<GUC_Mount>Mount</GUC_Mount>
 	<GUC_Dismount>Dismount</GUC_Dismount>

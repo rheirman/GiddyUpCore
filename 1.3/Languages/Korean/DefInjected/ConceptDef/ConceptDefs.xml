@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <GUC_Animal_Handling.label>Giddy-up!: 동물 탑승 기술</GUC_Animal_Handling.label>
+  <GUC_Animal_Handling.helpText>림의 동물 탑승 기술은 마운트를 얼마나 효과적으로 사용할 수 있는지에 영향을줍니다. 운동 능력 (2 %)과 정확도 (0.5 %)에 대한 페널티가 각 레벨에 적용됩니다. 스킬 레벨이 동물을 길들이기 위해 필요한 레벨을 초과하면 동등한 보너스가 적용됩니다. 레벨 당 보너스 / 페널티는 모드 설정에서 구성 할 수 있습니다.</GUC_Animal_Handling.helpText>
+
+
+</LanguageData>
