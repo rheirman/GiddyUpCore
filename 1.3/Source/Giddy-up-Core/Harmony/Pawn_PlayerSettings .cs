@@ -1,6 +1,7 @@
 ﻿using GiddyUpCore.Jobs;
 using HarmonyLib;
 using RimWorld;
+using Multiplayer.API;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,25 +38,29 @@ namespace GiddyUpCore.Harmony
                         icon = TexCommand.ReleaseAnimals,
                         hotKey = KeyBindingDefOf.Misc7,
                         isActive = (() => __instance.animalsReleased),
-                        toggleAction = delegate
-                        {
-                            __instance.animalsReleased = !__instance.animalsReleased;
-                            if (__instance.animalsReleased)
-                            {
-                                foreach (Pawn current in PawnUtility.SpawnedMasteredPawns(pawn))
-                                {
-                                    if (current.caller != null)
-                                    {
-                                        current.caller.Notify_Released();
-                                    }
-                                    if(current.CurJob.def != GUC_JobDefOf.Mounted)
-                                    {
-                                        current.jobs.EndCurrentJob(JobCondition.InterruptForced, true);
-                                    }
-                                }
-                            }
-                        }
+                        toggleAction = () => UpdateAnimalRelease(pawn, __instance)
+
                     };
+                }
+            }
+        }
+
+        [SyncMethod]
+        private static void UpdateAnimalRelease(Pawn pawn, Pawn_PlayerSettings __instance)
+        {
+            __instance.animalsReleased = !__instance.animalsReleased;
+            if (__instance.animalsReleased)
+            {
+                foreach (Pawn current in PawnUtility.SpawnedMasteredPawns(pawn))
+                {
+                    if (current.caller != null)
+                    {
+                        current.caller.Notify_Released();
+                    }
+                    if (current.CurJob.def != GUC_JobDefOf.Mounted)
+                    {
+                        current.jobs.EndCurrentJob(JobCondition.InterruptForced, true);
+                    }
                 }
             }
         }
