@@ -35,6 +35,7 @@
   <GUC_AnimalBusy>騎乗できません、この動物は忙しいようです</GUC_AnimalBusy>
   <GUC_NotFullyGrown>騎乗できません、この動物は大人ではありません</GUC_NotFullyGrown>
   <GUC_NeedsObedience>騎乗できません、この動物は服従訓練を受けていません</GUC_NeedsObedience>
+  <GUC_IsRoped>騎乗できません、この動物は誘導されています</GUC_IsRoped>
   <GUC_Mount>騎乗する</GUC_Mount>
   <GUC_Dismount>降りる</GUC_Dismount>
 
