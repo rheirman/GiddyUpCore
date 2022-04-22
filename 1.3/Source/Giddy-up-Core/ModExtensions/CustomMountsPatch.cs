@@ -9,10 +9,10 @@ namespace GiddyUpCore
 {
     class CustomMountsPatch : DefModExtension
     {
-        //public List<String> possibleMountsCSV;
+        public List<String> possibleMountsCSV;
         public int mountChance = 0;
         public Dictionary<String, int> possibleMounts = new Dictionary<String, int>();
-        /*
+        
         public void Init()
         {
             foreach(string mountCSV in possibleMountsCSV)
@@ -24,7 +24,6 @@ namespace GiddyUpCore
                 }
             }
         }
-        */
 
     }
 
