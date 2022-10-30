@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <JobDef>
+    <defName>Mount</defName>
+    <driverClass>GiddyUpCore.Jobs.JobDriver_Mount</driverClass>
+    <reportString>Ujeżdżanie</reportString>
+    <casualInterruptible>false</casualInterruptible>
+  </JobDef>
+  <JobDef>
+    <defName>Mounted</defName>
+    <driverClass>GiddyUpCore.Jobs.JobDriver_Mounted</driverClass>
+    <reportString>Ujeżdżanie</reportString>
+    <casualInterruptible>false</casualInterruptible>
+  </JobDef>
+  <JobDef>
+    <defName>Dismount</defName>
+    <driverClass>GiddyUpCore.Jobs.JobDriver_Dismount</driverClass>
+    <reportString>Opuść</reportString>
+    <casualInterruptible>false</casualInterruptible>
+  </JobDef>
+</Defs>

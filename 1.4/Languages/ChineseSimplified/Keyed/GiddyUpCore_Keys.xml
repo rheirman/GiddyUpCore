@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <GUC_HandlingAccuracyImpact_Title>每级驯兽技能所影响的射击精度(%)</GUC_HandlingAccuracyImpact_Title>
+  <GUC_HandlingAccuracyImpact_Description>骑乘者技能低于所需等级时的惩罚，或高于所需等级时的奖励</GUC_HandlingAccuracyImpact_Description>
+  <GUC_HandlingMovementImpact_Title>每级驯兽技能将影响多少移动速度(%)</GUC_HandlingMovementImpact_Title>
+  <GUC_HandlingMovementImpact_Description>如果骑乘者的驯兽等级低于驯服这种动物所需要等级，每级将会受到这么多的减益，高于时则获得这么多的增益。</GUC_HandlingMovementImpact_Description>
+  <GUC_AccuracyPenalty_Title>射击精度惩罚</GUC_AccuracyPenalty_Title>
+  <GUC_AccuracyPenalty_Description>当人骑乘时射击精度受到的惩罚</GUC_AccuracyPenalty_Description>
+  <GUC_tab1>动物设定</GUC_tab1>
+  <GUC_tab2>图像设定</GUC_tab2>
+  <GUC_Tabs_Title>配置选项</GUC_Tabs_Title>
+  <GUC_BodySizeFilter_Title>体型过滤器</GUC_BodySizeFilter_Title>
+  <GUC_BodySizeFilter_Description>根据体型来选择可骑乘的动物</GUC_BodySizeFilter_Description>
+  <GUC_Animalselection_Title>选择可骑乘的动物</GUC_Animalselection_Title>
+  <GUC_Animalselection_Description>使用上面的体型过滤器根据体型大小来过滤，或者通过单击来更改</GUC_Animalselection_Description>
+  <GUC_Drawselection_Title>设置图层</GUC_Drawselection_Title>
+  <GUC_Drawselection_Description>哪些动物的贴图在人之前，哪些在人之后，大多数动物在人之后视觉效果更好，但有些动物(特别是那些长脖子或者长角的)在人前效果更好</GUC_Drawselection_Description>
+  <GUC_SizeOk>可乘骑</GUC_SizeOk>
+  <GUC_SizeNotOk>不可乘骑</GUC_SizeNotOk>
+  <GUC_DrawFront>动物在人之前</GUC_DrawFront>
+  <GUC_DrawBack>动物在人之后</GUC_DrawBack>
+
+  <GUC_NotInModOptions>不能骑乘，这个动物在设置中没有被设定为可骑乘动物</GUC_NotInModOptions>
+  <GUC_AnimalBusy>不能骑乘，这个动物正在做其他事</GUC_AnimalBusy>
+  <GUC_NotFullyGrown>不能骑乘，这个动物还没有成熟</GUC_NotFullyGrown>
+  <GUC_NeedsObedience>不能骑乘，动物没有训练“顺从”</GUC_NeedsObedience>
+  <GUC_Mount>乘骑动物</GUC_Mount>
+  <GUC_Dismount>从动物身上下来</GUC_Dismount>
+
+</LanguageData>

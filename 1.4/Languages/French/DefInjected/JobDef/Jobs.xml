@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <Mount.reportString>chevauche</Mount.reportString>
+  <Mounted.reportString>est chevauché</Mounted.reportString>
+  <Dismount.reportString>descend</Dismount.reportString>
+</LanguageData>

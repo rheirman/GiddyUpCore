@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+ <GiddyUpCore_2_0_0.modNameReadable>Giddy-up Core</GiddyUpCore_2_0_0.modNameReadable>
+ <GiddyUpCore_2_0_0.content>\nGiddy-up!MechanoidがRimworldバージョン1.1 (拡張を含む) をサポートするように更新されました。今回のアップデートのクレジットは、このアップデートの大部分を担当しているSarg=Bjornsonに送られます。このバージョンはRimworld 1.0もサポートしているので、まだそのバージョンを使っている人は心配する必要はありません。\n\nGiddy-up!MechanoidsはWhat the Hackが更新された時点で\n更新されます (しばらく時間がかかります) 。\n\nこのアップデートには、次の改善と修正が含まれています。\n・バニラの動物用にオーバーレイを追加しました。これらのオーバーレイは、爪が動物の頭や角などのものと重なるのを防ぎます。\n・動物を乗るときに、ポーンの名前が頭に重ならないようにしました。\n・騎乗の仕事の待機で発生することがあったnull参照エラーが修正されました。\n・新しいHugsLibバージョンとの互換性追加。\n</GiddyUpCore_2_0_0.content>
+
+ <GiddyUpCore_2_0_3.modNameReadable>Giddy-up Core</GiddyUpCore_2_0_3.modNameReadable>
+ <GiddyUpCore_2_0_3.content>\nGiddy-upは以下の変更を更新しました!\n\n・パフォーマンスが大幅に改善。ゲームはとてもスムーズに実行されます。\n　今後、Giddy-upが原因ではFPSにほとんど影響は出ません。\n・マルチプレイヤーModの組み込みとサポートが追加\n（クレジットはCody-Springに送られます）\n・許可されたエリアを変更するとポーンがスタックするという厄介な問題を修正\n・マップを離脱した後キャラバンが重量オーバーになる可能性があったGiddy-up Caravanの問題を修正\n　この修正によりクレジットはokradonkeyに\n・ポーンの潜在的なインベントリ重量は、ワールドマップを旅する際に騎乗された動物が\n　運ぶことができる重量から差し引かれます。言い換えれば、ポーンが運んでいるものは、\n　騎乗している時、もう異次元空間に重量は消えません\n\n</GiddyUpCore_2_0_3.content>
+
+ <GiddyUpCore_3_0_0.modNameReadable>Giddy-up Core</GiddyUpCore_3_0_0.modNameReadable>
+ <GiddyUpCore_3_0_0.content>\nGiddy-up!Mechanoids以外の全てのGiddy-up!modsがRimworldバージョン1.2 (1.0および1.1のマルチバージョンをサポート)をサポートするように更新されました。「What_the_Hack」のアップデートが完了すると、「Giddy-up!Mechanoids」がアップデートされます。楽しんでね!\nMod作者:Roolo\n\n</GiddyUpCore_3_0_0.content>
+
+ <GiddyUpCore_3_0_1.modNameReadable>Giddy-up Core</GiddyUpCore_3_0_1.modNameReadable>
+ <GiddyUpCore_3_0_1.content>\nGiddy-upは以下の変更を更新しました:\n・パフォーマンスの向上（提供:Karim）\n・マルチプレイヤーMODのサポートを修正（提供:AriAlavia.k.aKIERKEGØRD）\n　Giddy-upは、マルチプレイヤーModと完全に互換性がありますが、\n　以下の既知の（小規模な）問題があります。\n・arbiterとbattlemountsを同時に使用している場合、騎乗中に射撃すると\n　非同期が発生します\n・動物に乗っているNPCはホストPCと同期せず、クライアントPCだけと同期します\n（最終的には非同期化する）従って、NPCの騎乗は、デフォルトでマルチプレイヤー\n　ユーザーの設定で自動的に無効化します\n\nこのアップデートのテスターに感謝\n・ubergarm\n・Diego75547\n・Poj\n\nMod作者:Roolo\n\n</GiddyUpCore_3_0_1.content>
+
+ <GiddyUpCore_4_0_0.modNameReadable>Giddy-up Core</GiddyUpCore_4_0_0.modNameReadable>
+ <GiddyUpCore_4_0_0.content>\nGiddy-up!シリーズModは更新されてRimworldのversion1.3に対応しました。\nまず、更新作業中に多大な支援をしてくれたOglissに感謝します。\n\nこのアップデートには、次の変更が含まれています。\n・1.3互換性（もちろん）\n・新しい囲い場システムとの互換性。\n・ゲームをリロードするときに騎乗された状態が正しくロードされない問題を修正\n・Giddy-up_Ride_and_Roll：自動騎乗システムを改善し自動騎乗を即時実行\n・Giddy-up_Ride_and_Roll：別の派閥からレンタルされたポーンによる自動騎乗を無効化し、動物と一緒にマップから逃亡しなくなった\n・Giddy-up_Caravan：キャラバンの速度変更方法を変更しました。代わりにバニラシステムが使用されます。まだどの動物も設定することができます\nどのポーンも騎乗できるので、出入りするときにポーンに乗ります。ただし、これは必須ではありません。\n・Giddy-up_Caravan：Giddy-upで構成したものと一致するように、バニラの騎乗できる動物を変更しました。\n\n\n&lt;color=orange&gt;&lt;b&gt;既知の問題&lt;/b&gt;&lt;/color&gt;:Ride_and_rollは、動物がマップをうろうろする原因となる場合があります。私はこれを制限しようとしましたが、その発生は修正するのが難しいです。\n例えば、動物が睡眠不足の場合、その動物は勝手に眠りにつくでしょう。Giddy-upではポーンは睡眠不足の動物に騎乗できないため、動物はそのまま放置されます。\nこれらの問題をすべて修正するには、現在よりも時間がかかり、更新を停止したくありませんでした。このような問題に遭遇し、簡単な解決策があると感じた場合は、それを報告してください。\n\nご存知かもしれませんが、私はもうmodderとして活動していませんが、すべてのmodを存続させるつもりです。私が活動を停止した理由は、自分のゲーム&lt;color=orange&gt;&lt;b&gt;Cursed Crew&lt;/b&gt;&lt;/color&gt;に取り組んでいるためです。私の作品が気に入ったら、ぜひ確認してみてください！私が作成したすべてのmodのmodページにCursedCrewへのリンクがあります。\n\nアップデートをお楽しみください！\n\nMod作者:Roolo</GiddyUpCore_4_0_0.content>
+
+ <GiddyUpCore_4_1_0.modNameReadable>Giddy-up Core</GiddyUpCore_4_1_0.modNameReadable>
+ <GiddyUpCore_4_1_0.content>\n\n
+ペン(囲い場)がRide_and_Rollでどのように機能するかについては不満だったので、システムを改善するために少し時間がかかりました。\nこのアップデートには次の変更が含まれています：\n・修正：ペン(囲い場)への連れ回しオプションが常に表示されない\n・変更：襲撃者が騎乗から降りると、ペン(囲い場)への連れ回しジョブに自動的にキューに入れられます\n・変更：騎乗降り場が削除されました。その代わりに、ペンが同じ目的で使用されるようになりました。コロニー内で禁止されている騎乗ゾーンを使用して、\nポーンが建物に入るときに騎乗動物から簡単に降りられるように、\n戦略的にペンを配置することを強くお勧めします。\n\nご存知かもしれませんが、私はもうmodderとして活動していませんが、すべてのmodを存続させるつもりです。私が活動を停止した理由は、自分のゲーム&lt;color=orange&gt;&lt;b&gt;Cursed Crew&lt;/b&gt;&lt;/color&gt;に取り組んでいるためです。私の作品が気に入ったら、ぜひ確認してみてください！私が作成したすべてのmodのmodページにCursedCrewへのリンクがあります。\n\nアップデートをお楽しみください！\n\nMod作者:Roolo</GiddyUpCore_4_1_0.content>
+
+ <GiddyUpCore_4_1_1.modNameReadable>Giddy-up Core</GiddyUpCore_4_1_1.modNameReadable>
+ <GiddyUpCore_4_1_1.content>最新のアップデート後に有益なフィードバックを得たので、以下の変更/修正を実装しました。\nRide and roll:\n・変更:禁止されている騎乗エリアに入ると、ペン付近でない騎乗動物は近くのペンに移動します。\n・ポーンは、騎乗動物が取り残されないように、常に後続の騎乗動物への騎乗を優先します。\n・変更:騎乗動物がうろうろする状態のままにならないように、騎乗動物へ管理する仕事追加されました。\n・動物の子供は、生まれたときに親から誰(その親と同じ)によって騎乗可能かどうかを決定する設定を継承します。(ただし、哺乳類動物だけに限定して有効)\n\nご存知かもしれませんが、私はもうmodderとして活動していませんが、すべてのmodを存続させるつもりです。私が活動を停止した理由は、自分のゲーム&lt;color=orange&gt;&lt;b&gt;Cursed Crew&lt;/b&gt;&lt;/color&gt;に取り組んでいるためです。私の作品が気に入ったら、ぜひ確認してみてください！私が作成したすべてのmodのmodページにCursedCrewへのリンクがあります。\n\nアップデートをお楽しみください！\n\nMod作者:Roolo</GiddyUpCore_4_1_1.content>
+
+ <GiddyUpCore_4_1_2.modNameReadable>Giddy-up Core</GiddyUpCore_4_1_2.modNameReadable>
+ <GiddyUpCore_4_1_2.content>\n以下の変更を実施しました。/修正：\nCore:\n・修正:「誰でも騎乗可能 」のチェックがない訓練不可能な動物.\nCaravan:\n・修正：動物たちがまだ、キャラバンで騎乗するのに服従訓練を必要としていた。\n\nRide and roll:\n・ペンに指定できない動物用に、騎乗降り場を追加しました。ペンが使えない動物は、目的地が禁止騎乗ゾーン内にある場合、最も近い騎乗降り場に移動します。騎乗降り場がない場合は、代わりに最も近いペンが騎乗降り場として使用されます。\nペンで指定できる動物は常に近くのペンに移動します。\n・修正:多くの状況で騎乗ゾーンが無視されるのを禁止します。\n・追加:自動騎乗するかどうかを決定する場合、仕事の目標の1つが、禁止騎乗ゾーン内にある場合はペナルティが適用されます。\nこれにより、動物が近くにいる場合に多くのばかげた経路計算問題を防止することが可能ですが、仕事の目標は禁止騎乗エリア内にあります。\n\nご存知かもしれませんが、私はもうmodderとして活動していませんが、すべてのmodを存続させるつもりです。私が活動を停止した理由は、自分のゲーム&lt;color=orange&gt;&lt;b&gt;Cursed Crew&lt;/b&gt;&lt;/color&gt;に取り組んでいるためです。私の作品が気に入ったら、ぜひ確認してみてください！私が作成したすべてのmodのmodページにCursedCrewへのリンクがあります。\n\nアップデートをお楽しみください！\n\nMod作者:Roolo</GiddyUpCore_4_1_2.content>
+
+</LanguageData>
