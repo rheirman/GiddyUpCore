@@ -23,4 +23,10 @@
  <GiddyUpCore_4_1_1.modNameReadable>Giddy-up Core</GiddyUpCore_4_1_1.modNameReadable>
  <GiddyUpCore_4_1_1.content>最新のアップデート後に有益なフィードバックを得たので、以下の変更/修正を実装しました。\nRide and roll:\n・変更:禁止されている騎乗エリアに入ると、ペン付近でない騎乗動物は近くのペンに移動します。\n・ポーンは、騎乗動物が取り残されないように、常に後続の騎乗動物への騎乗を優先します。\n・変更:騎乗動物がうろうろする状態のままにならないように、騎乗動物へ管理する仕事追加されました。\n・動物の子供は、生まれたときに親から誰(その親と同じ)によって騎乗可能かどうかを決定する設定を継承します。(ただし、哺乳類動物だけに限定して有効)\n\nご存知かもしれませんが、私はもうmodderとして活動していませんが、すべてのmodを存続させるつもりです。私が活動を停止した理由は、自分のゲーム&lt;color=orange&gt;&lt;b&gt;Cursed Crew&lt;/b&gt;&lt;/color&gt;に取り組んでいるためです。私の作品が気に入ったら、ぜひ確認してみてください！私が作成したすべてのmodのmodページにCursedCrewへのリンクがあります。\n\nアップデートをお楽しみください！\n\nMod作者:Roolo</GiddyUpCore_4_1_1.content>
 
+ <GiddyUpCore_4_1_2.modNameReadable>Giddy-up Core</GiddyUpCore_4_1_2.modNameReadable>
+ <GiddyUpCore_4_1_2.content>\n以下の変更を実施しました。/修正：\nCore:\n・修正:「誰でも騎乗可能 」のチェックがない訓練不可能な動物.\nCaravan:\n・修正：動物たちがまだ、キャラバンで騎乗するのに服従訓練を必要としていた。\n\nRide and roll:\n・ペンに指定できない動物用に、騎乗降り場を追加しました。ペンが使えない動物は、目的地が禁止騎乗ゾーン内にある場合、最も近い騎乗降り場に移動します。騎乗降り場がない場合は、代わりに最も近いペンが騎乗降り場として使用されます。\nペンで指定できる動物は常に近くのペンに移動します。\n・修正:多くの状況で騎乗ゾーンが無視されるのを禁止します。\n・追加:自動騎乗するかどうかを決定する場合、仕事の目標の1つが、禁止騎乗ゾーン内にある場合はペナルティが適用されます。\nこれにより、動物が近くにいる場合に多くのばかげた経路計算問題を防止することが可能ですが、仕事の目標は禁止騎乗エリア内にあります。\n\nご存知かもしれませんが、私はもうmodderとして活動していませんが、すべてのmodを存続させるつもりです。私が活動を停止した理由は、自分のゲーム&lt;color=orange&gt;&lt;b&gt;Cursed Crew&lt;/b&gt;&lt;/color&gt;に取り組んでいるためです。私の作品が気に入ったら、ぜひ確認してみてください！私が作成したすべてのmodのmodページにCursedCrewへのリンクがあります。\n\nアップデートをお楽しみください！\n\nMod作者:Roolo</GiddyUpCore_4_1_2.content>
+
+ <GiddyUpCore_5_0_0.modNameReadable>Giddy-up Core</GiddyUpCore_5_0_0.modNameReadable>
+ <GiddyUpCore_5_0_0.content>\nGiddy&#160;up!とGiddy-up&#160;Mechanoidsを除くすべてのSub-Modは、Rimworld&#160;1.4をサポートするよう更新されました!\nGiddy-up&#160;Mechanoidsは、What&#160;the&#160;Hack!?が更新されるまで更新できません。そして現在、私にはその時間がありません。\n\nこの更新を実行してくれたcyinghanに多大な感謝を捧げます。私が更新する時間がないときにコミュニティが介入するのを見るのは素晴らしいことです。\n私のModは全て義務のために続けています。\n\nお楽しみください！\nMod作者:Roolo\n</GiddyUpCore_5_0_0.content>
+
 </LanguageData>
