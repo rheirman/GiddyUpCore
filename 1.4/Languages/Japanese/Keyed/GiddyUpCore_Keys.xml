@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <GUC_GiddyUp>Giddy up!</GUC_GiddyUp>
+  <GUC_StatPart_MountMoveSpeed>騎乗移動速度（ポーンの移動速度を上書き)</GUC_StatPart_MountMoveSpeed>
+  <GUC_StatPart_HandlingMultiplier>騎手の騎乗スキル係数</GUC_StatPart_HandlingMultiplier>
+  <GUC_StatPart_HandlingSkill>騎手の動物手なづけスキル</GUC_StatPart_HandlingSkill>
+  <GUC_StatPart_SkillReq>動物スキルの条件</GUC_StatPart_SkillReq>
+  <GUC_StatPart_LevelsAbove>条件以上のスキルレベル</GUC_StatPart_LevelsAbove>
+  <GUC_StatPart_HandlingMovementImpact>レベルの速度影響（Mod設定で変更）</GUC_StatPart_HandlingMovementImpact>
+  <GUC_StatPart_MountTypeMultiplier>騎乗タイプの係数</GUC_StatPart_MountTypeMultiplier>
+
+  <GUC_HandlingAccuracyImpact_Title>動物スキルのレベルによる命中率影響（％）</GUC_HandlingAccuracyImpact_Title>
+  <GUC_HandlingAccuracyImpact_Description>ポーンの動物スキルが、その動物を飼いならすのに必要なレベルよりも低い場合、これは足りない動物スキルレベルごとのペナルティです。それ必要スキル以上の場合はレベルごとのボーナスです。</GUC_HandlingAccuracyImpact_Description>
+  <GUC_HandlingMovementImpact_Title>動物スキルのレベルによる移動影響（％）</GUC_HandlingMovementImpact_Title>
+  <GUC_HandlingMovementImpact_Description>ポーンの動物スキルが、その動物を飼いならすのに必要なレベルよりも低い場合、これは足りない動物スキルレベルごとのペナルティです。それ必要スキル以上の場合はレベルごとのボーナスです。</GUC_HandlingMovementImpact_Description>
+  <GUC_AccuracyPenalty_Title>命中精度ペナルティ</GUC_AccuracyPenalty_Title>
+  <GUC_AccuracyPenalty_Description>ポーンが騎乗時している際の命中精度低下ペナルティです。</GUC_AccuracyPenalty_Description>
+  
+  <GUC_tab1>騎乗可能な動物..</GUC_tab1>
+  <GUC_tab2>表示オプション..</GUC_tab2>
+  <GUC_Tabs_Title>設定オプション</GUC_Tabs_Title>
+  <GUC_BodySizeFilter_Title>身体の大きさでフィルタ</GUC_BodySizeFilter_Title>
+  <GUC_BodySizeFilter_Description>身体の大きさで騎乗可能な動物をフィルタリングします。</GUC_BodySizeFilter_Description>
+  <GUC_Animalselection_Title>騎乗可能な動物を選択</GUC_Animalselection_Title>
+  <GUC_Animalselection_Description>上記のフィルタを使用して身体の大きさでフィルタリングを行い、タイルをクリックして例外を作成します</GUC_Animalselection_Description>
+  <GUC_Drawselection_Title>描画優先度を設定</GUC_Drawselection_Title>
+  <GUC_Drawselection_Description>ポーンの前面に描画する動物と、ポーンの背後に描画する動物を設定します。\nほとんどの動物はポーンの背後に表示(描画)されるべきですが、何種類かの動物（特に長い首や角が付いた動物）は、ポーンの前面に表示(描画)された方が見やすくなります。</GUC_Drawselection_Description>
+  <GUC_SizeOk>騎乗可能</GUC_SizeOk>
+  <GUC_SizeNotOk>騎乗不可</GUC_SizeNotOk>
+  <GUC_DrawFront>動物を前面に表示</GUC_DrawFront>
+  <GUC_DrawBack>動物を背後に表示</GUC_DrawBack>
+
+  <GUC_NotInModOptions>騎乗できません、この動物はmodオプションで許可されていません</GUC_NotInModOptions>
+  <GUC_AnimalBusy>騎乗できません、この動物は忙しいようです</GUC_AnimalBusy>
+  <GUC_NotFullyGrown>騎乗できません、この動物は大人ではありません</GUC_NotFullyGrown>
+  <GUC_NeedsObedience>騎乗できません、この動物は服従訓練を受けていません</GUC_NeedsObedience>
+  <GUC_IsRoped>騎乗できません、この動物は誘導されています</GUC_IsRoped>
+  <GUC_Mount>騎乗する</GUC_Mount>
+  <GUC_Dismount>降りる</GUC_Dismount>
+
+</LanguageData>

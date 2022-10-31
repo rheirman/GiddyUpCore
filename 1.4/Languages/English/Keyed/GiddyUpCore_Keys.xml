@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<GUC_GiddyUp>Giddy up!</GUC_GiddyUp>
+	<GUC_StatPart_MountMoveSpeed>Mount move speed (overrides pawn move speed)</GUC_StatPart_MountMoveSpeed>
+	<GUC_StatPart_HandlingMultiplier>Multiplier for handling skill of rider</GUC_StatPart_HandlingMultiplier>
+	<GUC_StatPart_HandlingSkill>Animal handling skill of rider</GUC_StatPart_HandlingSkill>
+	<GUC_StatPart_SkillReq>Skill requirement for animal</GUC_StatPart_SkillReq>
+	<GUC_StatPart_LevelsAbove>Levels above skill requirement</GUC_StatPart_LevelsAbove>
+	<GUC_StatPart_HandlingMovementImpact>Speed impact per level (configured in mod settings)</GUC_StatPart_HandlingMovementImpact>
+	<GUC_StatPart_MountTypeMultiplier>Multiplier for mount type</GUC_StatPart_MountTypeMultiplier>
+	
+	<GUC_HandlingAccuracyImpact_Title>Accuracy impact(%) per animal handling level</GUC_HandlingAccuracyImpact_Title>
+	<GUC_HandlingAccuracyImpact_Description>If the animal handling skill of a pawn is below the level that would be needed to tame the animal, this is a per level-penalty. Otherwise it is a per-level bonus.</GUC_HandlingAccuracyImpact_Description>  
+	<GUC_HandlingMovementImpact_Title>Movement impact(%) per animal handling level</GUC_HandlingMovementImpact_Title>
+	<GUC_HandlingMovementImpact_Description>If the animal handling skill of a pawn is below the level that would be needed to tame the animal, this is a per level-penalty. Otherwise it is a per-level bonus.</GUC_HandlingMovementImpact_Description>
+	<GUC_AccuracyPenalty_Title>Accuracy penalty</GUC_AccuracyPenalty_Title>
+	<GUC_AccuracyPenalty_Description>Accuracy penalty when pawns are mounted</GUC_AccuracyPenalty_Description>
+	<GUC_tab1>Mountable animals..</GUC_tab1>
+	<GUC_tab2>Drawing options..</GUC_tab2>
+	<GUC_Tabs_Title>Configuration options</GUC_Tabs_Title>
+	<GUC_BodySizeFilter_Title>Filter by body size</GUC_BodySizeFilter_Title>
+	<GUC_BodySizeFilter_Description>Filter mountable animals by body size</GUC_BodySizeFilter_Description>
+	<GUC_Animalselection_Title>Select mountable animals</GUC_Animalselection_Title>
+	<GUC_Animalselection_Description>Use the filter above to filter by body size, and click tiles to make exceptions</GUC_Animalselection_Description>
+	<GUC_Drawselection_Title>Set draw priority</GUC_Drawselection_Title>
+	<GUC_Drawselection_Description>Configure which animals should be drawn in front of pawns, and which ones should be drawn behind pawns. 
+	Most animals should be drawn behind pawns, but some (especially animals with long necks or horns) look better when drawn in front of pawns</GUC_Drawselection_Description>
+	<GUC_SizeOk>Mountable</GUC_SizeOk>
+	<GUC_SizeNotOk>Not Mountable</GUC_SizeNotOk>
+	<GUC_DrawFront>Animal in front</GUC_DrawFront>
+	<GUC_DrawBack>Animal behind pawn</GUC_DrawBack>
+
+	<GUC_NotInModOptions>Cannot mount, animal not allowed in mod options</GUC_NotInModOptions>
+	<GUC_AnimalBusy>Cannot mount, animal busy</GUC_AnimalBusy>
+	<GUC_NotFullyGrown>Cannot mount, animal not fully grown</GUC_NotFullyGrown>
+	<GUC_NeedsObedience>Cannot mount, animal needs to be tamed</GUC_NeedsObedience>
+	<GUC_IsRoped>Cannot mount, animal is roped</GUC_IsRoped>
+	<GUC_Mount>Mount</GUC_Mount>
+	<GUC_Dismount>Dismount</GUC_Dismount>
+</LanguageData>
