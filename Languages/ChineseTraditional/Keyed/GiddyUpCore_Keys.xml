@@ -25,17 +25,17 @@
   <GUC_Animalselection_Description>使用上面的體型過濾器根據體型大小來過濾，或者通過單擊來更改</GUC_Animalselection_Description>
   <GUC_Drawselection_Title>設置圖層</GUC_Drawselection_Title>
   <GUC_Drawselection_Description>哪些動物的貼圖在人之前，哪些在人之後，大多數動物在人之後視覺效果更好，但有些動物(特別是那些長脖子或者長角的)在人前效果更好</GUC_Drawselection_Description>
-  <GUC_SizeOk>可乘騎</GUC_SizeOk>
-  <GUC_SizeNotOk>不可乘騎</GUC_SizeNotOk>
-  <GUC_DrawFront>動物在人之前</GUC_DrawFront>
-  <GUC_DrawBack>動物在人之後</GUC_DrawBack>
+  <GUC_SizeOk>可騎乘</GUC_SizeOk>
+  <GUC_SizeNotOk>不可騎乘</GUC_SizeNotOk>
+  <GUC_DrawFront>在人之前</GUC_DrawFront>
+  <GUC_DrawBack>在人之後</GUC_DrawBack>
 
   <GUC_NotInModOptions>不能騎乘，這個動物在設置中沒有被設定為可騎乘動物</GUC_NotInModOptions>
-  <GUC_AnimalBusy>不能騎乘，這個動物正在做其他事</GUC_AnimalBusy>
-  <GUC_NotFullyGrown>不能騎乘，此生物未成年</GUC_NotFullyGrown>
+  <GUC_AnimalBusy>不能騎乘，此動物正在做其他事</GUC_AnimalBusy>
+  <GUC_NotFullyGrown>不能騎乘，此動物未成年</GUC_NotFullyGrown>
   <GUC_NeedsObedience>不能騎乘，尚未接受“服從”訓練</GUC_NeedsObedience>
-  <GUC_IsRoped>無法騎乘，動物被繩索束縛</GUC_IsRoped>
-  <GUC_Mount>乘騎動物</GUC_Mount>
+  <GUC_IsRoped>無法騎乘，此動物被繩索束縛</GUC_IsRoped>
+  <GUC_Mount>騎乘動物</GUC_Mount>
   <GUC_Dismount>從動物身上下來</GUC_Dismount>
 
 </LanguageData>
